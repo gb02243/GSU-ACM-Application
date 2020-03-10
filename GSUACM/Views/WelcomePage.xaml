@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="GSUACM.Views.WelcomePage"
     xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    BackgroundColor="#fafafa"
     Title="{Binding Title}">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -43,7 +44,7 @@
                         <Label.FormattedText>
                             <FormattedString>
                                 <FormattedString.Spans>
-                                    <Span Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus consectetur lectus et erat vestibulum dictum. Nunc vel elit in lacus condimentum cursus ut sed erat. Nulla vehicula risus eu ultrices eleifend. Integer nec odio purus. Pellentesque maximus convallis orci. Mauris molestie nec turpis ut tristique. Praesent faucibus vehicula nulla in consequat. Phasellus sed porta lorem." />
+                                    <Span Text="App description" />
                                 </FormattedString.Spans>
                             </FormattedString>
                         </Label.FormattedText>

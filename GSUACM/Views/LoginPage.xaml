@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="GSUACM.Views.LoginPage"
     xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    BackgroundColor="#fafafa"
     Title="{Binding Title}">
     <ContentPage.Resources>
         <ResourceDictionary>
