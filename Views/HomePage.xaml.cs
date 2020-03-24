@@ -1,0 +1,67 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data;
+using Xamarin.Forms;
+using MySql.Data.MySqlClient;
+using GSUACM.ViewModels;
+using Xamarin.Forms.Xaml;
+
+namespace GSUACM.Views
+{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class HomePage : ContentPage
+    {
+        public HomePage()
+        {
+            InitializeComponent();
+        }
+
+        // button login
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            DB db = new DB();
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            String fname = name.Text;
+            String emailAddress = email.Text;
+            String phoneNum = phone.Text;
+            MySqlCommand command = new MySqlCommand("SELECT fname,lname,email,phone FROM user WHERE ", db.getConnection());
+            command.Parameters.Add("@email", MySqlDbType.VarChar).Value = email.Text;
+            
+            db.openConnection();
+            adapter.SelectCommand = command;
+
+            adapter.Fill(table);
+        }
+        // label go to signup CLICK
+        private async void labelGoToSignUp_Click(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SignupPage());
+        }
+        // label go to signup CLICK
+        private async void labelLogout_Click(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LoginPage());
+        }
+        //set text boxes up
+        public  void setUpHomePage(string fname, string lname, string emailaddress, string phoneNum,String points)
+        {
+            name.Text = fname +" "+ lname;
+            email.Text = emailaddress;
+            phone.Text = phoneNum;
+            if (points==null)
+            {
+                point.Text = "0";
+            }
+            else
+            {
+                point.Text = points;
+            }
+        }
+    
+
+    }
+}
