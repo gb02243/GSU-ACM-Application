@@ -8,7 +8,11 @@ namespace GSUACM
 {
     public partial class App : Application
     {
-        public bool isLoggedIn;
+        public static bool isLoggedIn;
+
+        //TODO: remember to fix this
+        public static string User = "placeholder";
+
         public App()
         {
             InitializeComponent();
