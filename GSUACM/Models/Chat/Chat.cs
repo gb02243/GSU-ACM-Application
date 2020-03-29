@@ -6,5 +6,6 @@ namespace GSUACM.Models.Chat
 {
     public class Chat
     {
+        public string chat_id { get; set; }
     }
 }
