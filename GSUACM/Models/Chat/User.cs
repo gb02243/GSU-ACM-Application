@@ -8,6 +8,6 @@ namespace GSUACM.Models.Chat
     {
         public string fName { get; set; }
         public string lName { get; set; }
-        public string userID { get; set; }
+        public string user_id { get; set; }
     }
 }
