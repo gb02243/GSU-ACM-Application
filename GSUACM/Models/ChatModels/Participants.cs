@@ -6,7 +6,7 @@ namespace GSUACM.Models.ChatModels
 {
     public class Participants
     {
-        public string chat_id { get; set; }
-        public string user_id { get; set; }
+        public string Chat_ID { get; set; }
+        public string User_ID { get; set; }
     }
 }
