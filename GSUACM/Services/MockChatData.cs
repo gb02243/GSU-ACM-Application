@@ -11,18 +11,18 @@ namespace GSUACM.Services
         {
             return new List<Chat>
             {
-                new Chat(){ chat_id="1" },
-                new Chat(){ chat_id="2" },
-                new Chat(){ chat_id="3" },
-                new Chat(){ chat_id="4" },
-                new Chat(){ chat_id="5" },
-                new Chat(){ chat_id="6" },
-                new Chat(){ chat_id="7" },
-                new Chat(){ chat_id="8" },
-                new Chat(){ chat_id="9" },
-                new Chat(){ chat_id="10" },
-                new Chat(){ chat_id="11" },
-                new Chat(){ chat_id="12" }
+                new Chat(){ Chat_ID="1" },
+                new Chat(){ Chat_ID="2" },
+                new Chat(){ Chat_ID="3" },
+                new Chat(){ Chat_ID="4" },
+                new Chat(){ Chat_ID="5" },
+                new Chat(){ Chat_ID="6" },
+                new Chat(){ Chat_ID="7" },
+                new Chat(){ Chat_ID="8" },
+                new Chat(){ Chat_ID="9" },
+                new Chat(){ Chat_ID="10" },
+                new Chat(){ Chat_ID="11" },
+                new Chat(){ Chat_ID="12" }
             };
         }
     }
