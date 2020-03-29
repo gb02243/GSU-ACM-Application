@@ -11,10 +11,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\default_profile_image.png" />
     <None Remove="Images\gsu_logo.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Images\default_profile_image.png" />
     <EmbeddedResource Include="Images\gsu_logo.png" />
   </ItemGroup>
 

@@ -7,17 +7,25 @@ using Xamarin.Forms;
 
 namespace GSUACM.ViewModels.ChatViewModels
 {
-    public class ChatListViewModel : INotifyPropertyChanged
-    {
-        public ObservableCollection<Chat> Chats { get; set; } = new ObservableCollection<Chat>();
-
+    public class ChatListViewModel : BaseViewModel
+    {        
         public ChatListViewModel()
         {
-            Chats.Add(new Chat() { chat_id = "1" });
-            Chats.Add(new Chat() { chat_id = "2" });
-            Chats.Add(new Chat() { chat_id = "3" });
+            OnPropertyChanged(nameof(Chats));
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
+        public ObservableCollection<Chat> Chats
+        {
+            get => chats;
+            set => chats = value;
+        }
+        private ObservableCollection<Chat> chats = new ObservableCollection<Chat>
+        {
+            new Chat{ chat_id="1" },
+            new Chat{ chat_id="2" },
+            new Chat{ chat_id="3" },
+            new Chat{ chat_id="4" },
+            new Chat{ chat_id="5" },
+            new Chat{ chat_id="6" }
+        };
     }
 }

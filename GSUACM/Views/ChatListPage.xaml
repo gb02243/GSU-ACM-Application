@@ -22,19 +22,21 @@
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
-                        <Image Grid.RowSpan="2"
-                       Source="{local:ImageResource GSUACM.Images.gsu_logo.png}"
-                       Aspect="AspectFill"
-                       HeightRequest="60"
-                       WidthRequest="60" />
-                        <Label Grid.Column="1"
-                       Text="First Last"
-                       FontAttributes="Bold" />
-                        <Label Grid.Row="1"
-                       Grid.Column="1"
-                       Text="Message Preview..."
-                       FontAttributes="Italic"
-                       VerticalOptions="End" />
+                        <Image Grid.RowSpan="2" 
+                               Source="{local:ImageResource GSUACM.Images.default_profile_image.png}" 
+                               Aspect="AspectFill" 
+                               HeightRequest="60" 
+                               WidthRequest="60" />
+                        <Label Grid.Column="1" 
+                               Text="First Last" 
+                               FontAttributes="Bold" 
+                               FontSize="20" />
+                        <Label Grid.Row="1" 
+                               Grid.Column="1" 
+                               Text="Message Preview..." 
+                               FontAttributes="Italic" 
+                               VerticalOptions="End" 
+                               FontSize="18" />
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
