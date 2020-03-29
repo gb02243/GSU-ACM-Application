@@ -24,6 +24,7 @@ C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\bin\Debug\netstand
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\bin\Debug\netstandard2.0\GSUACM.dll
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\bin\Debug\netstandard2.0\ref\GSUACM.dll
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\bin\Debug\netstandard2.0\GSUACM.pdb
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\GSUACM.csprojAssemblyReference.cache
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\App.xaml.g.cs
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\AppShell.xaml.g.cs
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\AboutPage.xaml.g.cs

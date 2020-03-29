@@ -41,8 +41,7 @@
             </CollectionView>
         </ScrollView>-->
 
-        <CollectionView x:Name="chatsView"
-                ItemsSource="{Binding Chats}">
+        <CollectionView x:Name="chatsView" ItemsSource="{Binding Chats}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <SwipeView>
