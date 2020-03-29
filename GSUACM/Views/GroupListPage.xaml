@@ -4,11 +4,11 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="GSUACM.Views.ChatListPage"
+             x:Class="GSUACM.Views.GroupListPage"
              Title="Chat">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="CHAT LIST PAGE"
+            <Label Text="GROUP LIST PAGE"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>

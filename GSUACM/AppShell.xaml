@@ -22,7 +22,11 @@
         <ShellContent ContentTemplate="{DataTemplate views:HomePage}"/>
     </FlyoutItem>
     <FlyoutItem Title="Chat" Icon="home.png">
-        <ShellContent ContentTemplate="{DataTemplate views:ChatListPage}"/>
+        <Tab>
+            <ShellContent Title="Direct Messages" ContentTemplate="{DataTemplate views:ChatListPage}"/>
+            <ShellContent Title="Group Messages" ContentTemplate="{DataTemplate views:GroupListPage}"/>
+        </Tab>
+        
     </FlyoutItem>
     <FlyoutItem Title="About" Icon="home.png">
         <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
