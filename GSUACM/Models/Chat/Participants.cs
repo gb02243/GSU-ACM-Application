@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GSUACM.Models.Chat
 {
-    class Participants
+    public class Participants
     {
     }
 }
