@@ -4,7 +4,11 @@ using System.Text;
 
 namespace GSUACM.Models.Chat
 {
-    class Message
+    public class Message
     {
+        public string dateTime { get; set; }
+        public string message_text { get; set; }
+        public string chat_id { get; set; }
+        public string user_id { get; set; }
     }
 }
