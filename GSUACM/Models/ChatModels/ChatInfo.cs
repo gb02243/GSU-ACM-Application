@@ -4,8 +4,7 @@ using System.Text;
 
 namespace GSUACM.Models.ChatModels
 {
-    public class Chat
+    public class ChatInfo
     {
-        public string chat_id { get; set; }
     }
 }
