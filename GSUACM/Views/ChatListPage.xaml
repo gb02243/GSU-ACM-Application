@@ -5,69 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="GSUACM.Views.ChatListPage"
-             xmlns:local="clr-namespace:GSUACM"
              Title="Chat">
     <ContentPage.Content>
-        <!--<ScrollView>
-            <CollectionView ItemsSource="{Binding Chats}">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid Padding="10">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-                            <Image Grid.RowSpan="2" 
-                                   Source="{local:ImageResource GSUACM.Images.gsu_logo.png}" 
-                                   Aspect="AspectFill" 
-                                   HeightRequest="60" 
-                                   WidthRequest="60" />
-                            <Label Grid.Column="1" 
-                                   Text="First Last"
-                                   FontAttributes="Bold" />
-                            <Label Grid.Row="1" 
-                                   Grid.Column="1" 
-                                   Text="Message preview..." 
-                                   FontAttributes="Italic" 
-                                   VerticalOptions="End" />
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-                 idk what goes here 
-            </CollectionView>
-        </ScrollView>-->
-
-        <CollectionView x:Name="chatsView" ItemsSource="{Binding Chats}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <SwipeView>
-                        <SwipeView.LeftItems>
-                            <SwipeItems>
-                                <!--<SwipeItem Text="Details"
-                                   IconImageSource="favorite.png"
-                                   BackgroundColor="#a99260"
-                                   Command="{Binding Source={x:Reference collectionView}, Path=BindingContext.FavoriteCommand}"
-                                   CommandParameter="{Binding}" />-->
-                                <SwipeItem Text="Details"
-                                   IconImageSource="favorite.png"
-                                   BackgroundColor="#a99260" />
-                                <SwipeItem Text="Delete"
-                                   IconImageSource="delete.png"
-                                   BackgroundColor="Firebrick" />
-                            </SwipeItems>
-                        </SwipeView.LeftItems>
-                        <Grid BackgroundColor="White"
-                      Padding="10">
-                            <!-- Define item appearance -->
-                        </Grid>
-                    </SwipeView>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
         
     </ContentPage.Content>
 </ContentPage>
