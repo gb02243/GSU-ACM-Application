@@ -11,7 +11,7 @@
               Padding="10"
               HasShadow="false"
               Margin="10,10,80,10">
-            <Label Text="{Binding Text}"/>
+            <Label Text="{Binding chat_id}"/>
         </Frame>
     </ViewCell.View>
 </ViewCell>
