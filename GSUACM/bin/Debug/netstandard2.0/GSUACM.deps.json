@@ -9,11 +9,11 @@
     ".NETStandard,Version=v2.0/": {
       "GSUACM/1.0.0": {
         "dependencies": {
-          "MySqlConnector": "0.62.0",
+          "MySqlConnector": "0.63.0",
           "NETStandard.Library": "2.0.3",
           "System.Data.SqlClient": "4.8.1",
-          "Xamarin.Essentials": "1.5.1",
-          "Xamarin.Forms": "4.5.0.356",
+          "Xamarin.Essentials": "1.5.2",
+          "Xamarin.Forms": "4.5.0.495",
           "Xamarin.Forms.PancakeView": "1.3.7"
         },
         "runtime": {
@@ -36,7 +36,7 @@
           }
         }
       },
-      "MySqlConnector/0.62.0": {
+      "MySqlConnector/0.63.0": {
         "dependencies": {
           "System.Buffers": "4.5.0",
           "System.Memory": "4.5.3",
@@ -44,8 +44,8 @@
         },
         "runtime": {
           "lib/netstandard2.0/MySqlConnector.dll": {
-            "assemblyVersion": "0.62.0.0",
-            "fileVersion": "0.62.0.0"
+            "assemblyVersion": "0.63.0.0",
+            "fileVersion": "0.63.0.0"
           }
         }
       },
@@ -192,7 +192,7 @@
           }
         }
       },
-      "Xamarin.Essentials/1.5.1": {
+      "Xamarin.Essentials/1.5.2": {
         "dependencies": {
           "System.Numerics.Vectors": "4.5.0"
         },
@@ -203,25 +203,25 @@
           }
         }
       },
-      "Xamarin.Forms/4.5.0.356": {
+      "Xamarin.Forms/4.5.0.495": {
         "runtime": {
           "lib/netstandard2.0/Xamarin.Forms.Core.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "4.5.0.143"
+            "fileVersion": "4.5.0.198"
           },
           "lib/netstandard2.0/Xamarin.Forms.Platform.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "4.5.0.143"
+            "fileVersion": "4.5.0.198"
           },
           "lib/netstandard2.0/Xamarin.Forms.Xaml.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "4.5.0.143"
+            "fileVersion": "4.5.0.198"
           }
         }
       },
       "Xamarin.Forms.PancakeView/1.3.7": {
         "dependencies": {
-          "Xamarin.Forms": "4.5.0.356"
+          "Xamarin.Forms": "4.5.0.495"
         },
         "runtime": {
           "lib/netstandard2.0/Xamarin.Forms.PancakeView.dll": {
@@ -259,12 +259,12 @@
       "path": "microsoft.win32.registry/4.7.0",
       "hashPath": "microsoft.win32.registry.4.7.0.nupkg.sha512"
     },
-    "MySqlConnector/0.62.0": {
+    "MySqlConnector/0.63.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-YK/w5e3tE19eF5lhdErcQUb6SWp5tqlTUZG2nKRDFs2u7xiq0xX8tQdd8sJH/z6ewgs0Bk4Eb0hKAOHDloc39Q==",
-      "path": "mysqlconnector/0.62.0",
-      "hashPath": "mysqlconnector.0.62.0.nupkg.sha512"
+      "sha512": "sha512-R7TJvRUwkCkY6cSIiLsESLutU7AxrZrGetAswYOn8qHnsqm6aUdNP+p3JIqXRBtT4wPGDMeQNbLmfSaGajxZ7A==",
+      "path": "mysqlconnector/0.63.0",
+      "hashPath": "mysqlconnector.0.63.0.nupkg.sha512"
     },
     "NETStandard.Library/2.0.3": {
       "type": "package",
@@ -392,19 +392,19 @@
       "path": "system.threading.tasks.extensions/4.3.0",
       "hashPath": "system.threading.tasks.extensions.4.3.0.nupkg.sha512"
     },
-    "Xamarin.Essentials/1.5.1": {
+    "Xamarin.Essentials/1.5.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-XEKAp7BXfZkTGbMqySXtuhwxb06ULjkJNQ8p44e8amOPm4m4VTVV92F13ov0a8NFNU+6JFm98510QK9Q/HBD5A==",
-      "path": "xamarin.essentials/1.5.1",
-      "hashPath": "xamarin.essentials.1.5.1.nupkg.sha512"
+      "sha512": "sha512-qHxkrkx5jIC0X/qWhxCPZ3MuuOJm8bfCzAoUtlpOBSE4oV0JhrkTezK0A+IV+k/MeJ3zKc8FexaIXah9rlCTIw==",
+      "path": "xamarin.essentials/1.5.2",
+      "hashPath": "xamarin.essentials.1.5.2.nupkg.sha512"
     },
-    "Xamarin.Forms/4.5.0.356": {
+    "Xamarin.Forms/4.5.0.495": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-aOg3sUA2xuLhyhtLuihrDVFZ5ZCa71pgojyz/HdjEH7eW5HxEws+IIgvKTYUZbFOIGD7eK/f3x1lYj6HI/o+jg==",
-      "path": "xamarin.forms/4.5.0.356",
-      "hashPath": "xamarin.forms.4.5.0.356.nupkg.sha512"
+      "sha512": "sha512-ipufpdjFh+YHHw1E3I+8FIQWk1KmlB77PSHg32YRnuBSCUNEHjoMnvEmY9YCK4DTWfOenV0HHZVvGjB9qDtI9w==",
+      "path": "xamarin.forms/4.5.0.495",
+      "hashPath": "xamarin.forms.4.5.0.495.nupkg.sha512"
     },
     "Xamarin.Forms.PancakeView/1.3.7": {
       "type": "package",

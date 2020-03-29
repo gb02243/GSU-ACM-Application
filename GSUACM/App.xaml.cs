@@ -15,7 +15,7 @@ namespace GSUACM
 
             DependencyService.Register<MockDataStore>();
 
-            MainPage = new NavigationPage(new LoginPage());
+            MainPage = new AppShell();
 
         }
 

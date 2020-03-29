@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Shell
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:GSUACM"
+    xmlns:views="clr-namespace:GSUACM.Views"
+    xmlns:partials="clr-namespace:GSUACM.Views.Partials"
+    x:Class="GSUACM.AppShell">
+    
+    <Shell.FlyoutHeader>
+        <Grid HeightRequest="100">
+            <Image Source="{local:ImageResource GSUACM.Images.gsu_logo.png}"
+                   Aspect="AspectFit"
+                   HeightRequest="100"
+                   HorizontalOptions="FillAndExpand" />
+        </Grid>
+    </Shell.FlyoutHeader>
+    
+    <FlyoutItem Title="Dashboard" Icon="home.png">
+        <ShellContent ContentTemplate="{DataTemplate views:DashboardPage}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Profile" Icon="home.png">
+        <ShellContent ContentTemplate="{DataTemplate views:HomePage}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Chat" Icon="home.png">
+        <ShellContent ContentTemplate="{DataTemplate views:ChatListPage}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="About" Icon="home.png">
+        <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+    </FlyoutItem>
+</Shell>
