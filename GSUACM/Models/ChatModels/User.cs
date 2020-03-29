@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace GSUACM.Models.Chat
+namespace GSUACM.Models.ChatModels
 {
     public class User
     {

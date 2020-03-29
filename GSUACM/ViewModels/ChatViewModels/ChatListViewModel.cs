@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using GSUACM.Models.Chat;
+using GSUACM.Models.ChatModels;
 
 namespace GSUACM.ViewModels.Chat
 {
