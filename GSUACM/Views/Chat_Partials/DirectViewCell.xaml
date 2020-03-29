@@ -6,8 +6,12 @@
              mc:Ignorable="d"
              x:Class="GSUACM.Views.Chat_Partials.DirectViewCell">
   <ViewCell.View>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
-  </ViewCell.View>
+        <!-- TODO: Formatting-->
+        <Frame BackgroundColor="GhostWhite"
+              Padding="10"
+              HasShadow="false"
+              Margin="10,10,80,10">
+            <Label Text="{Binding Text}"/>
+        </Frame>
+    </ViewCell.View>
 </ViewCell>
