@@ -37,12 +37,12 @@
                                HeightRequest="60" 
                                WidthRequest="60" />
                             <Label Grid.Column="1" 
-                               Text="{Binding Chat_ID}" 
+                               Text="{Binding FullName}" 
                                FontAttributes="Bold" 
                                FontSize="20" />
                             <Label Grid.Row="1" 
                                Grid.Column="1" 
-                               Text="Message Preview..." 
+                               Text="{Binding Msg_Preview}" 
                                FontAttributes="Italic" 
                                VerticalOptions="End" 
                                FontSize="18" />

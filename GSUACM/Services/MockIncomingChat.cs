@@ -12,15 +12,16 @@ namespace GSUACM.Services
         public static void MockIncomingMessage(int messages, int people)
         {
             ChatList = new List<ChatPreview>();
-            if(messages > 0 && people > 0)
+            for (int i = 1; i <= people; i++)
             {
-                for (int i = 0; i < messages; i++)
+                for (int j = 1; j <= messages; j++)
                 {
-                    for (int j = 0; j < people; j++)
-                    {
-                        //new Message() { Chat_ID = people.ToString(), User_ID = "1", DateTime = "10:00 PM", Message_Text = "Message " + messages.ToString() };
-                        ChatList.Add(new ChatPreview() { Chat_ID = people.ToString(), F_name = "Person", L_name = people.ToString(), Msg_Preview = "Message " + messages.ToString() });
-                    }
+                    string fullMessage = "Message " + j.ToString() + ": Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+                    // Check if there is already a message in the conversation
+                    var item = ChatList.SingleOrDefault(x => x.Chat_ID == i.ToString());
+                    if (item != null)
+                        ChatList.Remove(item);
+                    ChatList.Add(new ChatPreview() { Chat_ID = i.ToString(), F_name = "Person", L_name = i.ToString(), Msg_Preview = fullMessage.Substring(0, 30) + "..." }); ;
                 }
             }
         }

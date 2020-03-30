@@ -10,28 +10,51 @@ namespace GSUACM.ViewModels.ChatViewModels
 {
     public class ChatListViewModel : INotifyPropertyChanged
     {
-        public List<Chat> Chats { get; set; }
+        //public List<Chat> Chats { get; set; }
+        //public ICommand DeleteCommand { get; private set; }
+        //public ChatListViewModel()
+        //{
+        //    // TODO: get chat data from database
+        //    MockChatData.Fill(5);
+        //    Chats = new List<Chat>(MockChatData.Get());
+
+        //    DeleteCommand = new Command<string>(DeleteChat);
+        //}
+
+        //public event PropertyChangedEventHandler PropertyChanged;
+
+        //public void DeleteChat(string chat_id)
+        //{
+        //    MockChatData.Remove(chat_id);
+        //    UpdateList();
+        //    PropertyChanged(this, new PropertyChangedEventArgs("Chats"));
+        //}
+        //private void UpdateList()
+        //{
+        //    Chats = new List<Chat>(MockChatData.Get());
+        //}
+
+        public List<ChatPreview> Chats { get; set; }
         public ICommand DeleteCommand { get; private set; }
         public ChatListViewModel()
         {
             // TODO: get chat data from database
-            MockChatData.Fill(5);
-            Chats = new List<Chat>(MockChatData.Get());
+            MockIncomingChat.MockIncomingMessage(5, 5);
+            Chats = new List<ChatPreview>(MockIncomingChat.Get());
 
             DeleteCommand = new Command<string>(DeleteChat);
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
         public void DeleteChat(string chat_id)
         {
-            MockChatData.Remove(chat_id);
+            MockIncomingChat.Remove(chat_id);
             UpdateList();
             PropertyChanged(this, new PropertyChangedEventArgs("Chats"));
         }
         private void UpdateList()
         {
-            Chats = new List<Chat>(MockChatData.Get());
+            Chats = new List<ChatPreview>(MockIncomingChat.Get());
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }
