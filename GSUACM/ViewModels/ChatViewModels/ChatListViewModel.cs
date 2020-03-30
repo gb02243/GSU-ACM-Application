@@ -20,7 +20,7 @@ namespace GSUACM.ViewModels.ChatViewModels
         {
             this.Navigation = navigation;
             // TODO: get chat data from database
-            MockIncomingChat.MockIncomingMessage(5, 5);
+            MockIncomingChat.MockIncomingMessage(2, 10);
             Chats = new List<ChatPreview>(MockIncomingChat.Get());
 
             DeleteCommand = new Command<string>(DeleteChat);
