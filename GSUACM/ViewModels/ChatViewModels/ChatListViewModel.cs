@@ -38,7 +38,7 @@ namespace GSUACM.ViewModels.ChatViewModels
         }
         public async void OpenChat(string chat_id)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new ChatPage()));
+            await Navigation.PushModalAsync(new NavigationPage(new ChatPage(chat_id)));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
