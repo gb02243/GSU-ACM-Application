@@ -21,8 +21,8 @@ namespace GSUACM.Helpers
             if (messageType == null)
                 return null;
 
-
-            return (messageType.IsGroup) ? groupDataTemplate : directDataTemplate;
+            // TODO: Fix this 
+            return (messageType.Chat_ID == "1") ? groupDataTemplate : directDataTemplate;
         }
     }
 }
