@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Xamarin.Forms;
 
 namespace GSUACM.Droid
 {
@@ -14,6 +15,9 @@ namespace GSUACM.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            // TODO: Can delete if remove swipeview
+            Forms.SetFlags("SwipeView_Experimental");
+
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
