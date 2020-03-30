@@ -10,7 +10,7 @@ namespace GSUACM.Views
         public ChatListPage()
         {
             InitializeComponent();
-            BindingContext = new ChatListViewModel();
+            BindingContext = new ChatListViewModel(Navigation);
         }
     }
 }

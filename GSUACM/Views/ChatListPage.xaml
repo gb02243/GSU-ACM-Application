@@ -22,31 +22,37 @@
                                            CommandParameter="{Binding Chat_ID}" />
                             </SwipeItems>
                         </SwipeView.RightItems>
-                        <Grid Padding="5">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-                            <Image Grid.RowSpan="2" 
-                               Source="{local:ImageResource GSUACM.Images.default_profile_image.png}" 
-                               Aspect="AspectFill" 
-                               HeightRequest="60" 
-                               WidthRequest="60" />
-                            <Label Grid.Column="1" 
-                               Text="{Binding FullName}" 
-                               FontAttributes="Bold" 
-                               FontSize="20" />
-                            <Label Grid.Row="1" 
-                               Grid.Column="1" 
-                               Text="{Binding Msg_Preview}" 
-                               FontAttributes="Italic" 
-                               VerticalOptions="End" 
-                               FontSize="18" />
-                        </Grid>
+                        <StackLayout>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={x:Reference chatList}, Path=BindingContext.OpenChatCommand}"
+                                           CommandParameter="{Binding Chat_ID}" />
+                            </StackLayout.GestureRecognizers>
+                            <Grid Padding="5" BackgroundColor="{Binding Source={x:Reference chatList}, Path=BindingContext.BG_Color}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.RowSpan="2" 
+                                   Source="{local:ImageResource GSUACM.Images.default_profile_image.png}" 
+                                   Aspect="AspectFill" 
+                                   HeightRequest="60" 
+                                   WidthRequest="60" />
+                                <Label Grid.Column="1" 
+                                   Text="{Binding FullName}" 
+                                   FontAttributes="Bold" 
+                                   FontSize="20" />
+                                <Label Grid.Row="1" 
+                                   Grid.Column="1" 
+                                   Text="{Binding Msg_Preview}" 
+                                   FontAttributes="Italic" 
+                                   VerticalOptions="End" 
+                                   FontSize="18" />
+                            </Grid>
+                        </StackLayout>
                     </SwipeView>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
