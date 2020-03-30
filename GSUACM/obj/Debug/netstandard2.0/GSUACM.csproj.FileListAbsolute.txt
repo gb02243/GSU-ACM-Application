@@ -28,8 +28,6 @@ C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstand
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\AppShell.xaml.g.cs
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\AboutPage.xaml.g.cs
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\ChatListPage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Chat_Partials\DirectViewCell.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Chat_Partials\GroupViewCell.xaml.g.cs
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\DashboardPage.xaml.g.cs
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\GroupListPage.xaml.g.cs
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\HomePage.xaml.g.cs
@@ -50,3 +48,4 @@ C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstand
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\ref\GSUACM.dll
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\GSUACM.pdb
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\GSUACM.csprojAssemblyReference.cache
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Chat\ChatPage.xaml.g.cs
