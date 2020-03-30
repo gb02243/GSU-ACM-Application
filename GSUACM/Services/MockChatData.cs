@@ -1,15 +1,18 @@
 ﻿using GSUACM.Models.ChatModels;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace GSUACM.Services
 {
     public class MockChatData
     {
-        public static IEnumerable<Chat> Get()
+        static List<Chat> ChatList;
+
+        public static void Fill()
         {
-            return new List<Chat>
+            ChatList = new List<Chat>
             {
                 new Chat(){ Chat_ID="1" },
                 new Chat(){ Chat_ID="2" },
@@ -24,6 +27,27 @@ namespace GSUACM.Services
                 new Chat(){ Chat_ID="11" },
                 new Chat(){ Chat_ID="12" }
             };
+        }
+
+        public static void Fill(int count)
+        {
+            ChatList = new List<Chat>();
+            for (int i = 1; i <= count; i++)
+            {
+                ChatList.Add(new Chat() { Chat_ID = i.ToString() });
+            }
+            
+        }
+        public static IEnumerable<Chat> Get()
+        {
+            return ChatList;
+        }
+
+        public static void Remove(string chat_id)
+        {
+            var item = ChatList.SingleOrDefault(x => x.Chat_ID == chat_id);
+            if (item != null)
+                ChatList.Remove(item);
         }
     }
 }
