@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GSUACM.ViewModels.ChatViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,12 @@ namespace GSUACM.Views.Chat
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ChatPage : ContentPage
     {
-        public ChatPage()
+        public string Chat_ID;
+        public ChatPage(string chat_id)
         {
             InitializeComponent();
+            this.Chat_ID = chat_id;
+            BindingContext = new ChatPageViewModel(Navigation, Chat_ID);
         }
     }
 }

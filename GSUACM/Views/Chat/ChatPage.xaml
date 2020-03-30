@@ -5,9 +5,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="GSUACM.Views.Chat.ChatPage"
-             Title="FIRST LAST">
+             Title="{Binding FullName}">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Back" Command=""/>
+        <ToolbarItem Text="Back" Command="{Binding BackCommand}"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
