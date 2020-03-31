@@ -8,6 +8,7 @@ namespace GSUACM.Services
 {
     class MockIncomingChat
     {
+        // TODO: check if incoming message IsGroup and send to group preview page if true, else send to direct preview page
         static List<ChatPreview> ChatList;
         public static void MockIncomingMessage(int messages, int people)
         {
