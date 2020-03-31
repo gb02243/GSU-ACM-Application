@@ -9,7 +9,7 @@
              Title="Chat">
     <ContentPage.Content>
         <CollectionView x:Name="groupList" 
-                        ItemsSource="{Binding Chats}">
+                        ItemsSource="{Binding Groups}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <SwipeView>
