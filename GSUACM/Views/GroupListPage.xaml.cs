@@ -15,6 +15,7 @@ namespace GSUACM.Views
         public GroupListPage()
         {
             InitializeComponent();
+            BindingContext = new GroupListViewModel(Navigation);
         }
     }
 }
