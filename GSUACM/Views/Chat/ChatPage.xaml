@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="GSUACM.Views.Chat.ChatPage"
-             Title="{Binding FullName}">
+             Title="{Binding Chat_Title}">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Back" Command="{Binding BackCommand}"/>
     </ContentPage.ToolbarItems>
