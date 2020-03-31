@@ -13,6 +13,7 @@ namespace GSUACM.ViewModels.ChatViewModels
     public class ChatListViewModel : INotifyPropertyChanged
     {
         public INavigation Navigation { get; set; }
+        //TODO: link to chat API
         public List<ChatPreview> Chats { get; set; }
         public ICommand DeleteCommand { get; private set; }
         public ICommand OpenChatCommand { get; private set; }
