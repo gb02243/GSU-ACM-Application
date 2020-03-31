@@ -27,7 +27,7 @@
                                 <TapGestureRecognizer Command="{Binding Source={x:Reference chatList}, Path=BindingContext.OpenChatCommand}"
                                            CommandParameter="{Binding Chat_ID}" />
                             </StackLayout.GestureRecognizers>
-                            <Grid Padding="5" BackgroundColor="{Binding Source={x:Reference chatList}, Path=BindingContext.BG_Color}">
+                            <Grid Padding="5">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
                                     <RowDefinition Height="Auto" />
