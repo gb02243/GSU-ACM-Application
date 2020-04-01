@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:GSUACM"
     xmlns:views="clr-namespace:GSUACM.Views"
+    xmlns:chatviews="clr-namespace:GSUACM.Views.Chat"
     x:Class="GSUACM.AppShell"
     BackgroundColor="#a99260">
     <!-- FLYOUT -->
@@ -23,8 +24,8 @@
     </FlyoutItem>
     <FlyoutItem Title="Chat" Icon="home.png">
         <Tab>
-            <ShellContent Title="Direct Messages" ContentTemplate="{DataTemplate views:ChatListPage}"/>
-            <ShellContent Title="Group Messages" ContentTemplate="{DataTemplate views:GroupListPage}"/>
+            <ShellContent Title="Messages" ContentTemplate="{DataTemplate chatviews:MessageListPage}"/>
+            <ShellContent Title="Channels" ContentTemplate="{DataTemplate chatviews:ChannelListPage}"/>
         </Tab>
         
     </FlyoutItem>

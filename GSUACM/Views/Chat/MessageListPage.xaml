@@ -5,11 +5,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:GSUACM"
              mc:Ignorable="d"
-             x:Class="GSUACM.Views.GroupListPage"
-             Title="Chat">
+             x:Class="GSUACM.Views.Chat.MessageListPage">
     <ContentPage.Content>
-        <CollectionView x:Name="groupList" 
-                        ItemsSource="{Binding Groups}">
+        <CollectionView x:Name="messageList" 
+                        ItemsSource="{Binding Messages}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <SwipeView>
@@ -17,14 +16,14 @@
                             <SwipeItems>
                                 <SwipeItem Text="Delete"
                                            BackgroundColor="LightPink"
-                                           Command="{Binding Source={x:Reference groupList}, Path=BindingContext.DeleteCommand}"
-                                           CommandParameter="{Binding Chat_ID}" />
+                                           Command="{Binding Source={x:Reference messageList}, Path=BindingContext.DeleteCommand}"
+                                           CommandParameter="{Binding roomId}" />
                             </SwipeItems>
                         </SwipeView.RightItems>
                         <StackLayout>
                             <StackLayout.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding Source={x:Reference groupList}, Path=BindingContext.OpenChatCommand}"
-                                           CommandParameter="{Binding Chat_ID}" />
+                                <TapGestureRecognizer Command="{Binding Source={x:Reference messageList}, Path=BindingContext.OpenChatCommand}"
+                                           CommandParameter="{Binding roomId}" />
                             </StackLayout.GestureRecognizers>
                             <Grid Padding="5">
                                 <Grid.RowDefinitions>
@@ -41,7 +40,7 @@
                                    HeightRequest="60" 
                                    WidthRequest="60" />
                                 <Label Grid.Column="1" 
-                                   Text="{Binding FullName}" 
+                                   Text="{Binding alias}" 
                                    FontAttributes="Bold" 
                                    FontSize="20" />
                                 <Label Grid.Row="1" 
