@@ -1,4 +1,4 @@
-﻿using GSUACM.ViewModels;
+﻿using GSUACM.ViewModels.ChatViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
