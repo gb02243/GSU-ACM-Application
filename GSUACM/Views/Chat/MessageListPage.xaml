@@ -45,7 +45,7 @@
                                    FontSize="20" />
                                 <Label Grid.Row="1" 
                                    Grid.Column="1" 
-                                   Text="{Binding Msg_Preview}" 
+                                   Text="{Binding textPreview}" 
                                    FontAttributes="Italic" 
                                    VerticalOptions="End" 
                                    FontSize="18" />

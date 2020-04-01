@@ -12,6 +12,7 @@ namespace GSUACM.Models.ChatModels
         public string alias { get; set; }
         public string emoji { get; set; }
         public string avatar { get; set; }
+        public string textPreview => text.Substring(0, 30)+"...";
 
     }
 }

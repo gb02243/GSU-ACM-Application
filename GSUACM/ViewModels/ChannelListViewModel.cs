@@ -1,46 +1,48 @@
 ﻿using GSUACM.Models.ChatModels;
 using GSUACM.Services;
 using GSUACM.Views.Chat;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace GSUACM.ViewModels.ChatViewModels
+namespace GSUACM.ViewModels
 {
-    class MessageListViewModel : INotifyPropertyChanged
+    class ChannelListViewModel : INotifyPropertyChanged
     {
         public INavigation Navigation { get; set; }
-        public List<Message> Messages { get; set; }
+        public List<Message> Channels { get; set; }
         public ICommand DeleteCommand { get; private set; }
         public ICommand OpenChatCommand { get; private set; }
 
-        public MessageListViewModel(INavigation navigation)
+        public ChannelListViewModel(INavigation navigation)
         {
             this.Navigation = navigation;
-            DeleteCommand = new Command<string>(DeleteChat);
-            OpenChatCommand = new Command<string>(OpenChat);
+            DeleteCommand = new Command<string>(DeleteChannel);
+            OpenChatCommand = new Command<string>(OpenChannel);
             //TODO: get chat data from API
-            MockIncomingMessage.SimulateMessages(2, 10);
+            MockIncomingMessage.SimulateChannels(5, 3, 2);
             UpdateList();
         }
 
         private void UpdateList()
         {
-            Messages = new List<Message>(MockIncomingMessage.GetMessages());
+            Channels = new List<Message>(MockIncomingMessage.GetChannels());
             //PropertyChanged(this, new PropertyChangedEventArgs("Messages"));
         }
 
-        public void DeleteChat(string roomId)
+        public void DeleteChannel(string channel)
         {
-            MockIncomingMessage.RemoveChat(roomId);
+            MockIncomingMessage.RemoveChannel(channel);
             UpdateList();
             //PropertyChanged(this, new PropertyChangedEventArgs("Messages"));
         }
 
-        public async void OpenChat(string roomId)
+        public async void OpenChannel(string channel)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new ChatPage(roomId)));
+            //await Navigation.PushModalAsync(new NavigationPage(new ChatPage(channel)));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

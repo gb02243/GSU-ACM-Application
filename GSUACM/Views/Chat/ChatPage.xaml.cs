@@ -13,13 +13,13 @@ namespace GSUACM.Views.Chat
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ChatPage : ContentPage
     {
-        public string Chat_ID { get; set; }
+        public string RoomId { get; set; }
         public string Chat_Title { get; set; }
-        public ChatPage(string chat_id)
+        public ChatPage(string roomId)
         {
             InitializeComponent();
-            this.Chat_ID = chat_id;
-            BindingContext = new ChatPageViewModel(Navigation, Chat_ID);
+            this.RoomId = roomId;
+            BindingContext = new ChatPageViewModel(Navigation, roomId);
         }
     }
 }

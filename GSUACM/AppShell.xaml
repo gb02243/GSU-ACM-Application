@@ -27,7 +27,6 @@
             <ShellContent Title="Messages" ContentTemplate="{DataTemplate chatviews:MessageListPage}"/>
             <ShellContent Title="Channels" ContentTemplate="{DataTemplate chatviews:ChannelListPage}"/>
         </Tab>
-        
     </FlyoutItem>
     <FlyoutItem Title="About" Icon="home.png">
         <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
