@@ -1,5 +1,8 @@
-﻿using System;
+﻿using GSUACM.Models.ChatModels;
+using GSUACM.Services;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -9,23 +12,31 @@ namespace GSUACM.ViewModels.ChatViewModels
     class ChatPageViewModel
     {
         public INavigation Navigation { get; set; }
-        public string FullName { get; set; }
         public ICommand BackCommand { get; private set; }
-        public string Chat_ID { get; private set; }
-        public ChatPageViewModel(INavigation navigation, string chat_id)
+        public ObservableCollection<Message> Messages { get; set; } = new ObservableCollection<Message>();
+        public string TextToSend { get; set; }
+        public ICommand OnSendCommand { get; set; }
+        public ChatPageViewModel(INavigation navigation, string id, bool isChannel)
         {
             this.Navigation = navigation;
-
             BackCommand = new Command(CloseModal);
 
-            this.Chat_ID = chat_id;
-
-            // TODO: Connect to database
-            FullName = "Person "+Chat_ID;
+            UpdateChat(id, isChannel);
+        }
+        public void UpdateChat(string id, bool isChannel)
+        {
+            //TODO: get chat data from API
+            if(isChannel)
+                Messages = new ObservableCollection<Message>(MockIncomingMessage.GetChannel(id));
+            else
+                Messages = new ObservableCollection<Message>(MockIncomingMessage.GetChat(id));
         }
 
         public void CloseModal()
         {
+            Messages = null;
+            MockIncomingMessage.ClearChat();
+            MockIncomingMessage.ClearChannel();
             Navigation.PopModalAsync();
         }
     }

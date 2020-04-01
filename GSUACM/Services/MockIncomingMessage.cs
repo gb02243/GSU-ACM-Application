@@ -10,6 +10,8 @@ namespace GSUACM.Services
     {
         static List<Message> MessageList { get; set; }
         static List<Message> ChannelList { get; set; }
+        static List<Message> Chat { get; set; }
+        static List<Message> Channel { get; set; }
 
         public static void SimulateMessages(int messages, int people)
         {
@@ -48,6 +50,30 @@ namespace GSUACM.Services
                     }
                 }
             }
+        }
+        //TODO: implement chat API
+        public static IEnumerable<Message> GetChat(string roomId)
+        {
+            var item = MessageList.SingleOrDefault(x => x.roomId == roomId);
+            if (item != null)
+                Chat.Add(item);
+            return Chat;
+        }
+        //TODO: implement chat API
+        public static IEnumerable<Message> GetChannel(string channel)
+        {
+            var item = ChannelList.SingleOrDefault(x => x.channel == channel);
+            if (item != null)
+                Channel.Add(item);
+            return Channel;
+        }
+        public static void ClearChat()
+        {
+            Chat.Clear();
+        }
+        public static void ClearChannel()
+        {
+            Channel.Clear();
         }
         public static IEnumerable<Message> GetMessages()
         {

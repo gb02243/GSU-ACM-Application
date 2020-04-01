@@ -14,12 +14,15 @@ namespace GSUACM.Views.Chat
     public partial class ChatPage : ContentPage
     {
         public string RoomId { get; set; }
+        public string Channel { get; set; }
         public string Chat_Title { get; set; }
-        public ChatPage(string roomId)
+        public ChatPage(string id, bool isChannel)
         {
             InitializeComponent();
-            this.RoomId = roomId;
-            BindingContext = new ChatPageViewModel(Navigation, roomId);
+            if (isChannel)
+                BindingContext = new ChatPageViewModel(Navigation, id, true);
+            else
+                BindingContext = new ChatPageViewModel(Navigation, id, false);
         }
     }
 }
