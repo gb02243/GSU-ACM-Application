@@ -42,7 +42,7 @@ namespace GSUACM.ViewModels
 
         public async void OpenChannel(string channel)
         {
-            //await Navigation.PushModalAsync(new NavigationPage(new ChatPage(channel)));
+            await Navigation.PushModalAsync(new NavigationPage(new ChatPage(channel, true)));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

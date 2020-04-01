@@ -39,13 +39,3 @@ C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstand
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\GSUACM.csproj.CoreCompileInputs.cache
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\GSUACM.AssemblyInfoInputs.cache
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\GSUACM.AssemblyInfo.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\GSUACM.csprojAssemblyReference.cache
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\bin\Debug\netstandard2.0\GSUACM.deps.json
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\bin\Debug\netstandard2.0\GSUACM.dll
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\bin\Debug\netstandard2.0\ref\GSUACM.dll
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\bin\Debug\netstandard2.0\GSUACM.pdb
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\GSUACM.csproj.Fody.CopyLocal.cache
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\XamlC.stamp
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\GSUACM.dll
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\ref\GSUACM.dll
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\GSUACM.pdb
