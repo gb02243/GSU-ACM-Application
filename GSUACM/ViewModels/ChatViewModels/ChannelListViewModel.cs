@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace GSUACM.ViewModels
+namespace GSUACM.ViewModels.ChatViewModels
 {
     class ChannelListViewModel : INotifyPropertyChanged
     {

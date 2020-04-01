@@ -20,6 +20,7 @@ C:\Users\studm\OneDrive\Documents\project-gs-acm-application-master\GSUACM\obj\D
 C:\Users\studm\OneDrive\Documents\project-gs-acm-application-master\GSUACM\obj\Debug\netstandard2.0\GSUACM.pdb
 C:\Users\studm\OneDrive\Documents\project-gs-acm-application-master\GSUACM\obj\Debug\netstandard2.0\GSUACM.csprojAssemblyReference.cache
 C:\Users\studm\OneDrive\Documents\project-gs-acm-application-master\GSUACM\obj\Debug\netstandard2.0\Views\HomePage.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\GSUACM.csprojAssemblyReference.cache
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\App.xaml.g.cs
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\AppShell.xaml.g.cs
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\AboutPage.xaml.g.cs
