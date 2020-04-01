@@ -6,9 +6,12 @@ namespace GSUACM.Models.ChatModels
 {
     public class Message
     {
-        public string DateTime { get; set; }
-        public string Message_Text { get; set; }
-        public string Chat_ID { get; set; }
-        public string User_ID { get; set; }
+        public string roomId { get; set; }
+        public string channel { get; set; }
+        public string text { get; set; }
+        public string alias { get; set; }
+        public string emoji { get; set; }
+        public string avatar { get; set; }
+
     }
 }
