@@ -3,13 +3,14 @@ using GSUACM.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace GSUACM.ViewModels.ChatViewModels
 {
-    class ChatPageViewModel
+    class ChatPageViewModel : INotifyPropertyChanged
     {
         public INavigation Navigation { get; set; }
         public ICommand BackCommand { get; private set; }
@@ -22,6 +23,19 @@ namespace GSUACM.ViewModels.ChatViewModels
             BackCommand = new Command(CloseModal);
 
             UpdateChat(id, isChannel);
+
+            OnSendCommand = new Command(() =>
+            {
+                if (!string.IsNullOrEmpty(TextToSend))
+                {
+                    if(isChannel)
+                        Messages.Insert(0, new Message() { text = TextToSend, alias = App.User, channel = id });
+                    else
+                        Messages.Insert(0, new Message() { text = TextToSend, alias = App.User, roomId = id });
+                    TextToSend = string.Empty;
+                }
+
+            });
         }
         public void UpdateChat(string id, bool isChannel)
         {
@@ -39,5 +53,7 @@ namespace GSUACM.ViewModels.ChatViewModels
             MockIncomingMessage.ClearChannel();
             Navigation.PopModalAsync();
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }
