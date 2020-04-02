@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:GSUACM"
              mc:Ignorable="d"
-             x:Class="GSUACM.Views.Chat.MessageListPage">
+             x:Class="GSUACM.Views.Chat.MessageListPage"
+             Title="Chat">
     <ContentPage.Content>
         <CollectionView x:Name="messageList" 
                         ItemsSource="{Binding Messages}">
