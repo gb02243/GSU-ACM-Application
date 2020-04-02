@@ -3,20 +3,36 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
+
 namespace GSUACM.ViewModels
 {
     class DB
     {
         // the connection
-        private MySqlConnection connection  = new MySqlConnection("server=acm-db.cjdtpyz15vp0.us-east-1.rds.amazonaws.com;port=3306;username=admin;password=dm001192;database=ACM_DB");
+        private MySqlConnection connection = new MySqlConnection("server=acmdbv2.cjdtpyz15vp0.us-east-1.rds.amazonaws.com;port=3306;username=admin;password=dm001192;database=acm_db");
 
 
         // create a function to open the connection
-        public void openConnection()
+        public bool openConnection()
         {
             if (connection.State == System.Data.ConnectionState.Closed)
             {
-                connection.Open();
+                if (IsServerConnected())
+                {
+
+                    connection.Open();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            else
+            {
+                return false;
             }
         }
 
@@ -33,6 +49,23 @@ namespace GSUACM.ViewModels
         public MySqlConnection getConnection()
         {
             return connection;
+        }
+        public bool IsServerConnected()
+        {
+
+
+            try
+            {
+                connection.Open();
+                connection.Close();
+                return true;
+            }
+            catch (MySql.Data.MySqlClient.MySqlException)
+            {
+
+                return false;
+            }
+
         }
     }
 }

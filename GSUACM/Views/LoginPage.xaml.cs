@@ -17,7 +17,7 @@ namespace GSUACM.Views
             InitializeComponent();
         }
 
- 
+
 
         // label close CLICK
         private void labelClose_Click(object sender, EventArgs e)
@@ -30,62 +30,74 @@ namespace GSUACM.Views
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             DB db = new DB();
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-            String emailAddress = email.Text;
-            String pword = password.Text;
-            MySqlCommand command = new MySqlCommand("SELECT * FROM user WHERE email = @email and password = @pass", db.getConnection());
-            command.Parameters.Add("@email", MySqlDbType.VarChar).Value = email.Text;
-            command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = password.Text;
-            db.openConnection();
-            adapter.SelectCommand = command;
-
-            adapter.Fill(table);
-
-
-
-            //check if the user exists or not
-            if (table.Rows.Count>0)
+            //Console.WriteLine("Server"+db.openConnection());
+            if (db.openConnection() == false)
             {
-                labelGoToHomePage_Click(sender,e);
                 db.closeConnection();
+                DisplayAlert("Server Error", "Try Again Later", "Ok");
             }
             else
             {
-                // check if the username field is empty
-                if (emailAddress==null||emailAddress=="")
-                {
-                    DisplayAlert("Enter Your Username To Login", "Empty Username", "Ok");
-                }
-                // check if the password field is empty
-                else if (pword==null||pword=="")
-                {
-                    DisplayAlert("Enter Your Password To Login", "Empty Password", "Ok");
-                }
+                MySqlDataAdapter adapter = new MySqlDataAdapter();
+                String emailAddress = email.Text;
+                String pword = password.Text;
+                MySqlCommand command = new MySqlCommand("SELECT * FROM user WHERE email = @email and password = @pass", db.getConnection());
+                command.Parameters.Add("@email", MySqlDbType.VarChar).Value = email.Text;
+                command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = password.Text;
+                db.openConnection();
+                adapter.SelectCommand = command;
 
-                // check if the username or the password don't exist
+                adapter.Fill(table);
+
+
+
+                //check if the user exists or not
+                if (table.Rows.Count > 0)
+                {
+                    labelGoToHomePage_Click(sender, e);
+                    db.closeConnection();
+                }
                 else
                 {
-                    Console.WriteLine(command);
-                    DisplayAlert("Wrong Username Or Password", "Wrong Data", "Ok");
+                    // check if the username field is empty
+                    if (emailAddress == null || emailAddress == "")
+                    {
+                        DisplayAlert("Enter Your Username To Login", "Empty Username", "Ok");
+                    }
+                    // check if the password field is empty
+                    else if (pword == null || pword == "")
+                    {
+                        DisplayAlert("Enter Your Password To Login", "Empty Password", "Ok");
+                    }
+
+                    // check if the username or the password don't exist
+                    else
+                    {
+                        Console.WriteLine(command);
+                        DisplayAlert("Wrong Username Or Password", "Wrong Data", "Ok");
+                    }
+
                 }
-               
+                db.closeConnection();
             }
             db.closeConnection();
         }
         // label go to signup CLICK
         private async void labelGoToSignUp_Click(object sender, EventArgs e)
         {
+            NavigationPage.SetBackButtonTitle(this, "");
             await Navigation.PushAsync(new SignupPage());
         }
         // label go to homepage CLICK
         private async void labelGoToHomePage_Click(object sender, EventArgs e)
         {
+            // NavigationPage.SetBackButtonTitle(this, "");
             HomePage home = new HomePage();
-            home.setUpHomePage(getFirstName(sender,e),getLastName(sender,e),getEmail(sender,e),getPhone(sender,e),getPoints(sender,e) );
+            home.setUpHomePage(getFirstName(sender, e), getLastName(sender, e), getEmail(sender, e), getPhone(sender, e), getPoints(sender, e));
             await Navigation.PushAsync(home);
         }
         // get the first name CLICK
-        private  String getFirstName(object sender, EventArgs e)
+        private String getFirstName(object sender, EventArgs e)
         {
             string fname = table.Rows[0]["fname"].ToString();
             return fname;

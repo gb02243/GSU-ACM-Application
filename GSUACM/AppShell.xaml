@@ -16,10 +16,10 @@
         </Grid>
     </Shell.FlyoutHeader>
     <FlyoutItem Title="Dashboard" Icon="home.png">
-        <ShellContent ContentTemplate="{DataTemplate views:DashboardPage}"/>
+        <ShellContent  ContentTemplate="{DataTemplate views:DashboardPage}"/>
     </FlyoutItem>
     <FlyoutItem Title="Profile" Icon="home.png">
-        <ShellContent ContentTemplate="{DataTemplate views:HomePage}"/>
+        <ShellContent Route="home" ContentTemplate="{DataTemplate views:HomePage}"/>
     </FlyoutItem>
     <FlyoutItem Title="Chat" Icon="home.png">
         <Tab>
