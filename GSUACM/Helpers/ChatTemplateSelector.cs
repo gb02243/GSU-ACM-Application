@@ -25,7 +25,7 @@ namespace GSUACM.Helpers
                 return null;
 
 
-            return (messageVm.alias == App.User) ? outgoingDataTemplate : incomingDataTemplate;
+            return (messageVm.alias == App.User) ? incomingDataTemplate : outgoingDataTemplate;
         }
     }
 }

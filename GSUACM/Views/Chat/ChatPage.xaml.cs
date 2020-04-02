@@ -24,5 +24,11 @@ namespace GSUACM.Views.Chat
             else
                 BindingContext = new ChatPageViewModel(Navigation, id, false);
         }
+
+        public void OnListTapped(object sender, ItemTappedEventArgs e)
+        {
+            chatInput.UnFocusEntry();
+        }
+
     }
 }
