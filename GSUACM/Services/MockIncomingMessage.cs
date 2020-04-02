@@ -54,6 +54,7 @@ namespace GSUACM.Services
         //TODO: implement chat API
         public static IEnumerable<Message> GetChat(string roomId)
         {
+            Chat = new List<Message>();
             var item = MessageList.SingleOrDefault(x => x.roomId == roomId);
             if (item != null)
                 Chat.Add(item);
@@ -62,6 +63,7 @@ namespace GSUACM.Services
         //TODO: implement chat API
         public static IEnumerable<Message> GetChannel(string channel)
         {
+            Channel = new List<Message>();
             var item = ChannelList.SingleOrDefault(x => x.channel == channel);
             if (item != null)
                 Channel.Add(item);
@@ -69,11 +71,13 @@ namespace GSUACM.Services
         }
         public static void ClearChat()
         {
-            Chat.Clear();
+            if(Chat != null)
+                Chat.Clear();
         }
         public static void ClearChannel()
         {
-            Channel.Clear();
+            if(Channel != null)
+                Channel.Clear();
         }
         public static IEnumerable<Message> GetMessages()
         {
