@@ -19,7 +19,7 @@
                 <Setter Property="BarTextColor" Value="White" />
             </Style>
             <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
-                <Setter Property="BackgroundColor" Value="GhostWhite" />
+                <Setter Property="BackgroundColor" Value="WhiteSmoke" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>
