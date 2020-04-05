@@ -44,13 +44,6 @@ namespace GSUACM.ViewModels.ChatViewModels
                 Messages = new ObservableCollection<Message>(MockIncomingMessage.GetChannel(id));
             else
                 Messages = new ObservableCollection<Message>(MockIncomingMessage.GetChat(id));
-
-            //Messages.Insert(0, new Message() { text = "Hi" });
-            //Messages.Insert(0, new Message() { text = "How are you?", alias = App.User });
-            //Messages.Insert(0, new Message() { text = "What's new?" });
-            //Messages.Insert(0, new Message() { text = "How is your family", alias = App.User });
-            //Messages.Insert(0, new Message() { text = "How is your dog?", alias = App.User });
-            //Messages.Insert(0, new Message() { text = "How is your cat?", alias = App.User });
         }
 
         public void CloseModal()
