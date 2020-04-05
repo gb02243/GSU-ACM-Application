@@ -1,5 +1,4 @@
-﻿using GSUACM.ViewModels.Dashboard;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,15 +7,14 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace GSUACM.Views.Dashboard
+namespace GSUACM.Controls.Cards
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class DashboardPage : ContentPage
+    public partial class CardViewUI : ContentPage
     {
-        public DashboardPage()
+        public CardViewUI()
         {
             InitializeComponent();
-            BindingContext = new DashboardViewModel(Navigation);
         }
     }
 }

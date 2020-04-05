@@ -3,9 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:cards="clr-namespace:GSUACM.Controls.Cards"
              mc:Ignorable="d"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
              xmlns:partials="clr-namespace:GSUACM.Views.Dashboard.Partials"
+             xmlns:local="clr-namespace:GSUACM"
+             xmlns:vm="clr-namespace:GSUACM.ViewModels.Dashboard"
              ios:Page.UseSafeArea="True"
              x:Class="GSUACM.Views.Dashboard.DashboardPage"
              Title="Dashboard">
@@ -17,11 +20,84 @@
 
     <!-- Content -->
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="CenterAndExpand" Margin="10,10,10,10">
+        <StackLayout HorizontalOptions="CenterAndExpand" Spacing="0">
             <Label Text="{Binding WelcomeMessage}" 
                    FontSize="32" 
                    HorizontalTextAlignment="Center" />
             <partials:DashboardButtons/>
+            <Label Text="News" 
+                   FontSize="28" 
+                   HorizontalTextAlignment="Center" />
+            <CollectionView x:Name="newsList"
+                            ItemsSource="{Binding NewsItems}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentView>
+                            <StackLayout Margin="10">
+                                <Frame CornerRadius="5"
+                                       HasShadow="True"
+                                       Padding="8"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="75" />
+                                            <RowDefinition Height="4" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="75" />
+                                            <ColumnDefinition Width="200" />
+                                        </Grid.ColumnDefinitions>
+                                        <Frame IsClippedToBounds="True"
+                                               CornerRadius="38"
+                                               HeightRequest="60"
+                                               WidthRequest="60"
+                                               HorizontalOptions="Center"
+                                               VerticalOptions="Center">
+                                            <Image Source="{local:ImageResource GSUACM.Images.gsu_logo_icon.jpg}"
+                                                   WidthRequest="100"
+                                                   HeightRequest="100"
+                                                   Aspect="AspectFill" />
+                                        </Frame>
+                                        <StackLayout Grid.Column="1" 
+                                                     Spacing="5" 
+                                                     VerticalOptions="CenterAndExpand">
+                                            <Label Text="{Binding Title}"
+                                                   FontAttributes="Bold"
+                                                   FontSize="Medium"
+                                                   VerticalTextAlignment="Center"
+                                                   HorizontalTextAlignment="Start" />
+                                            <Label Text="{Binding Author}"
+                                                   FontAttributes="Italic"
+                                                   FontSize="Small"
+                                                   VerticalTextAlignment="Center"
+                                                   HorizontalTextAlignment="Start" />
+                                        </StackLayout>
+                                        <StackLayout Grid.Column="2" 
+                                                     Spacing="4"
+                                                     VerticalOptions="CenterAndExpand">
+                                            <Label Text="{Binding Date}" />
+                                            <Label Text="{Binding Time}" />
+                                        </StackLayout>
+                                        <BoxView Grid.Row="1"
+                                                 Grid.ColumnSpan="3"
+                                                 BackgroundColor="Gray"
+                                                 HeightRequest="1"
+                                                 HorizontalOptions="Fill" />
+                                        <Label Grid.Row="2"
+                                               Grid.ColumnSpan="3"
+                                               Text="{Binding BodyPreview}"
+                                               VerticalTextAlignment="Start"
+                                               VerticalOptions="Fill"
+                                               HorizontalOptions="Fill" />
+                                    </Grid>
+                                </Frame>
+                            </StackLayout>
+                        </ContentView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

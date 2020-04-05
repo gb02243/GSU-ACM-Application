@@ -18,12 +18,14 @@ namespace GSUACM
             InitializeComponent();
             // TODO: remove these
             isLoggedIn = true;
-            User = "Superlongfirstname";
+            User = "Griffin";
 
             if (isLoggedIn)
                 MainPage = new AppShell();
             else
                 MainPage = new LoginPage();
+
+            //MainPage = new Controls.Cards.CardViewUI();
 
         }
 

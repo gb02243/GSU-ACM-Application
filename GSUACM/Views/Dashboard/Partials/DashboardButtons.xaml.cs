@@ -15,6 +15,7 @@ namespace GSUACM.Views.Dashboard.Partials
         public DashboardButtons()
         {
             InitializeComponent();
+            //TODO: Set bindingcontext
         }
     }
 }
