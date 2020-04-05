@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace GSUACM.Views
+namespace GSUACM.Views.Dashboard.Partials
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class DashboardPage : ContentPage
+    public partial class DashboardButtons : ContentView
     {
-        public DashboardPage()
+        public DashboardButtons()
         {
             InitializeComponent();
         }

@@ -5,6 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:local="clr-namespace:GSUACM.Helpers"
              xmlns:controls="clr-namespace:GSUACM.Controls" xmlns:partials="clr-namespace:GSUACM.Views.Chat.Partials"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True"
              mc:Ignorable="d"
              x:Class="GSUACM.Views.Chat.ChatPage"
              Title="{Binding Chat_Title}">
@@ -42,7 +44,7 @@
                  BackgroundColor="LightGray"
                  Grid.Row="1"/>
             <partials:ChatInputBarView Grid.Row="2"
-                                   Margin="0,0,20,25"
+                                   Margin="0,0,20,0"
                                    x:Name="chatInput"/>
         </Grid>
     </ContentPage.Content>

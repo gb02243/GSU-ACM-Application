@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:GSUACM"
+             mc:Ignorable="d"
+             x:Class="GSUACM.Views.Dashboard.Partials.DashboardButtons">
+  <ContentView.Content>
+        <FlexLayout x:Name="DashboardButtonContainer"
+                    AlignItems="Center"
+                    JustifyContent="SpaceEvenly">
+            <!-- Button will use Clicked="Button_ClickedAsync" -->
+            <Frame WidthRequest="90"
+                   HeightRequest="110"
+                   HasShadow="false"
+                   HorizontalOptions="Start"
+                   BackgroundColor="Transparent">
+                <FlexLayout Direction="Column"
+                            AlignContent="Center">
+                    <Button BorderColor="#fff"
+                            BorderWidth="1"
+                            BackgroundColor="{DynamicResource GSUBlue}"
+                            HeightRequest="90"
+                            CornerRadius="45"
+                            
+                            Text="Chat" 
+                            TextColor="{DynamicResource LightGold}"/>
+                </FlexLayout>
+            </Frame>
+            <!-- Button will use Clicked="Button_ClickedAsync" -->
+            <Frame WidthRequest="90"
+                   HeightRequest="110"
+                   HasShadow="false"
+                   HorizontalOptions="Start"
+                   BackgroundColor="Transparent">
+                <FlexLayout Direction="Column"
+                            AlignContent="Center">
+                    <Button BorderColor="#fff"
+                            BorderWidth="1"
+                            BackgroundColor="{DynamicResource GSUBlue}"
+                            HeightRequest="90"
+                            CornerRadius="45"
+                            
+                            Text="Profile" 
+                            TextColor="{DynamicResource LightGold}"/>
+                </FlexLayout>
+            </Frame>
+            <!-- Button will use Clicked="Button_ClickedAsync" -->
+            <Frame WidthRequest="90"
+                   HeightRequest="110"
+                   HasShadow="false"
+                   HorizontalOptions="Start"
+                   BackgroundColor="Transparent">
+                <FlexLayout Direction="Column"
+                            AlignContent="Center">
+                    <Button BorderColor="#fff"
+                            BorderWidth="1"
+                            BackgroundColor="{DynamicResource GSUBlue}"
+                            HeightRequest="90"
+                            CornerRadius="45"
+                            
+                            Text="Events" 
+                            TextColor="{DynamicResource LightGold}"/>
+                </FlexLayout>
+            </Frame>
+            
+            
+        </FlexLayout>
+    </ContentView.Content>
+</ContentView>

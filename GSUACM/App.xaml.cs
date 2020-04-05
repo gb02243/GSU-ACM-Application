@@ -8,18 +8,22 @@ namespace GSUACM
 {
     public partial class App : Application
     {
-        public static bool isLoggedIn;
+        public static bool isLoggedIn { get; set; }
 
         //TODO: remember to fix this
-        public static string User = "placeholder";
+        public static string User { get; set; }
 
         public App()
         {
             InitializeComponent();
+            // TODO: remove these
+            isLoggedIn = true;
+            User = "Superlongfirstname";
 
-            DependencyService.Register<MockDataStore>();
-
-            MainPage = new AppShell();
+            if (isLoggedIn)
+                MainPage = new AppShell();
+            else
+                MainPage = new LoginPage();
 
         }
 
