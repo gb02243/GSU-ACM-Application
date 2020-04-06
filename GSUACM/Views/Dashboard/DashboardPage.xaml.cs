@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GSUACM.ViewModels.Dashboard;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace GSUACM.Views
+namespace GSUACM.Views.Dashboard
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DashboardPage : ContentPage
@@ -15,6 +16,7 @@ namespace GSUACM.Views
         public DashboardPage()
         {
             InitializeComponent();
+            BindingContext = new DashboardViewModel(Navigation);
         }
     }
 }

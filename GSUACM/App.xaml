@@ -9,11 +9,17 @@
     <Application.Resources>
         <ResourceDictionary>
             <!--Global Styles-->
-            <!--<Color x:Key="NavigationPrimary">#2196F3</Color>-->
+            <Color x:Key="GSUGold">#87714D</Color>
+            <Color x:Key="LightGold">#a99260</Color>
+            <Color x:Key="GSUBlue">#011E41</Color>
+            <Color x:Key="GSUGray">#A3AAAE</Color>
             <Style TargetType="NavigationPage">
                 <!--<Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />-->
-                <Setter Property="BarBackgroundColor" Value="MidnightBlue" />
+                <Setter Property="BarBackgroundColor" Value="{DynamicResource GSUGold}" />
                 <Setter Property="BarTextColor" Value="White" />
+            </Style>
+            <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="WhiteSmoke" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>

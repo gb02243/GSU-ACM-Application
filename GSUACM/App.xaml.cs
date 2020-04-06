@@ -8,18 +8,26 @@ namespace GSUACM
 {
     public partial class App : Application
     {
-        public static bool isLoggedIn;
+        public static bool isLoggedIn { get; set; }
+        public static bool isAdmin { get; set; }
 
         //TODO: remember to fix this
-        public static string User = "placeholder";
+        public static string User { get; set; }
 
         public App()
         {
             InitializeComponent();
+            // TODO: remove these
+            isLoggedIn = true;
+            isAdmin = true;
+            User = "Griffin";
 
-            DependencyService.Register<MockDataStore>();
+            if (isLoggedIn)
+                MainPage = new AppShell();
+            else
+                MainPage = new LoginPage();
 
-            MainPage = new AppShell();
+            //MainPage = new Controls.Cards.CardViewUI();
 
         }
 

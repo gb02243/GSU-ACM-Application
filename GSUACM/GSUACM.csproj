@@ -13,18 +13,20 @@
   <ItemGroup>
     <None Remove="Images\default_profile_image.png" />
     <None Remove="Images\gsu_logo.png" />
+    <None Remove="Images\gsu_logo_icon.jpg" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Images\default_profile_image.png" />
     <EmbeddedResource Include="Images\gsu_logo.png" />
+    <EmbeddedResource Include="Images\gsu_logo_icon.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MySqlConnector" Version="0.63.0" />
+    <PackageReference Include="MySqlConnector" Version="0.63.1" />
     <PackageReference Include="PropertyChanged.Fody" Version="3.2.7" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.1" />
-    <PackageReference Include="Xamarin.Forms" Version="4.5.0.495" />  
+    <PackageReference Include="Xamarin.Forms" Version="4.5.0.530" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.5.2" />
     <PackageReference Include="Xamarin.Forms.PancakeView" Version="1.3.7" />
   </ItemGroup>
@@ -51,11 +53,18 @@
     <EmbeddedResource Update="Views\Chat\Partials\ChatInputBarView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\DashboardPage.xaml">
+    <EmbeddedResource Update="Views\Dashboard\DashboardPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Dashboard\Partials\DashboardButtons.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\HomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Styles\" />
   </ItemGroup>
 </Project>

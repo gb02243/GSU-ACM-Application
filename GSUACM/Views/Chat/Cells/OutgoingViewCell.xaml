@@ -6,12 +6,13 @@
              mc:Ignorable="d"
              x:Class="GSUACM.Views.Chat.Cells.OutgoingViewCell">
   <ViewCell.View>
-        <Frame BackgroundColor="Gray"
-            Padding="10"
-            Rotation="180"
-            FlowDirection="LeftToRight"
-            HasShadow="false"
-            Margin="80,10,10,10">
+        <Frame BackgroundColor="{DynamicResource GSUGray}"
+               Padding="10"
+               Rotation="180"
+               FlowDirection="LeftToRight"
+               HasShadow="false"
+               Margin="80,10,10,10"
+               CornerRadius="10">
             <Label Text="{Binding text}"
                   TextColor="White"/>
         </Frame>

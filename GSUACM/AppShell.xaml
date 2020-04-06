@@ -4,12 +4,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:GSUACM"
     xmlns:views="clr-namespace:GSUACM.Views"
+    xmlns:dash="clr-namespace:GSUACM.Views.Dashboard"
     xmlns:chatviews="clr-namespace:GSUACM.Views.Chat"
     x:Class="GSUACM.AppShell"
-    BackgroundColor="#a99260">
+    BackgroundColor="{DynamicResource GSUGold}">
     <!-- FLYOUT -->
     <Shell.FlyoutHeader>
-        <Grid HeightRequest="100" BackgroundColor="#a99260">
+        <Grid HeightRequest="100" BackgroundColor="{DynamicResource GSUGold}">
             <Image Source="{local:ImageResource GSUACM.Images.gsu_logo.png}"
                    Aspect="AspectFit"
                    HeightRequest="100"
@@ -17,7 +18,7 @@
         </Grid>
     </Shell.FlyoutHeader>
     <FlyoutItem Title="Dashboard" Icon="home.png">
-        <ShellContent ContentTemplate="{DataTemplate views:DashboardPage}"/>
+        <ShellContent ContentTemplate="{DataTemplate dash:DashboardPage}"/>
     </FlyoutItem>
     <FlyoutItem Title="Profile" Icon="home.png">
         <ShellContent ContentTemplate="{DataTemplate views:HomePage}"/>
