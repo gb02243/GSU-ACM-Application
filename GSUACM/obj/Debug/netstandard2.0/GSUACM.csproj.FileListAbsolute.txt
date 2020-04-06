@@ -80,4 +80,3 @@ C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstand
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Dashboard\Partials\DashboardButtons.xaml.g.cs
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Dashboard\DashboardPage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Controls\Cards\CardViewUI.xaml.g.cs
