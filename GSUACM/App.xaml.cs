@@ -9,6 +9,7 @@ namespace GSUACM
     public partial class App : Application
     {
         public static bool isLoggedIn { get; set; }
+        public static bool isAdmin { get; set; }
 
         //TODO: remember to fix this
         public static string User { get; set; }
@@ -18,6 +19,7 @@ namespace GSUACM
             InitializeComponent();
             // TODO: remove these
             isLoggedIn = true;
+            isAdmin = true;
             User = "Griffin";
 
             if (isLoggedIn)
