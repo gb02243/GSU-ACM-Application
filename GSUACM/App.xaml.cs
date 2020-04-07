@@ -3,26 +3,18 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using GSUACM.Services;
 using GSUACM.Views;
+using GSUACM.Models;
 
 namespace GSUACM
 {
     public partial class App : Application
     {
-        public static bool isLoggedIn { get; set; }
-        public static bool isAdmin { get; set; }
-
-        //TODO: remember to fix this
-        public static string User { get; set; }
-
+        public static User User { get; set; }
         public App()
         {
             InitializeComponent();
-            // TODO: remove these
-            isLoggedIn = true;
-            isAdmin = true;
-            User = "Griffin";
 
-            if (isLoggedIn)
+            if (User != null)
                 MainPage = new AppShell();
             else
                 MainPage = new LoginPage();

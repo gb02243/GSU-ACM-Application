@@ -18,7 +18,8 @@ namespace GSUACM.ViewModels.Dashboard
         public DashboardViewModel(INavigation navigation)
         {
             this.Navigation = navigation;
-            User = App.User;
+            //TODO: fix for new user class
+            User = App.User.userID;
             NewsItems = new List<NewsItem>();
 
             UpdateNewsItems();

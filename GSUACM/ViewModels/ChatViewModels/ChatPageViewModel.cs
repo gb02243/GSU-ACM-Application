@@ -28,10 +28,11 @@ namespace GSUACM.ViewModels.ChatViewModels
             {
                 if (!string.IsNullOrEmpty(TextToSend))
                 {
+                    //TODO: fix for new user class
                     if(isChannel)
-                        Messages.Insert(0, new Message() { text = TextToSend, alias = App.User, channel = id });
+                        Messages.Insert(0, new Message() { text = TextToSend, alias = App.User.userID, channel = id });
                     else
-                        Messages.Insert(0, new Message() { text = TextToSend, alias = App.User, roomId = id });
+                        Messages.Insert(0, new Message() { text = TextToSend, alias = App.User.userID, roomId = id });
                     TextToSend = string.Empty;
                 }
 
