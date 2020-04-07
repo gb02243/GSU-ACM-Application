@@ -102,14 +102,18 @@ namespace GSUACM.ViewModels
         }
         public static bool IsValidPassword(this string password)
         {
+            if (password == null)
+            {
+                return false;
+            }
             var charactersInPassword = password.ToCharArray();
-            if (charactersInPassword.Length < 8|| charactersInPassword.Length>17) return false;
+            if (charactersInPassword.Length < 8 || charactersInPassword.Length > 17) return false;
             //var numberOfDigits = charactersInPassword.Count(char.IsDigit);
             //if (numberOfDigits==1) return false;
             //var numberOfSymbols = charactersInPassword.Count(char.IsSymbol);
             //if (numberOfSymbols==0) return false;
             return true;
-            
+
         }
     }
 }
