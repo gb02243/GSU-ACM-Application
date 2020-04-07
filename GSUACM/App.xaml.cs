@@ -27,8 +27,6 @@ namespace GSUACM
             else
                 MainPage = new LoginPage();
 
-            //MainPage = new Controls.Cards.CardViewUI();
-
         }
 
         protected override void OnStart()
