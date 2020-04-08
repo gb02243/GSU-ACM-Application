@@ -24,7 +24,7 @@ namespace GSUACM.ViewModels.Dashboard
 
             if (App.User == null)
             {
-                WelcomeMessage = "Welcome! Please log in.";
+                WelcomeMessage = "Welcome!\nPlease log in.";
                 ToolbarText = "Log In";
                 isLoggedIn = false;
             }
