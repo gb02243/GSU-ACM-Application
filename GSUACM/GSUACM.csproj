@@ -47,5 +47,8 @@
     <Compile Update="Views\editProfile.xaml.cs">
       <DependentUpon>editProfile.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\createProfile.xaml.cs">
+      <DependentUpon>createProfile.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>
