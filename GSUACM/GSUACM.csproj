@@ -43,4 +43,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\editProfile.xaml.cs">
+      <DependentUpon>editProfile.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>
