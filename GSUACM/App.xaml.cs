@@ -13,12 +13,16 @@ namespace GSUACM
         public App()
         {
             InitializeComponent();
+            MainPage = new AppShell();
 
             if (User != null)
-                MainPage = new AppShell();
-            else
-                MainPage = new LoginPage();
+            {
 
+            }
+            else
+            {
+
+            }
         }
 
         protected override void OnStart()

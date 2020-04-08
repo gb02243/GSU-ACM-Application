@@ -1,9 +1,11 @@
 ﻿using GSUACM.Models;
+using GSUACM.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace GSUACM.ViewModels.Dashboard
@@ -11,18 +13,42 @@ namespace GSUACM.ViewModels.Dashboard
     public class DashboardViewModel : INotifyPropertyChanged
     {
         public INavigation Navigation { get; set; }
-        public string User { get; set; }
-        public string WelcomeMessage => "Welcome, "+User+"!";
+        public string WelcomeMessage { get; set; }
         public List<NewsItem> NewsItems { get; set; }
-       
+        public string ToolbarText { get; set; }
+        public bool isLoggedIn { get; set; }
+        public ICommand ToolbarCommand { get; set; }
         public DashboardViewModel(INavigation navigation)
         {
             this.Navigation = navigation;
-            //TODO: fix for new user class
-            User = App.User.userID;
-            NewsItems = new List<NewsItem>();
 
+            if (App.User == null)
+            {
+                WelcomeMessage = "Welcome! Please log in.";
+                ToolbarText = "Log In";
+                isLoggedIn = false;
+            }
+            else
+            {
+                isLoggedIn = true;
+                ToolbarText = "Log Out";
+                WelcomeMessage = "Welcome, " + App.User.fname;
+            }
+
+            ToolbarCommand = new Command(GetToolbarAction);
+
+            //TODO: fix for new user class
+            //User = App.User.userID;
+
+            NewsItems = new List<NewsItem>();
             UpdateNewsItems();
+        }
+
+        public async void GetToolbarAction()
+        {
+            if (!isLoggedIn)
+                await Navigation.PushModalAsync(new LoginPage());
+            // TODO: handle sign out
         }
 
         public void UpdateNewsItems()
