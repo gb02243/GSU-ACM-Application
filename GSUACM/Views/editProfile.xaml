@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" x:Class="GSUACM.Views.editProfile">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" xmlns:local="clr-namespace:GSUACM"  x:Class="GSUACM.Views.editProfile">
      <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="Primary">#041e42</Color>
@@ -27,6 +27,24 @@
             <StackLayout Orientation="Vertical" Padding="16,20,16,40" Spacing="10">
                 <Label Text="Edit Profile" FontAttributes="Bold" HorizontalTextAlignment="Center" FontSize="35"/>
                 <StackLayout Padding="10,20,10,10" Spacing="20">
+
+                    <Frame WidthRequest="90"
+                   HeightRequest="110"
+                   HasShadow="false"
+                   HorizontalOptions="CenterAndExpand"
+                   BackgroundColor="Transparent">
+                <FlexLayout Direction="Column"
+                            AlignContent="Center">
+                    <Button BorderColor="#fff"
+                            BorderWidth="1"
+                            BackgroundColor="{DynamicResource GSUBlue}"
+                            HeightRequest="90"
+                            CornerRadius="45"
+                            
+                            Text="Upload Image" 
+                            TextColor="{DynamicResource LightGold}"/>
+                </FlexLayout>
+            </Frame>
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />

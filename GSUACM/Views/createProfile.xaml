@@ -30,23 +30,24 @@
             <StackLayout Orientation="Vertical" Padding="16,20,16,40" Spacing="10">
                 <Label Text="Create Profile" FontAttributes="Bold" HorizontalTextAlignment="Center" FontSize="35"/>
                 <StackLayout Padding="10,20,10,10" Spacing="20">
-                 <Frame IsClippedToBounds="True"
-                                               CornerRadius="38"
-                                               HeightRequest="60"
-                                               WidthRequest="60"
-                                               HorizontalOptions="Center"
-                                               VerticalOptions="Center">
-                     <Image Source="{local:ImageResource GSUACM.Images.gsu_logo.png}"
-                                                   WidthRequest="100"
-                                                   HeightRequest="100"
-                                                   Aspect="AspectFit">
-                         <Image.GestureRecognizers>
-        <TapGestureRecognizer
-                Tapped="OnTapGestureRecognizerTapped"
-                NumberOfTapsRequired="2" />
-  </Image.GestureRecognizers>
-                    </Image>
-                    </Frame>
+                 <Frame WidthRequest="90"
+                   HeightRequest="110"
+                   HasShadow="false"
+                   HorizontalOptions="CenterAndExpand"
+                   BackgroundColor="Transparent">
+                <FlexLayout Direction="Column"
+                            AlignContent="Center">
+                    <Button BorderColor="#fff"
+                            BorderWidth="1"
+                            BackgroundColor="{DynamicResource GSUBlue}"
+                            HeightRequest="90"
+                            CornerRadius="45"
+                            
+                            Text="Upload Image" 
+                            TextColor="{DynamicResource LightGold}"/>
+                </FlexLayout>
+            </Frame>
+                     
                             <Label Text="Displayed Name:" FontSize="20"/>
                             <Entry x:Name="displayName" FontSize="15" Placeholder="Gus TheEagle"/>
                   
