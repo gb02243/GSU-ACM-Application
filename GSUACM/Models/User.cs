@@ -17,5 +17,6 @@ namespace GSUACM.Models
         public bool isBoardMember { get; set; }
         public string boardTitle { get; set; }
         public string userID { get; set; }
+        public string profileIMG { get; set; }
     }
 }

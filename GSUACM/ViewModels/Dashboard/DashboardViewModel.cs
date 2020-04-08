@@ -91,7 +91,6 @@ namespace GSUACM.ViewModels.Dashboard
                     "Aliquam elit ligula, condimentum et urna sed, tincidunt viverra velit. Donec sagittis libero vitae arcu convallis molestie. " +
                     "Aenean a cursus urna, et efficitur lectus. Praesent ac sodales urna, vel eleifend lorem. Integer tortor sem, commodo ut augue vel, consectetur rhoncus ante. " +
                     "Nam vel lacus dui. Praesent pulvinar quis metus eget fringilla. Pellentesque dictum neque quis tellus consequat, sed consectetur dolor ornare."
-
             });
             NewsItems.Add(new NewsItem()
             {
