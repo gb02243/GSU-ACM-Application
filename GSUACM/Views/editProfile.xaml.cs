@@ -25,5 +25,14 @@ namespace GSUACM.Views
         {
 
         }
+        private void displayEmailChecked(Object sender, EventArgs e)
+        {
+
+        }
+        
+        private void displayPhoneChecked(Object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -36,7 +36,7 @@
             </Grid.RowDefinitions>
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                 <ContentView Padding="0,40,0,20" VerticalOptions="FillAndExpand">
-                    <Image Source="gsu_logo.png" VerticalOptions="Center" HeightRequest="64" />
+                    <Image Source="gsu_logo.png" VerticalOptions="CenterAndExpand" HeightRequest="64" />
                 </ContentView>
             </StackLayout>
             <Label Grid.Row="1" Grid.Column="0" Text="Name:" HorizontalOptions="End" VerticalOptions="Center" />
