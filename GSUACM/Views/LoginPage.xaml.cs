@@ -93,6 +93,7 @@ namespace GSUACM.Views
         private async void labelGoToHomePage_Click(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
+            //TODO: event handling to update dashboard page
         }
         // get the first name CLICK
         private String getFirstName(object sender, EventArgs e)
