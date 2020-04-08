@@ -54,8 +54,9 @@ namespace GSUACM.Views
                 //check if the user exists or not
                 if (table.Rows.Count > 0)
                 {
-                    labelGoToHomePage_Click(sender, e);
+                    App.InstantiateUser(table.Rows[0]["fname"].ToString(), table.Rows[0]["lname"].ToString(), table.Rows[0]["userID"].ToString());
                     db.closeConnection();
+                    labelGoToHomePage_Click(sender, e);
                 }
                 else
                 {
@@ -91,10 +92,7 @@ namespace GSUACM.Views
         // label go to homepage CLICK
         private async void labelGoToHomePage_Click(object sender, EventArgs e)
         {
-            // NavigationPage.SetBackButtonTitle(this, "");
-            HomePage home = new HomePage();
-            home.setUpHomePage(getFirstName(sender, e), getLastName(sender, e), getEmail(sender, e), getPhone(sender, e), getPoints(sender, e));
-            await Navigation.PushAsync(home);
+            await Navigation.PopModalAsync();
         }
         // get the first name CLICK
         private String getFirstName(object sender, EventArgs e)

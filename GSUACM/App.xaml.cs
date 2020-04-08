@@ -15,6 +15,7 @@ namespace GSUACM
             InitializeComponent();
             MainPage = new AppShell();
 
+            //TODO: implement
             if (User != null)
             {
 
@@ -23,6 +24,17 @@ namespace GSUACM
             {
 
             }
+        }
+
+        //TODO: retrieve all user info
+        public static void InstantiateUser(string fname, string lname, string userID)
+        {
+            User = new User
+            {
+                fname = fname,
+                lname = lname,
+                userID = userID
+            };
         }
 
         protected override void OnStart()
