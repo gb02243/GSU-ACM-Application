@@ -51,6 +51,22 @@ namespace GSUACM.ViewModels.Dashboard
             // TODO: handle sign out
         }
 
+        public void UpdateDashboard()
+        {
+            if (App.User == null)
+            {
+                WelcomeMessage = "Welcome!\nPlease log in.";
+                ToolbarText = "Log In";
+                isLoggedIn = false;
+            }
+            else
+            {
+                isLoggedIn = true;
+                ToolbarText = "Log Out";
+                WelcomeMessage = "Welcome, " + App.User.fname;
+            }
+        }
+
         public void UpdateNewsItems()
         {
             // TODO: get news items from database
