@@ -1,59 +1,164 @@
 ﻿
 using System;
 using System.ComponentModel;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Windows.Input;
+using GSUACM.ViewModels;
+using MySql.Data.MySqlClient;
 using Xamarin.Forms;
+using System.Diagnostics;
+using System.Data;
+using GSUACM.Services;
+using GSUACM;
+using GSUACM.Views;
+
 namespace XF_Login.ViewModels
 {
     public class LoginViewModel : INotifyPropertyChanged
     {
-        //string conStr = ConfigurationManager.ConnectionStrings["MembersConnectionString"].ConnectionString;
-        string sql = "SELECT * FROM Members where Username = @user and Password = @pass";
+        public string email { get; set; }
+        public INavigation Navigation { get; set; }
+        public string password { get; set; }
+        public ICommand SignInCommand { get; set; }
+        public string WelcomeMessage { get; set; }
+        public ICommand LogInCommand { get; set; }
+        public ICommand SetUpDashBoard { get; set; }
        
-        public Action DisplayInvalidLoginPrompt;
-        public event PropertyChangedEventHandler PropertyChanged = delegate { };
-        private string email;
-        public string Email
+        private DataTable table = new DataTable();
+        //string conStr = ConfigurationManager.ConnectionStrings["MembersConnectionString"].ConnectionString;
+        // label close CLICK
+        public LoginViewModel(INavigation navigation)
         {
-            get { return email; }
-            set
+            this.Navigation = navigation;
+            this.SignInCommand = new Command(this.labelGoToSignUp_Click);
+
+            this.LogInCommand = new Command(this.buttonLogin_Click);
+        }
+        private void labelClose_Click(object sender, EventArgs e)
+        {
+            //this.Close();
+            //Application.Exit();
+        }
+
+
+        // button login
+        private void buttonLogin_Click()
+        {
+            DB db = new DB();
+            //Console.WriteLine("Server"+db.openConnection());
+            if (db.openConnection() == false)
             {
-                email = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Email"));
+                db.closeConnection();
+                Application.Current.MainPage.DisplayAlert("Server Error", "Try Again Later", "Ok");
             }
-        }
-        private string password;
-        public string Password
-        {
-            get { return password; }
-            set
+            else
             {
-                password = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Password"));
+                MySqlDataAdapter adapter = new MySqlDataAdapter();
+                String emailAddress = email;
+                String pword = password;
+                MySqlCommand command = new MySqlCommand("SELECT * FROM user WHERE email = @email and password = @pass", db.getConnection());
+                command.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
+                command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = password;
+                db.openConnection();
+                adapter.SelectCommand = command;
+
+                adapter.Fill(table);
+
+
+
+                //check if the user exists or not
+                if (table.Rows.Count > 0)
+                {
+
+
+                    App.InstantiateUser(table.Rows[0]["fname"].ToString(), table.Rows[0]["lname"].ToString(), table.Rows[0]["userID"].ToString());
+                    //Console.WriteLine("This is the first name" + table.Rows[0]["fname"].ToString());
+
+                    GSUACM.Services.GlobalVars.fname = table.Rows[0]["fname"].ToString();
+                    Console.WriteLine("This is the first name" + GSUACM.Services.GlobalVars.fname);
+                    db.closeConnection();
+                    labelGoToHomePage_Click();
+                    //WelcomeMessage = table.Rows[0]["fname"].ToString();
+    }
+                else
+                {
+                    // check if the username field is empty
+                    if (emailAddress == null || emailAddress == "")
+                    {
+                        Application.Current.MainPage.DisplayAlert("Enter Your Username To Login", "Empty Username", "Ok");
+                    }
+                    // check if the password field is empty
+                    else if (pword == null || pword == "")
+                    {
+                        Application.Current.MainPage.DisplayAlert("Enter Your Password To Login", "Empty Password", "Ok");
+                    }
+
+                    // check if the username or the password don't exist
+                    else
+                    {
+                        Console.WriteLine(command);
+                        Application.Current.MainPage.DisplayAlert("Wrong Username Or Password", "Wrong Data", "Ok");
+                    }
+
+                }
+                db.closeConnection();
             }
+            db.closeConnection();
         }
-        private string phoneNum;
-        public string PhoneNum
+        // label go to signup CLICK
+        private async void labelGoToSignUp_Click()
         {
-            get { return password; }
-            set
-            {
-                phoneNum = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Phone"));
-            }
+            //NavigationPage.SetBackButtonTitle(this, "");
+            await this.Navigation.PushModalAsync(new SignupPage());
         }
-        public ICommand SubmitCommand { protected set; get; }
-        public LoginViewModel()
+
+        // label go to signup CLICK
+        private async void setUpUser()
         {
-            SubmitCommand = new Command(OnSubmit);
+            //NavigationPage.SetBackButtonTitle(this, "");
+            await this.Navigation.PushModalAsync(new SignupPage());
         }
-        public void OnSubmit()
+        // label go to homepage CLICK
+        public event EventHandler<EventArgs> OperationCompeleted;
+        private async void labelGoToHomePage_Click()
         {
-            if (email != "macoratti@yahoo.com" || password != "secret")
-            {
-                DisplayInvalidLoginPrompt();
-            }
+            
+            MessagingCenter.Send<LoginViewModel ,string>(this, "Hi", "John");
+            await this.Navigation.PopModalAsync();
+            //TODO: event handling to update dashboard page
         }
+        // get the first name CLICK
+        private String getFirstName(object sender, EventArgs e)
+        {
+            string fname = table.Rows[0]["fname"].ToString();
+            return fname;
+        }
+        // get the last name CLICK
+        private String getLastName(object sender, EventArgs e)
+        {
+            string lname = table.Rows[0]["lname"].ToString();
+            return lname;
+        }
+        // get the email CLICK
+        private String getEmail(object sender, EventArgs e)
+        {
+            string email = table.Rows[0]["email"].ToString();
+            return email;
+        }
+        // get the email CLICK
+        private String getPhone(object sender, EventArgs e)
+        {
+            string phone = table.Rows[0]["phone"].ToString();
+            return phone;
+        }
+        private String getPoints(object sender, EventArgs e)
+        {
+            string points = table.Rows[0]["points"].ToString();
+            return points;
+        }
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

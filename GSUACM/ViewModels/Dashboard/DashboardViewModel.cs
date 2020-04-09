@@ -1,30 +1,40 @@
 ﻿using GSUACM.Models;
+using GSUACM.Services;
 using GSUACM.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
+using XF_Login.ViewModels;
 
 namespace GSUACM.ViewModels.Dashboard
 {
     public class DashboardViewModel : INotifyPropertyChanged
     {
         public INavigation Navigation { get; set; }
-        public string WelcomeMessage { get; set; }
+        //public string WelcomeMessage { get; set; } 
         public List<NewsItem> NewsItems { get; set; }
         public string ToolbarText { get; set; }
+        public string WelcomeMessage { get; set; }
         public bool isLoggedIn { get; set; }
         public ICommand ToolbarCommand { get; set; }
+        public ICommand UpdateCommand { get; set; }
         public DashboardViewModel(INavigation navigation)
         {
             this.Navigation = navigation;
-
+            MessagingCenter.Subscribe<LoginViewModel, string>(this, "Hi", (sender, arg) => {
+                WelcomeMessage= "Welcome, " + Services.GlobalVars.fname;
+            });
             if (App.User == null)
             {
+               // Console.WriteLine("This is name after logging in" + Services.GlobalVars.fname);
+                WelcomeMessage = "Welcome, ";
                 WelcomeMessage = "Welcome!\nPlease log in.";
+                
                 ToolbarText = "Log In";
                 isLoggedIn = false;
             }
@@ -32,22 +42,41 @@ namespace GSUACM.ViewModels.Dashboard
             {
                 isLoggedIn = true;
                 ToolbarText = "Log Out";
-                WelcomeMessage = "Welcome, " + App.User.fname;
+               // WelcomeMessage;
+                
             }
 
             ToolbarCommand = new Command(GetToolbarAction);
-
+          
+            UpdateCommand = new Command(UpdateDashboard);
             //TODO: fix for new user class
             //User = App.User.userID;
-
+            //WelcomeMessage = Services.GlobalVars.fname;
             NewsItems = new List<NewsItem>();
             UpdateNewsItems();
         }
+        private string myStringProperty=Services.GlobalVars.fname;
+        public string MyStringProperty
+        {
 
+            get { return myStringProperty; }
+            set
+            {
+                myStringProperty = value;
+                OnPropertyChanged(nameof(MyStringProperty)); // Notify that there was a change on this property
+            }
+        }
+        
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+     
         public async void GetToolbarAction()
         {
             if (!isLoggedIn)
-                await Navigation.PushModalAsync(new LoginPage());
+                
+            await Navigation.PushModalAsync(new LoginPage());
+            
             // TODO: handle sign out
         }
 
@@ -55,18 +84,22 @@ namespace GSUACM.ViewModels.Dashboard
         {
             if (App.User == null)
             {
-                WelcomeMessage = "Welcome!\nPlease log in.";
+                Console.WriteLine("This is name after logging in" + GlobalVars.fname);
+                //WelcomeMessage = "Welcome!\nPlease log in.";
+                WelcomeMessage = "Welcome, " + Services.GlobalVars.fname;
                 ToolbarText = "Log In";
                 isLoggedIn = false;
             }
             else
             {
+                Console.WriteLine("This is name after logging in" + GlobalVars.fname);
                 isLoggedIn = true;
                 ToolbarText = "Log Out";
-                WelcomeMessage = "Welcome, " + App.User.fname;
+                //WelcomeMessage = "Welcome, " + App.User.fname;
+               WelcomeMessage = "Welcome, " + Services.GlobalVars.fname;
             }
         }
-
+        
         public void UpdateNewsItems()
         {
             // TODO: get news items from database
@@ -160,6 +193,17 @@ namespace GSUACM.ViewModels.Dashboard
             });
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+
+
     }
 }

@@ -20,7 +20,7 @@
         <StackLayout HorizontalOptions="CenterAndExpand" 
                      Spacing="0"
                      Padding="10">
-            <Label Text="{Binding WelcomeMessage}" 
+            <Label Text="{Binding WelcomeMessage }" 
                    FontSize="32" 
                    HorizontalTextAlignment="Center" />
             <partials:DashboardButtons/>
