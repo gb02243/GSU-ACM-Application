@@ -7,16 +7,24 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XF_Login.ViewModels;
 
 namespace GSUACM.Views.Dashboard
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DashboardPage : ContentPage
     {
+
         public DashboardPage()
         {
             InitializeComponent();
+            Console.WriteLine("Inside Dashboard.view "+Services.GlobalVars.fname);
             BindingContext = new DashboardViewModel(Navigation);
+            //BindingContext = this;
+            //var entry = new Entry();
+
+            //entry.SetBinding<DashboardViewModel>(Entry.TextProperty, dm => dm.EntryText);
+            //Content = entry;
         }
     }
 }

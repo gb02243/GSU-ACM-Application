@@ -4,6 +4,7 @@ using Xamarin.Forms.Xaml;
 using GSUACM.Services;
 using GSUACM.Views;
 using GSUACM.Models;
+using GSUACM.Views.Dashboard;
 
 namespace GSUACM
 {
@@ -13,16 +14,16 @@ namespace GSUACM
         public App()
         {
             InitializeComponent();
-            MainPage = new AppShell();
-
+      
+            App.Current.MainPage = new AppShell();
             //TODO: implement
             if (User != null)
             {
-
+               // App.Current.MainPage = new NavigationPage(new LoginPage());
             }
             else
             {
-
+               // App.Current.MainPage = new NavigationPage(new DashboardPage());
             }
         }
 
@@ -36,6 +37,7 @@ namespace GSUACM
                 userID = userID
             };
         }
+
 
         protected override void OnStart()
         {
