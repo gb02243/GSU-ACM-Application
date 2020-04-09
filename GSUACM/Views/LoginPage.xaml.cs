@@ -6,7 +6,6 @@ using MySql.Data.MySqlClient;
 using GSUACM.ViewModels;
 using System.Diagnostics;
 using System.Data.SqlClient;
-using XF_Login.ViewModels;
 
 namespace GSUACM.Views
 {
@@ -20,4 +19,3 @@ namespace GSUACM.Views
         }
     }
 }
-
