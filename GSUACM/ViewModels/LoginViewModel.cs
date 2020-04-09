@@ -24,6 +24,7 @@ namespace XF_Login.ViewModels
         public string WelcomeMessage { get; set; }
         public ICommand LogInCommand { get; set; }
         public ICommand SetUpDashBoard { get; set; }
+       
         private DataTable table = new DataTable();
         //string conStr = ConfigurationManager.ConnectionStrings["MembersConnectionString"].ConnectionString;
         // label close CLICK
@@ -39,6 +40,7 @@ namespace XF_Login.ViewModels
             //this.Close();
             //Application.Exit();
         }
+
 
         // button login
         private void buttonLogin_Click()
@@ -118,9 +120,11 @@ namespace XF_Login.ViewModels
             await this.Navigation.PushModalAsync(new SignupPage());
         }
         // label go to homepage CLICK
+        public event EventHandler<EventArgs> OperationCompeleted;
         private async void labelGoToHomePage_Click()
         {
-
+            
+            MessagingCenter.Send<LoginViewModel ,string>(this, "Hi", "John");
             await this.Navigation.PopModalAsync();
             //TODO: event handling to update dashboard page
         }

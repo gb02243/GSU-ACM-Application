@@ -9,6 +9,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
+using XF_Login.ViewModels;
 
 namespace GSUACM.ViewModels.Dashboard
 {
@@ -25,12 +26,14 @@ namespace GSUACM.ViewModels.Dashboard
         public DashboardViewModel(INavigation navigation)
         {
             this.Navigation = navigation;
-
+            MessagingCenter.Subscribe<LoginViewModel, string>(this, "Hi", (sender, arg) => {
+                WelcomeMessage= "Welcome, " + Services.GlobalVars.fname;
+            });
             if (App.User == null)
             {
-                Console.WriteLine("This is name after logging in" + Services.GlobalVars.fname);
-                //WelcomeMessage = "Welcome, ";
-                //WelcomeMessage = "Welcome!\nPlease log in.";
+               // Console.WriteLine("This is name after logging in" + Services.GlobalVars.fname);
+                WelcomeMessage = "Welcome, ";
+                WelcomeMessage = "Welcome!\nPlease log in.";
                 
                 ToolbarText = "Log In";
                 isLoggedIn = false;
@@ -39,7 +42,7 @@ namespace GSUACM.ViewModels.Dashboard
             {
                 isLoggedIn = true;
                 ToolbarText = "Log Out";
-                //WelcomeMessage = "Welcome, ";
+               // WelcomeMessage;
                 
             }
 
@@ -63,7 +66,7 @@ namespace GSUACM.ViewModels.Dashboard
                 OnPropertyChanged(nameof(MyStringProperty)); // Notify that there was a change on this property
             }
         }
-
+        
 
         public event PropertyChangedEventHandler PropertyChanged;
 
