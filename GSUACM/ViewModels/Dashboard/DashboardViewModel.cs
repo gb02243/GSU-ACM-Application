@@ -9,7 +9,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
-using XF_Login.ViewModels;
+using GSUACM.ViewModels;
 
 namespace GSUACM.ViewModels.Dashboard
 {

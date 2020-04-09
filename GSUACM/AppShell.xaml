@@ -34,7 +34,7 @@
     </FlyoutItem>
 
     <FlyoutItem Title="Alumni" Icon="home.png">
-        <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+        <ShellContent ContentTemplate="{DataTemplate views:EmployerPage}" />
     </FlyoutItem>
     
     <!-- ADD FUNCTIONALITY -->

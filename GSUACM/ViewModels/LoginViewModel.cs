@@ -13,7 +13,7 @@ using GSUACM.Services;
 using GSUACM;
 using GSUACM.Views;
 
-namespace XF_Login.ViewModels
+namespace GSUACM.ViewModels
 {
     public class LoginViewModel : INotifyPropertyChanged
     {

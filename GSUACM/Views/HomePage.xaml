@@ -48,7 +48,6 @@
             <Label Grid.Row="4" Grid.Column="0" Text="Club Points:" HorizontalOptions="End" VerticalOptions="Center" />
             <Entry Grid.Row="4" x:Name="point" Grid.Column="1" Text="{Binding Club Points}" VerticalOptions="Center" />
             <Button HorizontalOptions="Center" WidthRequest="200" Margin="0,10,0,0" Text="Edit Profile" BackgroundColor="{StaticResource Primary}" TextColor="White" FontSize="22" Clicked="buttonEditProfile_Click"  CornerRadius="22" VerticalOptions="Center" Grid.Row="5" Grid.ColumnSpan="2"/>
-            <Button HorizontalOptions="Center" WidthRequest="200" Margin="0,10,0,0" Text="Create Profile" BackgroundColor="{StaticResource Primary}" TextColor="White" FontSize="22" Clicked="buttonCreateProfile_Click"  CornerRadius="22" VerticalOptions="Center" Grid.Row="6" Grid.ColumnSpan="2"/>
             <Button Grid.Row="7" Grid.ColumnSpan="2" Clicked="labelLogout_Click" Text="Logout" Command="{Binding LogoutCommand}" 
                     TextColor="Red" VerticalOptions="End" HorizontalOptions="Center" />
         </Grid>
