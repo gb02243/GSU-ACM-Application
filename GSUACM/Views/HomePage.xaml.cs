@@ -43,6 +43,14 @@ namespace GSUACM.Views
 
             adapter.Fill(table);
         }
+        private async void buttonCreateProfile_Click(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new createProfile());
+        }
+        private async void buttonEditProfile_Click(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new editProfile());
+        }
         // label go to signup CLICK
         private async void labelGoToSignUp_Click(object sender, EventArgs e)
         {

@@ -32,6 +32,10 @@
     <FlyoutItem Title="About" Icon="home.png">
         <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
     </FlyoutItem>
+
+    <FlyoutItem Title="Alumni" Icon="home.png">
+        <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+    </FlyoutItem>
     
     <!-- ADD FUNCTIONALITY -->
     <MenuItem Text="Log Out" />

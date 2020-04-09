@@ -9,6 +9,9 @@ namespace GSUACM.ViewModels
     {
         public AboutViewModel()
         {
+            Title = "About";
+            OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://www.acm.org/about-acm/about-the-acm-organization"));
+        }
 
         }
     }
