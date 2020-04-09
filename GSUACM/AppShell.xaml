@@ -21,7 +21,7 @@
         <ShellContent ContentTemplate="{DataTemplate dash:DashboardPage}"/>
     </FlyoutItem>
     <FlyoutItem Title="Profile" Icon="home.png">
-        <ShellContent ContentTemplate="{DataTemplate views:HomePage}"/>
+        <ShellContent Route="home" ContentTemplate="{DataTemplate views:HomePage}"/>
     </FlyoutItem>
     <FlyoutItem Title="Chat" Icon="home.png">
         <Tab>

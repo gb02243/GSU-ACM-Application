@@ -22,7 +22,14 @@ namespace GSUACM.Views
         // button login
         private void buttonLogin_Click(object sender, EventArgs e)
         {
+            NavigationPage.SetBackButtonTitle(this, "");
             DB db = new DB();
+            if (db.openConnection() == false)
+            {
+
+                DisplayAlert("Server Error", "Try Again Later", "Ok");
+            }
+            db.closeConnection();
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter();
             String fname = name.Text;
@@ -30,7 +37,7 @@ namespace GSUACM.Views
             String phoneNum = phone.Text;
             MySqlCommand command = new MySqlCommand("SELECT fname,lname,email,phone FROM user WHERE ", db.getConnection());
             command.Parameters.Add("@email", MySqlDbType.VarChar).Value = email.Text;
-            
+
             db.openConnection();
             adapter.SelectCommand = command;
 
@@ -39,20 +46,22 @@ namespace GSUACM.Views
         // label go to signup CLICK
         private async void labelGoToSignUp_Click(object sender, EventArgs e)
         {
+            NavigationPage.SetBackButtonTitle(this, "");
             await Navigation.PushAsync(new SignupPage());
         }
         // label go to signup CLICK
         private async void labelLogout_Click(object sender, EventArgs e)
         {
+            NavigationPage.SetBackButtonTitle(this, "");
             await Navigation.PushAsync(new LoginPage());
         }
         //set text boxes up
-        public  void setUpHomePage(string fname, string lname, string emailaddress, string phoneNum,String points)
+        public void setUpHomePage(string fname, string lname, string emailaddress, string phoneNum, String points)
         {
-            name.Text = fname +" "+ lname;
+            name.Text = fname + " " + lname;
             email.Text = emailaddress;
             phone.Text = phoneNum;
-            if (points==null)
+            if (points == null)
             {
                 point.Text = "0";
             }
@@ -61,7 +70,7 @@ namespace GSUACM.Views
                 point.Text = points;
             }
         }
-    
+
 
     }
 }

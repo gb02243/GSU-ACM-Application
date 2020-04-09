@@ -3,33 +3,41 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using GSUACM.Services;
 using GSUACM.Views;
+using GSUACM.Models;
+using GSUACM.Views.Dashboard;
 
 namespace GSUACM
 {
     public partial class App : Application
     {
-        public static bool isLoggedIn { get; set; }
-        public static bool isAdmin { get; set; }
-
-        //TODO: remember to fix this
-        public static string User { get; set; }
-
+        public static User User { get; set; }
         public App()
         {
             InitializeComponent();
-            // TODO: remove these
-            isLoggedIn = true;
-            isAdmin = true;
-            User = "Griffin";
-
-            if (isLoggedIn)
-                MainPage = new AppShell();
+      
+            App.Current.MainPage = new AppShell();
+            //TODO: implement
+            if (User != null)
+            {
+               // App.Current.MainPage = new NavigationPage(new LoginPage());
+            }
             else
-                MainPage = new LoginPage();
-
-            //MainPage = new Controls.Cards.CardViewUI();
-
+            {
+               // App.Current.MainPage = new NavigationPage(new DashboardPage());
+            }
         }
+
+        //TODO: retrieve all user info
+        public static void InstantiateUser(string fname, string lname, string userID)
+        {
+            User = new User
+            {
+                fname = fname,
+                lname = lname,
+                userID = userID
+            };
+        }
+
 
         protected override void OnStart()
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GSUACM.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ namespace GSUACM
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AppShell : Shell
-    {
+    {    
         public AppShell()
         {
             InitializeComponent();

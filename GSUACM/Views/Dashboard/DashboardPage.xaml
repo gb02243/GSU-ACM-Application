@@ -11,15 +11,16 @@
              x:Class="GSUACM.Views.Dashboard.DashboardPage"
              Title="Dashboard">
     <!-- Toolbar -->
-    <!--<ContentPage.ToolbarItems>
-        <ToolbarItem Icon="info"
-                     Clicked="Handle_InfoClicked" />
-    </ContentPage.ToolbarItems>-->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{Binding ToolbarText}" Command="{Binding ToolbarCommand}"/>
+    </ContentPage.ToolbarItems>
 
     <!-- Content -->
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="CenterAndExpand" Spacing="0">
-            <Label Text="{Binding WelcomeMessage}" 
+        <StackLayout HorizontalOptions="CenterAndExpand" 
+                     Spacing="0"
+                     Padding="10">
+            <Label Text="{Binding WelcomeMessage }" 
                    FontSize="32" 
                    HorizontalTextAlignment="Center" />
             <partials:DashboardButtons/>
