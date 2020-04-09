@@ -10,7 +10,7 @@ namespace GSUACM.ViewModels
     class DB
     {
         // the connection
-        private MySqlConnection connection = new MySqlConnection("server=acmdbv2.cjdtpyz15vp0.us-east-1.rds.amazonaws.com;port=3306;username=admin;password=dm001192;database=acm_db");
+        private MySqlConnection connection = new MySqlConnection("server=24.125.109.20;port=3306;username=swe;password=swe2020;database=GSUACM");
 
 
         // create a function to open the connection
