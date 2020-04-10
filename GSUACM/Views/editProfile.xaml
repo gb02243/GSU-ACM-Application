@@ -14,15 +14,6 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <pancake:PancakeView HasShadow="True">
-            <StackLayout BackgroundColor="{StaticResource Secondary}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                    <ContentView Padding="0,40,0,20" VerticalOptions="FillAndExpand">
-                        <Image Source="gsu_logo.png" VerticalOptions="Center" HeightRequest="64" />
-                    </ContentView>
-                </StackLayout>
-            </StackLayout>
-        </pancake:PancakeView>
         <ScrollView Grid.Row="1">
             <StackLayout Orientation="Vertical" Padding="16,20,16,40" Spacing="10">
                 <Label Text="Edit Profile" FontAttributes="Bold" HorizontalTextAlignment="Center" FontSize="35"/>
