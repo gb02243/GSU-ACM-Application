@@ -10,6 +10,7 @@ namespace GSUACM.Models
         public string Date { get; set; }
         public List<Option> Options { get; set; }
         public int TotalVotes { get; set; }
+        public bool isActive { get; set; }
         public class Option
         {
             public string Text { get; set; }

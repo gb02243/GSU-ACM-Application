@@ -11,9 +11,9 @@ using Xamarin.Forms.Xaml;
 namespace GSUACM.Views.Polls
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PollsPage : ContentPage
+    public partial class PastPollsPage : ContentPage
     {
-        public PollsPage()
+        public PastPollsPage()
         {
             InitializeComponent();
             BindingContext = new PollsPageViewModel();

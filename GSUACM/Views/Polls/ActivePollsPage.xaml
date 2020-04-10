@@ -4,19 +4,17 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:partials="clr-namespace:GSUACM.Views.Polls.Partials"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-             ios:Page.UseSafeArea="True"
              mc:Ignorable="d"
-             x:Class="GSUACM.Views.Polls.PollsPage"
-             Title="Polls">
+             x:Class="GSUACM.Views.Polls.ActivePollsPage">
     <ContentPage.Content>
         <StackLayout Spacing="0"
                      Padding="10">
-            <Label Text="Polls" 
+            <Label Text="Active Polls" 
                    FontSize="28" 
-                   HorizontalTextAlignment="Center" />
+                   HorizontalTextAlignment="Center"
+                   FontAttributes="Bold" />
             <CollectionView x:Name="pollsList"
-                            ItemsSource="{Binding Polls}">
+                            ItemsSource="{Binding ActivePolls}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <partials:PollPartial />
