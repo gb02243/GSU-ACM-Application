@@ -16,16 +16,16 @@ namespace GSUACM
             InitializeComponent();
 
             //App.Current.MainPage = new AppShell();
-            App.Current.MainPage = new NavigationPage(new Views.Polls.PollsPage());
+            MainPage = new Views.Polls.PollPreviewPage();
             //TODO: implement
-            if (User != null)
-            {
-               // App.Current.MainPage = new NavigationPage(new LoginPage());
-            }
-            else
-            {
-               // App.Current.MainPage = new NavigationPage(new DashboardPage());
-            }
+            //if (User != null)
+            //{
+            //    App.Current.MainPage = new NavigationPage(new LoginPage());
+            //}
+            //else
+            //{
+            //    App.Current.MainPage = new NavigationPage(new DashboardPage());
+            //}
         }
 
         //TODO: retrieve all user info

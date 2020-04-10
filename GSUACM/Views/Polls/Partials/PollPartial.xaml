@@ -15,55 +15,48 @@
                    VerticalOptions="Center">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="75" />
-                        <RowDefinition Height="4" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="2" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="75" />
-                        <ColumnDefinition Width="200" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Frame IsClippedToBounds="True"
-                           CornerRadius="38"
-                           HeightRequest="60"
-                           WidthRequest="60"
-                           HorizontalOptions="Center"
-                           VerticalOptions="Center">
-                        <Image Source="{local:ImageResource GSUACM.Images.gsu_logo_icon.jpg}"
-                               HeightRequest="100"
-                               Aspect="AspectFit" />
-                    </Frame>
-                    <StackLayout Grid.Column="1" 
+                    <StackLayout Grid.Column="0" 
                                  Spacing="5" 
                                  VerticalOptions="CenterAndExpand">
-                        <Label Text="{Binding Title}"
+                        <StackLayout>
+                            <Label Text="4/10/2020"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <Label Text="How Do You Feel About This?"
                                FontAttributes="Bold"
-                               FontSize="Medium"
+                               FontSize="Large"
                                VerticalTextAlignment="Center"
-                               HorizontalTextAlignment="Start" />
-                        <Label Text="{Binding Author}"
+                               HorizontalTextAlignment="Center" />
+                        <Label Text="Please Choose an Option"
                                FontAttributes="Italic"
                                FontSize="Small"
                                VerticalTextAlignment="Center"
-                               HorizontalTextAlignment="Start" />
-                    </StackLayout>
-                    <StackLayout Grid.Column="2" 
-                                 Spacing="4"
-                                 VerticalOptions="CenterAndExpand">
-                        <Label Text="{Binding Date}" />
-                        <Label Text="{Binding Time}" />
+                               HorizontalTextAlignment="Center" />
                     </StackLayout>
                     <BoxView Grid.Row="1"
-                             Grid.ColumnSpan="3"
                              BackgroundColor="Gray"
                              HeightRequest="1"
-                             HorizontalOptions="Fill" />
-                    <Label Grid.Row="2"
-                           Grid.ColumnSpan="3"
-                           Text="{Binding BodyPreview}"
-                           VerticalTextAlignment="Start"
-                           VerticalOptions="Fill"
-                           HorizontalOptions="Fill" />
+                             HorizontalOptions="Fill"
+                             CornerRadius="20"/>
+                    <!-- Poll Choices -->
+                    <ListView x:Name="pollChoices" Grid.Row="2" HorizontalOptions="FillAndExpand">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Button Text="Option" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" />
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <!-- End Poll Choices -->
                 </Grid>
             </Frame>
         </StackLayout>

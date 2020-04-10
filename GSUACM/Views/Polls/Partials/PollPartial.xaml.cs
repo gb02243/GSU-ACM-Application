@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GSUACM.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace GSUACM.Views.Polls.Partials
         public PollPartial()
         {
             InitializeComponent();
+            BindingContext = new PollsPageViewModel();
         }
     }
 }
