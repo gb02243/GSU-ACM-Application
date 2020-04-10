@@ -14,17 +14,17 @@ namespace GSUACM
         public App()
         {
             InitializeComponent();
-      
+
             App.Current.MainPage = new AppShell();
             //TODO: implement
-            if (User != null)
-            {
-               // App.Current.MainPage = new NavigationPage(new LoginPage());
-            }
-            else
-            {
-               // App.Current.MainPage = new NavigationPage(new DashboardPage());
-            }
+            //if (User != null)
+            //{
+            //    App.Current.MainPage = new NavigationPage(new LoginPage());
+            //}
+            //else
+            //{
+            //    App.Current.MainPage = new NavigationPage(new DashboardPage());
+            //}
         }
 
         //TODO: retrieve all user info

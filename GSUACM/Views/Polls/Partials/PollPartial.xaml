@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="GSUACM.Views.Polls.Partials.PollPartial">
+  <ContentView.Content>
+        <StackLayout Margin="10" HorizontalOptions="FillAndExpand">
+            <Frame CornerRadius="5"
+                   HasShadow="True"
+                   Padding="8"
+                   HorizontalOptions="FillAndExpand">
+                <Grid HorizontalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="2" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Grid.Column="0" 
+                                 Spacing="5"
+                                 HorizontalOptions="FillAndExpand">
+                        <StackLayout>
+                            <Label Text="{Binding Date}"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <Label Text="{Binding Title}"
+                               FontAttributes="Bold"
+                               FontSize="Large"
+                               VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="Center" />
+                        <Label Text="Please choose an option."
+                               FontAttributes="Italic"
+                               FontSize="Small"
+                               VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="Center" />
+                    </StackLayout>
+                    <BoxView Grid.Row="1"
+                             BackgroundColor="Gray"
+                             HeightRequest="1"
+                             CornerRadius="1"
+                             HorizontalOptions="FillAndExpand"/>
+                    <!-- Poll Choices -->
+                    <StackLayout Grid.Row="2"
+                                     BindableLayout.ItemsSource="{Binding Options}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Button Text="{Binding Text}" />
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                    <!-- End Poll Choices -->
+                </Grid>
+            </Frame>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
