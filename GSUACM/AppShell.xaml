@@ -6,6 +6,7 @@
     xmlns:views="clr-namespace:GSUACM.Views"
     xmlns:dash="clr-namespace:GSUACM.Views.Dashboard"
     xmlns:chatviews="clr-namespace:GSUACM.Views.Chat"
+    xmlns:polls="clr-namespace:GSUACM.Views.Polls"
     x:Class="GSUACM.AppShell"
     BackgroundColor="{DynamicResource GSUGold}">
     <!-- FLYOUT -->
@@ -32,7 +33,9 @@
     <FlyoutItem Title="About" Icon="home.png">
         <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
     </FlyoutItem>
-
+    <FlyoutItem Title="Polls" Icon="home.png">
+        <ShellContent Route="home" ContentTemplate="{DataTemplate polls:PollsPage}"/>
+    </FlyoutItem>
     <FlyoutItem Title="Alumni" Icon="home.png">
         <ShellContent ContentTemplate="{DataTemplate views:EmployerPage}" />
     </FlyoutItem>

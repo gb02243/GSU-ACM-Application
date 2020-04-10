@@ -15,8 +15,7 @@ namespace GSUACM
         {
             InitializeComponent();
 
-            //App.Current.MainPage = new AppShell();
-            MainPage = new Views.Polls.PollsPage();
+            App.Current.MainPage = new AppShell();
             //TODO: implement
             //if (User != null)
             //{
