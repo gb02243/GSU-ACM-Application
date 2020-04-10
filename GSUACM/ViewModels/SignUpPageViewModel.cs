@@ -21,16 +21,21 @@ namespace GSUACM.ViewModels
         public string PhoneNum { get; set; }
         public INavigation Navigation { get; set; }
         public ICommand SignupCommand { get; set; }
-        public ICommand LogInCommand { get; set; }
+        public ICommand CancelCommand { get; set; }
         
         // textbox first name ENTER
         public SignUpPageViewModel(INavigation navigation)
         {
             this.Navigation = navigation;
             this.SignupCommand = new Command(this.buttonCreateAccount_Click);
-
-            this.LogInCommand = new Command(this.labelGoToLogin_Click);
+            this.CancelCommand = new Command(this.buttonCancel_Click);
         }
+
+        private void buttonCancel_Click(object obj)
+        {
+            Navigation.PopModalAsync();
+        }
+
         private void textBoxFirstname_Enter()
         {
             String fname = firstName;
@@ -223,7 +228,7 @@ namespace GSUACM.ViewModels
                         if (command.ExecuteNonQuery() == 1)
                         {
                             Application.Current.MainPage.DisplayAlert("Your Account Has Been Created", "Account Created", "Ok");
-                            labelGoToLogin_Click();
+                            Navigation.PopModalAsync();
                         }
                         else
                         {
@@ -291,20 +296,10 @@ namespace GSUACM.ViewModels
             {
                 return false;
             }
-
             else
             {
                 return true;
             }
-
         }
-
-        // label go to the login form CLICK
-        private async void labelGoToLogin_Click()
-        {
-           // NavigationPage.SetBackButtonTitle(this, "");
-            await this.Navigation.PushModalAsync(new LoginPage());
-        }
-
     }
 }

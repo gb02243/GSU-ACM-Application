@@ -24,6 +24,7 @@ namespace GSUACM.ViewModels
         public string WelcomeMessage { get; set; }
         public ICommand LogInCommand { get; set; }
         public ICommand SetUpDashBoard { get; set; }
+        public ICommand CancelCommand { get; set; }
        
         private DataTable table = new DataTable();
         //string conStr = ConfigurationManager.ConnectionStrings["MembersConnectionString"].ConnectionString;
@@ -34,7 +35,14 @@ namespace GSUACM.ViewModels
             this.SignInCommand = new Command(this.labelGoToSignUp_Click);
 
             this.LogInCommand = new Command(this.buttonLogin_Click);
+            this.CancelCommand = new Command(this.buttonCancel_Click);
         }
+
+        private void buttonCancel_Click(object obj)
+        {
+            Navigation.PopModalAsync();
+        }
+
         private void labelClose_Click(object sender, EventArgs e)
         {
             //this.Close();
