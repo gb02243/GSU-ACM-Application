@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:partials="clr-namespace:GSUACM.Views.Polls.Partials"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True"
+             mc:Ignorable="d"
+             x:Class="GSUACM.Views.Polls.PollsPage"
+             Title="Polls">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="CenterAndExpand" 
+                     Spacing="0"
+                     Padding="10">
+            <Label Text="Polls" 
+                   FontSize="28" 
+                   HorizontalTextAlignment="Center" />
+            <CollectionView x:Name="newsList"
+                            ItemsSource="{Binding NewsItems}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <partials:PollPartial />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <!-- Poll Preview -->
+            <StackLayout Margin="10">
+                <Frame CornerRadius="5"
+                   HasShadow="True"
+                   Padding="8"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="75" />
+                            <RowDefinition Height="4" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="75" />
+                            <ColumnDefinition Width="200" />
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.Column="1" 
+                                 Spacing="5" 
+                                 VerticalOptions="CenterAndExpand">
+                            <Label Text="Poll Title"
+                               FontAttributes="Bold"
+                               FontSize="Medium"
+                               VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="Start" />
+                            <Label Text="Poll Author"
+                               FontAttributes="Italic"
+                               FontSize="Small"
+                               VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="Start" />
+                        </StackLayout>
+                        <StackLayout Grid.Column="2" 
+                                 Spacing="4"
+                                 VerticalOptions="CenterAndExpand">
+                            <Label Text="Date" />
+                            <Label Text="Time" />
+                        </StackLayout>
+                        <BoxView Grid.Row="1"
+                             Grid.ColumnSpan="3"
+                             BackgroundColor="Gray"
+                             HeightRequest="1"
+                             HorizontalOptions="Fill" />
+                        <Label Grid.Row="2"
+                           Grid.ColumnSpan="3"
+                           Text="Poll Body"
+                           VerticalTextAlignment="Start"
+                           VerticalOptions="Fill"
+                           HorizontalOptions="Fill" />
+                    </Grid>
+                </Frame>
+            </StackLayout>
+            <!-- End Poll Preview -->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
