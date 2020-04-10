@@ -3,17 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="clr-namespace:GSUACM"
              mc:Ignorable="d"
              x:Class="GSUACM.Views.Polls.Partials.PollPartial">
   <ContentView.Content>
-        <StackLayout Margin="10">
+        <StackLayout Margin="10" HorizontalOptions="FillAndExpand">
             <Frame CornerRadius="5"
                    HasShadow="True"
                    Padding="8"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center">
-                <Grid>
+                   HorizontalOptions="FillAndExpand">
+                <Grid HorizontalOptions="FillAndExpand">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="2" />
@@ -23,19 +21,19 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <StackLayout Grid.Column="0" 
-                                 Spacing="5" 
-                                 VerticalOptions="CenterAndExpand">
+                                 Spacing="5"
+                                 HorizontalOptions="FillAndExpand">
                         <StackLayout>
-                            <Label Text="4/10/2020"
+                            <Label Text="{Binding Date}"
                                    VerticalTextAlignment="Center"
                                    HorizontalTextAlignment="Center" />
                         </StackLayout>
-                        <Label Text="How Do You Feel About This?"
+                        <Label Text="{Binding Title}"
                                FontAttributes="Bold"
                                FontSize="Large"
                                VerticalTextAlignment="Center"
                                HorizontalTextAlignment="Center" />
-                        <Label Text="Please Choose an Option"
+                        <Label Text="Please choose an option."
                                FontAttributes="Italic"
                                FontSize="Small"
                                VerticalTextAlignment="Center"
@@ -44,18 +42,17 @@
                     <BoxView Grid.Row="1"
                              BackgroundColor="Gray"
                              HeightRequest="1"
-                             HorizontalOptions="Fill"
-                             CornerRadius="20"/>
+                             CornerRadius="1"
+                             HorizontalOptions="FillAndExpand"/>
                     <!-- Poll Choices -->
-                    <ListView x:Name="pollChoices" Grid.Row="2" HorizontalOptions="FillAndExpand">
-                        <ListView.ItemTemplate>
+                    <StackLayout Grid.Row="2"
+                                     BindableLayout.ItemsSource="{Binding Options}">
+                        <BindableLayout.ItemTemplate>
                             <DataTemplate>
-                                <ViewCell>
-                                    <Button Text="Option" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" />
-                                </ViewCell>
+                                <Button Text="{Binding Text}" />
                             </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
                     <!-- End Poll Choices -->
                 </Grid>
             </Frame>

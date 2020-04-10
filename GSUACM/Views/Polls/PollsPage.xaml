@@ -10,8 +10,7 @@
              x:Class="GSUACM.Views.Polls.PollsPage"
              Title="Polls">
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="CenterAndExpand" 
-                     Spacing="0"
+        <StackLayout Spacing="0"
                      Padding="10">
             <Label Text="Polls" 
                    FontSize="28" 
