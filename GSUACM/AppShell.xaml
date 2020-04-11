@@ -24,6 +24,12 @@
     <FlyoutItem Title="Profile" Icon="home.png">
         <ShellContent Route="home" ContentTemplate="{DataTemplate views:HomePage}"/>
     </FlyoutItem>
+    <FlyoutItem Title="Members" Icon="home.png">
+        <Tab>
+            <ShellContent Title="Members" ContentTemplate="{DataTemplate views:MemberListPage}"/>
+            <ShellContent Title="Mentors" ContentTemplate="{DataTemplate views:MentorListPage}}"/>
+        </Tab>
+    </FlyoutItem>
     <FlyoutItem Title="Chat" Icon="home.png">
         <Tab>
             <ShellContent Title="Messages" ContentTemplate="{DataTemplate chatviews:MessageListPage}"/>
