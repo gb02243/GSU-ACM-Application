@@ -6,10 +6,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="GSUACM.Views.HomePage">
-    
+    <!-- Toolbar -->
+    <!--
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Save" Command="{Binding SaveCommand}" />
     </ContentPage.ToolbarItems>
+    -->
     
     <ContentPage.Resources>
         <ResourceDictionary>
