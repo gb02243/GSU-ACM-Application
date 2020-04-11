@@ -51,6 +51,10 @@
     <FlyoutItem Title="Alumni" Icon="home.png">
         <ShellContent ContentTemplate="{DataTemplate views:EmployerPage}" />
     </FlyoutItem>
+
+    <FlyoutItem Title="Pay Dues" Icon="home.png">
+        <ShellContent ContentTemplate="{DataTemplate views:payDuesPage}" />
+    </FlyoutItem>
     
     <!-- ADD FUNCTIONALITY -->
     <MenuItem Text="Log Out" />
