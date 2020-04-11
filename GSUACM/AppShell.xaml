@@ -55,7 +55,6 @@
     <FlyoutItem Title="Pay Dues" Icon="home.png">
         <ShellContent ContentTemplate="{DataTemplate views:payDuesPage}" />
     </FlyoutItem>
-    
     <!-- ADD FUNCTIONALITY -->
     <MenuItem Text="Log Out" />
     
