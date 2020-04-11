@@ -22,7 +22,7 @@ namespace GSUACM.ViewModels.ChatViewModels
             this.Navigation = navigation;
             BackCommand = new Command(CloseModal);
 
-            UpdateChat(id, isChannel);
+            //UpdateChat(id, isChannel);
 
             OnSendCommand = new Command(() =>
             {
@@ -41,10 +41,10 @@ namespace GSUACM.ViewModels.ChatViewModels
         public void UpdateChat(string id, bool isChannel)
         {
             //TODO: get chat data from API
-            if (isChannel)
-                Messages = new ObservableCollection<Message>(MockIncomingMessage.GetChannel(id));
-            else
-                Messages = new ObservableCollection<Message>(MockIncomingMessage.GetChat(id));
+            //if (isChannel)
+            //    Messages = new ObservableCollection<Message>(MockIncomingMessage.GetChannel(id));
+            //else
+            //    Messages = new ObservableCollection<Message>(MockIncomingMessage.GetChat(id));
         }
 
         public void CloseModal()

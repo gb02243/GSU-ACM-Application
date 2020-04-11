@@ -23,13 +23,13 @@ namespace GSUACM.ViewModels.ChatViewModels
             DeleteCommand = new Command<string>(DeleteChannel);
             OpenChatCommand = new Command<string>(OpenChannel);
             //TODO: get chat data from API
-            MockIncomingMessage.SimulateChannels(5, 3, 2);
+            //MockIncomingMessage.SimulateChannels(5, 3, 2);
             UpdateList();
         }
 
         private void UpdateList()
         {
-            Channels = new List<Message>(MockIncomingMessage.GetChannels());
+            //Channels = new List<Message>(MockIncomingMessage.GetChannels());
             //PropertyChanged(this, new PropertyChangedEventArgs("Messages"));
         }
 
