@@ -6,9 +6,9 @@ using Xamarin.Forms;
 
 namespace GSUACM.ViewModels
 {
-    public class payDuesViewModel : INotifyPropertyChanged
+    public class PayDuesViewModel : INotifyPropertyChanged
     {
-        public payDuesViewModel()
+        public PayDuesViewModel()
         {   
             OpenPayPal = new Command(async () => await Browser.OpenAsync("https://www.paypal.com/us/home"));
             OpenCashApp = new Command(async () => await Browser.OpenAsync("https://cash.app"));

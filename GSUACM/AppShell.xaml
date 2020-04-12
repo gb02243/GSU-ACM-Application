@@ -51,7 +51,7 @@
     </FlyoutItem>
 
     <FlyoutItem Title="Pay Dues" Icon="home.png">
-        <ShellContent ContentTemplate="{DataTemplate views:payDuesPage}" />
+        <ShellContent ContentTemplate="{DataTemplate views:PayDuesPage}" />
     </FlyoutItem>
 
     <FlyoutItem Title="About" Icon="home.png">
