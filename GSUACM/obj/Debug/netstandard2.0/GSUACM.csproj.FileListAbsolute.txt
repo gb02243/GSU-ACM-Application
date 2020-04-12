@@ -116,6 +116,10 @@ C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstand
 C:/Users/griff/Source/Repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/GSUACM.csprojAssemblyReference.cache
 C:/Users/griff/Source/Repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/MemberListPage.xaml.g.cs
 C:/Users/griff/Source/Repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/MentorListPage.xaml.g.cs
+/Users/everrickwright/Projects/project-gs-acm-application/GSUACM/bin/Debug/netstandard2.0/GSUACM.deps.json
+/Users/everrickwright/Projects/project-gs-acm-application/GSUACM/bin/Debug/netstandard2.0/GSUACM.dll
+/Users/everrickwright/Projects/project-gs-acm-application/GSUACM/bin/Debug/netstandard2.0/ref/GSUACM.dll
+/Users/everrickwright/Projects/project-gs-acm-application/GSUACM/bin/Debug/netstandard2.0/GSUACM.pdb
 /Users/everrickwright/Projects/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/App.xaml.g.cs
 /Users/everrickwright/Projects/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/AppShell.xaml.g.cs
 /Users/everrickwright/Projects/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/AboutPage.xaml.g.cs
@@ -144,10 +148,6 @@ C:/Users/griff/Source/Repos/project-gs-acm-application/GSUACM/obj/Debug/netstand
 /Users/everrickwright/Projects/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/GSUACM.csproj.CoreCompileInputs.cache
 /Users/everrickwright/Projects/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/GSUACM.AssemblyInfoInputs.cache
 /Users/everrickwright/Projects/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/GSUACM.AssemblyInfo.cs
-/Users/everrickwright/Projects/project-gs-acm-application/GSUACM/bin/Debug/netstandard2.0/GSUACM.deps.json
-/Users/everrickwright/Projects/project-gs-acm-application/GSUACM/bin/Debug/netstandard2.0/GSUACM.dll
-/Users/everrickwright/Projects/project-gs-acm-application/GSUACM/bin/Debug/netstandard2.0/ref/GSUACM.dll
-/Users/everrickwright/Projects/project-gs-acm-application/GSUACM/bin/Debug/netstandard2.0/GSUACM.pdb
 /Users/everrickwright/Projects/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/GSUACM.csproj.Fody.CopyLocal.cache
 /Users/everrickwright/Projects/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/XamlC.stamp
 /Users/everrickwright/Projects/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/GSUACM.dll

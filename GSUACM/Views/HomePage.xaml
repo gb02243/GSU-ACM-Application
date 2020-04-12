@@ -7,7 +7,7 @@
              mc:Ignorable="d"
              xmlns:local="clr-namespace:GSUACM"
              x:Class="GSUACM.Views.HomePage"
-    Title="Home Page">
+    Title="Your Profile">
     <!-- Toolbar -->
     <!--
     <ContentPage.ToolbarItems>
@@ -30,6 +30,13 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,20,0,20" VerticalOptions="FillAndExpand">
+                  <Image Source="{local:ImageResource GSUACM.Images.gsu_logo.png}" VerticalOptions="Center" HeightRequest="64" />
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
         <ScrollView Grid.Row="1">
             <StackLayout Orientation="Vertical" Padding="16,20,16,40" Spacing="10">
                 <Label Text="Profile" FontAttributes="Bold" HorizontalTextAlignment="Center" FontSize="35"/>
@@ -92,8 +99,8 @@
                     </Grid>
                     
                 </StackLayout>  
-                <Button HorizontalOptions="Center" WidthRequest="200" Margin="0,10,0,0" Text="Edit Profile" BackgroundColor="{StaticResource Primary}" TextColor="White" FontSize="22" Clicked="buttonEditProfile_Click"  CornerRadius="22" VerticalOptions="EndAndExpand"/>
-                <Button HorizontalOptions="Center" WidthRequest="240" Margin="0,10,0,0" Text="Change Password" BackgroundColor="{StaticResource Primary}" TextColor="White" FontSize="22" CornerRadius="22" Clicked="changePassword_Click" VerticalOptions="End"/>
+                <Button HorizontalOptions="Center" WidthRequest="200" Margin="0,10,0,0" Text="Edit Profile" BackgroundColor="{StaticResource Primary}" TextColor="White" FontSize="22" Command="{Binding editPage}"  CornerRadius="22" VerticalOptions="EndAndExpand"/>
+                <Button HorizontalOptions="Center" WidthRequest="240" Margin="0,10,0,0" Text="Change Password" BackgroundColor="{StaticResource Primary}" TextColor="White" FontSize="22" CornerRadius="22" Command="{Binding changePassword}" VerticalOptions="End"/>
             </StackLayout>
         </ScrollView>
     </Grid>
