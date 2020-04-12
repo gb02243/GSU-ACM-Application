@@ -14,7 +14,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Padding="0,5,0,0"
-                         BindableLayout.ItemsSource="{Binding Members}">
+                         BindableLayout.ItemsSource="{Binding Alumni}">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
                         <StackLayout>

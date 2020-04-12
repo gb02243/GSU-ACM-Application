@@ -43,10 +43,10 @@ namespace GSUACM.Views
 
             adapter.Fill(table);
         }
-        private async void changePassword_Click(object sender, EventArgs e)
-        {
+        //private async void changePassword_Click(object sender, EventArgs e)
+        //{
 
-        }
+        //}
         private async void buttonCreateProfile_Click(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new createProfile());

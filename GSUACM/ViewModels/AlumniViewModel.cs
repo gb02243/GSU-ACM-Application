@@ -8,12 +8,10 @@ namespace GSUACM.ViewModels
     public class AlumniViewModel
     {
     public List<User> Alumni { get; set; }
-    public List<User> Mentors { get; set; }
     public INavigation Navigation { get; set; }
     public AlumniViewModel(INavigation navigation)
     {
         this.Navigation = navigation;
-        Alumni = new List<User>();
         Alumni = new List<User>();
         SimulateMembers(20);
     }
@@ -35,7 +33,7 @@ namespace GSUACM.ViewModels
              Alumni[i - 1].title = "Mentor";
 
             if (Alumni[i - 1].title == "Mentor")
-                Mentors.Add(Alumni[i - 1]);
+                Alumni.Add(Alumni[i - 1]);
         }
     }
 }
