@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GSUACM.ViewModels;
+using System;
 using System.Collections.Generic;
 
 using Xamarin.Forms;
@@ -10,29 +11,8 @@ namespace GSUACM.Views
         public editProfile()
         {
             InitializeComponent();
+            BindingContext = new EditProfileViewModel(this.Navigation);
         }
-        private void labelGoToLogin_Click(Object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonUpdateProfile_Click(Object sender, EventArgs e)
-        {
-
-        }
-
-        private void changePasswowrd_Click(Object sender, EventArgs e)
-        {
-
-        }
-        private void displayEmailChecked(Object sender, EventArgs e)
-        {
-
-        }
-        
-        private void displayPhoneChecked(Object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

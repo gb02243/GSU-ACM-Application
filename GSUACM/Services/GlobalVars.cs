@@ -14,6 +14,11 @@ namespace GSUACM.Services
             set { fname = value; }
             get { return fname; }
         }
+        public static String email;
+        public static int userid;
+        public static String lname;
+        public static String  phone;
+        public static String clubpoints;
     }
 
 }

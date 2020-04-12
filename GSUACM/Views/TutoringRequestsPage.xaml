@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GSUACM.Views.TutoringRequestsPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#041e42</Color>
+            <Color x:Key="Secondary">#a99260</Color>
+            <!--<Color x:Key="Accent">#96d1ff</Color>-->
+            <Color x:Key="Accent">#cccccc</Color>
+            <Color x:Key="LightTextColor">#999999</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" Padding="16,20,16,40" Spacing="10">
+                <Label Text="Tutoring Reuests" FontAttributes="Bold" HorizontalTextAlignment="Center" FontSize="35"/>
+                <StackLayout Padding="10,20,10,10" Spacing="20">
+                    <ListView 
+                        ItemsSource="{Binding Requests}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextCell Text="{Binding RequestUser}" />
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                </StackLayout>
+                <Button HorizontalOptions="Center" WidthRequest="200" Margin="0,10,0,0"  Text="Add Class" Command="{Binding AddClassCommand}" BackgroundColor="{StaticResource Primary}" TextColor="White" FontSize="22" CornerRadius="22" VerticalOptions="EndAndExpand"/>
+                <Button HorizontalOptions="Center" WidthRequest="200" Margin="0,10,0,0"  Text="Cancel" Command="{Binding CancelCommand}" BackgroundColor="{StaticResource Primary}" TextColor="White" FontSize="22" CornerRadius="22" VerticalOptions="End"/>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

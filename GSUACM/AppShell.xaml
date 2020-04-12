@@ -36,6 +36,12 @@
     <FlyoutItem Title="Events" Icon="home.png">
         <ShellContent ContentTemplate="{DataTemplate views:EventsPage}" />
     </FlyoutItem>
+    <FlyoutItem Title="Tutoring" Icon="home.png">
+        <ShellContent ContentTemplate="{DataTemplate views:RequestTutor}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Tutoring Requests" Icon="home.png">
+        <ShellContent ContentTemplate="{DataTemplate views:TutoringRequestsPage}" />
+    </FlyoutItem>
     <FlyoutItem Title="Polls" Icon="home.png">
         <Tab>
             <ShellContent Title="Active Polls" ContentTemplate="{DataTemplate polls:ActivePollsPage}"/>

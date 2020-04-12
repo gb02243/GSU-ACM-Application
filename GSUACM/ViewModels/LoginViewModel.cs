@@ -84,7 +84,11 @@ namespace GSUACM.ViewModels
                     //Console.WriteLine("This is the first name" + table.Rows[0]["fname"].ToString());
 
                     GSUACM.Services.GlobalVars.fname = table.Rows[0]["fname"].ToString();
-                    Console.WriteLine("This is the first name" + GSUACM.Services.GlobalVars.fname);
+                    GSUACM.Services.GlobalVars.email = table.Rows[0]["email"].ToString();
+                    GSUACM.Services.GlobalVars.phone = table.Rows[0]["phone"].ToString();
+                    GSUACM.Services.GlobalVars.clubpoints = table.Rows[0]["points"].ToString();
+                    GSUACM.Services.GlobalVars.userid = Convert.ToInt32(table.Rows[0]["userID"]);
+                    //Console.WriteLine("This is the first name" + GSUACM.Services.GlobalVars.fname);
                     db.closeConnection();
                     labelGoToHomePage_Click();
                     //WelcomeMessage = table.Rows[0]["fname"].ToString();
