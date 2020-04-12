@@ -13,9 +13,9 @@
     </ContentPage.BindingContext>
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Color x:Key="Primary">#dark</Color>
-            <Color x:Key="Accent">#dark</Color>
-            <Color x:Key="LightTextColor">#dark</Color>
+            <Color x:Key="Primary">#011E41</Color>
+            <Color x:Key="Accent">#A3AAAE</Color>
+            <Color x:Key="LightTextColor">#011E41</Color>
         </ResourceDictionary>
     </ContentPage.Resources>
     <Grid>
@@ -47,7 +47,7 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="ACM brings together computing educators, researchers, and professionals to inspire dialogue, share resources, and address the field's challenges. As the world’s largest computing society, ACM strengthens the profession's collective voice through strong leadership, promotion of the highest standards, and recognition of technical excellence. ACM supports the professional growth of its members by providing opportunities for life‐long learning, career development, and professional networking." />
+                                <Span Text="ACM brings together computing educators, researchers, and professionals to inspire dialogue, share resources, and address the field's challenges. As the world’s largest computing society, ACM strengthens the profession's collective voice through strong leadership, promotion of the highest standards, and recognition of technical excellence. ACM supports the professional growth of its members by providing opportunities for life‐long learning, career development, and professional networking." FontSize="20" />
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>

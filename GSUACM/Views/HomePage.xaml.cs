@@ -17,7 +17,7 @@ namespace GSUACM.Views
         public HomePage()
         {
             InitializeComponent();
-        }
+            BindingContext = new ProfileViewModel(this.Navigation);        }
 
         // button login
         private void buttonLogin_Click(object sender, EventArgs e)
@@ -42,6 +42,10 @@ namespace GSUACM.Views
             adapter.SelectCommand = command;
 
             adapter.Fill(table);
+        }
+        private async void changePassword_Click(object sender, EventArgs e)
+        {
+
         }
         private async void buttonCreateProfile_Click(object sender, EventArgs e)
         {
@@ -78,7 +82,6 @@ namespace GSUACM.Views
                 point.Text = points;
             }
         }
-
 
     }
 }

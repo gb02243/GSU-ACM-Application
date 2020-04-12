@@ -2,33 +2,75 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GSUACM.Views.EmployerPage"
+             xmlns:local="clr-namespace:GSUACM"
              
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              Title="Employers">
+   <!-- Toolbar -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Search" />
+    </ContentPage.ToolbarItems>
+    <!-- Content -->
     <ContentPage.Content>
-        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
-                    <Image Source="gsu_logo.png" VerticalOptions="Center" HeightRequest="64" />
-                </ContentView>
-            </StackLayout>
-            <Label HorizontalOptions="CenterAndExpand" FontSize="30" Text="Alumni"/>
-
-            <!-- asumming alumni is from database -->
-            <ListView x:Name="EmployeeView"
-                    ItemsSource="{Binding }">
-                <ListView.ItemTemplate>
+        <ScrollView>
+            <StackLayout Padding="0,5,0,0"
+                         BindableLayout.ItemsSource="{Binding Members}">
+                <BindableLayout.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding DisplayName}" />
-                </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
-            
-
-        </StackLayout>
-
-
-
+                        <StackLayout>
+                            <Grid Padding="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Frame BorderColor="Black"
+                                       CornerRadius="30"
+                                       IsClippedToBounds="True">
+                                    <Image Source="{local:ImageResource GSUACM.Images.default_profile_image.png}" 
+                                           Aspect="AspectFill" 
+                                           HeightRequest="70" 
+                                           WidthRequest="70" 
+                                           Margin="-20"/>
+                                </Frame>
+                                <StackLayout Grid.Column="1"
+                                             Padding="10,0,0,0"
+                                             VerticalOptions="Center"
+                                             Spacing="1">
+                                    <Label Text="{Binding fullName}" 
+                                           FontAttributes="Bold"
+                                           FontSize="20" />
+                                    <Label Text="{Binding title}" 
+                                           FontAttributes="Italic" 
+                                           VerticalOptions="End" 
+                                           FontSize="18" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal"
+                                             Grid.Column="3"
+                                             VerticalOptions="Center"
+                                             HorizontalOptions="End">
+                                    <Button Text="P"
+                                            WidthRequest="50"
+                                            HeightRequest="50"
+                                            CornerRadius="25"/>
+                                    <Button Text="C"
+                                            WidthRequest="50"
+                                            HeightRequest="50"
+                                            CornerRadius="25"/>
+                                </StackLayout>
+                            </Grid>
+                            <BoxView Color="Gray"
+                                     HeightRequest="1"
+                                     Opacity="0.5" 
+                                     Grid.Row="2"
+                                     CornerRadius="100"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
-
 </ContentPage>
