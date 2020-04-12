@@ -13,9 +13,9 @@
     </ContentPage.BindingContext>
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Color x:Key="Primary">#dark</Color>
-            <Color x:Key="Accent">#dark</Color>
-            <Color x:Key="LightTextColor">#dark</Color>
+            <Color x:Key="Primary">#011E41</Color>
+            <Color x:Key="Accent">#A3AAAE</Color>
+            <Color x:Key="LightTextColor">#011E41</Color>
         </ResourceDictionary>
     </ContentPage.Resources>
     <Grid>

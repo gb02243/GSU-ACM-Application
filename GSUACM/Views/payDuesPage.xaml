@@ -8,7 +8,7 @@
     x:Class="GSUACM.Views.payDuesPage"
     xmlns:local="clr-namespace:GSUACM"
     xmlns:vm="clr-namespace:GSUACM.ViewModels"
-    Title="{Binding Title}">
+    Title="Pay Dues">
     <ContentPage.BindingContext>
         <vm:AboutViewModel />
     </ContentPage.BindingContext>
@@ -26,14 +26,14 @@
         </Grid.RowDefinitions>
         <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
+                <ContentView Padding="0,20,0,20" VerticalOptions="FillAndExpand">
                   <Image Source="{local:ImageResource GSUACM.Images.gsu_logo.png}" VerticalOptions="Center" HeightRequest="64" />
                 </ContentView>
             </StackLayout>
         </StackLayout>
         <ScrollView Grid.Row="1">
             <StackLayout Orientation="Vertical" Padding="16,20,16,40" Spacing="10">
-                <Label FontSize="22" Text="Pay Dues" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
+                <Label FontSize="25" Text="Pay Dues" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
 
 
                 <Frame Margin="10"
@@ -49,7 +49,8 @@
          Margin="-20"
          HeightRequest="100"
          WidthRequest="100" Clicked="ButtonCashApp_Clicked"
-         />
+         Command="{Binding OpenCashApp}"
+               />
 </Frame>
                 <Frame Margin="10"
        BorderColor="Black"
@@ -63,7 +64,8 @@
          Aspect="AspectFill"
          Margin="-20"
          HeightRequest="100"
-         WidthRequest="100" Clicked="ButtonAmazon_Clicked" />
+         WidthRequest="100" Clicked="ButtonAmazon_Clicked"
+         Command="{Binding OpenAmazon}"/>
 </Frame>
                 <Frame Margin="10"
        BorderColor="Black"
@@ -77,7 +79,8 @@
          Aspect="AspectFill"
          Margin="-20"
          HeightRequest="100"
-         WidthRequest="100" Clicked="ButtonPaypal_Clicked"/>
+         WidthRequest="100" Clicked="ButtonPaypal_Clicked"
+         Command="{Binding OpenPayPal}" />
 </Frame>
 
    <Image Source=""/>

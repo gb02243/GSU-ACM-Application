@@ -6,7 +6,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:local="clr-namespace:GSUACM"
-             x:Class="GSUACM.Views.HomePage">
+             x:Class="GSUACM.Views.HomePage"
+    Title="Home Page">
     <!-- Toolbar -->
     <!--
     <ContentPage.ToolbarItems>
@@ -22,7 +23,9 @@
             <Color x:Key="LightTextColor">#999999</Color>
         </ResourceDictionary>
     </ContentPage.Resources>
+
     <Grid>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
