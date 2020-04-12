@@ -10,8 +10,8 @@ namespace GSUACM.ViewModels
     {
         public payDuesViewModel()
         {   
-            OpenAmazon = new Command(async () => await Browser.OpenAsync("https://www.paypal.com/us/home"));
-            OpenAmazon = new Command(async () => await Browser.OpenAsync("https://cash.app"));
+            OpenPayPal = new Command(async () => await Browser.OpenAsync("https://www.paypal.com/us/home"));
+            OpenCashApp = new Command(async () => await Browser.OpenAsync("https://cash.app"));
             OpenAmazon = new Command(async () => await Browser.OpenAsync("https://www.amazon.com"));
         }
 

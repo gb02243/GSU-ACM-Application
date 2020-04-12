@@ -33,7 +33,7 @@
         </StackLayout>
         <ScrollView Grid.Row="1">
             <StackLayout Orientation="Vertical" Padding="16,20,16,40" Spacing="10">
-                <Label FontSize="25" Text="Pay Dues" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
+                <Label FontSize="25" Text="Pay Dues:" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
 
 
                 <Frame Margin="10"
@@ -48,7 +48,7 @@
          Aspect="AspectFill"
          Margin="-20"
          HeightRequest="100"
-         WidthRequest="100" Clicked="ButtonCashApp_Clicked"
+         WidthRequest="100"
          Command="{Binding OpenCashApp}"
                />
 </Frame>
@@ -64,7 +64,7 @@
          Aspect="AspectFill"
          Margin="-20"
          HeightRequest="100"
-         WidthRequest="100" Clicked="ButtonAmazon_Clicked"
+         WidthRequest="100"
          Command="{Binding OpenAmazon}"/>
 </Frame>
                 <Frame Margin="10"
@@ -79,14 +79,14 @@
          Aspect="AspectFill"
          Margin="-20"
          HeightRequest="100"
-         WidthRequest="100" Clicked="ButtonPaypal_Clicked"
+         WidthRequest="100"
          Command="{Binding OpenPayPal}" />
 </Frame>
 
    <Image Source=""/>
 
 
-    <Label Text="All dues are used to fund events, meeting food, and t-shirts at the end of the semester. If you would like to pay with cash see a officer!" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="18"></Label>
+    <Label Text="All dues are used to fund events, meeting food, and t-shirts at the end of the semester. If you would like to pay with cash see an officer!" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="18"></Label>
             </StackLayout>
 
 
