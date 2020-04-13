@@ -35,7 +35,7 @@ namespace GSUACM.ViewModels
             if (db.openConnection() == false)
             {
                 db.closeConnection();
-                Application.Current.MainPage.DisplayAlert("Server Error", "Try Again Later", "Ok");
+               await  Application.Current.MainPage.DisplayAlert("Server Error", "Try Again Later", "Ok");
             }
             MySqlDataAdapter adapter = new MySqlDataAdapter();
             String userid = userID;

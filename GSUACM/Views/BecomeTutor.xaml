@@ -18,7 +18,7 @@
         </Grid.RowDefinitions>
         <ScrollView Grid.Row="1">
             <StackLayout Orientation="Vertical" Padding="16,20,16,40" Spacing="10">
-                <Label Text="Beocme Tutor" FontAttributes="Bold" HorizontalTextAlignment="Center" FontSize="35"/>
+                <Label Text="Become Tutor" FontAttributes="Bold" HorizontalTextAlignment="Center" FontSize="35"/>
                 <StackLayout Padding="10,20,10,10" Spacing="20">
 
                     <Frame WidthRequest="90"

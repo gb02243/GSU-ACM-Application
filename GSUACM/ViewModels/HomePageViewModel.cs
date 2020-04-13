@@ -29,6 +29,12 @@ namespace GSUACM.ViewModels
                 Phone = Services.GlobalVars.phone;
                 ClubPoints = Services.GlobalVars.clubpoints;
             });
+            MessagingCenter.Subscribe<EditProfileViewModel, string>(this, "Hi", (sender, arg) => {
+                Name = Services.GlobalVars.fname + " " + Services.GlobalVars.lname;
+                Email = Services.GlobalVars.email;
+                Phone = Services.GlobalVars.phone;
+                ClubPoints = Services.GlobalVars.clubpoints;
+            });
             Name = Services.GlobalVars.fname +" "+ Services.GlobalVars.lname;
             Email = Services.GlobalVars.email;
             Phone = Services.GlobalVars.phone;

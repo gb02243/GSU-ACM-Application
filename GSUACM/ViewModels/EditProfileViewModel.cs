@@ -63,6 +63,11 @@ namespace GSUACM.ViewModels
                     // execute the query
                     if (command.ExecuteNonQuery() == 1)
                     {
+                        Services.GlobalVars.fname = firstname;
+                        Services.GlobalVars.lname = lastname;
+                        Services.GlobalVars.email = emailadd;
+                        Services.GlobalVars.phone = phonenum;
+                        MessagingCenter.Send<EditProfileViewModel, string>(this, "Hi", "John");
                         await Application.Current.MainPage.DisplayAlert("Your Account Has Been Created", "Account Created", "Ok");
                        await  Navigation.PopModalAsync();
                     }
