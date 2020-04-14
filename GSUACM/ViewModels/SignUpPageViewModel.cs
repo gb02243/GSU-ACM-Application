@@ -188,7 +188,7 @@ namespace GSUACM.ViewModels
                 db.closeConnection();
                 String fname = firstName;
                 //check sql
-                MySqlCommand command = new MySqlCommand("INSERT INTO user(fname,lname,phone,email,password) VALUES (@fn, @ln,@ph,@email, @pass)", db.getConnection());
+                MySqlCommand command = new MySqlCommand("INSERT INTO user(fname,lname,phone,email,password,title) VALUES (@fn, @ln, @ph, @email, @pass, 'Member')", db.getConnection());
                 MySqlDataAdapter adapter = new MySqlDataAdapter();
                 command.Parameters.Add("@fn", MySqlDbType.VarChar).Value = firstName;
                 command.Parameters.Add("@ln", MySqlDbType.VarChar).Value = lastName;
