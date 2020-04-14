@@ -26,13 +26,14 @@ namespace GSUACM.ViewModels.Dashboard
         public DashboardViewModel(INavigation navigation)
         {
             this.Navigation = navigation;
-            MessagingCenter.Subscribe<LoginViewModel, string>(this, "Hi", (sender, arg) => {
-                WelcomeMessage= "Welcome, " + Services.GlobalVars.fname;
-            });
-            if (App.User == null)
+            MessagingCenter.Subscribe<LoginViewModel, string>(this, "Hi", (sender, arg) =>
             {
-               // Console.WriteLine("This is name after logging in" + Services.GlobalVars.fname);
-                WelcomeMessage = "Welcome, ";
+                WelcomeMessage = "Welcome, " + GlobalVars.User.fname;
+                isLoggedIn = true;
+                ToolbarText = "Log Out";
+            });
+            if (GlobalVars.User == null)
+            {
                 WelcomeMessage = "Welcome!\nPlease log in.";
                 
                 ToolbarText = "Log In";
@@ -50,22 +51,24 @@ namespace GSUACM.ViewModels.Dashboard
           
             UpdateCommand = new Command(UpdateDashboard);
             //TODO: fix for new user class
-            //User = App.User.userID;
-            //WelcomeMessage = Services.GlobalVars.fname;
+            //User = GlobalVars.User.userID;
+            //WelcomeMessage = GlobalVars.User.fname;
             NewsItems = new List<NewsItem>();
             UpdateNewsItems();
         }
-        private string myStringProperty=Services.GlobalVars.fname;
-        public string MyStringProperty
-        {
+        
+        //TODO: ask dylan if this is necessary
+        //private string myStringProperty=GlobalVars.User.fname;
+        //public string MyStringProperty
+        //{
 
-            get { return myStringProperty; }
-            set
-            {
-                myStringProperty = value;
-                OnPropertyChanged(nameof(MyStringProperty)); // Notify that there was a change on this property
-            }
-        }
+        //    get { return myStringProperty; }
+        //    set
+        //    {
+        //        myStringProperty = value;
+        //        OnPropertyChanged(nameof(MyStringProperty)); // Notify that there was a change on this property
+        //    }
+        //}
         
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -74,29 +77,36 @@ namespace GSUACM.ViewModels.Dashboard
         public async void GetToolbarAction()
         {
             if (!isLoggedIn)
-                
-            await Navigation.PushModalAsync(new LoginPage());
+                await Navigation.PushModalAsync(new LoginPage());
+            else
+            {
+                GlobalVars.User = null;
+                WelcomeMessage = "Welcome!\nPlease log in.";
+                ToolbarText = "Log In";
+                isLoggedIn = false;
+                Application.Current.MainPage.DisplayAlert("Logged Out", "You have successfully logged out.", "Ok");
+            }
             
             // TODO: handle sign out
         }
 
         public void UpdateDashboard()
         {
-            if (App.User == null)
+            if (GlobalVars.User == null)
             {
-                Console.WriteLine("This is name after logging in" + GlobalVars.fname);
+                Console.WriteLine("This is name after logging in" + GlobalVars.User.fname);
                 //WelcomeMessage = "Welcome!\nPlease log in.";
-                WelcomeMessage = "Welcome, " + Services.GlobalVars.fname;
+                WelcomeMessage = "Welcome, " + GlobalVars.User.fname;
                 ToolbarText = "Log In";
                 isLoggedIn = false;
             }
             else
             {
-                Console.WriteLine("This is name after logging in" + GlobalVars.fname);
+                Console.WriteLine("This is name after logging in" + GlobalVars.User.fname);
                 isLoggedIn = true;
                 ToolbarText = "Log Out";
-                //WelcomeMessage = "Welcome, " + App.User.fname;
-               WelcomeMessage = "Welcome, " + Services.GlobalVars.fname;
+                //WelcomeMessage = "Welcome, " + GlobalVars.User.fname;
+               WelcomeMessage = "Welcome, " + GlobalVars.User.fname;
             }
         }
         

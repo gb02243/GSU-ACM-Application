@@ -10,11 +10,9 @@ namespace GSUACM
 {
     public partial class App : Application
     {
-        public static User User { get; set; }
         public App()
         {
             InitializeComponent();
-
             App.Current.MainPage = new AppShell();
             //TODO: implement
             //if (User != null)
@@ -26,18 +24,6 @@ namespace GSUACM
             //    App.Current.MainPage = new NavigationPage(new DashboardPage());
             //}
         }
-
-        //TODO: retrieve all user info
-        public static void InstantiateUser(string fname, string lname, string userID)
-        {
-            User = new User
-            {
-                fname = fname,
-                lname = lname,
-                userID = userID
-            };
-        }
-
 
         protected override void OnStart()
         {

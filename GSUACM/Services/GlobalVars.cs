@@ -7,12 +7,19 @@ namespace GSUACM.Services
 {
     public static class GlobalVars
     {
-        
-        public static String fname;
-        public static String getFname
+
+        public static User User { get; set; }
+
+        //TODO: retrieve all user info
+        public static void InstantiateUser(string fname, string lname, string userID, string title)
         {
-            set { fname = value; }
-            get { return fname; }
+            User = new User
+            {
+                fname = fname,
+                lname = lname,
+                userID = userID,
+                title = title
+            };
         }
     }
 
