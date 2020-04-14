@@ -36,8 +36,7 @@ namespace GSUACM.ViewModels
             {
                 // create the adapter and query
                 MySqlDataAdapter adapter = new MySqlDataAdapter();
-                //TODO: Change boardTitle to title in database
-                MySqlCommand command = new MySqlCommand("SELECT userID, fname, lname, boardTitle from user", db.getConnection());
+                MySqlCommand command = new MySqlCommand("SELECT userID, fname, lname, title from user", db.getConnection());
                 //Console.WriteLine("Command Created");
                 db.openConnection();
                 adapter.SelectCommand = command;
@@ -55,8 +54,7 @@ namespace GSUACM.ViewModels
                             userID = queryResults.Rows[i]["userID"].ToString(),
                             fname = queryResults.Rows[i]["fname"].ToString(),
                             lname = queryResults.Rows[i]["lname"].ToString(),
-                            //TODO: change to title
-                            title = queryResults.Rows[i]["boardTitle"].ToString()
+                            title = queryResults.Rows[i]["title"].ToString()
                         };
                         Members.Add(user);
                     }
@@ -69,6 +67,19 @@ namespace GSUACM.ViewModels
                 db.closeConnection();
             }
             db.closeConnection();
+
+            GetMentors();
+        }
+
+        private void GetMentors()
+        {
+            for (int i = 0; i < Members.Count; i++)
+            {
+                if(Members[i].title == "Mentor")
+                {
+                    Mentors.Add(Members[i]);
+                }
+            }
         }
 
         private void SimulateMembers(int members)
