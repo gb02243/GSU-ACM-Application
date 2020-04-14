@@ -167,3 +167,12 @@ ALTER TABLE `tutorsession` ADD CONSTRAINT `sessionTutorFK` FOREIGN KEY (`tutorID
 ALTER TABLE `tutorsession` ADD CONSTRAINT `sessionUserFK` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 INSERT INTO user(fname, lname, password, email, title) VALUES('Griffin', 'Bryant', 'test', 'test@gmail.com', 'Development Team');
+INSERT INTO user(fname, lname, password, email, title) VALUES('Test1', 'Test1', 'test', 'test1@gmail.com', 'Member');
+INSERT INTO user(fname, lname, password, email, title) VALUES('Test2', 'Test2', 'test', 'test2@gmail.com', 'Member');
+INSERT INTO user(fname, lname, password, email, title) VALUES('Test3', 'Test3', 'test', 'test3@gmail.com', 'Member');
+INSERT INTO user(fname, lname, password, email, title) VALUES('Test4', 'Test4', 'test', 'test4@gmail.com', 'Member');
+INSERT INTO user(fname, lname, password, email, title) VALUES('Test5', 'Test5', 'test', 'test5@gmail.com', 'Mentor');
+INSERT INTO user(fname, lname, password, email, title) VALUES('Test6', 'Test6', 'test', 'test6@gmail.com', 'Mentor');
+INSERT INTO user(fname, lname, password, email, title) VALUES('Test7', 'Test7', 'test', 'test7@gmail.com', 'Member');
+INSERT INTO user(fname, lname, password, email, title) VALUES('Test8', 'Test8', 'test', 'test8@gmail.com', 'Member');
+INSERT INTO user(fname, lname, password, email, title) VALUES('Test9', 'Test9', 'test', 'test9@gmail.com', 'Mentor');
