@@ -16,7 +16,7 @@ namespace GSUACM.Views.Dashboard
         public DashboardPage()
         {
             InitializeComponent();
-            //Console.WriteLine("Inside Dashboard.view "+Services.GlobalVars.fname);
+            //Console.WriteLine("Inside Dashboard.view "+GlobalVars.User.fname);
             BindingContext = new DashboardViewModel(Navigation);
         }
     }
