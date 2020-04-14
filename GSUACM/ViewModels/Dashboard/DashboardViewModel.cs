@@ -22,7 +22,6 @@ namespace GSUACM.ViewModels.Dashboard
         public string WelcomeMessage { get; set; }
         public bool isLoggedIn { get; set; }
         public ICommand ToolbarCommand { get; set; }
-        public ICommand UpdateCommand { get; set; }
         public DashboardViewModel(INavigation navigation)
         {
             this.Navigation = navigation;
@@ -43,32 +42,14 @@ namespace GSUACM.ViewModels.Dashboard
             {
                 isLoggedIn = true;
                 ToolbarText = "Log Out";
-               // WelcomeMessage;
-                
             }
 
             ToolbarCommand = new Command(GetToolbarAction);
-          
-            UpdateCommand = new Command(UpdateDashboard);
-            //TODO: fix for new user class
-            //User = GlobalVars.User.userID;
-            //WelcomeMessage = GlobalVars.User.fname;
+       
             NewsItems = new List<NewsItem>();
             UpdateNewsItems();
         }
         
-        //TODO: ask dylan if this is necessary
-        //private string myStringProperty=GlobalVars.User.fname;
-        //public string MyStringProperty
-        //{
-
-        //    get { return myStringProperty; }
-        //    set
-        //    {
-        //        myStringProperty = value;
-        //        OnPropertyChanged(nameof(MyStringProperty)); // Notify that there was a change on this property
-        //    }
-        //}
         
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -84,29 +65,7 @@ namespace GSUACM.ViewModels.Dashboard
                 WelcomeMessage = "Welcome!\nPlease log in.";
                 ToolbarText = "Log In";
                 isLoggedIn = false;
-                Application.Current.MainPage.DisplayAlert("Logged Out", "You have successfully logged out.", "Ok");
-            }
-            
-            // TODO: handle sign out
-        }
-
-        public void UpdateDashboard()
-        {
-            if (GlobalVars.User == null)
-            {
-                Console.WriteLine("This is name after logging in" + GlobalVars.User.fname);
-                //WelcomeMessage = "Welcome!\nPlease log in.";
-                WelcomeMessage = "Welcome, " + GlobalVars.User.fname;
-                ToolbarText = "Log In";
-                isLoggedIn = false;
-            }
-            else
-            {
-                Console.WriteLine("This is name after logging in" + GlobalVars.User.fname);
-                isLoggedIn = true;
-                ToolbarText = "Log Out";
-                //WelcomeMessage = "Welcome, " + GlobalVars.User.fname;
-               WelcomeMessage = "Welcome, " + GlobalVars.User.fname;
+                await Application.Current.MainPage.DisplayAlert("Logged Out", "You have successfully logged out.", "Ok");
             }
         }
         
