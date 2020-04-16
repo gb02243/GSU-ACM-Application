@@ -63,7 +63,7 @@ CREATE TABLE `option` (
   `optionID` varchar(36) NOT NULL,
   `pollID` varchar(36) NOT NULL,
   `text` varchar(255) DEFAULT NULL,
-  `votes` varchar(255) DEFAULT NULL,
+  `votes` int(11) DEFAULT 0,
   PRIMARY KEY (`optionID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
