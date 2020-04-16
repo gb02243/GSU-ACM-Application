@@ -12,7 +12,7 @@
                     JustifyContent="SpaceEvenly">
             <!-- Button will use Clicked="Button_ClickedAsync" -->
             <Frame WidthRequest="90"
-                   HeightRequest="110"
+                   HeightRequest="90"
                    HasShadow="false"
                    HorizontalOptions="Start"
                    BackgroundColor="Transparent">
@@ -22,15 +22,16 @@
                             BorderWidth="1"
                             BackgroundColor="{DynamicResource GSUBlue}"
                             HeightRequest="90"
+                            WidthRequest="90"
                             CornerRadius="45"
                             
                             Text="Chat" 
                             TextColor="{DynamicResource LightGold}"/>
                 </FlexLayout>
             </Frame>
-            <!-- Button will use Clicked="Button_ClickedAsync" -->
+            
             <Frame WidthRequest="90"
-                   HeightRequest="110"
+                   HeightRequest="90"
                    HasShadow="false"
                    HorizontalOptions="Start"
                    BackgroundColor="Transparent">
@@ -40,15 +41,16 @@
                             BorderWidth="1"
                             BackgroundColor="{DynamicResource GSUBlue}"
                             HeightRequest="90"
+                            WidthRequest="90"
                             CornerRadius="45"
                             
                             Text="Profile" 
                             TextColor="{DynamicResource LightGold}"/>
                 </FlexLayout>
             </Frame>
-            <!-- Button will use Clicked="Button_ClickedAsync" -->
+            
             <Frame WidthRequest="90"
-                   HeightRequest="110"
+                   HeightRequest="90"
                    HasShadow="false"
                    HorizontalOptions="Start"
                    BackgroundColor="Transparent">
@@ -58,14 +60,14 @@
                             BorderWidth="1"
                             BackgroundColor="{DynamicResource GSUBlue}"
                             HeightRequest="90"
+                            WidthRequest="90"
                             CornerRadius="45"
                             
                             Text="Events" 
                             TextColor="{DynamicResource LightGold}"/>
                 </FlexLayout>
             </Frame>
-            
-            
+
         </FlexLayout>
     </ContentView.Content>
 </ContentView>

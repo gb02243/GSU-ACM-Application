@@ -154,3 +154,5 @@ C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstand
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\GSUACM.dll
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\ref\GSUACM.dll
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\GSUACM.pdb
+C:\Users\griff\Source\Repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Control Panel\ControlPanelPage.xaml.g.cs
+C:\Users\griff\Source\Repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Control Panel\PollsPanelPage.xaml.g.cs

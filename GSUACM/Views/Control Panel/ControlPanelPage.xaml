@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:GSUACM"
+             mc:Ignorable="d"
+             x:Class="GSUACM.Views.Control_Panel.ControlPanelPage"
+             Title="Control Panel">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" BackgroundColor="{DynamicResource GSUGray}" HeightRequest="120">
+                <Image Source="{local:ImageResource GSUACM.Images.gsu_logo.png}" VerticalOptions="Center" HeightRequest="80" Margin="0,20,0,20"/>
+            </StackLayout>
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <FlexLayout AlignItems="Center"
+                            JustifyContent="SpaceEvenly">
+
+                    <Frame WidthRequest="120"
+                           HeightRequest="120"
+                           HasShadow="false"
+                           HorizontalOptions="Start"
+                           BackgroundColor="Transparent">
+                        <FlexLayout Direction="Column"
+                                    AlignContent="Center">
+                            <Button BorderColor="#fff"
+                                    BorderWidth="1"
+                                    BackgroundColor="{DynamicResource GSUBlue}"
+                                    HeightRequest="120"
+                                    WidthRequest="120"
+                                    CornerRadius="60"
+                                    Text="Create Event"
+                                    TextColor="{DynamicResource LightGold}"/>
+                        </FlexLayout>
+                    </Frame>
+
+                    <Frame WidthRequest="120"
+                           HeightRequest="120"
+                           HasShadow="false"
+                           HorizontalOptions="Start"
+                           BackgroundColor="Transparent">
+                        <FlexLayout Direction="Column"
+                                    AlignContent="Center">
+                            <Button BorderColor="#fff"
+                                    BorderWidth="1"
+                                    BackgroundColor="{DynamicResource GSUBlue}"
+                                    HeightRequest="120"
+                                    WidthRequest="120"
+                                    CornerRadius="60"
+                                    Text="Create Poll" 
+                                    TextColor="{DynamicResource LightGold}" 
+                                    Command="{Binding createPollCommand}" />
+                        </FlexLayout>
+                    </Frame>
+
+                </FlexLayout>
+
+                <FlexLayout AlignItems="Center"
+                            JustifyContent="SpaceEvenly">
+
+                    <Frame WidthRequest="120"
+                           HeightRequest="120"
+                           HasShadow="false"
+                           HorizontalOptions="Start"
+                           BackgroundColor="Transparent">
+                        <FlexLayout Direction="Column"
+                                    AlignContent="Center">
+                            <Button BorderColor="#fff"
+                                    BorderWidth="1"
+                                    BackgroundColor="{DynamicResource GSUBlue}"
+                                    HeightRequest="120"
+                                    WidthRequest="120"
+                                    CornerRadius="60"
+                                    Text="Attendance" 
+                                    TextColor="{DynamicResource LightGold}"/>
+                        </FlexLayout>
+                    </Frame>
+
+                    <Frame WidthRequest="120"
+                           HeightRequest="120"
+                           HasShadow="false"
+                           HorizontalOptions="Start"
+                           BackgroundColor="Transparent">
+                        <FlexLayout Direction="Column"
+                                    AlignContent="Center">
+                            <Button BorderColor="#fff"
+                                    BorderWidth="1"
+                                    BackgroundColor="{DynamicResource GSUBlue}"
+                                    HeightRequest="120"
+                                    WidthRequest="120"
+                                    CornerRadius="60"
+                                    Text="User Titles" 
+                                    TextColor="{DynamicResource LightGold}"/>
+                        </FlexLayout>
+                    </Frame>
+
+                </FlexLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
