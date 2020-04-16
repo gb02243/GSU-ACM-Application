@@ -107,9 +107,9 @@ CREATE TABLE `sender` (
 
 DROP TABLE IF EXISTS `tutor`;
 CREATE TABLE `tutor` (
-  `tutorID` varchar(36) NOT NULL,
+  `tutorID` int(11) NOT NULL AUTO_INCREMENT,
   `feedback` varchar(255) DEFAULT NULL,
-  `userID` varchar(36) NOT NULL,
+  `userID` int(11) NOT NULL,
   PRIMARY KEY (`tutorID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -119,11 +119,11 @@ CREATE TABLE `tutor` (
 
 DROP TABLE IF EXISTS `tutorsession`;
 CREATE TABLE `tutorsession` (
-  `sessionID` varchar(36) NOT NULL ,
+  `sessionID` int(11) NOT NULL AUTO_INCREMENT,
   `subject` varchar(255) DEFAULT NULL,
   `date` datetime DEFAULT NULL,
-  `tutorID` varchar(36) DEFAULT NULL,
-  `userID` varchar(36) DEFAULT NULL,
+  `tutorID` int(11) DEFAULT NULL,
+  `userID` int(11) DEFAULT NULL,
   PRIMARY KEY (`sessionID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
