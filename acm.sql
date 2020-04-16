@@ -7,8 +7,8 @@ USE GSUACM;
 
 DROP TABLE IF EXISTS `admin`;
 CREATE TABLE `admin` (
-  `adminID` int(11) NOT NULL AUTO_INCREMENT,
-  `userID` int(11) NOT NULL,
+  `adminID` varchar(36) NOT NULL AUTO_INCREMENT,
+  `userID` varchar(36) NOT NULL,
   PRIMARY KEY (`adminID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -18,10 +18,10 @@ CREATE TABLE `admin` (
 
 DROP TABLE IF EXISTS `course`;
 CREATE TABLE `course` (
-  `courseID` int(11) NOT NULL AUTO_INCREMENT,
+  `courseID` varchar(36) NOT NULL AUTO_INCREMENT,
   `courseCode` varchar(255) DEFAULT NULL,
   `courseTitle` varchar(255) DEFAULT NULL,
-  `tutorID` int(11) NOT NULL,
+  `tutorID` varchar(36) NOT NULL,
   PRIMARY KEY (`courseID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 
@@ -31,11 +31,11 @@ CREATE TABLE `course` (
 
 DROP TABLE IF EXISTS `message`;
 CREATE TABLE `message` (
-  `messageID` int(11) NOT NULL AUTO_INCREMENT,
+  `messageID` varchar(36) NOT NULL AUTO_INCREMENT,
   `date` datetime DEFAULT NULL,
   `messageDescription` varchar(255) DEFAULT NULL,
-  `senderID` int(11) DEFAULT NULL,
-  `recieverID` int(11) DEFAULT NULL,
+  `senderID` varchar(36) DEFAULT NULL,
+  `recieverID` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`messageID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -45,7 +45,7 @@ CREATE TABLE `message` (
 
 DROP TABLE IF EXISTS `newsitem`;
 CREATE TABLE `newsitem` (
-  `newsitemID` int(11) NOT NULL AUTO_INCREMENT,
+  `newsitemID` varchar(36) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT NULL,
   `author` varchar(255) DEFAULT NULL,
   `date` date DEFAULT NULL,
@@ -60,8 +60,8 @@ CREATE TABLE `newsitem` (
 
 DROP TABLE IF EXISTS `option`;
 CREATE TABLE `option` (
-  `optionID` int(11) NOT NULL AUTO_INCREMENT,
-  `pollID` int(11) NOT NULL,
+  `optionID` varchar(36) NOT NULL AUTO_INCREMENT,
+  `pollID` varchar(36) NOT NULL,
   `text` varchar(255) DEFAULT NULL,
   `votes` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`optionID`)
@@ -73,12 +73,10 @@ CREATE TABLE `option` (
 
 DROP TABLE IF EXISTS `poll`;
 CREATE TABLE `poll` (
-  `pollID` int(11) NOT NULL AUTO_INCREMENT,
-  `pollAuthorID` int(11) NOT NULL,
+  `pollID` varchar(36) NOT NULL AUTO_INCREMENT,
+  `pollAuthorID` varchar(36) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
   `date` date DEFAULT NULL,
-  `time` timestamp NULL DEFAULT NULL,
-  `body` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`pollID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -88,8 +86,8 @@ CREATE TABLE `poll` (
 
 DROP TABLE IF EXISTS `reciever`;
 CREATE TABLE `reciever` (
-  `recieverID` int(11) NOT NULL AUTO_INCREMENT,
-  `userID` int(11) DEFAULT NULL,
+  `recieverID` varchar(36) NOT NULL AUTO_INCREMENT,
+  `userID` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`recieverID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 --
@@ -98,8 +96,8 @@ CREATE TABLE `reciever` (
 
 DROP TABLE IF EXISTS `sender`;
 CREATE TABLE `sender` (
-  `senderID` int(11) NOT NULL AUTO_INCREMENT,
-  `userID` int(11) DEFAULT NULL,
+  `senderID` varchar(36) NOT NULL AUTO_INCREMENT,
+  `userID` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`senderID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -109,9 +107,9 @@ CREATE TABLE `sender` (
 
 DROP TABLE IF EXISTS `tutor`;
 CREATE TABLE `tutor` (
-  `tutorID` int(11) NOT NULL AUTO_INCREMENT,
+  `tutorID` varchar(36) NOT NULL AUTO_INCREMENT,
   `feedback` varchar(255) DEFAULT NULL,
-  `userID` int(11) NOT NULL,
+  `userID` varchar(36) NOT NULL,
   PRIMARY KEY (`tutorID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 
@@ -121,11 +119,11 @@ CREATE TABLE `tutor` (
 
 DROP TABLE IF EXISTS `tutorsession`;
 CREATE TABLE `tutorsession` (
-  `sessionID` int(11) NOT NULL AUTO_INCREMENT,
+  `sessionID` varchar(36) NOT NULL AUTO_INCREMENT,
   `subject` varchar(255) DEFAULT NULL,
   `date` datetime DEFAULT NULL,
-  `tutorID` int(11) DEFAULT NULL,
-  `userID` int(11) DEFAULT NULL,
+  `tutorID` varchar(36) DEFAULT NULL,
+  `userID` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`sessionID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 
@@ -135,7 +133,7 @@ CREATE TABLE `tutorsession` (
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `userID` int(11) NOT NULL AUTO_INCREMENT,
+  `userID` varchar(36) NOT NULL AUTO_INCREMENT,
   `fname` varchar(255) DEFAULT NULL,
   `lname` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
