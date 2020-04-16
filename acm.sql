@@ -7,8 +7,8 @@ USE GSUACM;
 
 DROP TABLE IF EXISTS `admin`;
 CREATE TABLE `admin` (
-  `adminID` varchar(36) NOT NULL,
-  `userID` varchar(36) NOT NULL,
+  `adminID` int(11) NOT NULL AUTO_INCREMENT,
+  `userID` int(11) NOT NULL,
   PRIMARY KEY (`adminID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -18,10 +18,10 @@ CREATE TABLE `admin` (
 
 DROP TABLE IF EXISTS `course`;
 CREATE TABLE `course` (
-  `courseID` varchar(36) NOT NULL ,
+  `courseID` int(11) NOT NULL AUTO_INCREMENT,
   `courseCode` varchar(255) DEFAULT NULL,
   `courseTitle` varchar(255) DEFAULT NULL,
-  `tutorID` varchar(36) NOT NULL,
+  `tutorID` int(11) NOT NULL,
   PRIMARY KEY (`courseID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -34,8 +34,8 @@ CREATE TABLE `message` (
   `messageID` varchar(36) NOT NULL,
   `date` varchar(255) DEFAULT NULL,
   `messageDescription` varchar(255) DEFAULT NULL,
-  `senderID` varchar(36) DEFAULT NULL,
-  `recieverID` varchar(36) DEFAULT NULL,
+  `senderID` int(11) DEFAULT NULL,
+  `recieverID` int(11) DEFAULT NULL,
   PRIMARY KEY (`messageID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -45,7 +45,7 @@ CREATE TABLE `message` (
 
 DROP TABLE IF EXISTS `newsitem`;
 CREATE TABLE `newsitem` (
-  `newsitemID` varchar(36) NOT NULL,
+  `newsitemID` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT NULL,
   `author` varchar(255) DEFAULT NULL,
   `date` varchar(255) DEFAULT NULL,
@@ -74,7 +74,7 @@ CREATE TABLE `option` (
 DROP TABLE IF EXISTS `poll`;
 CREATE TABLE `poll` (
   `pollID` varchar(36) NOT NULL,
-  `pollAuthorID` varchar(36) NOT NULL,
+  `pollAuthorID` int(11) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
   `date` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`pollID`)
@@ -86,8 +86,8 @@ CREATE TABLE `poll` (
 
 DROP TABLE IF EXISTS `reciever`;
 CREATE TABLE `reciever` (
-  `recieverID` varchar(36) NOT NULL,
-  `userID` varchar(36) DEFAULT NULL,
+  `recieverID` int(11) NOT NULL,
+  `userID` int(11) DEFAULT NULL,
   PRIMARY KEY (`recieverID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 --
@@ -96,8 +96,8 @@ CREATE TABLE `reciever` (
 
 DROP TABLE IF EXISTS `sender`;
 CREATE TABLE `sender` (
-  `senderID` varchar(36) NOT NULL,
-  `userID` varchar(36) DEFAULT NULL,
+  `senderID` int(11) NOT NULL,
+  `userID` int(11) DEFAULT NULL,
   PRIMARY KEY (`senderID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
