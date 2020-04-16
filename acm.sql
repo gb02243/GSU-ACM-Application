@@ -32,7 +32,7 @@ CREATE TABLE `course` (
 DROP TABLE IF EXISTS `message`;
 CREATE TABLE `message` (
   `messageID` varchar(36) NOT NULL,
-  `date` datetime DEFAULT NULL,
+  `date` varchar(255) DEFAULT NULL,
   `messageDescription` varchar(255) DEFAULT NULL,
   `senderID` varchar(36) DEFAULT NULL,
   `recieverID` varchar(36) DEFAULT NULL,
@@ -48,7 +48,7 @@ CREATE TABLE `newsitem` (
   `newsitemID` varchar(36) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
   `author` varchar(255) DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `date` varchar(255) DEFAULT NULL,
   `time` timestamp NULL DEFAULT NULL,
   `body` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`newsitemID`)
@@ -76,7 +76,7 @@ CREATE TABLE `poll` (
   `pollID` varchar(36) NOT NULL,
   `pollAuthorID` varchar(36) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `date` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`pollID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
