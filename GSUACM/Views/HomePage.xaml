@@ -84,7 +84,7 @@
 
                     <StackLayout>
                         <Label Text="Club Points"/>
-                        <Entry x:Name="point" Text="{Binding Club Points}" FontSize="25"/>
+                        <Entry x:Name="point" Text="{Binding ClubPoints}" FontSize="25"/>
                     </StackLayout>
                     <Grid>
                         <Grid.RowDefinitions>

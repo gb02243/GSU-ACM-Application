@@ -49,12 +49,9 @@
                         </Grid.ColumnDefinitions>
                         <StackLayout Grid.Column="1">
                             <Label Text="First Name"/>
-                            <Entry x:Name="firstName" FontSize="25" Placeholder="First"/>
+                            <Entry x:Name="editName" FontSize="25" Placeholder="First"/>
                         </StackLayout>
-                        <StackLayout Grid.Column="2">
-                            <Label Text="Last Name"/>
-                            <Entry x:Name="lastName" FontSize="25" Placeholder="Last"/>
-                        </StackLayout>
+                        
                     </Grid>
                     <StackLayout>
                         <Label Text="Email Address"/>
