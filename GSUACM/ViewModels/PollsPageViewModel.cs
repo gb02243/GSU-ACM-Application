@@ -1,6 +1,7 @@
 ﻿using GSUACM.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace GSUACM.ViewModels
@@ -37,7 +38,7 @@ namespace GSUACM.ViewModels
                 Polls.Add(new Poll { 
                 Title = "Poll "+i,
                 Date = DateTime.Now.Date.ToString().Substring(0,9),
-                Options = new List<Poll.Option>()
+                Options = new ObservableCollection<Poll.Option>()
                 });
             }
             for (int i = 1; i <= Polls.Count; i++)

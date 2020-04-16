@@ -20,7 +20,7 @@ namespace GSUACM.ViewModels.ControlPanel
 
         public async void OpenCreatePoll()
         {
-            await Navigation.PushModalAsync(new PollsPanelPage());
+            await Navigation.PushModalAsync(new NavigationPage(new PollsPanelPage()));
         }
     }
 }

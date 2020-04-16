@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GSUACM.ViewModels.ControlPanel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace GSUACM.Views.Control_Panel
         public PollsPanelPage()
         {
             InitializeComponent();
+            BindingContext = new PollsPanelViewModel(Navigation);
         }
     }
 }

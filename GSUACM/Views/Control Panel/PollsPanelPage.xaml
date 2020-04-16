@@ -4,14 +4,116 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="GSUACM.Views.Control_Panel.PollsPanelPage">
+             x:Class="GSUACM.Views.Control_Panel.PollsPanelPage"
+             Title="Create Poll"
+             x:Name="CreatePollPage">
+    <!-- Toolbar -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Command="{Binding CloseWindowCommand}"/>
+    </ContentPage.ToolbarItems>
+    <!-- Content -->
     <ContentPage.Content>
-        <StackLayout Spacing="0"
+        <ScrollView>
+            <StackLayout>
+                <!-- Header -->
+                <StackLayout Spacing="0"
                      Padding="10">
-            <Label Text="Create a Poll" 
+                    <Label Text="Create a Poll" 
                    FontSize="28" 
                    HorizontalTextAlignment="Center"
                    FontAttributes="Bold" />
-        </StackLayout>
+                </StackLayout>
+                <!-- Poll Creation -->
+                <StackLayout Margin="10" HorizontalOptions="FillAndExpand">
+                    <Frame CornerRadius="5"
+                       HasShadow="True"
+                       Padding="8"
+                       HorizontalOptions="FillAndExpand">
+                        <Grid HorizontalOptions="FillAndExpand">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="2" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Grid.Column="0" 
+                                 Spacing="5"
+                                 HorizontalOptions="FillAndExpand">
+                                <StackLayout>
+                                    <Label Text="{Binding Date}"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalTextAlignment="Center" />
+                                </StackLayout>
+                                <Entry HorizontalTextAlignment="Center" 
+                                       Placeholder="Enter your poll title here..."
+                                       Text="{Binding PollTitle} "/>
+                                <Label Text="Please enter your options below."
+                               FontAttributes="Italic"
+                               FontSize="Small"
+                               VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="Center" />
+                            </StackLayout>
+                            <BoxView Grid.Row="1"
+                             BackgroundColor="Gray"
+                             HeightRequest="1"
+                             CornerRadius="1"
+                             HorizontalOptions="FillAndExpand"/>
+                            <!-- Poll Choices -->
+                            <StackLayout Grid.Row="2"
+                                     BindableLayout.ItemsSource="{Binding PollOptions}">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <Entry Grid.Column="0" 
+                                                   Placeholder="{Binding OptionPlaceHolder}"
+                                                   Text="{Binding Text}" />
+                                            <Button WidthRequest="50" 
+                                                    Grid.Column="1" 
+                                                    Text="X" 
+                                                    Command="{Binding BindingContext.RemoveOptionCommand, Source={x:Reference CreatePollPage}}" 
+                                                    CommandParameter="{Binding OptionPlaceHolder}" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </StackLayout>
+                            <!-- End Poll Choices -->
+                            <StackLayout Grid.Row="3">
+                                <Button Text="Add Option" 
+                                    Command="{Binding AddOptionCommand}" />
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                </StackLayout>
+                <!-- Buttons -->
+                <StackLayout VerticalOptions="EndAndExpand" Margin="0,0,0,20">
+                    <Button HorizontalOptions="Center" 
+                        WidthRequest="200"
+                        Margin="0,10,0,0" 
+                        Text="Post Poll" 
+                        BackgroundColor="{DynamicResource GSUBlue}" 
+                        TextColor="White" 
+                        FontSize="22"   
+                        CornerRadius="22" 
+                        VerticalOptions="EndAndExpand"
+                        Command="{Binding PostPollCommand}" />
+                    <Button HorizontalOptions="Center" 
+                        WidthRequest="200"
+                        Margin="0,10,0,0" 
+                        Text="Cancel" 
+                        BackgroundColor="{DynamicResource GSUBlue}" 
+                        TextColor="White" 
+                        FontSize="22"   
+                        CornerRadius="22" 
+                        VerticalOptions="EndAndExpand"
+                        Command="{Binding CloseWindowCommand}" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

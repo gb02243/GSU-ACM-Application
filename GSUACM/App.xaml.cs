@@ -15,6 +15,7 @@ namespace GSUACM
             InitializeComponent();
             //App.Current.MainPage = new AppShell();
             App.Current.MainPage = new NavigationPage(new Views.Control_Panel.ControlPanelPage());
+            GlobalVars.InstantiateUser("Griffin", "Bryant", "1", "Administrator");
             //TODO: implement
             //if (User != null)
             //{

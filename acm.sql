@@ -86,7 +86,7 @@ CREATE TABLE `poll` (
 
 DROP TABLE IF EXISTS `reciever`;
 CREATE TABLE `reciever` (
-  `recieverID` int(11) NOT NULL,
+  `recieverID` int(11) NOT NULL AUTO_INCREMENT,
   `userID` int(11) DEFAULT NULL,
   PRIMARY KEY (`recieverID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -96,7 +96,7 @@ CREATE TABLE `reciever` (
 
 DROP TABLE IF EXISTS `sender`;
 CREATE TABLE `sender` (
-  `senderID` int(11) NOT NULL,
+  `senderID` int(11) NOT NULL AUTO_INCREMENT,
   `userID` int(11) DEFAULT NULL,
   PRIMARY KEY (`senderID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
