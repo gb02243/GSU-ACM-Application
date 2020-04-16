@@ -164,13 +164,13 @@ ALTER TABLE `tutor` ADD CONSTRAINT `tutorUserFK` FOREIGN KEY (`userID`) REFERENC
 ALTER TABLE `tutorsession` ADD CONSTRAINT `sessionTutorFK` FOREIGN KEY (`tutorID`) REFERENCES `tutor` (`tutorID`) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE `tutorsession` ADD CONSTRAINT `sessionUserFK` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
-INSERT INTO user(fname, lname, password, email, title) VALUES('Griffin', 'Bryant', 'test', 'test@gmail.com', 'Development Team');
-INSERT INTO user(fname, lname, password, email, title) VALUES('Test1', 'Test1', 'test', 'test1@gmail.com', 'Member');
-INSERT INTO user(fname, lname, password, email, title) VALUES('Test2', 'Test2', 'test', 'test2@gmail.com', 'Member');
-INSERT INTO user(fname, lname, password, email, title) VALUES('Test3', 'Test3', 'test', 'test3@gmail.com', 'Member');
-INSERT INTO user(fname, lname, password, email, title) VALUES('Test4', 'Test4', 'test', 'test4@gmail.com', 'Member');
-INSERT INTO user(fname, lname, password, email, title) VALUES('Test5', 'Test5', 'test', 'test5@gmail.com', 'Mentor');
-INSERT INTO user(fname, lname, password, email, title) VALUES('Test6', 'Test6', 'test', 'test6@gmail.com', 'Mentor');
-INSERT INTO user(fname, lname, password, email, title) VALUES('Test7', 'Test7', 'test', 'test7@gmail.com', 'Member');
-INSERT INTO user(fname, lname, password, email, title) VALUES('Test8', 'Test8', 'test', 'test8@gmail.com', 'Member');
-INSERT INTO user(fname, lname, password, email, title) VALUES('Test9', 'Test9', 'test', 'test9@gmail.com', 'Mentor');
+INSERT INTO user(userID, fname, lname, password, email, title) VALUES('1', 'Griffin', 'Bryant', 'test', 'test@gmail.com', 'Administrator');
+INSERT INTO user(userID, fname, lname, password, email, title) VALUES('2', 'Test1', 'Test1', 'test', 'test1@gmail.com', 'Member');
+INSERT INTO user(userID, fname, lname, password, email, title) VALUES('3', 'Test2', 'Test2', 'test', 'test2@gmail.com', 'Member');
+INSERT INTO user(userID, fname, lname, password, email, title) VALUES('4', 'Test3', 'Test3', 'test', 'test3@gmail.com', 'Member');
+INSERT INTO user(userID, fname, lname, password, email, title) VALUES('5', 'Test4', 'Test4', 'test', 'test4@gmail.com', 'Member');
+INSERT INTO user(userID, fname, lname, password, email, title) VALUES('6', 'Test5', 'Test5', 'test', 'test5@gmail.com', 'Mentor');
+INSERT INTO user(userID, fname, lname, password, email, title) VALUES('7', 'Test6', 'Test6', 'test', 'test6@gmail.com', 'Mentor');
+INSERT INTO user(userID, fname, lname, password, email, title) VALUES('8', 'Test7', 'Test7', 'test', 'test7@gmail.com', 'Member');
+INSERT INTO user(userID, fname, lname, password, email, title) VALUES('9', 'Test8', 'Test8', 'test', 'test8@gmail.com', 'Member');
+INSERT INTO user(userID, fname, lname, password, email, title) VALUES('10', 'Test9', 'Test9', 'test', 'test9@gmail.com', 'Mentor');
