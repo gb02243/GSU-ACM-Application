@@ -7,7 +7,7 @@ USE GSUACM;
 
 DROP TABLE IF EXISTS `admin`;
 CREATE TABLE `admin` (
-  `adminID` varchar(36) NOT NULL AUTO_INCREMENT,
+  `adminID` varchar(36) NOT NULL,
   `userID` varchar(36) NOT NULL,
   PRIMARY KEY (`adminID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -18,12 +18,12 @@ CREATE TABLE `admin` (
 
 DROP TABLE IF EXISTS `course`;
 CREATE TABLE `course` (
-  `courseID` varchar(36) NOT NULL AUTO_INCREMENT,
+  `courseID` varchar(36) NOT NULL ,
   `courseCode` varchar(255) DEFAULT NULL,
   `courseTitle` varchar(255) DEFAULT NULL,
   `tutorID` varchar(36) NOT NULL,
   PRIMARY KEY (`courseID`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Table structure for table `message`
@@ -31,7 +31,7 @@ CREATE TABLE `course` (
 
 DROP TABLE IF EXISTS `message`;
 CREATE TABLE `message` (
-  `messageID` varchar(36) NOT NULL AUTO_INCREMENT,
+  `messageID` varchar(36) NOT NULL,
   `date` datetime DEFAULT NULL,
   `messageDescription` varchar(255) DEFAULT NULL,
   `senderID` varchar(36) DEFAULT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE `message` (
 
 DROP TABLE IF EXISTS `newsitem`;
 CREATE TABLE `newsitem` (
-  `newsitemID` varchar(36) NOT NULL AUTO_INCREMENT,
+  `newsitemID` varchar(36) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
   `author` varchar(255) DEFAULT NULL,
   `date` date DEFAULT NULL,
@@ -60,7 +60,7 @@ CREATE TABLE `newsitem` (
 
 DROP TABLE IF EXISTS `option`;
 CREATE TABLE `option` (
-  `optionID` varchar(36) NOT NULL AUTO_INCREMENT,
+  `optionID` varchar(36) NOT NULL,
   `pollID` varchar(36) NOT NULL,
   `text` varchar(255) DEFAULT NULL,
   `votes` varchar(255) DEFAULT NULL,
@@ -73,7 +73,7 @@ CREATE TABLE `option` (
 
 DROP TABLE IF EXISTS `poll`;
 CREATE TABLE `poll` (
-  `pollID` varchar(36) NOT NULL AUTO_INCREMENT,
+  `pollID` varchar(36) NOT NULL,
   `pollAuthorID` varchar(36) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
   `date` date DEFAULT NULL,
@@ -86,7 +86,7 @@ CREATE TABLE `poll` (
 
 DROP TABLE IF EXISTS `reciever`;
 CREATE TABLE `reciever` (
-  `recieverID` varchar(36) NOT NULL AUTO_INCREMENT,
+  `recieverID` varchar(36) NOT NULL,
   `userID` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`recieverID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -96,7 +96,7 @@ CREATE TABLE `reciever` (
 
 DROP TABLE IF EXISTS `sender`;
 CREATE TABLE `sender` (
-  `senderID` varchar(36) NOT NULL AUTO_INCREMENT,
+  `senderID` varchar(36) NOT NULL,
   `userID` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`senderID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -107,11 +107,11 @@ CREATE TABLE `sender` (
 
 DROP TABLE IF EXISTS `tutor`;
 CREATE TABLE `tutor` (
-  `tutorID` varchar(36) NOT NULL AUTO_INCREMENT,
+  `tutorID` varchar(36) NOT NULL,
   `feedback` varchar(255) DEFAULT NULL,
   `userID` varchar(36) NOT NULL,
   PRIMARY KEY (`tutorID`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Table structure for table `tutorsession`
@@ -119,13 +119,13 @@ CREATE TABLE `tutor` (
 
 DROP TABLE IF EXISTS `tutorsession`;
 CREATE TABLE `tutorsession` (
-  `sessionID` varchar(36) NOT NULL AUTO_INCREMENT,
+  `sessionID` varchar(36) NOT NULL ,
   `subject` varchar(255) DEFAULT NULL,
   `date` datetime DEFAULT NULL,
   `tutorID` varchar(36) DEFAULT NULL,
   `userID` varchar(36) DEFAULT NULL,
   PRIMARY KEY (`sessionID`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Table structure for table `user`
@@ -133,7 +133,7 @@ CREATE TABLE `tutorsession` (
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `userID` varchar(36) NOT NULL AUTO_INCREMENT,
+  `userID` varchar(36) NOT NULL,
   `fname` varchar(255) DEFAULT NULL,
   `lname` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
@@ -147,7 +147,7 @@ CREATE TABLE `user` (
   `title` varchar(255) DEFAULT NULL,
   `points` int(255) DEFAULT NULL,
   PRIMARY KEY (`userID`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 ALTER TABLE `admin` ADD CONSTRAINT `userFK` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE `course` ADD CONSTRAINT `tutorFK` FOREIGN KEY (`tutorID`) REFERENCES `tutor` (`tutorID`) ON DELETE CASCADE ON UPDATE CASCADE;
