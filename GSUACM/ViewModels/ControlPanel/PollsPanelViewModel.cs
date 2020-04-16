@@ -179,9 +179,7 @@ namespace GSUACM.ViewModels.ControlPanel
                     if (o.Text == null || o.Text.Length < 1)
                         Poll.Options.Remove(o);
                 }
-            }
-
-            
+            }            
         }
 
         private void CloseWindow()

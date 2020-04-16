@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows.Input;
 
 namespace GSUACM.Models
 {
@@ -19,8 +20,9 @@ namespace GSUACM.Models
             public string PollID { get; set; }
             public string OptionID { get; set; }
             public string Text { get; set; }
-            public int Votes { get; set; }
+            public string Votes { get; set; }
             public string OptionPlaceHolder { get; set; }
+            public ICommand VoteCommand { get; set; }
         }
     }
 }

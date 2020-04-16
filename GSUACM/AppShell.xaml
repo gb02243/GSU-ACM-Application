@@ -7,6 +7,7 @@
     xmlns:dash="clr-namespace:GSUACM.Views.Dashboard"
     xmlns:chatviews="clr-namespace:GSUACM.Views.Chat"
     xmlns:polls="clr-namespace:GSUACM.Views.Polls"
+    xmlns:controlpanel="clr-namespace:GSUACM.Views.Control_Panel"
     x:Class="GSUACM.AppShell"
     BackgroundColor="{DynamicResource GSUGold}">
     <!-- FLYOUT -->
@@ -48,6 +49,9 @@
     </FlyoutItem>
     <FlyoutItem Title="Alumni" Icon="home.png">
         <ShellContent ContentTemplate="{DataTemplate views:EmployerPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Control Panel" Icon="home.png">
+        <ShellContent ContentTemplate="{DataTemplate controlpanel:ControlPanelPage}" />
     </FlyoutItem>
 
     <FlyoutItem Title="Pay Dues" Icon="home.png">

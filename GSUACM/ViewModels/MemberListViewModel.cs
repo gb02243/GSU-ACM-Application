@@ -41,7 +41,7 @@ namespace GSUACM.ViewModels
                 db.openConnection();
                 adapter.SelectCommand = command;
 
-                // send the query and return the results
+                // set the adapter output
                 adapter.Fill(queryResults);
 
                 if (queryResults.Rows.Count > 0)

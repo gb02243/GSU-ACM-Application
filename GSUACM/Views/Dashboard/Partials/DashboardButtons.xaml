@@ -11,8 +11,8 @@
                     AlignItems="Center"
                     JustifyContent="SpaceEvenly">
             <!-- Button will use Clicked="Button_ClickedAsync" -->
-            <Frame WidthRequest="90"
-                   HeightRequest="90"
+            <Frame WidthRequest="80"
+                   HeightRequest="80"
                    HasShadow="false"
                    HorizontalOptions="Start"
                    BackgroundColor="Transparent">
@@ -21,8 +21,8 @@
                     <Button BorderColor="#fff"
                             BorderWidth="1"
                             BackgroundColor="{DynamicResource GSUBlue}"
-                            HeightRequest="90"
-                            WidthRequest="90"
+                            HeightRequest="80"
+                            WidthRequest="80"
                             CornerRadius="45"
                             
                             Text="Chat" 
@@ -30,8 +30,8 @@
                 </FlexLayout>
             </Frame>
             
-            <Frame WidthRequest="90"
-                   HeightRequest="90"
+            <Frame WidthRequest="80"
+                   HeightRequest="80"
                    HasShadow="false"
                    HorizontalOptions="Start"
                    BackgroundColor="Transparent">
@@ -40,8 +40,8 @@
                     <Button BorderColor="#fff"
                             BorderWidth="1"
                             BackgroundColor="{DynamicResource GSUBlue}"
-                            HeightRequest="90"
-                            WidthRequest="90"
+                            HeightRequest="80"
+                            WidthRequest="80"
                             CornerRadius="45"
                             
                             Text="Profile" 
@@ -49,8 +49,8 @@
                 </FlexLayout>
             </Frame>
             
-            <Frame WidthRequest="90"
-                   HeightRequest="90"
+            <Frame WidthRequest="80"
+                   HeightRequest="80"
                    HasShadow="false"
                    HorizontalOptions="Start"
                    BackgroundColor="Transparent">
@@ -59,8 +59,8 @@
                     <Button BorderColor="#fff"
                             BorderWidth="1"
                             BackgroundColor="{DynamicResource GSUBlue}"
-                            HeightRequest="90"
-                            WidthRequest="90"
+                            HeightRequest="80"
+                            WidthRequest="80"
                             CornerRadius="45"
                             
                             Text="Events" 
