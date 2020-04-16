@@ -133,7 +133,7 @@ CREATE TABLE `tutorsession` (
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `userID` varchar(36) NOT NULL,
+  `userID` int(11) NOT NULL AUTO_INCREMENT,
   `fname` varchar(255) DEFAULT NULL,
   `lname` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
