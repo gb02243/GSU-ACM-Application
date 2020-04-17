@@ -17,6 +17,8 @@
     <None Remove="Images\amazon.png" />
     <None Remove="Images\cashApp.png" />
     <None Remove="Images\paypal.png" />
+    <Compile Remove="Views\Profile\HomePage.xaml.cs" />
+    <Compile Remove="Views\Profile\createProfile.xaml.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -83,9 +85,6 @@
     <EmbeddedResource Update="Views\EventsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\HomePage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Views\MemberListPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -104,5 +103,8 @@
     <EmbeddedResource Update="Views\Polls\PastPollsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Profile\" />
   </ItemGroup>
 </Project>

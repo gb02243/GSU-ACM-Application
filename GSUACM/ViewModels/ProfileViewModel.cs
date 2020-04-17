@@ -113,21 +113,21 @@ namespace GSUACM.ViewModels
 
         private void getName()
         {
-            Name = GlobalVars.User.fullName;
+            GlobalVars.User.fname = this.Name;
         }
 
         private void getEmail()
         {
-            Email = GlobalVars.User.email;
+            GlobalVars.User.email = this.Email;
         }
 
         private void getAddress()
         {
-            Address = GlobalVars.User.phone;
+            GlobalVars.User.phone = this.Address;
         }
         private void getClubPoints()
         {
-            ClubPoints = GlobalVars.User.points;
+            GlobalVars.User.points = this.ClubPoints;
         }
 
         private void getDBconnection()
