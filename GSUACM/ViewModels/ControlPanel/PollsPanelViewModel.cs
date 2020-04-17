@@ -75,7 +75,6 @@ namespace GSUACM.ViewModels.ControlPanel
             if(PollOptions.Count <= 2)
             {
                 Application.Current.MainPage.DisplayAlert("Cannot Remove Option", "There must be at least 2 options in a poll!", "Ok");
-                Console.WriteLine("Blocked removal");
             }
             else
             {
@@ -97,6 +96,7 @@ namespace GSUACM.ViewModels.ControlPanel
                 SendToDatabase();
                 await Application.Current.MainPage.DisplayAlert("Poll Created", "You can view your poll under the \"Polls\" tab in the menu.", "Ok");
                 await Navigation.PopModalAsync();
+                MessagingCenter.Send(this, "poll");
             }
             else
                 await Application.Current.MainPage.DisplayAlert("Oops!", "Make sure you completed all of the poll fields!", "Ok");

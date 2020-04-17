@@ -46,6 +46,7 @@ namespace GSUACM.ViewModels.ControlPanel
             if (canPostEvent)
             {
                 SendToDatabase();
+                MessagingCenter.Send(this, "event");
             }
             else
                 await Application.Current.MainPage.DisplayAlert("Oops!", "Make sure you filled out all of the fields!", "Ok");
@@ -108,6 +109,7 @@ namespace GSUACM.ViewModels.ControlPanel
                 await Navigation.PopModalAsync();
             }
         }
+
         public async void CloseWindow()
         {
             await Navigation.PopModalAsync();

@@ -1,11 +1,14 @@
 ﻿using GSUACM.Models;
 using GSUACM.Services;
+using GSUACM.ViewModels.ControlPanel;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -13,7 +16,7 @@ using static GSUACM.Models.Poll;
 
 namespace GSUACM.ViewModels
 {
-    public class PollsPageViewModel
+    public class PollsPageViewModel : INotifyPropertyChanged
     {
         public INavigation Navigation { get; set; }
         public ObservableCollection<Option> OptionsCollection { get; set; }
@@ -29,12 +32,12 @@ namespace GSUACM.ViewModels
             }
             else
             {
-                OptionsCollection = new ObservableCollection<Option>();
-                Polls = new ObservableCollection<Poll>();
-                ActivePolls = new ObservableCollection<Poll>();
-                PastPolls = new ObservableCollection<Poll>();
-
                 GetPollsFromDatabase();
+
+                MessagingCenter.Subscribe<PollsPanelViewModel>(this, "update", (sender) =>
+                {
+                    GetPollsFromDatabase();
+                });
             }
         }
 
@@ -77,11 +80,15 @@ namespace GSUACM.ViewModels
 
         private void RefreshPage()
         {
-            Application.Current.MainPage = new AppShell();
+            GetPollsFromDatabase();
+            //PropertyChanged(this, new PropertyChangedEventArgs("Polls"));
+            //PropertyChanged(this, new PropertyChangedEventArgs("OptionsCollection"));
         }
 
         private void CategorizePolls()
         {
+            ActivePolls = new ObservableCollection<Poll>();
+            PastPolls = new ObservableCollection<Poll>();
             DateTime WeekFromToday = DateTime.Today.AddDays(7);
             foreach (Poll poll1 in Polls)
             {
@@ -118,6 +125,8 @@ namespace GSUACM.ViewModels
 
                 if (QueryResults.Rows.Count > 0)
                 {
+                    Polls = new ObservableCollection<Poll>();
+                    OptionsCollection = new ObservableCollection<Option>();
                     for (int i = 0; i < QueryResults.Rows.Count; i++)
                     {
                         Option option = new Option()
@@ -190,5 +199,7 @@ namespace GSUACM.ViewModels
                 }
             }
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

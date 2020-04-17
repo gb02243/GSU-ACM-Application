@@ -1,4 +1,5 @@
 ﻿using GSUACM.Models;
+using GSUACM.ViewModels.ControlPanel;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,10 @@ namespace GSUACM.ViewModels
         {
             EventsCollection = new ObservableCollection<Event>();
             GetEventsFromDatabase();
+            MessagingCenter.Subscribe<EventsPanelViewModel>(this, "event", (sender) =>
+            {
+                GetEventsFromDatabase();
+            });
         }
 
         private async void GetEventsFromDatabase()
