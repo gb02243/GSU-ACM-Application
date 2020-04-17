@@ -11,6 +11,7 @@ using System.Data;
 using GSUACM.Services;
 using GSUACM;
 using GSUACM.Views;
+using System.Runtime.CompilerServices;
 
 namespace GSUACM.ViewModels
 {
@@ -26,12 +27,20 @@ namespace GSUACM.ViewModels
         public String Email { get; set; }
         public String Address { get; set; }
         public String ClubPoints { get; set; }
-        
+        public String fname { get; set; }
+        public String email { get; set; }
+        public String number { get; set; }
+        public String lname { get; set; }
+        public ICommand buttonUpdateProfile_Click { get; set; }
+
+
 
         public ProfileViewModel(INavigation navigation)
         {
-            
+            this.Navigation = navigation;
+            this.cancel = new Command(this.ReturnToProfile);
             this.editPage = new Command(this.edit);
+            this.buttonUpdateProfile_Click = new Command(this.updateProfile);
             getDBconnection();
             getEmail();
             getName();
@@ -39,6 +48,7 @@ namespace GSUACM.ViewModels
             getClubPoints();
 
         }
+
         //editPage -> profile page
         private async void ReturnToProfile()
         {
@@ -50,6 +60,55 @@ namespace GSUACM.ViewModels
         private async void edit()
         {
             await this.Navigation.PushModalAsync(new editProfile());
+        }
+
+        private async void updateProfile()
+        {
+            DB db = new DB();
+            //Console.WriteLine("Server"+db.openConnection());
+            if (db.openConnection() == false)
+            {
+                db.closeConnection();
+             await Application.Current.MainPage.DisplayAlert("Server Error", "Try Again Later", "Ok");
+            }
+            else
+            {
+                String firstName = fname;
+                String lastName = lname;
+                String emailAddition = email;
+                String num = number;
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter();
+                MySqlCommand command = new MySqlCommand("update user set email = @email,phone = @phone,fname = @fname,lname = @lname where userID = @userid", db.getConnection());
+                command.Parameters.Add("@email", MySqlDbType.VarChar).Value = emailAddition;
+                command.Parameters.Add("@phone", MySqlDbType.VarChar).Value = num;
+                command.Parameters.Add("@fname", MySqlDbType.VarChar).Value = firstName;
+                command.Parameters.Add("@lname", MySqlDbType.VarChar).Value = lastName;
+                command.Parameters.Add("@userid", MySqlDbType.VarChar).Value = GlobalVars.User.userID;
+                db.openConnection();
+                adapter.SelectCommand = command;
+
+                adapter.Fill(table);
+            }
+            
+
+            
+
+            //updates User
+            GlobalVars.InstantiateUser(table.Rows[0]["fname"].ToString(), table.Rows[0]["lname"].ToString(), table.Rows[0]["userID"].ToString(), table.Rows[0]["title"].ToString());
+
+            
+
+            GlobalVars.User.points = table.Rows[0]["points"].ToString();
+            GlobalVars.User.email = table.Rows[0]["email"].ToString();
+            GlobalVars.User.phone = table.Rows[0]["phone"].ToString();
+
+            db.closeConnection();
+            await Application.Current.MainPage.DisplayAlert("Your is Account Updated", "Account Updated", "Ok");
+            await Navigation.PopModalAsync();
+
+            
+
         }
 
         private void getName()
@@ -96,14 +155,28 @@ namespace GSUACM.ViewModels
             }
             db.closeConnection();
 
+
             //updates User
-            //  GlobalVars.InstantiateUser(table.Rows[0]["fname"].ToString(), table.Rows[0]["lname"].ToString(), table.Rows[0]["userID"].ToString(), table.Rows[0]["title"].ToString());
+              //GlobalVars.InstantiateUser(table.Rows[0]["fname"].ToString(), table.Rows[0]["lname"].ToString(), table.Rows[0]["userID"].ToString(), table.Rows[0]["title"].ToString());
 
             GlobalVars.User.points = table.Rows[0]["points"].ToString();
             GlobalVars.User.email = table.Rows[0]["email"].ToString();
             GlobalVars.User.phone = table.Rows[0]["phone"].ToString();
 
+            OnPropertyChanged();
+
         }
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+
+
 
 
 

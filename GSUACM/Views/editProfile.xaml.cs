@@ -18,24 +18,5 @@ namespace GSUACM.Views
             InitializeComponent();
             BindingContext = new ProfileViewModel(this.Navigation);
         }
-     
-        private void buttonUpdateProfile_Click(Object sender, EventArgs e)
-        {
-
-        }
-
-        private void changePasswowrd_Click(Object sender, EventArgs e)
-        {
-
-        }
-        private void displayEmailChecked(Object sender, EventArgs e)
-        {
-
-        }
-        
-        private void displayPhoneChecked(Object sender, EventArgs e)
-        {
-
-        }
     }
 }
