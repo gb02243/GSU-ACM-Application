@@ -11,14 +11,15 @@ namespace GSUACM.Services
         public static User User { get; set; }
 
         //TODO: retrieve all user info
-        public static void InstantiateUser(string fname, string lname, string userID, string title)
+        public static void InstantiateUser(string fname, string lname, string userID, string title, string isAdmin)
         {
             User = new User
             {
                 fname = fname,
                 lname = lname,
                 userID = userID,
-                title = title
+                title = title,
+                isAdmin = bool.Parse(isAdmin)
             };
         }
     }

@@ -142,11 +142,26 @@ CREATE TABLE `user` (
   `currentClasses` varchar(255) DEFAULT NULL,
   `classesTaken` varchar(255) DEFAULT NULL,
   `isTutor` longblob,
-  `isAdmin` longblob,
+  `isAdmin` boolean DEFAULT false,
   `isBoardMember` longblob,
   `title` varchar(255) DEFAULT NULL,
   `points` int(255) DEFAULT NULL,
   PRIMARY KEY (`userID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Table structure for table `event`
+--
+
+DROP TABLE IF EXISTS `event`;
+CREATE TABLE `event` (
+  `eventID` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL,
+  `location` varchar(255) NOT NULL,
+  `postdate` varchar(255) NOT NULL,
+  `eventdate` varchar(255) NOT NULL,
+  `body` text NOT NULL,
+  PRIMARY KEY (`eventID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 ALTER TABLE `admin` ADD CONSTRAINT `userFK` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE;
@@ -163,6 +178,7 @@ ALTER TABLE `sender` ADD CONSTRAINT `senderFK` FOREIGN KEY (`userID`) REFERENCES
 ALTER TABLE `tutor` ADD CONSTRAINT `tutorUserFK` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE `tutorsession` ADD CONSTRAINT `sessionTutorFK` FOREIGN KEY (`tutorID`) REFERENCES `tutor` (`tutorID`) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE `tutorsession` ADD CONSTRAINT `sessionUserFK` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `event` ADD CONSTRAINT `eventUserFK` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 INSERT INTO user(userID, fname, lname, password, email, title) VALUES('1', 'Griffin', 'Bryant', 'test', 'test@gmail.com', 'Administrator');
 INSERT INTO user(userID, fname, lname, password, email, title) VALUES('2', 'Test1', 'Test1', 'test', 'test1@gmail.com', 'Member');

@@ -66,6 +66,7 @@ namespace GSUACM.ViewModels.Dashboard
                 ToolbarText = "Log In";
                 isLoggedIn = false;
                 await Application.Current.MainPage.DisplayAlert("Logged Out", "You have successfully logged out.", "Ok");
+                Application.Current.MainPage = new AppShell();
             }
         }
         
