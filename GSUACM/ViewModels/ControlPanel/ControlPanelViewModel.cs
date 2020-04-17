@@ -18,7 +18,7 @@ namespace GSUACM.ViewModels.ControlPanel
             this.Navigation = navigation;
             CreatePollCommand = new Command(OpenCreatePoll);
             CreateEventCommand = new Command(OpenCreateEvent);
-            if (GlobalVars.User == null)
+            if (GlobalVars.User == null || !GlobalVars.User.isAdmin || !GlobalVars.User.isBoardMember)
                 GoHome();
         }
 
