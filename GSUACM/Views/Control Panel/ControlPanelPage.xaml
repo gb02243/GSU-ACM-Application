@@ -30,7 +30,8 @@
                                     WidthRequest="120"
                                     CornerRadius="60"
                                     Text="Create Event"
-                                    TextColor="{DynamicResource LightGold}"/>
+                                    TextColor="{DynamicResource LightGold}"
+                                    Command="{Binding CreateEventCommand}" />
                         </FlexLayout>
                     </Frame>
 
@@ -49,7 +50,7 @@
                                     CornerRadius="60"
                                     Text="Create Poll" 
                                     TextColor="{DynamicResource LightGold}" 
-                                    Command="{Binding createPollCommand}" />
+                                    Command="{Binding CreatePollCommand}" />
                         </FlexLayout>
                     </Frame>
 
@@ -95,6 +96,30 @@
                     </Frame>
 
                 </FlexLayout>
+
+                <FlexLayout AlignItems="Center"
+                            JustifyContent="SpaceEvenly">
+
+                    <Frame WidthRequest="120"
+                           HeightRequest="120"
+                           HasShadow="false"
+                           HorizontalOptions="Start"
+                           BackgroundColor="Transparent">
+                        <FlexLayout Direction="Column"
+                                    AlignContent="Center">
+                            <Button BorderColor="#fff"
+                                    BorderWidth="1"
+                                    BackgroundColor="{DynamicResource GSUBlue}"
+                                    HeightRequest="120"
+                                    WidthRequest="120"
+                                    CornerRadius="60"
+                                    Text="Update News" 
+                                    TextColor="{DynamicResource LightGold}"/>
+                        </FlexLayout>
+                    </Frame>
+
+                </FlexLayout>
+                
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

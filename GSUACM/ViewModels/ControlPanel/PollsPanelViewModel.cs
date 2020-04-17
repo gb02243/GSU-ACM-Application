@@ -30,17 +30,30 @@ namespace GSUACM.ViewModels.ControlPanel
         public PollsPanelViewModel(INavigation navigation)
         {
             this.Navigation = navigation;
-            CloseWindowCommand = new Command(CloseWindow);
-            PostPollCommand = new Command(PostPoll);
-            AddOptionCommand = new Command(AddOption);
-            RemoveOptionCommand = new Command<string>(RemoveOption);
-            Date = DateTime.Now.ToString().Substring(0,9);
-            CreatedPollID = Guid.NewGuid().ToString().Substring(0,8);
 
-            PollOptions = new ObservableCollection<Option>();
-            PollOptions.Add(new Option() { PollID = CreatedPollID, OptionID = CreatedPollID.Substring(0, 8) + "_" + optionsCounter++, OptionPlaceHolder = "Option " + (optionsCounter).ToString() });
-            PollOptions.Add(new Option() { PollID = CreatedPollID, OptionID = CreatedPollID.Substring(0, 8) + "_" + optionsCounter++, OptionPlaceHolder = "Option " + (optionsCounter).ToString() });
-            canCreatePoll = false;
+            if (GlobalVars.User == null || GlobalVars.User.isAdmin == false)
+                GoHome();
+            else
+            {
+                CloseWindowCommand = new Command(CloseWindow);
+                PostPollCommand = new Command(PostPoll);
+                AddOptionCommand = new Command(AddOption);
+                RemoveOptionCommand = new Command<string>(RemoveOption);
+                Date = DateTime.Now.ToString().Substring(0,9);
+                CreatedPollID = Guid.NewGuid().ToString().Substring(0,8);
+
+                PollOptions = new ObservableCollection<Option>();
+                PollOptions.Add(new Option() { PollID = CreatedPollID, OptionID = CreatedPollID.Substring(0, 8) + "_" + optionsCounter++, OptionPlaceHolder = "Option " + (optionsCounter).ToString() });
+                PollOptions.Add(new Option() { PollID = CreatedPollID, OptionID = CreatedPollID.Substring(0, 8) + "_" + optionsCounter++, OptionPlaceHolder = "Option " + (optionsCounter).ToString() });
+                canCreatePoll = false;
+            }
+
+        }
+
+        private async void GoHome()
+        {
+            await Application.Current.MainPage.DisplayAlert("Oops!", "You must be logged in as an Administrator to access this page.", "Ok");
+            Application.Current.MainPage = new AppShell();
         }
 
         private void AddOption()
@@ -78,7 +91,7 @@ namespace GSUACM.ViewModels.ControlPanel
         private async void PostPoll()
         {
             CreatePollObject();
-            TestPrintPoll();
+            //TestPrintPoll();
             if (canCreatePoll)
             {
                 SendToDatabase();
@@ -110,7 +123,8 @@ namespace GSUACM.ViewModels.ControlPanel
                 db.openConnection();
                 adapter.SelectCommand = command;
 
-                if(command.ExecuteNonQuery() == 1)
+                // send the query
+                if (command.ExecuteNonQuery() == 1)
                 {
                     foreach(Option o in Poll.Options.ToList())
                     {
@@ -130,7 +144,6 @@ namespace GSUACM.ViewModels.ControlPanel
                     }
                 }else
                     await Application.Current.MainPage.DisplayAlert("Server Error", "Try Again Later", "Ok");
-                // send the query
                 db.closeConnection();
             }
             db.closeConnection();

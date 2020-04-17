@@ -5,6 +5,7 @@ using System.Text;
 using MySql.Data.MySqlClient;
 using Xamarin.Forms;
 using System.Data;
+using GSUACM.Services;
 
 namespace GSUACM.ViewModels
 {
@@ -17,10 +18,20 @@ namespace GSUACM.ViewModels
         public MemberListViewModel(INavigation navigation)
         {
             this.Navigation = navigation;
-            Members = new List<User>();
-            Mentors = new List<User>();
-            GetMembers();
-            //SimulateMembers(20);
+            if(GlobalVars.User == null)
+                GoHome();
+            else
+            {
+                Members = new List<User>();
+                Mentors = new List<User>();
+                GetMembers();
+            }
+        }
+
+        private async void GoHome()
+        {
+            await Application.Current.MainPage.DisplayAlert("Oops!", "You must be logged in to access this page.", "Ok");
+            Application.Current.MainPage = new AppShell();
         }
 
         private void GetMembers()

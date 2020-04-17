@@ -1,4 +1,5 @@
 ﻿using GSUACM.Models;
+using GSUACM.Services;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -23,12 +24,24 @@ namespace GSUACM.ViewModels
         public PollsPageViewModel(INavigation navigation)
         {
             this.Navigation = navigation;
-            OptionsCollection = new ObservableCollection<Option>();
-            Polls = new ObservableCollection<Poll>();
-            ActivePolls = new ObservableCollection<Poll>();
-            PastPolls = new ObservableCollection<Poll>();
+            if(GlobalVars.User == null) {
+                GoHome();
+            }
+            else
+            {
+                OptionsCollection = new ObservableCollection<Option>();
+                Polls = new ObservableCollection<Poll>();
+                ActivePolls = new ObservableCollection<Poll>();
+                PastPolls = new ObservableCollection<Poll>();
 
-            GetPollsFromDatabase();
+                GetPollsFromDatabase();
+            }
+        }
+
+        private async void GoHome()
+        {
+            await Application.Current.MainPage.DisplayAlert("Oops!", "You must be logged in to access this page.", "Ok");
+            Application.Current.MainPage = new AppShell();
         }
 
         private async void Vote(string optionID)
@@ -62,18 +75,18 @@ namespace GSUACM.ViewModels
             RefreshPage();
         }
 
-        private async void RefreshPage()
+        private void RefreshPage()
         {
             Application.Current.MainPage = new AppShell();
         }
 
         private void CategorizePolls()
         {
-            DateTime CurrentDate = DateTime.Today;
+            DateTime WeekFromToday = DateTime.Today.AddDays(7);
             foreach (Poll poll1 in Polls)
             {
                 DateTime ConvertedDate = DateTime.Parse(poll1.Date);
-                if (DateTime.Compare(CurrentDate, ConvertedDate) > 0)
+                if (DateTime.Compare(WeekFromToday, ConvertedDate) > 0)
                 {
                     PastPolls.Add(poll1);
                 }

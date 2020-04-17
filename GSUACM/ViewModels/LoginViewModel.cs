@@ -78,7 +78,7 @@ namespace GSUACM.ViewModels
                 //check if the user exists or not
                 if (table.Rows.Count > 0)
                 {
-                    GlobalVars.InstantiateUser(table.Rows[0]["fname"].ToString(), table.Rows[0]["lname"].ToString(), table.Rows[0]["userID"].ToString(), table.Rows[0]["title"].ToString());
+                    GlobalVars.InstantiateUser(table.Rows[0]["fname"].ToString(), table.Rows[0]["lname"].ToString(), table.Rows[0]["userID"].ToString(), table.Rows[0]["title"].ToString(), table.Rows[0]["isAdmin"].ToString());
                     //Console.WriteLine("This is the first name" + table.Rows[0]["fname"].ToString());
 
                     GlobalVars.User.fname = table.Rows[0]["fname"].ToString();
