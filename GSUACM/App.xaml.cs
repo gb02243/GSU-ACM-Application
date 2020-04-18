@@ -13,12 +13,8 @@ namespace GSUACM
     {
         public App()
         {
-            InitializeComponent();
-
-            //GlobalVars.InstantiateUser("Griffin","Bryant","1","Administrator","true");
-            
+            InitializeComponent();            
             App.Current.MainPage = new AppShell();
-            //App.Current.MainPage = new NavigationPage(new ControlPanelPage());
         }
 
         protected override void OnStart()

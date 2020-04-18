@@ -46,7 +46,8 @@
                                         </Grid.RowDefinitions>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="75" />
-                                            <ColumnDefinition Width="200" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
                                         </Grid.ColumnDefinitions>
                                         <Frame IsClippedToBounds="True"
                                                CornerRadius="38"
@@ -67,17 +68,18 @@
                                                    FontSize="Medium"
                                                    VerticalTextAlignment="Center"
                                                    HorizontalTextAlignment="Start" />
+                                            <!--
                                             <Label Text="{Binding Author}"
                                                    FontAttributes="Italic"
                                                    FontSize="Small"
                                                    VerticalTextAlignment="Center"
                                                    HorizontalTextAlignment="Start" />
+                                            -->
                                         </StackLayout>
                                         <StackLayout Grid.Column="2" 
                                                      Spacing="4"
                                                      VerticalOptions="CenterAndExpand">
                                             <Label Text="{Binding Date}" />
-                                            <Label Text="{Binding Time}" />
                                         </StackLayout>
                                         <BoxView Grid.Row="1"
                                                  Grid.ColumnSpan="3"
@@ -86,10 +88,11 @@
                                                  HorizontalOptions="Fill" />
                                         <Label Grid.Row="2"
                                                Grid.ColumnSpan="3"
-                                               Text="{Binding BodyPreview}"
+                                               Text="{Binding Body}"
                                                VerticalTextAlignment="Start"
                                                VerticalOptions="Fill"
-                                               HorizontalOptions="Fill" />
+                                               HorizontalOptions="Fill" 
+                                               Margin="10,0,10,0"/>
                                     </Grid>
                                 </Frame>
                             </StackLayout>

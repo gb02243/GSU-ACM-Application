@@ -4,9 +4,9 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="GSUACM.Views.Control_Panel.EventsPanelPage"
-             Title="Create Event"
-             x:Name="CreateEventPage">
+             x:Class="GSUACM.Views.Control_Panel.NewsPanelPage"
+             Title="Create News Item"
+             x:Name="NewsPage">
     <!-- Toolbar -->
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Cancel" Command="{Binding CloseWindowCommand}"/>
@@ -17,13 +17,13 @@
             <!-- Header -->
             <StackLayout Spacing="0"
                         Padding="10">
-                <Label Text="Create an Event" 
+                <Label Text="Post News" 
                        FontSize="28" 
                        HorizontalTextAlignment="Center"
                        FontAttributes="Bold" />
             </StackLayout>
             
-            <!-- Event Creation-->
+            <!-- News Creation-->
             <StackLayout Margin="10" 
                          HorizontalOptions="FillAndExpand" 
                          VerticalOptions="FillAndExpand">
@@ -45,13 +45,13 @@
                         <StackLayout Spacing="5"
                                      HorizontalOptions="FillAndExpand">
                             <StackLayout>
-                                <Label Text="{Binding EventDate}"
+                                <Label Text="{Binding NewsPostDate}"
                                        VerticalTextAlignment="Center"
                                        HorizontalTextAlignment="Center" />
                             </StackLayout>
                             <Entry HorizontalTextAlignment="Center"
-                                   Placeholder="Event Title..."
-                                   Text="{Binding EventTitle} "/>
+                                   Placeholder="News Title..."
+                                   Text="{Binding NewsTitle} "/>
                             <Label Text="Please enter the details below."
                                    FontAttributes="Italic"
                                    FontSize="Small"
@@ -64,18 +64,8 @@
                                  CornerRadius="1"
                                  HorizontalOptions="FillAndExpand"/>
                         <StackLayout Grid.Row="2" VerticalOptions="FillAndExpand">
-                            <Grid>
-                                <Entry Text="{Binding EventLocation}"
-                                       Placeholder="Location..."
-                                       VerticalOptions="Start" 
-                                       Grid.Column="0"/>
-                                <Entry Text="{Binding EventDate}"
-                                       Placeholder="Date..."
-                                       VerticalOptions="Start" 
-                                       Grid.Column="1"/>
-                            </Grid>
-                            <Editor Text="{Binding EventBody}" 
-                                    Placeholder="Enter the event details here..." 
+                            <Editor Text="{Binding NewsBody}" 
+                                    Placeholder="Enter news details here..." 
                                     VerticalOptions="FillAndExpand" />
                         </StackLayout>
                     </Grid>
@@ -87,13 +77,13 @@
                 <Button HorizontalOptions="Center" 
                         WidthRequest="200"
                         Margin="0,10,0,0" 
-                        Text="Create Event" 
+                        Text="Post" 
                         BackgroundColor="{DynamicResource GSUBlue}" 
                         TextColor="White" 
                         FontSize="22"   
                         CornerRadius="22" 
                         VerticalOptions="EndAndExpand"
-                        Command="{Binding PostEventCommand}" />
+                        Command="{Binding PostNewsCommand}" />
                 <Button HorizontalOptions="Center" 
                         WidthRequest="200"
                         Margin="0,10,0,0" 
@@ -105,7 +95,7 @@
                         VerticalOptions="EndAndExpand"
                         Command="{Binding CloseWindowCommand}" />
             </StackLayout>
-
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -22,8 +22,20 @@ namespace GSUACM.ViewModels.ControlPanel
             CreatePollCommand = new Command(OpenCreatePoll);
             CreateEventCommand = new Command(OpenCreateEvent);
             OpenTitlesCommand = new Command(OpenUserTitles);
+            OpenNewsCommand = new Command(OpenNews);
+            OpenAttendanceCommand = new Command(OpenAttendance);
             if (GlobalVars.User == null || !GlobalVars.User.isAdmin)
                 GoHome();
+        }
+
+        private async void OpenAttendance(object obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        private async void OpenNews(object obj)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new NewsPanelPage()));
         }
 
         private async void OpenUserTitles()

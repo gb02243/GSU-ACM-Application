@@ -25,13 +25,15 @@ namespace GSUACM.ViewModels.ControlPanel
         public EventsPanelViewModel(INavigation navigation)
         {
             this.Navigation = navigation;
-            PostEventCommand = new Command(PostEvent);
             CloseWindowCommand = new Command(CloseWindow);
-            EventPostDate = DateTime.Now.ToString().Substring(0, 9);
             if(GlobalVars.User == null || GlobalVars.User.isAdmin == false)
                 GoHome();
             else
+            {
+                PostEventCommand = new Command(PostEvent);
                 EventUserID = GlobalVars.User.userID;
+                EventPostDate = DateTime.Now.ToString().Substring(0, 9);
+            }
         }
 
         private async void GoHome()
@@ -87,10 +89,9 @@ namespace GSUACM.ViewModels.ControlPanel
             db.closeConnection();
         }
 
-        public async void CreateEvent()
+        public void CreateEvent()
         {
             canPostEvent = false;
-            //TODO:Implement
             Event = new Event()
             {
                 Title= EventTitle,
@@ -104,10 +105,7 @@ namespace GSUACM.ViewModels.ControlPanel
             if (Event.Title == null || Event.Location == null || Event.PostDate == null || Event.Date == null || Event.Body == null || Event.UserID == null || Event.Body.Length < 4)
                 canPostEvent = false;
             else
-            {
                 canPostEvent = true;
-                await Navigation.PopModalAsync();
-            }
         }
 
         public async void CloseWindow()

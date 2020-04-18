@@ -115,7 +115,8 @@
                                     WidthRequest="120"
                                     CornerRadius="60"
                                     Text="Update News" 
-                                    TextColor="{DynamicResource LightGold}"/>
+                                    TextColor="{DynamicResource LightGold}"
+                                    Command="{Binding OpenNewsCommand}" />
                         </FlexLayout>
                     </Frame>
 
