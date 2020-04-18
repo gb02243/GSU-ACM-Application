@@ -17,7 +17,7 @@ namespace GSUACM.Views
         public HomePage()
         {
             InitializeComponent();
-            BindingContext = new ProfileViewModel(this.Navigation);        }
+            BindingContext = new editProfileViewModel(this.Navigation);        }
 
         // button login
         private void buttonLogin_Click(object sender, EventArgs e)

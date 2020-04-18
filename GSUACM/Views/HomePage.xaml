@@ -79,7 +79,7 @@
                     </StackLayout>
                     <StackLayout>
                         <Label Text="Phone Number"/>
-                        <Entry x:Name="phone" Text="{Binding Address}" FontSize="25"/>
+                        <Entry x:Name="phone" Text="{Binding Number}" FontSize="25"/>
                     </StackLayout>
 
                     <StackLayout>
