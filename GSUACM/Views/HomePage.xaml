@@ -67,24 +67,24 @@
                             <ColumnDefinition Width="auto" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <StackLayout Grid.Column="1">
-                            <Label Text="Name"/>
-                            <Entry x:Name="name" Text="{Binding Name}" FontSize="25" />
+                        <StackLayout Grid.Column="0">
+                            <Label Text="Name:" FontAttributes="Bold" FontSize="25"/>
+                            <Label x:Name="name" Text="{Binding Name}" FontSize="20" />
                         </StackLayout>
 
                     </Grid>
                     <StackLayout>
-                        <Label Text="Email Address"/>
-                        <Entry x:Name="email" Text="{Binding Email}" FontSize="25" />
+                        <Label Text="Email Address:" FontAttributes="Bold" FontSize="25"/>
+                        <Label x:Name="email" Text="{Binding Email}" FontSize="20" />
                     </StackLayout>
                     <StackLayout>
-                        <Label Text="Phone Number"/>
-                        <Entry x:Name="phone" Text="{Binding Number}" FontSize="25"/>
+                        <Label Text="Phone Number:" FontAttributes="Bold" FontSize="25"/>
+                        <Label x:Name="phone" Text="{Binding Number}" FontSize="20"/>
                     </StackLayout>
 
                     <StackLayout>
-                        <Label Text="Club Points"/>
-                        <Entry x:Name="point" Text="{Binding ClubPoints}" FontSize="25"/>
+                        <Label Text="Club Points:" FontAttributes="Bold" FontSize="25"/>
+                        <Label x:Name="point" Text="{Binding ClubPoints}" FontSize="20"/>
                     </StackLayout>
                     <Grid>
                         <Grid.RowDefinitions>

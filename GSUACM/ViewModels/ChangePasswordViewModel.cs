@@ -63,7 +63,16 @@ namespace GSUACM.ViewModels
                     await Application.Current.MainPage.DisplayAlert("Incorrect Password", "Ensure both passwords match & your old password is correct", "Ok");
                     ReturnToProfile();
                 }
-
+                else if (newPass1.Length < 8 || newPass2.Length < 8)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Password Length", "Ensure both new passwords are at least 8 characters long", "Ok");
+                    ReturnToProfile();
+                }
+                else if (String.IsNullOrEmpty(oldPassWord) == true || String.IsNullOrEmpty(newPass1) == true || String.IsNullOrEmpty(newPass2) == true)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Null Attributes", "Ensure both new passwords are at least 8 characters long", "Ok");
+                    ReturnToProfile();
+                }
                 else
                 {
                     //database checks if oldpassword matches whats is stored
