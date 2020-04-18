@@ -1,8 +1,13 @@
-﻿using GSUACM.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
-
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data;
 using Xamarin.Forms;
+using MySql.Data.MySqlClient;
+using GSUACM.ViewModels;
+using Xamarin.Forms.Xaml;
 
 namespace GSUACM.Views
 {
@@ -11,8 +16,7 @@ namespace GSUACM.Views
         public editProfile()
         {
             InitializeComponent();
-            BindingContext = new EditProfileViewModel(this.Navigation);
+            BindingContext = new editProfileViewModel(this.Navigation);
         }
-
     }
 }

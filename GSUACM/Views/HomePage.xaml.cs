@@ -11,13 +11,13 @@ using Xamarin.Forms.Xaml;
 
 namespace GSUACM.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
+   // [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomePage : ContentPage
     {
         public HomePage()
         {
             InitializeComponent();
-            BindingContext = new HomePageViewModel(Navigation);
+            BindingContext = new ProfileViewModel(this.Navigation);
         }
     }
 }

@@ -12,6 +12,7 @@ namespace GSUACM.Services
 
         public static User User { get; set; }
 
+
         //TODO: retrieve all user info
         public static void InstantiateUser(string fname, string lname, string userID, string title, string isAdmin)
         {
@@ -25,6 +26,6 @@ namespace GSUACM.Services
             };
         }
         public static ObservableCollection<Request> request = new ObservableCollection<Request>();
-        
+
     }
 }
