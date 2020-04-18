@@ -56,7 +56,7 @@ namespace GSUACM.ViewModels
             {
                 // create the adapter and query
                 MySqlDataAdapter adapter = new MySqlDataAdapter();
-                MySqlCommand command = new MySqlCommand("SELECT userID, fname, lname, title from user", db.getConnection());
+                MySqlCommand command = new MySqlCommand("SELECT userID, fname, lname, title from user ORDER BY fname ASC", db.getConnection());
                 //Console.WriteLine("Command Created");
                 db.openConnection();
                 adapter.SelectCommand = command;
