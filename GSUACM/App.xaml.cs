@@ -15,7 +15,7 @@ namespace GSUACM
         {
             InitializeComponent();
 
-            GlobalVars.InstantiateUser("Griffin","Bryant","1","Administrator","true");
+            //GlobalVars.InstantiateUser("Griffin","Bryant","1","Administrator","true");
             
             App.Current.MainPage = new AppShell();
             //App.Current.MainPage = new NavigationPage(new ControlPanelPage());
