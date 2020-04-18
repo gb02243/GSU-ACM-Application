@@ -7,6 +7,7 @@ namespace GSUACM.Services
 {
     public static class GlobalVars
     {
+        public static User SelectedUser { get; set; }
 
         public static User User { get; set; }
 
