@@ -24,21 +24,21 @@ namespace GSUACM.ViewModels
         {
             this.Navigation = navigation;
             MessagingCenter.Subscribe<LoginViewModel, string>(this, "Hi", (sender, arg) => {
-                Name = Services.GlobalVars.fname + " " + Services.GlobalVars.lname;
-                Email = Services.GlobalVars.email;
-                Phone = Services.GlobalVars.phone;
-                ClubPoints = Services.GlobalVars.clubpoints;
+                Name = Services.GlobalVars.User.fname + " " + Services.GlobalVars.User.lname;
+                Email = Services.GlobalVars.User.email;
+                Phone = Services.GlobalVars.User.phone;
+                ClubPoints = Services.GlobalVars.User.ClubPoints;
             });
             MessagingCenter.Subscribe<EditProfileViewModel, string>(this, "Hi", (sender, arg) => {
-                Name = Services.GlobalVars.fname + " " + Services.GlobalVars.lname;
-                Email = Services.GlobalVars.email;
-                Phone = Services.GlobalVars.phone;
-                ClubPoints = Services.GlobalVars.clubpoints;
+                Name = Services.GlobalVars.User.fname + " " + Services.GlobalVars.User.lname;
+                Email = Services.GlobalVars.User.email;
+                Phone = Services.GlobalVars.User.phone;
+                ClubPoints = Services.GlobalVars.User.ClubPoints;
             });
-            Name = Services.GlobalVars.fname +" "+ Services.GlobalVars.lname;
-            Email = Services.GlobalVars.email;
-            Phone = Services.GlobalVars.phone;
-            ClubPoints = Services.GlobalVars.clubpoints;
+            Name = Services.GlobalVars.User.fname +" "+ Services.GlobalVars.User.lname;
+            Email = Services.GlobalVars.User.email;
+            Phone = Services.GlobalVars.User.phone;
+            ClubPoints = Services.GlobalVars.User.ClubPoints;
             this.CreateProfileCommand = new Command(this.buttonCreateProfile_Click);
             this.EditProfileCommand = new Command(this.buttonEditProfile_Click);
             this.BecomeTutorCommand = new Command(this.buttonBecomeTutor_Click);

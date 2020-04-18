@@ -86,7 +86,7 @@ namespace GSUACM.ViewModels
                     Console.WriteLine("This is the date "+ table2.Rows[i]["date"].ToString());
 
 
-                    request.Add(new Request() { sessionID = Convert.ToInt32(table2.Rows[i]["sessionID"]) ,subject = table2.Rows[i]["subject"].ToString(), Date = table2.Rows[i]["date"].ToString(), userid = Convert.ToInt32(table2.Rows[i]["userID"].ToString()) });
+                    request.Add(new Request() { sessionID = Convert.ToInt32(table2.Rows[i]["sessionID"]) ,subject = table2.Rows[i]["subject"].ToString(), Date = table2.Rows[i]["date"].ToString(), userid = table2.Rows[i]["userID"].ToString()});
 
                 }
                 Services.GlobalVars.request = request;
@@ -100,8 +100,8 @@ namespace GSUACM.ViewModels
                     GlobalVars.User.fname = table.Rows[0]["fname"].ToString();
                     GlobalVars.User.email = table.Rows[0]["email"].ToString();
                     GlobalVars.User.phone = table.Rows[0]["phone"].ToString();
-                    GlobalVars.User.clubpoints = table.Rows[0]["points"].ToString();
-                    GlobalVars.User.userid = Convert.ToInt32(table.Rows[0]["userID"]);
+                    GlobalVars.User.ClubPoints = table.Rows[0]["points"].ToString();
+                    GlobalVars.User.userID = table.Rows[0]["userID"].ToString();
                     db.closeConnection();
                     labelGoToHomePage_Click();
                     //WelcomeMessage = table.Rows[0]["fname"].ToString();

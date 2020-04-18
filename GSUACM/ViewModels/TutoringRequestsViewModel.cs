@@ -61,7 +61,7 @@ namespace GSUACM.ViewModels
                 }
                 MySqlDataAdapter adapter = new MySqlDataAdapter();
                 MySqlCommand command = new MySqlCommand("select tutorID from tutor where userID= @userid ", db.getConnection());
-                command.Parameters.Add("@userid", MySqlDbType.VarChar).Value = Services.GlobalVars.userid;
+                command.Parameters.Add("@userid", MySqlDbType.VarChar).Value = Services.GlobalVars.User.userID;
                 adapter.SelectCommand = command;
                 adapter.Fill(table);
                 MySqlDataAdapter adapter3 = new MySqlDataAdapter();

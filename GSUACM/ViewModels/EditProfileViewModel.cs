@@ -50,7 +50,7 @@ namespace GSUACM.ViewModels
             command.Parameters.Add("@lname", MySqlDbType.VarChar).Value = lastname;
             command.Parameters.Add("@email", MySqlDbType.VarChar).Value = emailadd;
             command.Parameters.Add("@phone", MySqlDbType.VarChar).Value = phonenum;
-            command.Parameters.Add("@userid", MySqlDbType.VarChar).Value = Services.GlobalVars.userid;
+            command.Parameters.Add("@userid", MySqlDbType.VarChar).Value = Services.GlobalVars.User.userID;
             db.openConnection();
             adapter.SelectCommand = command;
             adapter.Fill(table);
@@ -63,10 +63,10 @@ namespace GSUACM.ViewModels
                     // execute the query
                     if (command.ExecuteNonQuery() == 1)
                     {
-                        Services.GlobalVars.fname = firstname;
-                        Services.GlobalVars.lname = lastname;
-                        Services.GlobalVars.email = emailadd;
-                        Services.GlobalVars.phone = phonenum;
+                        Services.GlobalVars.User.fname = firstname;
+                        Services.GlobalVars.User.lname = lastname;
+                        Services.GlobalVars.User.email = emailadd;
+                        Services.GlobalVars.User.phone = phonenum;
                         MessagingCenter.Send<EditProfileViewModel, string>(this, "Hi", "John");
                         await Application.Current.MainPage.DisplayAlert("Your Account Has Been Created", "Account Created", "Ok");
                        await  Navigation.PopModalAsync();
@@ -119,7 +119,7 @@ namespace GSUACM.ViewModels
 
             if (String.IsNullOrEmpty(fname))
             {
-                Console.WriteLine("The email is " + GSUACM.Services.GlobalVars.fname);
+                Console.WriteLine("The email is " + GSUACM.Services.GlobalVars.User.fname);
                 return false;
             }
             if (String.IsNullOrEmpty(lname))

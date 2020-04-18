@@ -9,7 +9,7 @@ namespace GSUACM.Models
 
         public string subject{get;set;}
         public string Date { get; set; }
-        public int userid { get; set; }
+        public string userid { get; set; }
         public int sessionID { get; set; }
     }
 }

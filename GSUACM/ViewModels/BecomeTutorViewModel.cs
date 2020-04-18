@@ -43,7 +43,7 @@ namespace GSUACM.ViewModels
             String coursecode = courseCode;
             
             MySqlCommand command3 = new MySqlCommand("select userID from tutor where userID = @userid4", db.getConnection());
-            command3.Parameters.Add("@userid4", MySqlDbType.VarChar).Value = Services.GlobalVars.userid;
+            command3.Parameters.Add("@userid4", MySqlDbType.VarChar).Value = Services.GlobalVars.User.userID;
             
             adapter.SelectCommand = command3;
             adapter.Fill(table);
@@ -52,10 +52,10 @@ namespace GSUACM.ViewModels
             if (table.Rows.Count == 0)
             {
                 MySqlCommand command = new MySqlCommand("Insert into tutor(userID) values(@userid)", db.getConnection());
-                command.Parameters.Add("@email", MySqlDbType.VarChar).Value = Services.GlobalVars.email;
-                command.Parameters.Add("@userid", MySqlDbType.VarChar).Value = Services.GlobalVars.userid;
+                command.Parameters.Add("@email", MySqlDbType.VarChar).Value = Services.GlobalVars.User.email;
+                command.Parameters.Add("@userid", MySqlDbType.VarChar).Value = Services.GlobalVars.User.userID;
                 MySqlCommand command2 = new MySqlCommand("insert into course(courseCode,courseTitle,tutorID) values(@coursecode,@coursetitle,@userid2)", db.getConnection());
-                command2.Parameters.Add("@userid2", MySqlDbType.VarChar).Value = Services.GlobalVars.userid;
+                command2.Parameters.Add("@userid2", MySqlDbType.VarChar).Value = Services.GlobalVars.User.userID;
                 command2.Parameters.Add("@coursecode", MySqlDbType.VarChar).Value = courseCode;
                 command2.Parameters.Add("@coursetitle", MySqlDbType.VarChar).Value = courseTitle;
                 db.openConnection();
@@ -86,7 +86,7 @@ namespace GSUACM.ViewModels
             else
             {
                 MySqlCommand command4 = new MySqlCommand("insert into course(courseCode,courseTitle,tutorID) values(@coursecode,@coursetitle,@userid3)", db.getConnection());
-                command4.Parameters.Add("@userid3", MySqlDbType.VarChar).Value = Services.GlobalVars.userid;
+                command4.Parameters.Add("@userid3", MySqlDbType.VarChar).Value = Services.GlobalVars.User.userID;
                 command4.Parameters.Add("@coursecode", MySqlDbType.VarChar).Value = courseCode;
                 command4.Parameters.Add("@coursetitle", MySqlDbType.VarChar).Value = courseTitle;
                 db.openConnection();
@@ -119,9 +119,9 @@ namespace GSUACM.ViewModels
         public Boolean checkTextBoxesValues()
         {
 
-            if (String.IsNullOrEmpty(Services.GlobalVars.email))
+            if (String.IsNullOrEmpty(Services.GlobalVars.User.email))
             {
-                Console.WriteLine("The email is "+ GSUACM.Services.GlobalVars.email);
+                Console.WriteLine("The email is "+ GSUACM.Services.GlobalVars.User.email);
                 return false;
             }
             if (String.IsNullOrEmpty(courseCode))

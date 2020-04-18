@@ -24,11 +24,6 @@ namespace GSUACM.Services
                 isAdmin = bool.Parse(isAdmin)
             };
         }
-        public static String email;
-        public static int userid;
-        public static String lname;
-        public static String  phone;
-        public static String clubpoints;
         public static ObservableCollection<Request> request = new ObservableCollection<Request>();
         
     }
