@@ -13,13 +13,22 @@ namespace GSUACM.ViewModels.ControlPanel
         public INavigation Navigation { get; set; }
         public ICommand CreatePollCommand { get; set; }
         public ICommand CreateEventCommand { get; set; }
+        public ICommand OpenAttendanceCommand { get; set; }
+        public ICommand OpenTitlesCommand { get; set; }
+        public ICommand OpenNewsCommand { get; set; }
         public ControlPanelViewModel(INavigation navigation)
         {
             this.Navigation = navigation;
             CreatePollCommand = new Command(OpenCreatePoll);
             CreateEventCommand = new Command(OpenCreateEvent);
-            if (GlobalVars.User == null || !GlobalVars.User.isAdmin || !GlobalVars.User.isBoardMember)
+            OpenTitlesCommand = new Command(OpenUserTitles);
+            if (GlobalVars.User == null || !GlobalVars.User.isAdmin)
                 GoHome();
+        }
+
+        private async void OpenUserTitles()
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new TitlesPanelPage()));
         }
 
         private async void GoHome()
@@ -28,7 +37,7 @@ namespace GSUACM.ViewModels.ControlPanel
             Application.Current.MainPage = new AppShell();
         }
 
-        private async void OpenCreateEvent(object obj)
+        private async void OpenCreateEvent()
         {
             await Navigation.PushModalAsync(new NavigationPage(new EventsPanelPage()));
         }

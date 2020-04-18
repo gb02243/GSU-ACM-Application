@@ -1,32 +1,40 @@
 ﻿using GSUACM.Models;
 using System;
-using System.Collections.Generic;
 using System.Text;
 using MySql.Data.MySqlClient;
 using Xamarin.Forms;
 using System.Data;
 using GSUACM.Services;
+using System.Collections.ObjectModel;
+using GSUACM.ViewModels.ControlPanel;
+using System.ComponentModel;
 
 namespace GSUACM.ViewModels
 {
-    public class MemberListViewModel
+    public class MemberListViewModel: INotifyPropertyChanged
     {
-        public List<User>Members { get; set; }
-        public List<User>Mentors { get; set; }
+        public ObservableCollection<User>Members { get; set; }
+        public ObservableCollection<User>Mentors { get; set; }
         public INavigation Navigation { get; set; }
         private DataTable queryResults { get; set; }
         public MemberListViewModel(INavigation navigation)
         {
             this.Navigation = navigation;
-            if(GlobalVars.User == null)
+            MessagingCenter.Subscribe<EditTitleResultsViewModel>(this, "title", (sender) =>
+            {
+                GetMembers();
+                PropertyChanged(this, new PropertyChangedEventArgs("Members"));
+                PropertyChanged(this, new PropertyChangedEventArgs("Mentors"));
+            });
+            if (GlobalVars.User == null)
                 GoHome();
             else
             {
-                Members = new List<User>();
-                Mentors = new List<User>();
                 GetMembers();
             }
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         private async void GoHome()
         {
@@ -34,14 +42,15 @@ namespace GSUACM.ViewModels
             Application.Current.MainPage = new AppShell();
         }
 
-        private void GetMembers()
+        private async void GetMembers()
         {
+            Members = new ObservableCollection<User>();
             DB db = new DB();
             queryResults = new DataTable();
             if (db.openConnection() == false)
             {
                 db.closeConnection();
-                Application.Current.MainPage.DisplayAlert("Server Error", "Try Again Later", "Ok");
+                await Application.Current.MainPage.DisplayAlert("Server Error", "Try Again Later", "Ok");
             }
             else
             {
@@ -73,7 +82,7 @@ namespace GSUACM.ViewModels
                 }
                 else
                 {
-                    Application.Current.MainPage.DisplayAlert("Server Error", "No users were returned from the server.", "Ok");
+                    await Application.Current.MainPage.DisplayAlert("Server Error", "No users were returned from the server.", "Ok");
                 }
                 db.closeConnection();
             }
@@ -84,6 +93,7 @@ namespace GSUACM.ViewModels
 
         private void GetMentors()
         {
+            Mentors = new ObservableCollection<User>();
             for (int i = 0; i < Members.Count; i++)
             {
                 if(Members[i].title == "Mentor")

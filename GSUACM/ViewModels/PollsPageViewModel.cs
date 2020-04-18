@@ -49,7 +49,6 @@ namespace GSUACM.ViewModels
 
         private async void Vote(string optionID)
         {
-            //await Application.Current.MainPage.DisplayAlert("test", optionID, "Ok");
             DB db = new DB();
             if (db.openConnection() == false)
             {

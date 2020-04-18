@@ -16,11 +16,11 @@
             
             <!-- Header -->
             <StackLayout Spacing="0"
-                     Padding="10">
+                        Padding="10">
                 <Label Text="Create an Event" 
-                   FontSize="28" 
-                   HorizontalTextAlignment="Center"
-                   FontAttributes="Bold" />
+                       FontSize="28" 
+                       HorizontalTextAlignment="Center"
+                       FontAttributes="Bold" />
             </StackLayout>
             
             <!-- Event Creation-->
