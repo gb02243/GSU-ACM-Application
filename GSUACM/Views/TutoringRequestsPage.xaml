@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GSUACM.Views.TutoringRequestsPage"
+             x:Name="TutoringRequests">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#041e42</Color>
+            <Color x:Key="Secondary">#a99260</Color>
+            <!--<Color x:Key="Accent">#96d1ff</Color>-->
+            <Color x:Key="Accent">#cccccc</Color>
+            <Color x:Key="LightTextColor">#999999</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ListView ItemsSource="{Binding request}"
+              SelectedItem="{Binding YourSelectedItem, Mode=TwoWay}"
+              HasUnevenRows="True"
+              BackgroundColor="#ecf0f1"
+              SeparatorVisibility="None"
+              HorizontalOptions="FillAndExpand"
+              VerticalOptions="FillAndExpand">
+        
+        <ListView.Header>
+            <StackLayout Padding="10,5,0,5" BackgroundColor="#cccccc">
+                <Label Text="Tutoring Requests" FontSize="Large" />
+            </StackLayout>
+        </ListView.Header>
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Margin="8">
+                        <Label Text="{Binding sessionID}"
+                               FontAttributes="Bold" />
+                        <Label Text="{Binding subject}"
+                               FontAttributes="Bold" />
+                        <Label Text="{Binding Date}" 
+                                FontAttributes="Bold" />
+                        <Label Text="{Binding userid}" 
+                                FontAttributes="Bold" />
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+   
+</ContentPage>

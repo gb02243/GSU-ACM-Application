@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="GSUACM.Views.Polls.Partials.PollPartial">
+             x:Class="GSUACM.Views.Polls.Partials.PollPartial"
+             x:Name="PollPartialContainer">
   <ContentView.Content>
         <StackLayout Margin="10" HorizontalOptions="FillAndExpand">
             <Frame CornerRadius="5"
@@ -49,7 +50,17 @@
                                      BindableLayout.ItemsSource="{Binding Options}">
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
-                                <Button Text="{Binding Text}" />
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Button Grid.Column="0" Text="{Binding Text}" Command="{Binding VoteCommand}" CommandParameter="{Binding OptionID}" />
+                                    <Label VerticalOptions="Center" Grid.Column="1" Text="Votes: "/>
+                                    <Label VerticalOptions="Center" Grid.Column="2" Text="{Binding Votes}" />
+                                </Grid>
+                                
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>
                     </StackLayout>

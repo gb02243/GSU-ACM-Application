@@ -16,7 +16,7 @@ namespace GSUACM.Views.Polls
         public PastPollsPage()
         {
             InitializeComponent();
-            BindingContext = new PollsPageViewModel();
+            BindingContext = new PollsPageViewModel(Navigation);
         }
     }
 }

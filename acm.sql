@@ -23,7 +23,7 @@ CREATE TABLE `course` (
   `courseTitle` varchar(255) DEFAULT NULL,
   `tutorID` int(11) NOT NULL,
   PRIMARY KEY (`courseID`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Table structure for table `message`
@@ -31,8 +31,8 @@ CREATE TABLE `course` (
 
 DROP TABLE IF EXISTS `message`;
 CREATE TABLE `message` (
-  `messageID` int(11) NOT NULL AUTO_INCREMENT,
-  `date` datetime DEFAULT NULL,
+  `messageID` varchar(36) NOT NULL,
+  `date` varchar(255) DEFAULT NULL,
   `messageDescription` varchar(255) DEFAULT NULL,
   `senderID` int(11) DEFAULT NULL,
   `recieverID` int(11) DEFAULT NULL,
@@ -48,7 +48,7 @@ CREATE TABLE `newsitem` (
   `newsitemID` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT NULL,
   `author` varchar(255) DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `date` varchar(255) DEFAULT NULL,
   `time` timestamp NULL DEFAULT NULL,
   `body` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`newsitemID`)
@@ -60,10 +60,10 @@ CREATE TABLE `newsitem` (
 
 DROP TABLE IF EXISTS `option`;
 CREATE TABLE `option` (
-  `optionID` int(11) NOT NULL AUTO_INCREMENT,
-  `pollID` int(11) NOT NULL,
+  `optionID` varchar(36) NOT NULL,
+  `pollID` varchar(36) NOT NULL,
   `text` varchar(255) DEFAULT NULL,
-  `votes` varchar(255) DEFAULT NULL,
+  `votes` int(11) DEFAULT 0,
   PRIMARY KEY (`optionID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -73,12 +73,10 @@ CREATE TABLE `option` (
 
 DROP TABLE IF EXISTS `poll`;
 CREATE TABLE `poll` (
-  `pollID` int(11) NOT NULL AUTO_INCREMENT,
+  `pollID` varchar(36) NOT NULL,
   `pollAuthorID` int(11) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
-  `date` date DEFAULT NULL,
-  `time` timestamp NULL DEFAULT NULL,
-  `body` varchar(255) DEFAULT NULL,
+  `date` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`pollID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -113,7 +111,7 @@ CREATE TABLE `tutor` (
   `feedback` varchar(255) DEFAULT NULL,
   `userID` int(11) NOT NULL,
   PRIMARY KEY (`tutorID`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Table structure for table `tutorsession`
@@ -127,7 +125,7 @@ CREATE TABLE `tutorsession` (
   `tutorID` int(11) DEFAULT NULL,
   `userID` int(11) DEFAULT NULL,
   PRIMARY KEY (`sessionID`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Table structure for table `user`
@@ -144,12 +142,27 @@ CREATE TABLE `user` (
   `currentClasses` varchar(255) DEFAULT NULL,
   `classesTaken` varchar(255) DEFAULT NULL,
   `isTutor` longblob,
-  `isAdmin` longblob,
+  `isAdmin` boolean DEFAULT false,
   `isBoardMember` longblob,
   `title` varchar(255) DEFAULT NULL,
   `points` int(255) DEFAULT NULL,
   PRIMARY KEY (`userID`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Table structure for table `event`
+--
+
+DROP TABLE IF EXISTS `event`;
+CREATE TABLE `event` (
+  `eventID` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL,
+  `location` varchar(255) NOT NULL,
+  `postdate` varchar(255) NOT NULL,
+  `eventdate` varchar(255) NOT NULL,
+  `body` text NOT NULL,
+  PRIMARY KEY (`eventID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 ALTER TABLE `admin` ADD CONSTRAINT `userFK` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE `course` ADD CONSTRAINT `tutorFK` FOREIGN KEY (`tutorID`) REFERENCES `tutor` (`tutorID`) ON DELETE CASCADE ON UPDATE CASCADE;
@@ -165,14 +178,15 @@ ALTER TABLE `sender` ADD CONSTRAINT `senderFK` FOREIGN KEY (`userID`) REFERENCES
 ALTER TABLE `tutor` ADD CONSTRAINT `tutorUserFK` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE `tutorsession` ADD CONSTRAINT `sessionTutorFK` FOREIGN KEY (`tutorID`) REFERENCES `tutor` (`tutorID`) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE `tutorsession` ADD CONSTRAINT `sessionUserFK` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `event` ADD CONSTRAINT `eventUserFK` FOREIGN KEY (`userID`) REFERENCES `user` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
-INSERT INTO user(fname, lname, password, email, title) VALUES('Griffin', 'Bryant', 'test', 'test@gmail.com', 'Development Team');
-INSERT INTO user(fname, lname, password, email, title) VALUES('Test1', 'Test1', 'test', 'test1@gmail.com', 'Member');
-INSERT INTO user(fname, lname, password, email, title) VALUES('Test2', 'Test2', 'test', 'test2@gmail.com', 'Member');
-INSERT INTO user(fname, lname, password, email, title) VALUES('Test3', 'Test3', 'test', 'test3@gmail.com', 'Member');
-INSERT INTO user(fname, lname, password, email, title) VALUES('Test4', 'Test4', 'test', 'test4@gmail.com', 'Member');
-INSERT INTO user(fname, lname, password, email, title) VALUES('Test5', 'Test5', 'test', 'test5@gmail.com', 'Mentor');
-INSERT INTO user(fname, lname, password, email, title) VALUES('Test6', 'Test6', 'test', 'test6@gmail.com', 'Mentor');
-INSERT INTO user(fname, lname, password, email, title) VALUES('Test7', 'Test7', 'test', 'test7@gmail.com', 'Member');
-INSERT INTO user(fname, lname, password, email, title) VALUES('Test8', 'Test8', 'test', 'test8@gmail.com', 'Member');
-INSERT INTO user(fname, lname, password, email, title) VALUES('Test9', 'Test9', 'test', 'test9@gmail.com', 'Mentor');
+INSERT INTO user(userID, fname, lname, password, email, title) VALUES('1', 'Griffin', 'Bryant', 'test', 'test@gmail.com', 'Administrator');
+INSERT INTO user(userID, fname, lname, password, email, title) VALUES('2', 'Test1', 'Test1', 'test', 'test1@gmail.com', 'Member');
+INSERT INTO user(userID, fname, lname, password, email, title) VALUES('3', 'Test2', 'Test2', 'test', 'test2@gmail.com', 'Member');
+INSERT INTO user(userID, fname, lname, password, email, title) VALUES('4', 'Test3', 'Test3', 'test', 'test3@gmail.com', 'Member');
+INSERT INTO user(userID, fname, lname, password, email, title) VALUES('5', 'Test4', 'Test4', 'test', 'test4@gmail.com', 'Member');
+INSERT INTO user(userID, fname, lname, password, email, title) VALUES('6', 'Test5', 'Test5', 'test', 'test5@gmail.com', 'Mentor');
+INSERT INTO user(userID, fname, lname, password, email, title) VALUES('7', 'Test6', 'Test6', 'test', 'test6@gmail.com', 'Mentor');
+INSERT INTO user(userID, fname, lname, password, email, title) VALUES('8', 'Test7', 'Test7', 'test', 'test7@gmail.com', 'Member');
+INSERT INTO user(userID, fname, lname, password, email, title) VALUES('9', 'Test8', 'Test8', 'test', 'test8@gmail.com', 'Member');
+INSERT INTO user(userID, fname, lname, password, email, title) VALUES('10', 'Test9', 'Test9', 'test', 'test9@gmail.com', 'Mentor');

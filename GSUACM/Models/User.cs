@@ -18,5 +18,6 @@ namespace GSUACM.Models
         public string title { get; set; }
         public string userID { get; set; }
         public string profileIMG { get; set; }
+        public string ClubPoints { get; set; }
     }
 }

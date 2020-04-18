@@ -1,26 +1,31 @@
 ﻿using GSUACM.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace GSUACM.Services
 {
     public static class GlobalVars
     {
+        public static User SelectedUser { get; set; }
 
         public static User User { get; set; }
 
+
         //TODO: retrieve all user info
-        public static void InstantiateUser(string fname, string lname, string userID, string title)
+        public static void InstantiateUser(string fname, string lname, string userID, string title, string isAdmin)
         {
             User = new User
             {
                 fname = fname,
                 lname = lname,
                 userID = userID,
-                title = title
+                title = title,
+                isAdmin = bool.Parse(isAdmin)
             };
         }
-    }
+        public static ObservableCollection<Request> request = new ObservableCollection<Request>();
 
+    }
 }

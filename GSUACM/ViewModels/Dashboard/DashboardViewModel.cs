@@ -10,6 +10,9 @@ using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 using GSUACM.ViewModels;
+using GSUACM.ViewModels.ControlPanel;
+using System.Data;
+using MySql.Data.MySqlClient;
 
 namespace GSUACM.ViewModels.Dashboard
 {
@@ -17,11 +20,12 @@ namespace GSUACM.ViewModels.Dashboard
     {
         public INavigation Navigation { get; set; }
         //public string WelcomeMessage { get; set; } 
-        public List<NewsItem> NewsItems { get; set; }
+        public ObservableCollection<NewsItem> NewsItems { get; set; }
         public string ToolbarText { get; set; }
         public string WelcomeMessage { get; set; }
         public bool isLoggedIn { get; set; }
         public ICommand ToolbarCommand { get; set; }
+        public DataTable QueryResults { get; set; }
         public DashboardViewModel(INavigation navigation)
         {
             this.Navigation = navigation;
@@ -31,6 +35,12 @@ namespace GSUACM.ViewModels.Dashboard
                 isLoggedIn = true;
                 ToolbarText = "Log Out";
             });
+
+            MessagingCenter.Subscribe<NewsPanelViewModel>(this, "news", (sender) =>
+            {
+                UpdateNewsItems();
+            });
+
             if (GlobalVars.User == null)
             {
                 WelcomeMessage = "Welcome!\nPlease log in.";
@@ -45,8 +55,6 @@ namespace GSUACM.ViewModels.Dashboard
             }
 
             ToolbarCommand = new Command(GetToolbarAction);
-       
-            NewsItems = new List<NewsItem>();
             UpdateNewsItems();
         }
         
@@ -66,100 +74,51 @@ namespace GSUACM.ViewModels.Dashboard
                 ToolbarText = "Log In";
                 isLoggedIn = false;
                 await Application.Current.MainPage.DisplayAlert("Logged Out", "You have successfully logged out.", "Ok");
+                Application.Current.MainPage = new AppShell();
             }
         }
         
-        public void UpdateNewsItems()
+        public async void UpdateNewsItems()
         {
-            // TODO: get news items from database
-            NewsItems.Add(new NewsItem()
+            NewsItems = new ObservableCollection<NewsItem>();
+            DB db = new DB();
+            QueryResults = new DataTable();
+            if (db.openConnection() == false)
+            {
+                db.closeConnection();
+                await Application.Current.MainPage.DisplayAlert("Server Error", "Try Again Later", "Ok");
+            }
+            else
+            {
+                // create the adapter and query for the polls list
+                MySqlCommand command = new MySqlCommand("SELECT * FROM newsitem", db.getConnection());
+                MySqlDataAdapter adapter = new MySqlDataAdapter();
+                db.openConnection();
+                adapter.SelectCommand = command;
+                // set the adapter output
+                adapter.Fill(QueryResults);
+
+                // fill events list
+                if (QueryResults.Rows.Count > 0)
                 {
-                    Title = "Test News Article 1",
-                    Author = "First Last",
-                    Date = "4/5/2020",
-                    Time = "1:41 PM",
-                    Body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet nibh id leo tempor feugiat et non tellus. " +
-                    "Quisque turpis odio, dignissim et neque at, tristique condimentum odio. Sed fermentum nunc vitae fermentum facilisis. " +
-                    "Nullam in massa fermentum, finibus sapien sit amet, eleifend urna. Cras eleifend rhoncus urna eu semper. " +
-                    "Suspendisse tincidunt rutrum viverra. Fusce elit risus, vestibulum ac venenatis vel, facilisis vel arcu. " +
-                    "In mollis posuere ipsum, ut condimentum sapien volutpat ac. Suspendisse eget cursus risus. Sed id ex nisi. " +
-                    "Etiam eu ipsum non mi tristique blandit. Fusce lacinia dictum turpis, sit amet tristique dui congue a.\n\n" +
-                    "Nam vestibulum vitae nibh id consectetur. Morbi iaculis eleifend fermentum. Cras quis libero nec dui feugiat commodo. " +
-                    "Mauris diam felis, tincidunt nec cursus nec, rhoncus ac nisl. Aliquam ac mollis risus. Proin condimentum at orci vel dictum. " +
-                    "Donec in faucibus ante, eget ullamcorper urna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi placerat porttitor auctor. " +
-                    "Aliquam egestas non nisi eget convallis.\n\n" +
-                    "Suspendisse ac risus hendrerit, dapibus lacus at, lacinia nulla. Mauris id congue purus, ac placerat arcu. Nulla convallis lacus vel feugiat posuere. " +
-                    "Curabitur sem ipsum, rhoncus non est id, aliquam eleifend ligula. Cras quis dui eu diam feugiat vulputate eget non elit. Duis tempus congue ornare. " +
-                    "Aliquam elit ligula, condimentum et urna sed, tincidunt viverra velit. Donec sagittis libero vitae arcu convallis molestie. " +
-                    "Aenean a cursus urna, et efficitur lectus. Praesent ac sodales urna, vel eleifend lorem. Integer tortor sem, commodo ut augue vel, consectetur rhoncus ante. " +
-                    "Nam vel lacus dui. Praesent pulvinar quis metus eget fringilla. Pellentesque dictum neque quis tellus consequat, sed consectetur dolor ornare."
-            });
-            NewsItems.Add(new NewsItem()
-            {
-                Title = "Test News Article 2",
-                Author = "First Last",
-                Date = "4/5/2020",
-                Time = "1:41 PM",
-                Body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet nibh id leo tempor feugiat et non tellus. " +
-                    "Quisque turpis odio, dignissim et neque at, tristique condimentum odio. Sed fermentum nunc vitae fermentum facilisis. " +
-                    "Nullam in massa fermentum, finibus sapien sit amet, eleifend urna. Cras eleifend rhoncus urna eu semper. " +
-                    "Suspendisse tincidunt rutrum viverra. Fusce elit risus, vestibulum ac venenatis vel, facilisis vel arcu. " +
-                    "In mollis posuere ipsum, ut condimentum sapien volutpat ac. Suspendisse eget cursus risus. Sed id ex nisi. " +
-                    "Etiam eu ipsum non mi tristique blandit. Fusce lacinia dictum turpis, sit amet tristique dui congue a.\n\n" +
-                    "Nam vestibulum vitae nibh id consectetur. Morbi iaculis eleifend fermentum. Cras quis libero nec dui feugiat commodo. " +
-                    "Mauris diam felis, tincidunt nec cursus nec, rhoncus ac nisl. Aliquam ac mollis risus. Proin condimentum at orci vel dictum. " +
-                    "Donec in faucibus ante, eget ullamcorper urna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi placerat porttitor auctor. " +
-                    "Aliquam egestas non nisi eget convallis.\n\n" +
-                    "Suspendisse ac risus hendrerit, dapibus lacus at, lacinia nulla. Mauris id congue purus, ac placerat arcu. Nulla convallis lacus vel feugiat posuere. " +
-                    "Curabitur sem ipsum, rhoncus non est id, aliquam eleifend ligula. Cras quis dui eu diam feugiat vulputate eget non elit. Duis tempus congue ornare. " +
-                    "Aliquam elit ligula, condimentum et urna sed, tincidunt viverra velit. Donec sagittis libero vitae arcu convallis molestie. " +
-                    "Aenean a cursus urna, et efficitur lectus. Praesent ac sodales urna, vel eleifend lorem. Integer tortor sem, commodo ut augue vel, consectetur rhoncus ante. " +
-                    "Nam vel lacus dui. Praesent pulvinar quis metus eget fringilla. Pellentesque dictum neque quis tellus consequat, sed consectetur dolor ornare."
-            });
-            NewsItems.Add(new NewsItem()
-            {
-                Title = "Test News Article 3",
-                Author = "First Last",
-                Date = "4/5/2020",
-                Time = "1:41 PM",
-                Body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet nibh id leo tempor feugiat et non tellus. " +
-                    "Quisque turpis odio, dignissim et neque at, tristique condimentum odio. Sed fermentum nunc vitae fermentum facilisis. " +
-                    "Nullam in massa fermentum, finibus sapien sit amet, eleifend urna. Cras eleifend rhoncus urna eu semper. " +
-                    "Suspendisse tincidunt rutrum viverra. Fusce elit risus, vestibulum ac venenatis vel, facilisis vel arcu. " +
-                    "In mollis posuere ipsum, ut condimentum sapien volutpat ac. Suspendisse eget cursus risus. Sed id ex nisi. " +
-                    "Etiam eu ipsum non mi tristique blandit. Fusce lacinia dictum turpis, sit amet tristique dui congue a.\n\n" +
-                    "Nam vestibulum vitae nibh id consectetur. Morbi iaculis eleifend fermentum. Cras quis libero nec dui feugiat commodo. " +
-                    "Mauris diam felis, tincidunt nec cursus nec, rhoncus ac nisl. Aliquam ac mollis risus. Proin condimentum at orci vel dictum. " +
-                    "Donec in faucibus ante, eget ullamcorper urna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi placerat porttitor auctor. " +
-                    "Aliquam egestas non nisi eget convallis.\n\n" +
-                    "Suspendisse ac risus hendrerit, dapibus lacus at, lacinia nulla. Mauris id congue purus, ac placerat arcu. Nulla convallis lacus vel feugiat posuere. " +
-                    "Curabitur sem ipsum, rhoncus non est id, aliquam eleifend ligula. Cras quis dui eu diam feugiat vulputate eget non elit. Duis tempus congue ornare. " +
-                    "Aliquam elit ligula, condimentum et urna sed, tincidunt viverra velit. Donec sagittis libero vitae arcu convallis molestie. " +
-                    "Aenean a cursus urna, et efficitur lectus. Praesent ac sodales urna, vel eleifend lorem. Integer tortor sem, commodo ut augue vel, consectetur rhoncus ante. " +
-                    "Nam vel lacus dui. Praesent pulvinar quis metus eget fringilla. Pellentesque dictum neque quis tellus consequat, sed consectetur dolor ornare."
-            });
-            NewsItems.Add(new NewsItem()
-            {
-                Title = "Test News Article 4",
-                Author = "First Last",
-                Date = "4/5/2020",
-                Time = "1:41 PM",
-                Body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sit amet nibh id leo tempor feugiat et non tellus. " +
-                    "Quisque turpis odio, dignissim et neque at, tristique condimentum odio. Sed fermentum nunc vitae fermentum facilisis. " +
-                    "Nullam in massa fermentum, finibus sapien sit amet, eleifend urna. Cras eleifend rhoncus urna eu semper. " +
-                    "Suspendisse tincidunt rutrum viverra. Fusce elit risus, vestibulum ac venenatis vel, facilisis vel arcu. " +
-                    "In mollis posuere ipsum, ut condimentum sapien volutpat ac. Suspendisse eget cursus risus. Sed id ex nisi. " +
-                    "Etiam eu ipsum non mi tristique blandit. Fusce lacinia dictum turpis, sit amet tristique dui congue a.\n\n" +
-                    "Nam vestibulum vitae nibh id consectetur. Morbi iaculis eleifend fermentum. Cras quis libero nec dui feugiat commodo. " +
-                    "Mauris diam felis, tincidunt nec cursus nec, rhoncus ac nisl. Aliquam ac mollis risus. Proin condimentum at orci vel dictum. " +
-                    "Donec in faucibus ante, eget ullamcorper urna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi placerat porttitor auctor. " +
-                    "Aliquam egestas non nisi eget convallis.\n\n" +
-                    "Suspendisse ac risus hendrerit, dapibus lacus at, lacinia nulla. Mauris id congue purus, ac placerat arcu. Nulla convallis lacus vel feugiat posuere. " +
-                    "Curabitur sem ipsum, rhoncus non est id, aliquam eleifend ligula. Cras quis dui eu diam feugiat vulputate eget non elit. Duis tempus congue ornare. " +
-                    "Aliquam elit ligula, condimentum et urna sed, tincidunt viverra velit. Donec sagittis libero vitae arcu convallis molestie. " +
-                    "Aenean a cursus urna, et efficitur lectus. Praesent ac sodales urna, vel eleifend lorem. Integer tortor sem, commodo ut augue vel, consectetur rhoncus ante. " +
-                    "Nam vel lacus dui. Praesent pulvinar quis metus eget fringilla. Pellentesque dictum neque quis tellus consequat, sed consectetur dolor ornare."
-            });
+                    for (int i = 0; i < QueryResults.Rows.Count; i++)
+                    {
+                        NewsItems.Add(new NewsItem()
+                        {
+                            Title = QueryResults.Rows[i]["title"].ToString(),
+                            Author = QueryResults.Rows[i]["author"].ToString(),
+                            Date = QueryResults.Rows[i]["date"].ToString(),
+                            Body = QueryResults.Rows[i]["body"].ToString(),
+                        });
+                    }
+                }
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert("Server Error", "No events were returned from the server.", "Ok");
+                }
+                db.closeConnection();
+            }
+            db.closeConnection();
         }
 
 

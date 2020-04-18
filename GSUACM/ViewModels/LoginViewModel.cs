@@ -12,6 +12,8 @@ using System.Data;
 using GSUACM.Services;
 using GSUACM;
 using GSUACM.Views;
+using GSUACM.Models;
+using System.Collections.ObjectModel;
 
 namespace GSUACM.ViewModels
 {
@@ -25,8 +27,9 @@ namespace GSUACM.ViewModels
         public ICommand LogInCommand { get; set; }
         public ICommand SetUpDashBoard { get; set; }
         public ICommand CancelCommand { get; set; }
-       
+        private ObservableCollection<Request> request;
         private DataTable table = new DataTable();
+        private DataTable table2 = new DataTable();
         //string conStr = ConfigurationManager.ConnectionStrings["MembersConnectionString"].ConnectionString;
         // label close CLICK
         public LoginViewModel(INavigation navigation)
@@ -63,26 +66,42 @@ namespace GSUACM.ViewModels
             else
             {
                 MySqlDataAdapter adapter = new MySqlDataAdapter();
+                MySqlDataAdapter adapterSession = new MySqlDataAdapter();
                 String emailAddress = email;
                 String pword = password;
                 MySqlCommand command = new MySqlCommand("SELECT * FROM user WHERE email = @email and password = @pass", db.getConnection());
+                MySqlCommand commandSession = new MySqlCommand("select * from tutorsession", db.getConnection());
                 command.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
                 command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = password;
                 db.openConnection();
                 adapter.SelectCommand = command;
 
                 adapter.Fill(table);
+                adapterSession.SelectCommand = commandSession;
+
+                adapterSession.Fill(table2);
+                request = new ObservableCollection<Request>();
+                for (int i = 0; i < table2.Rows.Count; i++)
+                {
+                    Console.WriteLine("This is the date "+ table2.Rows[i]["date"].ToString());
 
 
+                    request.Add(new Request() { sessionID = Convert.ToInt32(table2.Rows[i]["sessionID"]) ,subject = table2.Rows[i]["subject"].ToString(), Date = table2.Rows[i]["date"].ToString(), userid = table2.Rows[i]["userID"].ToString()});
 
+                }
+                Services.GlobalVars.request = request;
+                Console.WriteLine("The request is this long" + request);
                 //check if the user exists or not
                 if (table.Rows.Count > 0)
                 {
-                    GlobalVars.InstantiateUser(table.Rows[0]["fname"].ToString(), table.Rows[0]["lname"].ToString(), table.Rows[0]["userID"].ToString(), table.Rows[0]["title"].ToString());
+                    GlobalVars.InstantiateUser(table.Rows[0]["fname"].ToString(), table.Rows[0]["lname"].ToString(), table.Rows[0]["userID"].ToString(), table.Rows[0]["title"].ToString(), table.Rows[0]["isAdmin"].ToString());
                     //Console.WriteLine("This is the first name" + table.Rows[0]["fname"].ToString());
 
                     GlobalVars.User.fname = table.Rows[0]["fname"].ToString();
-                    Console.WriteLine("This is the first name" + GlobalVars.User.fname);
+                    GlobalVars.User.email = table.Rows[0]["email"].ToString();
+                    GlobalVars.User.phone = table.Rows[0]["phone"].ToString();
+                    GlobalVars.User.ClubPoints = table.Rows[0]["points"].ToString();
+                    GlobalVars.User.userID = table.Rows[0]["userID"].ToString();
                     db.closeConnection();
                     labelGoToHomePage_Click();
                     //WelcomeMessage = table.Rows[0]["fname"].ToString();
@@ -129,7 +148,7 @@ namespace GSUACM.ViewModels
         public event EventHandler<EventArgs> OperationCompeleted;
         private async void labelGoToHomePage_Click()
         {
-            
+
             MessagingCenter.Send<LoginViewModel ,string>(this, "Hi", "John");
             await this.Navigation.PopModalAsync();
             //TODO: event handling to update dashboard page

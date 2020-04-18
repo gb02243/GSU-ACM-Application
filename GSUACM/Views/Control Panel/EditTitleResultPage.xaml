@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:GSUACM"
+             mc:Ignorable="d"
+             x:Class="GSUACM.Views.Control_Panel.EditTitleResultPage"
+             Title="{Binding PageTitle}">
+    <!-- Toolbar -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Command="{Binding CloseWindowCommand}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            
+            <!-- Header -->
+            <StackLayout Padding="10"
+                             VerticalOptions="Center">
+                <Label Text="Edit User" 
+                           FontSize="28" 
+                           HorizontalTextAlignment="Center"
+                           FontAttributes="Bold" />
+            </StackLayout>
+
+            <!-- Edit User Panel-->
+            <StackLayout>
+                <Grid HorizontalOptions="CenterAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        
+                    </Grid.ColumnDefinitions>
+                    <Frame BorderColor="Black"
+                           CornerRadius="50"
+                           IsClippedToBounds="True"
+                           Grid.Row="0"
+                           WidthRequest="70"
+                           HeightRequest="70"
+                           HorizontalOptions="Center">
+                        <Image Source="{local:ImageResource GSUACM.Images.default_profile_image.png}" 
+                               Aspect="AspectFill" 
+                               HeightRequest="70" 
+                               WidthRequest="70" 
+                               Margin="-20" />
+                    </Frame>
+                    <StackLayout Orientation="Horizontal"
+                                 Grid.Row="1"
+                                 HorizontalOptions="Center">
+                        <Label Text="{Binding FirstName}" 
+                               FontSize="20" 
+                               FontAttributes="Bold" 
+                               HorizontalTextAlignment="Center" />
+                        <Label Text="{Binding LastName}" 
+                               FontSize="20" 
+                               FontAttributes="Bold" 
+                               HorizontalTextAlignment="Center" />
+                    </StackLayout>
+                    <Label Text="{Binding Title}"
+                           Grid.Row="2"
+                           FontAttributes="Italic"
+                           FontSize="18" 
+                           HorizontalOptions="Center"
+                           HorizontalTextAlignment="Center" />
+                    <StackLayout Grid.Row="3"
+                                 HorizontalOptions="CenterAndExpand"
+                                 Margin="50,0,50,0">
+                        <Entry Text="{Binding NewTitle}"
+                               Placeholder="Enter new title here..." />
+                    </StackLayout>
+                    <StackLayout Grid.Row="4" HorizontalOptions="Center">
+                        <StackLayout Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding UserIsAdmin}"
+                                      HorizontalOptions="End"
+                                      VerticalOptions="Center"/>
+                            <Label Text="Is User Admin?"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Center"
+                                   VerticalTextAlignment="Center" />
+                        </StackLayout>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+
+            <!-- Buttons -->
+            <StackLayout VerticalOptions="EndAndExpand" 
+                             Margin="0,0,0,20">
+                <Button HorizontalOptions="Center" 
+                            WidthRequest="200"
+                            Margin="0,10,0,0" 
+                            Text="Save" 
+                            BackgroundColor="{DynamicResource GSUBlue}" 
+                            TextColor="White" 
+                            FontSize="22"   
+                            CornerRadius="22" 
+                            VerticalOptions="EndAndExpand"
+                            Command="{Binding SaveUserCommand}" />
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

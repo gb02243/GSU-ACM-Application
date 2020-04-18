@@ -14,66 +14,84 @@
                    HorizontalTextAlignment="Center"
                    FontAttributes="Bold" />
             <CollectionView x:Name="eventsList"
-                        ItemsSource="{Binding Events}">
+                            ItemsSource="{Binding EventsCollection}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <ContentView>
                             <StackLayout Margin="10">
                                 <Frame CornerRadius="5"
-                                   HasShadow="True"
-                                   Padding="8"
-                                   HorizontalOptions="Center"
-                                   VerticalOptions="Center">
+                                       HasShadow="True"
+                                       Padding="8"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center">
                                     <Grid>
                                         <Grid.RowDefinitions>
-                                            <RowDefinition Height="75" />
+                                            <RowDefinition Height="Auto" />
                                             <RowDefinition Height="4" />
                                             <RowDefinition Height="Auto" />
                                         </Grid.RowDefinitions>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="75" />
-                                            <ColumnDefinition Width="200" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
                                         </Grid.ColumnDefinitions>
-                                        <Frame IsClippedToBounds="True"
-                                           CornerRadius="38"
-                                           HeightRequest="60"
-                                           WidthRequest="60"
-                                           HorizontalOptions="Center"
-                                           VerticalOptions="Center">
-                                            <Image Source="{local:ImageResource GSUACM.Images.gsu_logo_icon.jpg}"
-                                               HeightRequest="100"
-                                               Aspect="AspectFit" />
-                                        </Frame>
+                                        <StackLayout Grid.Column="0"
+                                                     Spacing="4"
+                                                     VerticalOptions="Center"
+                                                     Grid.Row="0">
+                                            <Frame IsClippedToBounds="True"
+                                                   CornerRadius="38"
+                                                   HeightRequest="30"
+                                                   WidthRequest="30"
+                                                   HorizontalOptions="Center"
+                                                   VerticalOptions="Center"
+                                                   Grid.Row="0">
+                                                <Image Source="{local:ImageResource GSUACM.Images.gsu_logo_icon.jpg}"
+                                                       HeightRequest="30"
+                                                       WidthRequest="30"
+                                                       Margin="-25"
+                                                       Aspect="AspectFit" />
+                                            </Frame>
+                                        </StackLayout>
                                         <StackLayout Grid.Column="1" 
-                                                 Spacing="5" 
-                                                 VerticalOptions="CenterAndExpand">
+                                                     Spacing="5" 
+                                                     VerticalOptions="CenterAndExpand"
+                                                     Grid.Row="0">
                                             <Label Text="{Binding Title}"
-                                               FontAttributes="Bold"
-                                               FontSize="Medium"
-                                               VerticalTextAlignment="Center"
-                                               HorizontalTextAlignment="Start" />
-                                            <Label Text="{Binding EventDate}"
-                                               FontAttributes="Italic"
-                                               FontSize="Small"
-                                               VerticalTextAlignment="Center"
-                                               HorizontalTextAlignment="Start" />
+                                                   FontAttributes="Bold"
+                                                   FontSize="Medium"
+                                                   VerticalTextAlignment="Center"
+                                                   HorizontalTextAlignment="Start" />
+                                            <Label Text="{Binding Date}"
+                                                   FontAttributes="Italic"
+                                                   FontSize="Small"
+                                                   VerticalTextAlignment="Center"
+                                                   HorizontalTextAlignment="Start" 
+                                                   HorizontalOptions="StartAndExpand" />
+                                            <Label Text="{Binding Location}"
+                                                   FontAttributes="Italic"
+                                                   FontSize="Small"
+                                                   VerticalTextAlignment="Center"
+                                                   HorizontalTextAlignment="Start" 
+                                                   HorizontalOptions="StartAndExpand" />
                                         </StackLayout>
                                         <StackLayout Grid.Column="2"
-                                                 Spacing="4"
-                                                 VerticalOptions="CenterAndExpand">
+                                                     Spacing="4"
+                                                     VerticalOptions="CenterAndExpand"
+                                                     Grid.Row="0">
                                             <Label Text="{Binding PostDate}" />
                                         </StackLayout>
                                         <BoxView Grid.Row="1"
-                                             Grid.ColumnSpan="3"
-                                             BackgroundColor="Gray"
-                                             HeightRequest="1"
-                                             HorizontalOptions="Fill" />
+                                                 Grid.ColumnSpan="3"
+                                                 BackgroundColor="Gray"
+                                                 HeightRequest="1"
+                                                 HorizontalOptions="Fill" />
                                         <Label Grid.Row="2"
-                                           Grid.ColumnSpan="3"
-                                           Text="{Binding Body}"
-                                           VerticalTextAlignment="Start"
-                                           VerticalOptions="Fill"
-                                           HorizontalOptions="Fill" />
+                                               Grid.ColumnSpan="3"
+                                               Text="{Binding Body}"
+                                               VerticalTextAlignment="Start"
+                                               VerticalOptions="Fill"
+                                               HorizontalOptions="Fill" />
                                     </Grid>
                                 </Frame>
                             </StackLayout>

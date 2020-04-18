@@ -5,6 +5,7 @@ using GSUACM.Services;
 using GSUACM.Views;
 using GSUACM.Models;
 using GSUACM.Views.Dashboard;
+using GSUACM.Views.Control_Panel;
 
 namespace GSUACM
 {
@@ -12,17 +13,8 @@ namespace GSUACM
     {
         public App()
         {
-            InitializeComponent();
+            InitializeComponent();            
             App.Current.MainPage = new AppShell();
-            //TODO: implement
-            //if (User != null)
-            //{
-            //    App.Current.MainPage = new NavigationPage(new LoginPage());
-            //}
-            //else
-            //{
-            //    App.Current.MainPage = new NavigationPage(new DashboardPage());
-            //}
         }
 
         protected override void OnStart()
