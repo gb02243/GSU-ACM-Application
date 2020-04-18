@@ -137,7 +137,7 @@ namespace GSUACM.ViewModels.ControlPanel
                     }
                     db.closeConnection();
                 }
-                else if(EntryFirst == null && EntryLast != null)
+                else if(EntryLast != null&& EntryFirst == null)
                 {
                     // create the adapter and query
                     MySqlCommand command = new MySqlCommand("SELECT fname, lname, userID, title FROM user WHERE lname LIKE @entrylast", db.getConnection());

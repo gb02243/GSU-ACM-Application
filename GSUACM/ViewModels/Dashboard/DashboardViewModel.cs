@@ -54,9 +54,7 @@ namespace GSUACM.ViewModels.Dashboard
                 ToolbarText = "Log Out";
             }
 
-            ToolbarCommand = new Command(GetToolbarAction);
-       
-            NewsItems = new ObservableCollection<NewsItem>();
+            ToolbarCommand = new Command(GetToolbarAction)
             UpdateNewsItems();
         }
         
@@ -82,6 +80,7 @@ namespace GSUACM.ViewModels.Dashboard
         
         public async void UpdateNewsItems()
         {
+            NewsItems = new ObservableCollection<NewsItem>();
             DB db = new DB();
             QueryResults = new DataTable();
             if (db.openConnection() == false)

@@ -16,7 +16,6 @@ namespace GSUACM.ViewModels
         private DataTable QueryResults { get; set; }
         public EventsPageViewModel()
         {
-            EventsCollection = new ObservableCollection<Event>();
             GetEventsFromDatabase();
             MessagingCenter.Subscribe<EventsPanelViewModel>(this, "event", (sender) =>
             {
@@ -26,6 +25,7 @@ namespace GSUACM.ViewModels
 
         private async void GetEventsFromDatabase()
         {
+            EventsCollection = new ObservableCollection<Event>();
             DB db = new DB();
             QueryResults = new DataTable();
             if (db.openConnection() == false)

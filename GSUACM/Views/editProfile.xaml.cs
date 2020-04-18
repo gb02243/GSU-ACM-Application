@@ -16,7 +16,7 @@ namespace GSUACM.Views
         public editProfile()
         {
             InitializeComponent();
-            BindingContext = new editProfileViewModel(this.Navigation);
+            BindingContext = new EditProfileViewModel(this.Navigation);
         }
     }
 }

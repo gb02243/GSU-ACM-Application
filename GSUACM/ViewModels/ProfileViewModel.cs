@@ -12,6 +12,7 @@ using GSUACM.Services;
 using GSUACM;
 using GSUACM.Views;
 using System.Runtime.CompilerServices;
+using GSUACM.Views.Profile;
 
 namespace GSUACM.ViewModels
 {
@@ -38,23 +39,20 @@ namespace GSUACM.ViewModels
             this.changePassword = new Command(this.changePasswordGo);
             this.editPage = new Command(this.editPageGo);
 
-
-
-            getDBconnection();
             this.Name = GlobalVars.User.fullName;
             this.Number = GlobalVars.User.phone;
             this.Email = GlobalVars.User.email;
-            this.ClubPoints = GlobalVars.User.points;
+            this.ClubPoints = GlobalVars.User.ClubPoints;
 
            
 
             //updates page when message recieved
-            MessagingCenter.Subscribe<editProfileViewModel>(this, "update", (sender) =>
+            MessagingCenter.Subscribe<EditProfileViewModel>(this, "update", (sender) =>
             {
                 this.Name = GlobalVars.User.fullName;
                 this.Number = GlobalVars.User.phone;
                 this.Email = GlobalVars.User.email;
-                this.ClubPoints = GlobalVars.User.points;
+                this.ClubPoints = GlobalVars.User.ClubPoints;
 
                 OnPropertyChanged();
             });
@@ -67,57 +65,12 @@ namespace GSUACM.ViewModels
 
         private async void changePasswordGo()
         {
-            await this.Navigation.PushModalAsync(new ChangedPassword());
+            await this.Navigation.PushModalAsync(new ChangePassword());
         }
 
         private async void goBack()
         {
             await Navigation.PopModalAsync();
-        }
-
-        private void getDBconnection()
-        {
-            DB db = new DB();
-
-            if (db.openConnection() == false)
-            {
-                db.closeConnection();
-                Application.Current.MainPage.DisplayAlert("Server Error", "Try Again Later", "Ok");
-            }
-            else
-            {
-                String email = GlobalVars.User.email;
-                String password = GlobalVars.User.password;
-
-                MySqlDataAdapter adapter = new MySqlDataAdapter();
-                MySqlCommand command = new MySqlCommand("SELECT * FROM user where userID = @userID", db.getConnection());
-                command.Parameters.Add("@userID", MySqlDbType.VarChar).Value = GlobalVars.User.userID;
-
-                db.openConnection();
-                adapter.SelectCommand = command;
-
-                adapter.Fill(table);
-            }
-            db.closeConnection();
-            //checks if table is empty
-            if (table.Rows.Count > 0)
-            {
-                GlobalVars.InstantiateUser(table.Rows[0]["fname"].ToString(), table.Rows[0]["lname"].ToString(), table.Rows[0]["userID"].ToString(), table.Rows[0]["title"].ToString());
-                GlobalVars.User.points = table.Rows[0]["points"].ToString();
-                GlobalVars.User.email = table.Rows[0]["email"].ToString();
-                GlobalVars.User.phone = table.Rows[0]["phone"].ToString();
-
-                this.Name = GlobalVars.User.fullName;
-                this.Number = GlobalVars.User.phone;
-                this.Email = GlobalVars.User.email;
-                this.ClubPoints = GlobalVars.User.points;
-
-            }
-
-            else
-            {
-                Application.Current.MainPage.DisplayAlert("Server Error", "Try Again Later", "Ok");
-            }
         }
 
         public void OnPropertyChanged([CallerMemberName] string propertyName = null)

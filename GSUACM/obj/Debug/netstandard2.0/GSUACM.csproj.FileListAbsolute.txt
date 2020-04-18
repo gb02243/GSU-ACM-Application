@@ -97,6 +97,8 @@ C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstand
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\AppShell.xaml.g.cs
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\AboutPage.xaml.g.cs
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\BecomeTutor.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\ChangedPassword.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\ChangePassword.xaml.g.cs
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Chat\Cells\IncomingViewCell.xaml.g.cs
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Chat\Cells\OutgoingViewCell.xaml.g.cs
 C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Chat\ChannelListPage.xaml.g.cs

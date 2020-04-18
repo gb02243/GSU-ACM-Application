@@ -17,6 +17,7 @@ namespace GSUACM.ViewModels
 {
     public class ChangePasswordViewModel : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         //tables for database columns
         private DataTable table = new DataTable();
 
@@ -27,18 +28,13 @@ namespace GSUACM.ViewModels
         public ICommand changePassword { get; set; }
         public INavigation Navigation { get; set; }
 
-        
+
         public ChangePasswordViewModel(INavigation navigation)
         {
             this.Navigation = navigation;
             this.cancel = new Command(this.ReturnToProfile);
             this.changePassword = new Command(this.getDBconnection);
-            updatedPassword();
-        }
 
-        private void updatedPassword()
-        {
-            GlobalVars.User.password = this.newPassword;
         }
 
         private async void ReturnToProfile()
@@ -47,32 +43,52 @@ namespace GSUACM.ViewModels
 
         }
 
-        private void getDBconnection()
+        private async void getDBconnection()
         {
             DB db = new DB();
-            //Console.WriteLine("Server"+db.openConnection());
+
             if (db.openConnection() == false)
             {
                 db.closeConnection();
-                Application.Current.MainPage.DisplayAlert("Server Error", "Try Again Later", "Ok");
+                await Application.Current.MainPage.DisplayAlert("Server Error", "Try Again Later", "Ok");
             }
             else
             {
-                String email = GlobalVars.User.email;
-                String password = GlobalVars.User.password;
+                String oldPassWord = currentPassword;
+                String newPass1 = newPassword;
+                String newPass2 = newPasswordConfirm;
+                //checks if passwords match
+                if (string.Equals(newPass1, newPass2) == false)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Incorrect Password", "Ensure both passwords match & your old password is correct", "Ok");
+                    ReturnToProfile();
+                }
 
-                MySqlDataAdapter adapter = new MySqlDataAdapter();
-                MySqlCommand command = new MySqlCommand("SELECT * FROM user", db.getConnection());
-                //command.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
-                //command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = password;
-                db.openConnection();
-                adapter.SelectCommand = command;
+                else
+                {
+                    //database checks if oldpassword matches whats is stored
+                    MySqlDataAdapter adapter = new MySqlDataAdapter();
+                    MySqlCommand command = new MySqlCommand("update user set password = @newPassword where userID = @userid and password = @password", db.getConnection());
+                    command.Parameters.Add("@newPassword", MySqlDbType.VarChar).Value = newPassword;
+                    command.Parameters.Add("@password", MySqlDbType.VarChar).Value = currentPassword;
+                    command.Parameters.Add("@userid", MySqlDbType.VarChar).Value = GlobalVars.User.userID;
+                    db.openConnection();
+                    adapter.SelectCommand = command;
 
-                adapter.Fill(table);
+
+                    command.ExecuteNonQuery();
+                    GlobalVars.User.password = newPassword;
+
+
+                    db.closeConnection();
+
+
+                    await Application.Current.MainPage.DisplayAlert("Your Password is Updated", "Password Updated", "Ok");
+                    await Navigation.PopModalAsync();
+                }
             }
-            db.closeConnection();
         }
-        public event PropertyChangedEventHandler PropertyChanged;
+
     }
 }
 
