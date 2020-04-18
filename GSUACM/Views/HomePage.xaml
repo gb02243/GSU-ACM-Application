@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage 
+<ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -14,7 +14,8 @@
         <ToolbarItem Text="Save" Command="{Binding SaveCommand}" />
     </ContentPage.ToolbarItems>
     -->
-   <ContentPage.Resources>
+
+    <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="Primary">#041e42</Color>
             <Color x:Key="Secondary">#a99260</Color>
@@ -23,85 +24,36 @@
             <Color x:Key="LightTextColor">#999999</Color>
         </ResourceDictionary>
     </ContentPage.Resources>
+    <ContentPage.Content>
 
-    <Grid>
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+        <Grid Margin="15,25,15,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".25*" />
+                <ColumnDefinition Width=".75*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <ContentView Padding="0,20,0,20" VerticalOptions="FillAndExpand">
-                  <Image Source="{local:ImageResource GSUACM.Images.gsu_logo.png}" VerticalOptions="Center" HeightRequest="64" />
+                <ContentView Padding="0,40,0,20" VerticalOptions="FillAndExpand">
+                    <Image Source="gsu_logo.png" VerticalOptions="CenterAndExpand" HeightRequest="64" />
                 </ContentView>
             </StackLayout>
-        </StackLayout>
-        <ScrollView Grid.Row="1">
-            <StackLayout Orientation="Vertical" Padding="16,20,16,40" Spacing="10">
-                <Label Text="Profile" FontAttributes="Bold" HorizontalTextAlignment="Center" FontSize="35"/>
-                <StackLayout Padding="10,20,10,10" Spacing="20">
-
-                    <Frame WidthRequest="90"
-                   HeightRequest="110"
-                   HasShadow="false"
-                   HorizontalOptions="CenterAndExpand"
-                   BackgroundColor="Transparent">
-                <FlexLayout Direction="Column"
-                            AlignContent="Center">
-                    <ImageButton Source="{local:ImageResource GSUACM.Images.default_profile_image.png}" BorderColor="#fff"
-                            BorderWidth="1"
-                            
-                            HeightRequest="90"
-                            CornerRadius="45"
-                            
-                            />
-                </FlexLayout>
-            </Frame>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <StackLayout Grid.Column="1">
-                            <Label Text="Name"/>
-                            <Entry x:Name="name" Text="{Binding Name}" FontSize="25" />
-                        </StackLayout>
-                        
-                    </Grid>
-                    <StackLayout>
-                        <Label Text="Email Address"/>
-                        <Entry x:Name="email" Text="{Binding Email}" FontSize="25" />
-                    </StackLayout>
-                    <StackLayout>
-                        <Label Text="Phone Number"/>
-                        <Entry x:Name="phone" Text="{Binding Address}" FontSize="25"/>
-                    </StackLayout>
-
-                    <StackLayout>
-                        <Label Text="Club Points"/>
-                        <Entry x:Name="point" Text="{Binding Club Points}" FontSize="25"/>
-                    </StackLayout>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="25" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-
-                    </Grid>
-                    
-                </StackLayout>  
-                <Button HorizontalOptions="Center" WidthRequest="200" Margin="0,10,0,0" Text="Edit Profile" BackgroundColor="{StaticResource Primary}" TextColor="White" FontSize="22" Command="{Binding editPage}"  CornerRadius="22" VerticalOptions="EndAndExpand"/>
-                <Button HorizontalOptions="Center" WidthRequest="240" Margin="0,10,0,0" Text="Change Password" BackgroundColor="{StaticResource Primary}" TextColor="White" FontSize="22" CornerRadius="22" Command="{Binding changePassword}" VerticalOptions="End"/>
-            </StackLayout>
-        </ScrollView>
-    </Grid>
-   </ContentPage>
+            <Label Grid.Row="1" Grid.Column="0" Text="Name:" HorizontalOptions="End" VerticalOptions="Center" />
+            <Entry Grid.Row="1" x:Name="name" Grid.Column="1" Text="{Binding Name}" VerticalOptions="Center"  />
+            <Label Grid.Row="2" Grid.Column="0" Text="Email:" HorizontalOptions="End" VerticalOptions="Center" />
+            <Entry Grid.Row="2" x:Name="email" Grid.Column="1" Text="{Binding Email}" VerticalOptions="Center" IsEnabled="false" />
+            <Label Grid.Row="3" Grid.Column="0" Text="Phone:" HorizontalOptions="End" VerticalOptions="Center" />
+            <Entry Grid.Row="3" x:Name="phone" Grid.Column="1" Text="{Binding Phone}" VerticalOptions="Center" />
+            <Label Grid.Row="4" Grid.Column="0" Text="Club Points:" HorizontalOptions="End" VerticalOptions="Center" />
+            <Entry Grid.Row="4" x:Name="point" Grid.Column="1" Text="{Binding ClubPoints}" VerticalOptions="Center" />
+            <Button Grid.Row="6" Grid.ColumnSpan="2"  Text="Create Profile" Command="{Binding CreateProfileCommand}" TextColor="Blue" VerticalOptions="End" HorizontalOptions="Center" />
+            <Button Grid.Row="7" Grid.ColumnSpan="2"  Text="Edit Profile" Command="{Binding EditProfileCommand}" TextColor="Blue" VerticalOptions="End" HorizontalOptions="Center" />
+            <Button Grid.Row="8" Grid.ColumnSpan="2"  Text="Become Tutor" Command="{Binding BecomeTutorCommand}" TextColor="Blue" VerticalOptions="End" HorizontalOptions="Center" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

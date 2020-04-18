@@ -206,11 +206,8 @@ namespace GSUACM.ViewModels
                 adapter.SelectCommand = command2;
                 adapter.Fill(table);
                 int y = table.Rows.Count;
-                if (firstName == null)
-                {
-                    Application.Current.MainPage.DisplayAlert("Server Error", "Try Again Later", "Ok");
-                }
-                Console.WriteLine(String.IsNullOrEmpty(firstName));
+  
+                //Console.WriteLine(String.IsNullOrEmpty(firstName));
 
 
                 //password.Text.Equals(passwordConfirm.Text) && phoneNum.Text.ValidatePhoneNumber(true) && emailaddress.Text.IsValidEmail() && password.Text.IsValidPassword()
