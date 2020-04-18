@@ -13,7 +13,7 @@ using GSUACM;
 using GSUACM.Views;
 namespace GSUACM.ViewModels
 {
-    public class editProfileViewModel : INotifyPropertyChanged
+    public class EditProfileViewModel : INotifyPropertyChanged
     {
         public INavigation Navigation { get; set; }
         public ICommand cancel { get; }
@@ -27,7 +27,7 @@ namespace GSUACM.ViewModels
         //tables for database columns
         private DataTable table = new DataTable();
 
-        public editProfileViewModel(INavigation navigation)
+        public EditProfileViewModel(INavigation navigation)
         {
             this.Email = GlobalVars.User.email;
             this.fname = GlobalVars.User.fname;
@@ -91,7 +91,7 @@ namespace GSUACM.ViewModels
 
                 db.closeConnection();
 
-                MessagingCenter.Send<editProfileViewModel>(this, "update");
+                MessagingCenter.Send<EditProfileViewModel>(this, "update");
                 await Application.Current.MainPage.DisplayAlert("Your is Account Updated", "Account Updated", "Ok");
                 await Navigation.PopModalAsync();
             }
