@@ -1,145 +1,103 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Text;
+using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Windows.Input;
-using Xamarin.Forms;
+using GSUACM.ViewModels;
 using MySql.Data.MySqlClient;
+using Xamarin.Forms;
+using System.Diagnostics;
+using System.Data;
+using GSUACM.Services;
+using GSUACM;
+using GSUACM.Views;
 namespace GSUACM.ViewModels
 {
-    class EditProfileViewModel : INotifyPropertyChanged
+    public class editProfileViewModel : INotifyPropertyChanged
     {
         public INavigation Navigation { get; set; }
-        public ICommand UpdateProfileCommand { get; set; }
-        public ICommand CancelCommand { get; set; }
-        public string email { get; set; }
-        public string fname { get; set; }
-        public string lname { get; set; }
-        public string phone { get; set; }
+        public ICommand cancel { get; }
+        public ICommand buttonUpdateProfile_Click { get; set; }
+        public ICommand changePasswowrd_Click { get; set; }
+        public String Email { get; set; }
+        public String fname { get; set; }
+        public String Number { get; set; }
+        public String lname { get; set; }
+
+        //tables for database columns
         private DataTable table = new DataTable();
-        public EditProfileViewModel(INavigation navigation)
+
+        public editProfileViewModel(INavigation navigation)
         {
+            this.Email = GlobalVars.User.email;
+            this.fname = GlobalVars.User.fname;
+            this.lname = GlobalVars.User.lname;
+            this.Number = GlobalVars.User.phone;
             this.Navigation = navigation;
-            this.CancelCommand = new Command(this.buttonCancel_Click);
-            this.UpdateProfileCommand = new Command(this.updateProfile);
+            this.changePasswowrd_Click = new Command(this.changePasswordGo);
+            this.buttonUpdateProfile_Click = new Command(this.updateProfile);
+            this.cancel = new Command(this.ReturnToProfile);
         }
-        private async void buttonCancel_Click()
+
+        //Profile page -> Editpage
+        private async void edit()
         {
-            await this.Navigation.PopModalAsync();
+            await this.Navigation.PushModalAsync(new editProfile());
+        }
+        //Editpage -> changePassword
+        private async void changePasswordGo()
+        {
+            await this.Navigation.PushModalAsync(new ChangedPassword());
+        }
+
+        //editPage -> profile page
+        private async void ReturnToProfile()
+        {
+            await Navigation.PopModalAsync();
+
         }
 
         private async void updateProfile()
         {
             DB db = new DB();
-            //Console.WriteLine("Server"+db.openConnection());
+
             if (db.openConnection() == false)
             {
                 db.closeConnection();
                 await Application.Current.MainPage.DisplayAlert("Server Error", "Try Again Later", "Ok");
             }
-           
-            String firstname = fname;
-            String lastname = lname;
-            String emailadd = email;
-            String phonenum = phone;
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-          
-            MySqlCommand command = new MySqlCommand("update user set email = @email,phone = @phone,fname = @fname,lname = @lname where userID = @userid", db.getConnection());
-            command.Parameters.Add("@fname", MySqlDbType.VarChar).Value =firstname;
-            command.Parameters.Add("@lname", MySqlDbType.VarChar).Value = lastname;
-            command.Parameters.Add("@email", MySqlDbType.VarChar).Value = emailadd;
-            command.Parameters.Add("@phone", MySqlDbType.VarChar).Value = phonenum;
-            command.Parameters.Add("@userid", MySqlDbType.VarChar).Value = Services.GlobalVars.User.userID;
-            db.openConnection();
-            adapter.SelectCommand = command;
-            adapter.Fill(table);
-            int y = table.Rows.Count;
-            if (checkTextBoxesValues() == true && y == 0)
-            {
-                // check if the password equal the confirm password
-                if (phone.ValidatePhoneNumber(true) && email.IsValidEmail())
-                {
-                    // execute the query
-                    if (command.ExecuteNonQuery() == 1)
-                    {
-                        Services.GlobalVars.User.fname = firstname;
-                        Services.GlobalVars.User.lname = lastname;
-                        Services.GlobalVars.User.email = emailadd;
-                        Services.GlobalVars.User.phone = phonenum;
-                        MessagingCenter.Send<EditProfileViewModel, string>(this, "Hi", "John");
-                        await Application.Current.MainPage.DisplayAlert("Your Account Has Been Created", "Account Created", "Ok");
-                       await  Navigation.PopModalAsync();
-                    }
-                    else
-                    {
-                        await Application.Current.MainPage.DisplayAlert("ERROR", "Account Failed to Create", "Ok");
-                    }
-
-                }
-                else
-                {
-                
-                    if (phone.ValidatePhoneNumber(true) == false)
-                    {
-                       await Application.Current.MainPage.DisplayAlert("Invalid phone number", "phone Number Error", "Ok");
-                    }
-                    else if (email.IsValidEmail() == false)
-                    {
-                       await  Application.Current.MainPage.DisplayAlert("Invalid Email", "Email", "Ok");
-                    }
-                    else
-                    {
-                        await Application.Current.MainPage.DisplayAlert("Password must contain between 8-16 characters", "Password error", "Ok");
-                    }
-                }
-            }
             else
             {
-               await Application.Current.MainPage.DisplayAlert("Enter Your Information First Or Email Already Used", "Error", "Ok");
-            }
+                String firstName = fname;
+                String lastName = lname;
+                String emailAddition = Email;
+                String num = Number;
 
+                MySqlDataAdapter adapter = new MySqlDataAdapter();
+                MySqlCommand command = new MySqlCommand("update user set email = @email,phone = @phone,fname = @fname,lname = @lname where userID = @userid", db.getConnection());
+                command.Parameters.Add("@email", MySqlDbType.VarChar).Value = emailAddition;
+                command.Parameters.Add("@phone", MySqlDbType.VarChar).Value = num;
+                command.Parameters.Add("@fname", MySqlDbType.VarChar).Value = firstName;
+                command.Parameters.Add("@lname", MySqlDbType.VarChar).Value = lastName;
+                command.Parameters.Add("@userid", MySqlDbType.VarChar).Value = GlobalVars.User.userID;
+                db.openConnection();
+                adapter.SelectCommand = command;
 
+                command.ExecuteNonQuery();
+                GlobalVars.User.email = emailAddition;
+                GlobalVars.User.phone = num;
+                GlobalVars.User.fname = firstName;
+                GlobalVars.User.lname = lastName;
 
-        }
-        private async void changePassword()
-        {
-            await this.Navigation.PopModalAsync();
-        }
-        private async void displayEmail()
-        {
-            await this.Navigation.PopModalAsync();
-        }
-        private async void displayPhone()
-        {
-            await this.Navigation.PopModalAsync();
-        }
-        public Boolean checkTextBoxesValues()
-        {
+                db.closeConnection();
 
-            if (String.IsNullOrEmpty(fname))
-            {
-                Console.WriteLine("The email is " + GSUACM.Services.GlobalVars.User.fname);
-                return false;
-            }
-            if (String.IsNullOrEmpty(lname))
-            {
-                return false;
-            }
-            if (String.IsNullOrEmpty(phone))
-            {
-                return false;
-            }
-            if (String.IsNullOrEmpty(email))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
+                MessagingCenter.Send<editProfileViewModel>(this, "update");
+                await Application.Current.MainPage.DisplayAlert("Your is Account Updated", "Account Updated", "Ok");
+                await Navigation.PopModalAsync();
             }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
     }
 }
+
