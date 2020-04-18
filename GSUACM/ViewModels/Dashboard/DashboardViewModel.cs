@@ -54,7 +54,7 @@ namespace GSUACM.ViewModels.Dashboard
                 ToolbarText = "Log Out";
             }
 
-            ToolbarCommand = new Command(GetToolbarAction)
+            ToolbarCommand = new Command(GetToolbarAction);
             UpdateNewsItems();
         }
         
