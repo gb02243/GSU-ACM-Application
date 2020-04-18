@@ -52,6 +52,9 @@
     <Compile Update="Views\MentorListPage.xaml.cs">
       <DependentUpon>MentorListPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\ChangedPassword.xaml.cs">
+      <DependentUpon>ChangedPassword.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

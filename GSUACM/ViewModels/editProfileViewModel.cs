@@ -29,6 +29,10 @@ namespace GSUACM.ViewModels
 
         public editProfileViewModel(INavigation navigation)
         {
+            this.Email = GlobalVars.User.email;
+            this.fname = GlobalVars.User.fname;
+            this.lname = GlobalVars.User.lname;
+            this.Number = GlobalVars.User.phone;
             this.Navigation = navigation;
             this.changePasswowrd_Click = new Command(this.changePasswordGo);
             this.buttonUpdateProfile_Click = new Command(this.updateProfile);
@@ -43,7 +47,7 @@ namespace GSUACM.ViewModels
         //Editpage -> changePassword
         private async void changePasswordGo()
         {
-            await this.Navigation.PushModalAsync(new GSUACM.Views.ChangePassword());
+            await this.Navigation.PushModalAsync(new ChangedPassword());
         }
 
         //editPage -> profile page
@@ -79,22 +83,16 @@ namespace GSUACM.ViewModels
                 db.openConnection();
                 adapter.SelectCommand = command;
 
-
-                adapter.Fill(table);
-
-
-                //updates User
-                GlobalVars.InstantiateUser(table.Rows[0]["fname"].ToString(), table.Rows[0]["lname"].ToString(), table.Rows[0]["userID"].ToString(), table.Rows[0]["title"].ToString());
-                GlobalVars.User.points = table.Rows[0]["points"].ToString();
-                GlobalVars.User.email = table.Rows[0]["email"].ToString();
-                GlobalVars.User.phone = table.Rows[0]["phone"].ToString();
-
-
+                command.ExecuteNonQuery();
+                GlobalVars.User.email = emailAddition;
+                GlobalVars.User.phone = num;
+                GlobalVars.User.fname = firstName;
+                GlobalVars.User.lname = lastName;
 
                 db.closeConnection();
-                await Application.Current.MainPage.DisplayAlert("Your is Account Updated", "Account Updated", "Ok");
 
                 MessagingCenter.Send<editProfileViewModel>(this, "update");
+                await Application.Current.MainPage.DisplayAlert("Your is Account Updated", "Account Updated", "Ok");
                 await Navigation.PopModalAsync();
             }
         }

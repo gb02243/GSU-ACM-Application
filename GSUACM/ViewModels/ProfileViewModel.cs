@@ -17,24 +17,28 @@ namespace GSUACM.ViewModels
 {
     public class ProfileViewModel : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         //tables for database columns
         private DataTable table = new DataTable();
 
         public ICommand cancel { get; }
         public INavigation Navigation { get; set; }
         public ICommand editPage { get; set; }
+        public ICommand changePassword { get; set; }
         public String Name { get; set; }
         public String Email { get; set; }
         public String ClubPoints { get; set; }
-        public String fname { get; set; }
         public String Number { get; set; }
-        public String lname { get; set; }
+        
 
         public ProfileViewModel(INavigation navigation)
         {
             this.Navigation = navigation;
-            
-            
+            this.cancel = new Command(this.goBack);
+            this.changePassword = new Command(this.changePasswordGo);
+            this.editPage = new Command(this.editPageGo);
+
+
 
             getDBconnection();
             this.Name = GlobalVars.User.fullName;
@@ -51,10 +55,26 @@ namespace GSUACM.ViewModels
                 this.Number = GlobalVars.User.phone;
                 this.Email = GlobalVars.User.email;
                 this.ClubPoints = GlobalVars.User.points;
-                getDBconnection();
+
+                OnPropertyChanged();
             });
         }
-      
+
+        private async void editPageGo()
+        {
+            await this.Navigation.PushModalAsync(new editProfile());
+        }
+
+        private async void changePasswordGo()
+        {
+            await this.Navigation.PushModalAsync(new ChangedPassword());
+        }
+
+        private async void goBack()
+        {
+            await Navigation.PopModalAsync();
+        }
+
         private void getDBconnection()
         {
             DB db = new DB();
@@ -109,7 +129,7 @@ namespace GSUACM.ViewModels
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        
     }
     
 }
