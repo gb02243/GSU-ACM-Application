@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using GSUACM.ViewModels.ControlPanel;
+using GSUACM.ViewModels;
 using Xamarin.Forms;
 
 namespace GSUACM.Views
@@ -10,7 +10,7 @@ namespace GSUACM.Views
         public searchPage()
         {
             InitializeComponent();
-            BindingContext = new TitlesPanelViewModel(this.Navigation);
+            BindingContext = new SearchViewModel(this.Navigation);
         }
     }
 }

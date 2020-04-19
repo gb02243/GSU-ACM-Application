@@ -8,6 +8,8 @@ using GSUACM.Services;
 using System.Collections.ObjectModel;
 using GSUACM.ViewModels.ControlPanel;
 using System.ComponentModel;
+using System.Windows.Input;
+using GSUACM.Views;
 
 namespace GSUACM.ViewModels
 {
@@ -15,11 +17,13 @@ namespace GSUACM.ViewModels
     {
         public ObservableCollection<User>Members { get; set; }
         public ObservableCollection<User>Mentors { get; set; }
+        public ICommand goToSearch { get; }
         public INavigation Navigation { get; set; }
         private DataTable queryResults { get; set; }
         public MemberListViewModel(INavigation navigation)
         {
             this.Navigation = navigation;
+            this.goToSearch = new Command(this.search);
             MessagingCenter.Subscribe<EditTitleResultsViewModel>(this, "title", (sender) =>
             {
                 GetMembers();
@@ -35,6 +39,11 @@ namespace GSUACM.ViewModels
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        private async void search()
+        {
+            await Navigation.PushModalAsync(new searchPage());
+        }
 
         private async void GoHome()
         {
@@ -103,7 +112,7 @@ namespace GSUACM.ViewModels
             }
         }
 
-        private void SimulateMembers(int members)
+    /**    private void SimulateMembers(int members)
         {
             for (int i = 1; i <= members; i++)
             {
@@ -120,8 +129,8 @@ namespace GSUACM.ViewModels
                     Members[i-1].title = "Mentor";
 
                 if (Members[i - 1].title == "Mentor")
-                    Mentors.Add(Members[i - 1]);
+                    Mentors.Add(Members[i - 1]); 
             }
-        }
+        } **/
     }
 }

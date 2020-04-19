@@ -8,18 +8,21 @@ using System.Collections.ObjectModel;
 using GSUACM.ViewModels.ControlPanel;
 using System.ComponentModel;
 using GSUACM.Models;
+using System.Windows.Input;
+using GSUACM.Views;
 
 namespace GSUACM.ViewModels
 {
     public class AlumniViewModel: INotifyPropertyChanged
     {
         public ObservableCollection<User> Alumni { get; set; }
-        
+        public ICommand goToSearch { get; }
         public INavigation Navigation { get; set; }
         private DataTable queryResults { get; set; }
         public AlumniViewModel(INavigation navigation)
         {
             this.Navigation = navigation;
+            this.goToSearch = new Command(this.search);
            // MessagingCenter.Subscribe<EditTitleResultsViewModel>(this, "title", (sender) =>
             //{
               //  GetMembers();
@@ -36,6 +39,10 @@ namespace GSUACM.ViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        private async void search()
+        {
+            await this.Navigation.PushModalAsync(new searchPage());
+        }
         private async void GoHome()
         {
             await Application.Current.MainPage.DisplayAlert("Oops!", "You must be logged in to access this page.", "Ok");
