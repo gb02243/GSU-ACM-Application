@@ -9,7 +9,8 @@
     xmlns:polls="clr-namespace:GSUACM.Views.Polls"
     xmlns:controlpanel="clr-namespace:GSUACM.Views.Control_Panel"
     x:Class="GSUACM.AppShell"
-    BackgroundColor="{DynamicResource GSUGold}">
+    BackgroundColor="{DynamicResource GSUGold}"
+    x:Name="MainShell">
     <!-- FLYOUT -->
     <Shell.FlyoutHeader>
         <Grid HeightRequest="100" BackgroundColor="{DynamicResource GSUGold}">
@@ -19,6 +20,8 @@
                    HorizontalOptions="FillAndExpand" />
         </Grid>
     </Shell.FlyoutHeader>
+
+    <!--
     <FlyoutItem Title="Dashboard" Icon="home.png">
         <ShellContent ContentTemplate="{DataTemplate dash:DashboardPage}"/>
     </FlyoutItem>
@@ -67,8 +70,7 @@
     <FlyoutItem Title="About" Icon="home.png">
         <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
     </FlyoutItem>
-    <!-- ADD FUNCTIONALITY -->
-    <MenuItem Text="Log Out"/>
-    
+    -->
+
     <!-- END FLYOUT -->
 </Shell>
