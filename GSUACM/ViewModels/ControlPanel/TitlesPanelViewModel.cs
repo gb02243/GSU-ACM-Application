@@ -16,14 +16,14 @@ namespace GSUACM.ViewModels.ControlPanel
     class TitlesPanelViewModel : INotifyPropertyChanged
     {
         public INavigation Navigation { get; set; }
+        public ICommand CloseWindowCommand { get; set; }
+        public ICommand SearchCommand { get; set; }
+        public ICommand SelectUserCommand { get; set; }
         public string EntryFirst { get; set; }
         public string EntryLast { get; set; }
         public string ResultFirst { get; set; }
         public string ResultLast { get; set; }
         public string ResultUserID { get; set; }
-        public ICommand CloseWindowCommand { get; set; }
-        public ICommand SearchCommand { get; set; }
-        public ICommand SelectUserCommand { get; set; }
         public ObservableCollection<User> SearchResults { get; set; }
         public DataTable QueryResults { get; private set; }
 
@@ -33,7 +33,6 @@ namespace GSUACM.ViewModels.ControlPanel
             CloseWindowCommand = new Command(CloseWindow);
             SearchCommand = new Command(SearchDatabase);
             SelectUserCommand = new Command<User>(SelectUser);
-            SearchResults = new ObservableCollection<User>();
             MessagingCenter.Subscribe<EditTitleResultsViewModel>(this, "title", (sender) =>
             {
                 SearchDatabase();
@@ -54,6 +53,7 @@ namespace GSUACM.ViewModels.ControlPanel
         }
         public async void SearchDatabase()
         {
+            SearchResults = new ObservableCollection<User>();
             DB db = new DB();
             QueryResults = new DataTable();
             if (db.openConnection() == false)

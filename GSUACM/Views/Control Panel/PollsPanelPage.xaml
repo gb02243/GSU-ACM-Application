@@ -15,6 +15,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
+                
                 <!-- Header -->
                 <StackLayout Spacing="0"
                      Padding="10">
@@ -23,6 +24,7 @@
                    HorizontalTextAlignment="Center"
                    FontAttributes="Bold" />
                 </StackLayout>
+                
                 <!-- Poll Creation -->
                 <StackLayout Margin="10" HorizontalOptions="FillAndExpand">
                     <Frame CornerRadius="5"
@@ -90,6 +92,7 @@
                         </Grid>
                     </Frame>
                 </StackLayout>
+                
                 <!-- Buttons -->
                 <StackLayout VerticalOptions="EndAndExpand" 
                              Margin="0,0,0,20">
@@ -114,6 +117,7 @@
                             VerticalOptions="EndAndExpand"
                             Command="{Binding CloseWindowCommand}" />
                 </StackLayout>
+                
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

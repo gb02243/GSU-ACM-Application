@@ -1,5 +1,6 @@
 ﻿using GSUACM.Services;
 using GSUACM.Views.Control_Panel;
+using GSUACM.Views.Control_Panel.Attendance;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -28,12 +29,12 @@ namespace GSUACM.ViewModels.ControlPanel
                 GoHome();
         }
 
-        private async void OpenAttendance(object obj)
+        private async void OpenAttendance()
         {
-            throw new NotImplementedException();
+            await Navigation.PushModalAsync(new NavigationPage(new AttendancePanelPage()));
         }
 
-        private async void OpenNews(object obj)
+        private async void OpenNews()
         {
             await Navigation.PushModalAsync(new NavigationPage(new NewsPanelPage()));
         }
