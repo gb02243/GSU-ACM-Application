@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GSUACM.Services;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,6 +10,7 @@ namespace GSUACM
         public App()
         {
             InitializeComponent();
+            //GlobalVars.InstantiateUser("Griffin", "Bryant", "1", "Administrator", "true");
             App.Current.MainPage = new AppShell();
         }
 

@@ -150,7 +150,7 @@ namespace GSUACM.ViewModels
         {
 
             MessagingCenter.Send<LoginViewModel ,string>(this, "Hi", "John");
-            await this.Navigation.PopModalAsync();
+            //await this.Navigation.PopModalAsync();
             //TODO: event handling to update dashboard page
         }
         // get the first name CLICK

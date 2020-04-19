@@ -31,9 +31,7 @@ namespace GSUACM.ViewModels.Dashboard
             this.Navigation = navigation;
             MessagingCenter.Subscribe<LoginViewModel, string>(this, "Hi", (sender, arg) =>
             {
-                WelcomeMessage = "Welcome, " + GlobalVars.User.fname;
-                isLoggedIn = true;
-                ToolbarText = "Log Out";
+                Application.Current.MainPage = new AppShell();
             });
 
             MessagingCenter.Subscribe<NewsPanelViewModel>(this, "news", (sender) =>
@@ -50,6 +48,7 @@ namespace GSUACM.ViewModels.Dashboard
             }
             else
             {
+                WelcomeMessage = "Welcome, " + GlobalVars.User.fname;
                 isLoggedIn = true;
                 ToolbarText = "Log Out";
             }
