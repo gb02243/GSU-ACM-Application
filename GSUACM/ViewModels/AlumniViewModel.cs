@@ -39,7 +39,7 @@ namespace GSUACM.ViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private async void search()
+        public async void search()
         {
             await this.Navigation.PushModalAsync(new searchPage());
         }
