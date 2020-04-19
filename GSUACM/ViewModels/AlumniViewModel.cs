@@ -13,19 +13,19 @@ namespace GSUACM.ViewModels
 {
     public class AlumniViewModel: INotifyPropertyChanged
     {
-        public ObservableCollection<User> Members { get; set; }
-        public ObservableCollection<User> Mentors { get; set; }
+        public ObservableCollection<User> Alumni { get; set; }
+        
         public INavigation Navigation { get; set; }
         private DataTable queryResults { get; set; }
         public AlumniViewModel(INavigation navigation)
         {
             this.Navigation = navigation;
-            MessagingCenter.Subscribe<EditTitleResultsViewModel>(this, "title", (sender) =>
-            {
-                GetMembers();
-                PropertyChanged(this, new PropertyChangedEventArgs("Members"));
-                PropertyChanged(this, new PropertyChangedEventArgs("Mentors"));
-            });
+           // MessagingCenter.Subscribe<EditTitleResultsViewModel>(this, "title", (sender) =>
+            //{
+              //  GetMembers();
+                //PropertyChanged(this, new PropertyChangedEventArgs("Members"));
+                //PropertyChanged(this, new PropertyChangedEventArgs("Mentors"));
+            //});
             if (GlobalVars.User == null)
                 GoHome();
             else
@@ -44,7 +44,7 @@ namespace GSUACM.ViewModels
 
         private async void GetMembers()
         {
-            Members = new ObservableCollection<User>();
+            Alumni = new ObservableCollection<User>();
             DB db = new DB();
             queryResults = new DataTable();
             if (db.openConnection() == false)
@@ -56,7 +56,7 @@ namespace GSUACM.ViewModels
             {
                 // create the adapter and query
                 MySqlDataAdapter adapter = new MySqlDataAdapter();
-                MySqlCommand command = new MySqlCommand("SELECT userID, fname, lname, title from user ORDER BY fname ASC", db.getConnection());
+                MySqlCommand command = new MySqlCommand("SELECT userID, fname, lname, title from user where title = 'Alumni'", db.getConnection());
                 //Console.WriteLine("Command Created");
                 db.openConnection();
                 adapter.SelectCommand = command;
@@ -76,7 +76,7 @@ namespace GSUACM.ViewModels
                             lname = queryResults.Rows[i]["lname"].ToString(),
                             title = queryResults.Rows[i]["title"].ToString()
                         };
-                        Members.Add(user);
+                        Alumni.Add(user);
                     }
                     db.closeConnection();
                 }
@@ -88,40 +88,8 @@ namespace GSUACM.ViewModels
             }
             db.closeConnection();
 
-            GetMentors();
+        
         }
 
-        private void GetMentors()
-        {
-            Mentors = new ObservableCollection<User>();
-            for (int i = 0; i < Members.Count; i++)
-            {
-                if (Members[i].title == "Mentor")
-                {
-                    Mentors.Add(Members[i]);
-                }
-            }
-        }
-
-        private void SimulateMembers(int members)
-        {
-            for (int i = 1; i <= members; i++)
-            {
-                Members.Add(new User()
-                {
-                    fname = "User",
-                    lname = i.ToString(),
-                    title = "Member"
-                });
-            }
-            for (int i = 1; i <= members; i++)
-            {
-                if (i % 5 == 0)
-                    Members[i - 1].title = "Mentor";
-
-                if (Members[i - 1].title == "Mentor")
-                    Mentors.Add(Members[i - 1]);
-            }
-        }
     }
 }
