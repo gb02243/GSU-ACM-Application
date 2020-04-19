@@ -55,6 +55,18 @@ CREATE TABLE `newsitem` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Table structure for table `attendance`
+--
+
+DROP TABLE IF EXISTS `attendance`;
+CREATE TABLE `attendance` (
+  `attendanceID` int(11) NOT NULL AUTO_INCREMENT,
+  `date` varchar(255) NOT NULL,
+  `body` text DEFAULT NULL,
+  PRIMARY KEY (`attendanceID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
 -- Table structure for table `options`
 --
 
