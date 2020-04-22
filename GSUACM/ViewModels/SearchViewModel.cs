@@ -1,6 +1,6 @@
 ﻿using GSUACM.Models;
 using GSUACM.Services;
-using GSUACM.Views.Control_Panel;
+using GSUACM.Views;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -40,7 +40,7 @@ namespace GSUACM.ViewModels
         private async void SelectUser(User user)
         {
             GlobalVars.SelectedUser = user;
-            await Navigation.PushModalAsync(new NavigationPage(new EditTitleResultPage()));
+            await Navigation.PushModalAsync(new NavigationPage(new viewOtherUserProfile()));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

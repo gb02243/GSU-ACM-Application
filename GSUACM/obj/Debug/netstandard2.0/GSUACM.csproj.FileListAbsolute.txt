@@ -187,3 +187,4 @@ C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstand
 /Users/everrickwright/Projects/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/ref/GSUACM.dll
 /Users/everrickwright/Projects/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/GSUACM.pdb
 /Users/everrickwright/Projects/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/GSUACM.csprojAssemblyReference.cache
+/Users/everrickwright/Projects/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/viewOtherUserProfile.xaml.g.cs
