@@ -21,16 +21,16 @@
                 
                 <!-- Search Menu -->
                 <StackLayout Margin="50,0,50,0" Spacing="30">
-                    <Grid>
-                        <Entry Placeholder="First" 
+                    
+                        <Entry Placeholder="First or Last Name" 
                                Grid.Column="0" 
                                ReturnType="Next" 
                                Text="{Binding EntryFirst}" />
-                        <Entry Placeholder="Last" 
+                        <Entry Placeholder="Title or Role" 
                                Grid.Column="1" 
                                ReturnType="Go" 
-                               Text="{Binding EntryLast}" />
-                    </Grid>
+                               Text="{Binding TitleFind}" />
+                    
                     <Grid>
                         <Button Grid.Column="0" 
                                 HorizontalOptions="Center" 
@@ -105,8 +105,8 @@
                                                      Grid.Column="3"
                                                      VerticalOptions="Center"
                                                      HorizontalOptions="End">
-                                            <Button Text="Edit User"
-                                                    CornerRadius="25" 
+                                            <Button Text="Select User"
+                                                    CornerRadius="25" FontSize="10" 
                                                     Command="{Binding BindingContext.SelectUserCommand, Source={x:Reference TitlesPanel}}" 
                                                     CommandParameter="{Binding .}" />
                                         </StackLayout>

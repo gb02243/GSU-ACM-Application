@@ -1,4 +1,7 @@
 ﻿using GSUACM.Models;
+using GSUACM.Services;
+using GSUACM.Views.Control_Panel;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -7,111 +10,174 @@ using System.Data;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
-using MySql.Data.MySqlClient;
 
 namespace GSUACM.ViewModels
 {
-    public class SearchViewModel : ContentPage
+    public class SearchViewModel : INotifyPropertyChanged
     {
         public INavigation Navigation { get; set; }
-        public ICommand AddTutorCommand { get; set; }
-        public ObservableCollection<Request> request { get; set; }
-        private DataTable table = new DataTable();
-        private DataTable table2 = new DataTable();
-        private Request selectedRequest { get; set; }
+        public string EntryFirst { get; set; }
+        public string TitleFind { get; set; }
+        public string ResultFirst { get; set; }
+        public string ResultLast { get; set; }
+        public string ResultUserID { get; set; }
+        public ICommand CloseWindowCommand { get; set; }
+        public ICommand SearchCommand { get; set; }
+        public ICommand SelectUserCommand { get; set; }
+        public ObservableCollection<User> SearchResults { get; set; }
+        public DataTable QueryResults { get; private set; }
+
         public SearchViewModel(INavigation navigation)
         {
-
             this.Navigation = navigation;
-            this.request = Services.GlobalVars.request;
-            this.AddTutorCommand = new Command(this.AddTutor);
+            CloseWindowCommand = new Command(CloseWindow);
+            SearchCommand = new Command(SearchDatabase);
+            SelectUserCommand = new Command<User>(SelectUser);
+            SearchResults = new ObservableCollection<User>();
 
         }
-        Request _yourSelectedItem;
-        public Request YourSelectedItem
+
+        private async void SelectUser(User user)
         {
-            get
-            {
-                return _yourSelectedItem;
-            }
-
-            set
-            {
-                if (_yourSelectedItem != value)
-                {
-                    _yourSelectedItem = value;
-                    AddTutor();
-                }
-            }
-        }
-        public async void AddTutor()
-        {
-
-            //Console.WriteLine(SelectedRequest.userid);
-            var action = await Application.Current.MainPage.DisplayAlert("Do you want to tutor this person?", "tutoring", "Yes", "No");
-            MySqlDataAdapter adapter2 = new MySqlDataAdapter();
-            if (action)
-            {
-
-                DB db = new DB();
-                //Console.WriteLine("Server"+db.openConnection());
-                if (db.openConnection() == false)
-                {
-                    db.closeConnection();
-                    await Application.Current.MainPage.DisplayAlert("Server Error", "Try Again Later", "Ok");
-                }
-                MySqlDataAdapter adapter = new MySqlDataAdapter();
-                MySqlCommand command = new MySqlCommand("select tutorID from tutor where userID= @userid ", db.getConnection());
-                command.Parameters.Add("@userid", MySqlDbType.VarChar).Value = Services.GlobalVars.User.userID;
-                adapter.SelectCommand = command;
-                adapter.Fill(table);
-                MySqlDataAdapter adapter3 = new MySqlDataAdapter();
-                MySqlCommand command3 = new MySqlCommand("select tutorID from tutorsession where sessionID=@sessionid2", db.getConnection());
-                command3.Parameters.Add("@sessionid2", MySqlDbType.VarChar).Value = YourSelectedItem.sessionID;
-                adapter3.SelectCommand = command3;
-                adapter3.Fill(table2);
-                //Console.WriteLine("The selected item " + table.Rows[0]["tutorID"]);
-                if (table.Rows.Count == 0)
-                {
-                    db.closeConnection();
-                    await Application.Current.MainPage.DisplayAlert("Tutor Error", "Only Tutors are allowed to Tutor", "Ok");
-                }
-                else
-                {
-                    if (table2.Rows.Count > 1)
-                    {
-                        db.closeConnection();
-                        await Application.Current.MainPage.DisplayAlert("Tutor Error", "Tutor Already assigned", "Ok");
-                    }
-                    else
-                    {
-                        MySqlCommand command2 = new MySqlCommand("update tutorsession set tutorID=@tutorID where sessionID = @sessionID", db.getConnection());
-                        command2.Parameters.Add("@tutorid", MySqlDbType.VarChar).Value = Convert.ToInt32(table.Rows[0]["tutorid"]);
-                        Console.WriteLine("The selected item " + YourSelectedItem.sessionID);
-                        command2.Parameters.Add("@sessionID", MySqlDbType.VarChar).Value = YourSelectedItem.sessionID;
-
-                        if (command2.ExecuteNonQuery() == 1)
-                        {
-                            db.closeConnection();
-
-                            await Application.Current.MainPage.DisplayAlert("You are now registered to Tutor", "Tutoring", "Ok");
-
-                            // await Navigation.PopModalAsync();
-                        }
-                        else
-                        {
-                            db.closeConnection();
-                            await Application.Current.MainPage.DisplayAlert("ERROR", "Failed to to Add Tutor Session", "Ok");
-
-                        }
-                    }
-                }
-            }
-
+            GlobalVars.SelectedUser = user;
+            await Navigation.PushModalAsync(new NavigationPage(new EditTitleResultPage()));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public void CloseWindow()
+        {
+            Navigation.PopModalAsync();
+        }
+        public async void SearchDatabase()
+        {
+            DB db = new DB();
+            QueryResults = new DataTable();
+            if (db.openConnection() == false)
+            {
+                db.closeConnection();
+                await Application.Current.MainPage.DisplayAlert("Server Error", "Try Again Later", "Ok");
+            }
+            else
+            {
+                if (EntryFirst != null && TitleFind != null)
+                {
+                    // create the adapter and query
+                    MySqlCommand command = new MySqlCommand("SELECT fname, lname, userID, title FROM user WHERE fname LIKE @entryfirst OR title LIKE @title OR lname LIKE @entryfirst", db.getConnection());
+                    command.Parameters.Add("@entryfirst", MySqlDbType.VarChar).Value = EntryFirst;
+                    command.Parameters.Add("@title", MySqlDbType.VarChar).Value = TitleFind;
+                    MySqlDataAdapter adapter = new MySqlDataAdapter();
+                    db.openConnection();
+                    adapter.SelectCommand = command;
+
+                    // set the adapter output
+                    adapter.Fill(QueryResults);
+
+                    if (QueryResults.Rows.Count > 0)
+                    {
+                        SearchResults = new ObservableCollection<User>();
+                        // convert the query result table into a list
+                        for (int i = 0; i < QueryResults.Rows.Count; i++)
+                        {
+                            User user = new User()
+                            {
+                                userID = QueryResults.Rows[i]["userID"].ToString(),
+                                fname = QueryResults.Rows[i]["fname"].ToString(),
+                                lname = QueryResults.Rows[i]["lname"].ToString(),
+                                title = QueryResults.Rows[i]["title"].ToString()
+                            };
+                            SearchResults.Add(user);
+                            PropertyChanged(this, new PropertyChangedEventArgs("SearchResults"));
+                        }
+                        db.closeConnection();
+                    }
+                    else
+                    {
+                        await Application.Current.MainPage.DisplayAlert("No Results", "No users with that name were found.", "Ok");
+                    }
+                    db.closeConnection();
+
+                }
+                else if (EntryFirst != null && TitleFind == null)
+                {
+                    // create the adapter and query
+                    MySqlCommand command = new MySqlCommand("SELECT fname, lname, userID, title FROM user WHERE fname LIKE @entryfirst OR lname LIKE @entryfirst", db.getConnection());
+                    command.Parameters.Add("@entryfirst", MySqlDbType.VarChar).Value = EntryFirst;
+                    MySqlDataAdapter adapter = new MySqlDataAdapter();
+                    db.openConnection();
+                    adapter.SelectCommand = command;
+
+                    // set the adapter output
+                    adapter.Fill(QueryResults);
+
+                    if (QueryResults.Rows.Count > 0)
+                    {
+                        SearchResults = new ObservableCollection<User>();
+                        // convert the query result table into a list
+                        for (int i = 0; i < QueryResults.Rows.Count; i++)
+                        {
+                            User user = new User()
+                            {
+                                userID = QueryResults.Rows[i]["userID"].ToString(),
+                                fname = QueryResults.Rows[i]["fname"].ToString(),
+                                lname = QueryResults.Rows[i]["lname"].ToString(),
+                                title = QueryResults.Rows[i]["title"].ToString()
+
+                            };
+                            SearchResults.Add(user);
+                            PropertyChanged(this, new PropertyChangedEventArgs("SearchResults"));
+                        }
+                        db.closeConnection();
+                    }
+                    else
+                    {
+                        await Application.Current.MainPage.DisplayAlert("No Results", "No users with that name were found.", "Ok");
+                    }
+                    db.closeConnection();
+                }
+                else if (TitleFind != null && EntryFirst == null)
+                {
+                    // create the adapter and query
+                    MySqlCommand command = new MySqlCommand("SELECT fname, lname, userID, title FROM user WHERE title LIKE @title", db.getConnection());
+                    command.Parameters.Add("@title", MySqlDbType.VarChar).Value = TitleFind;
+                    MySqlDataAdapter adapter = new MySqlDataAdapter();
+                    db.openConnection();
+                    adapter.SelectCommand = command;
+
+                    // set the adapter output
+                    adapter.Fill(QueryResults);
+
+                    if (QueryResults.Rows.Count > 0)
+                    {
+                        SearchResults = new ObservableCollection<User>();
+                        // convert the query result table into a list
+                        for (int i = 0; i < QueryResults.Rows.Count; i++)
+                        {
+                            User user = new User()
+                            {
+                                userID = QueryResults.Rows[i]["userID"].ToString(),
+                                fname = QueryResults.Rows[i]["fname"].ToString(),
+                                lname = QueryResults.Rows[i]["lname"].ToString(),
+                                title = QueryResults.Rows[i]["title"].ToString()
+                            };
+                            SearchResults.Add(user);
+                            PropertyChanged(this, new PropertyChangedEventArgs("SearchResults"));
+                        }
+                        db.closeConnection();
+                    }
+                    else
+                    {
+                        await Application.Current.MainPage.DisplayAlert("No Results", "No users with that name were found.", "Ok");
+                    }
+                    db.closeConnection();
+                }
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert("Oops", "Please enter a first and/or a last name to search for.", "Ok");
+                }
+
+            }
+        }
     }
 }
 
