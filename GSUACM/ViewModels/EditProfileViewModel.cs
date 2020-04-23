@@ -24,7 +24,7 @@ namespace GSUACM.ViewModels
         public String Number { get; set; }
         public String lname { get; set; }
 
-
+        
 
         public EditProfileViewModel(INavigation navigation)
         {
@@ -90,7 +90,7 @@ namespace GSUACM.ViewModels
 
                 db.closeConnection();
 
-                MessagingCenter.Send<EditProfileViewModel>(this, "update");
+                MessagingCenter.Send<EditProfileViewModel>(this, "member");
                 await Application.Current.MainPage.DisplayAlert("Your is Account Updated", "Account Updated", "Ok");
                 await Navigation.PopModalAsync();
             }
@@ -99,3 +99,4 @@ namespace GSUACM.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
     }
 }
+
