@@ -150,6 +150,12 @@ namespace GSUACM.ViewModels
         {
 
             MessagingCenter.Send<LoginViewModel ,string>(this, "Hi", "John");
+            Application.Current.Properties.Add("UserFName", GlobalVars.User.fname);
+            Application.Current.Properties.Add("UserLName", GlobalVars.User.lname);
+            Application.Current.Properties.Add("UserID", GlobalVars.User.userID);
+            Application.Current.Properties.Add("UserTitle", GlobalVars.User.title);
+            Application.Current.Properties.Add("UserIsAdmin", GlobalVars.User.isAdmin);
+            await Application.Current.SavePropertiesAsync();
             //await this.Navigation.PopModalAsync();
             //TODO: event handling to update dashboard page
         }
