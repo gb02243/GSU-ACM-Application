@@ -4,6 +4,7 @@ using System.Text;
 
 namespace GSUACM.Models
 {
+    [Serializable]
     public class User
     {
         public string fname { get; set; }

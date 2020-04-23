@@ -1,4 +1,5 @@
 ﻿using GSUACM.Services;
+using GSUACM.Models;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -10,8 +11,18 @@ namespace GSUACM
         public App()
         {
             InitializeComponent();
-            //GlobalVars.InstantiateUser("Griffin", "Bryant", "1", "Administrator", "true");
-            App.Current.MainPage = new AppShell();
+            if (Application.Current.Properties.ContainsKey("UserID"))
+            {
+                GlobalVars.InstantiateUser(Application.Current.Properties["UserFName"].ToString(), 
+                    Application.Current.Properties["UserLName"].ToString(), 
+                    Application.Current.Properties["UserID"].ToString(), 
+                    Application.Current.Properties["UserTitle"].ToString(), 
+                    Application.Current.Properties["UserIsAdmin"].ToString());
+            }
+            else
+            {
+                App.Current.MainPage = new AppShell();
+            }
         }
 
         protected override void OnStart()
@@ -20,6 +31,7 @@ namespace GSUACM
 
         protected override void OnSleep()
         {
+            Application.Current.SavePropertiesAsync();
         }
 
         protected override void OnResume()

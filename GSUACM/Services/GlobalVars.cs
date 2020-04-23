@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using Xamarin.Forms;
 
 namespace GSUACM.Services
 {
@@ -24,6 +25,7 @@ namespace GSUACM.Services
                 title = title,
                 isAdmin = bool.Parse(isAdmin)
             };
+            Application.Current.MainPage = new AppShell();
         }
         public static ObservableCollection<Request> request = new ObservableCollection<Request>();
 

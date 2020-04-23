@@ -53,6 +53,13 @@ namespace GSUACM.ViewModels.ControlPanel
         }
         public async void SearchDatabase()
         {
+            if(!String.IsNullOrWhiteSpace(EntryFirst))
+                if(EntryFirst.Contains(" "))
+                    EntryFirst.Replace(" ", "");
+            if(!String.IsNullOrWhiteSpace(EntryLast))
+                if(EntryLast.Contains(" "))
+                    EntryLast.Replace(" ", "");
+
             SearchResults = new ObservableCollection<User>();
             DB db = new DB();
             QueryResults = new DataTable();
@@ -63,12 +70,12 @@ namespace GSUACM.ViewModels.ControlPanel
             }
             else
             {
-                if(EntryFirst != null && EntryLast != null)
+                if(!String.IsNullOrWhiteSpace(EntryFirst) && !String.IsNullOrWhiteSpace(EntryLast))
                 {
                     // create the adapter and query
                     MySqlCommand command = new MySqlCommand("SELECT fname, lname, userID, title FROM user WHERE fname LIKE @entryfirst AND lname LIKE @entrylast", db.getConnection());
-                    command.Parameters.Add("@entryfirst", MySqlDbType.VarChar).Value = EntryFirst;
-                    command.Parameters.Add("@entrylast", MySqlDbType.VarChar).Value = EntryLast;
+                    command.Parameters.Add("@entryfirst", MySqlDbType.VarChar).Value = EntryFirst.Replace(" ", "");
+                    command.Parameters.Add("@entrylast", MySqlDbType.VarChar).Value = EntryLast.Replace(" ", "");
                     MySqlDataAdapter adapter = new MySqlDataAdapter();
                     db.openConnection();
                     adapter.SelectCommand = command;
@@ -101,11 +108,11 @@ namespace GSUACM.ViewModels.ControlPanel
                     db.closeConnection();
 
                 }
-                else if(EntryFirst != null && EntryLast == null)
+                else if(!String.IsNullOrWhiteSpace(EntryFirst) && String.IsNullOrWhiteSpace(EntryLast))
                 {
                     // create the adapter and query
                     MySqlCommand command = new MySqlCommand("SELECT fname, lname, userID, title FROM user WHERE fname LIKE @entryfirst", db.getConnection());
-                    command.Parameters.Add("@entryfirst", MySqlDbType.VarChar).Value = EntryFirst;
+                    command.Parameters.Add("@entryfirst", MySqlDbType.VarChar).Value = EntryFirst.Replace(" ","");
                     MySqlDataAdapter adapter = new MySqlDataAdapter();
                     db.openConnection();
                     adapter.SelectCommand = command;
@@ -137,11 +144,11 @@ namespace GSUACM.ViewModels.ControlPanel
                     }
                     db.closeConnection();
                 }
-                else if(EntryLast != null&& EntryFirst == null)
+                else if(!String.IsNullOrWhiteSpace(EntryLast) && String.IsNullOrWhiteSpace(EntryFirst))
                 {
                     // create the adapter and query
                     MySqlCommand command = new MySqlCommand("SELECT fname, lname, userID, title FROM user WHERE lname LIKE @entrylast", db.getConnection());
-                    command.Parameters.Add("@entrylast", MySqlDbType.VarChar).Value = EntryLast;
+                    command.Parameters.Add("@entrylast", MySqlDbType.VarChar).Value = EntryLast.Replace(" ", "");
                     MySqlDataAdapter adapter = new MySqlDataAdapter();
                     db.openConnection();
                     adapter.SelectCommand = command;

@@ -68,6 +68,7 @@ namespace GSUACM.ViewModels.Dashboard
                 await Navigation.PushModalAsync(new LoginPage());
             else
             {
+                Application.Current.Properties.Clear();
                 GlobalVars.User = null;
                 WelcomeMessage = "Welcome!\nPlease log in.";
                 ToolbarText = "Log In";
