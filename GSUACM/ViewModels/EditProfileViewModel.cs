@@ -91,7 +91,7 @@ namespace GSUACM.ViewModels
 
                 db.closeConnection();
 
-                MessagingCenter.Send<EditProfileViewModel>(this, "update");
+                MessagingCenter.Send<EditProfileViewModel>(this, "member");
                 await Application.Current.MainPage.DisplayAlert("Your is Account Updated", "Account Updated", "Ok");
                 await Navigation.PopModalAsync();
             }

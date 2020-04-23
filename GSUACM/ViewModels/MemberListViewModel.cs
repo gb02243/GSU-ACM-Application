@@ -26,6 +26,12 @@ namespace GSUACM.ViewModels
                 PropertyChanged(this, new PropertyChangedEventArgs("Members"));
                 PropertyChanged(this, new PropertyChangedEventArgs("Mentors"));
             });
+            MessagingCenter.Subscribe<EditProfileViewModel>(this, "member", (sender) =>
+            {
+                GetMembers();
+                PropertyChanged(this, new PropertyChangedEventArgs("Members"));
+                PropertyChanged(this, new PropertyChangedEventArgs("Mentors"));
+            });
             if (GlobalVars.User == null)
                 GoHome();
             else
