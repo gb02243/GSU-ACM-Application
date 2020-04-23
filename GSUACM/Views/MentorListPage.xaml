@@ -9,7 +9,7 @@
              Title="Mentors">
     <!-- Toolbar -->
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Search"/>
+        <ToolbarItem Text="Search" Command="{Binding goToSearch}" />
     </ContentPage.ToolbarItems>
     <!-- Content -->
     <ContentPage.Content>
