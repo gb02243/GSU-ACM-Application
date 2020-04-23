@@ -63,7 +63,7 @@ namespace GSUACM.ViewModels
                 if (EntryFirst != null && TitleFind != null)
                 {
                     // create the adapter and query
-                    MySqlCommand command = new MySqlCommand("SELECT fname, lname, userID, title FROM user WHERE fname LIKE @entryfirst OR title LIKE @title OR lname LIKE @entryfirst", db.getConnection());
+                    MySqlCommand command = new MySqlCommand("SELECT fname, lname, userID, title FROM user WHERE concat (fname,' ',lname) LIKE @entryfirst OR title LIKE @title OR lname LIKE @entryfirst or fname LIKE @entryfirst", db.getConnection());
                     command.Parameters.Add("@entryfirst", MySqlDbType.VarChar).Value = EntryFirst;
                     command.Parameters.Add("@title", MySqlDbType.VarChar).Value = TitleFind;
                     MySqlDataAdapter adapter = new MySqlDataAdapter();
@@ -101,7 +101,7 @@ namespace GSUACM.ViewModels
                 else if (EntryFirst != null && TitleFind == null)
                 {
                     // create the adapter and query
-                    MySqlCommand command = new MySqlCommand("SELECT fname, lname, userID, title FROM user WHERE fname LIKE @entryfirst OR lname LIKE @entryfirst", db.getConnection());
+                    MySqlCommand command = new MySqlCommand("SELECT fname, lname, userID, title FROM user WHERE concat (fname,' ',lname) LIKE @entryfirst OR lname LIKE @entryfirst or fname LIKE @entryfirst", db.getConnection());
                     command.Parameters.Add("@entryfirst", MySqlDbType.VarChar).Value = EntryFirst;
                     MySqlDataAdapter adapter = new MySqlDataAdapter();
                     db.openConnection();
