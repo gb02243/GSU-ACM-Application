@@ -88,13 +88,15 @@ namespace GSUACM.ViewModels
         {
             ActivePolls = new ObservableCollection<Poll>();
             PastPolls = new ObservableCollection<Poll>();
-            DateTime WeekFromToday = DateTime.Today.AddDays(7);
             foreach (Poll poll1 in Polls)
             {
                 DateTime ConvertedDate = DateTime.Parse(poll1.Date);
-                if (DateTime.Compare(WeekFromToday, ConvertedDate) > 0)
+                DateTime WeekFromPostingDate = ConvertedDate.AddDays(7);
+                DateTime CurrentDate = DateTime.Now;
+                if (DateTime.Compare(CurrentDate, WeekFromPostingDate) > 0)
                 {
                     PastPolls.Add(poll1);
+                    Console.WriteLine("WeekFromToday > ConvertedDate");
                 }
                 else
                 {
