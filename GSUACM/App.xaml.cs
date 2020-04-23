@@ -20,7 +20,8 @@ namespace GSUACM
                     Application.Current.Properties["UserIsAdmin"].ToString(),
                     Application.Current.Properties["UserEmail"].ToString(),
                     Application.Current.Properties["UserPhone"].ToString(),
-                    Application.Current.Properties["UserClubPoints"].ToString());
+                    Application.Current.Properties["UserClubPoints"].ToString(),
+                    Application.Current.Properties["UserImage"].ToString());
             }
             else
             {

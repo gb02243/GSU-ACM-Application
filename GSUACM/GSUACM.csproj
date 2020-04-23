@@ -20,21 +20,37 @@
     <None Remove="Images\amazon.png" />
     <None Remove="Images\cashApp.png" />
     <None Remove="Images\paypal.png" />
+    <None Remove="ProfileImages\default_profile_image.png" />
+    <None Remove="ProfileImages\dog.jpg" />
+    <None Remove="ProfileImages\elephant.png" />
+    <None Remove="ProfileImages\ladybug.png" />
+    <None Remove="ProfileImages\lamb.png" />
+    <None Remove="ProfileImages\penquin.png" />
+    <None Remove="ProfileImages\rat.png" />
+    <None Remove="ProfileImages\shark.png" />
+    <None Remove="ProfileImages\turtle.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Images\default_profile_image.png" />
     <None Remove="Images\gsu_logo.png" />
     <None Remove="Images\gsu_logo_icon.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Images\default_profile_image.png" />
     <EmbeddedResource Include="Images\gsu_logo.png" />
     <EmbeddedResource Include="Images\gsu_logo_icon.jpg" />
     <EmbeddedResource Include="Images\amazon.png" />
     <EmbeddedResource Include="Images\cashApp.png" />
     <EmbeddedResource Include="Images\paypal.png" />
+    <EmbeddedResource Include="ProfileImages\default_profile_image.png" />
+    <EmbeddedResource Include="ProfileImages\dog.jpg" />
+    <EmbeddedResource Include="ProfileImages\elephant.png" />
+    <EmbeddedResource Include="ProfileImages\ladybug.png" />
+    <EmbeddedResource Include="ProfileImages\lamb.png" />
+    <EmbeddedResource Include="ProfileImages\penquin.png" />
+    <EmbeddedResource Include="ProfileImages\rat.png" />
+    <EmbeddedResource Include="ProfileImages\shark.png" />
+    <EmbeddedResource Include="ProfileImages\turtle.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -119,5 +135,8 @@
     <EmbeddedResource Update="Views\TutoringRequestsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ProfileImages\" />
   </ItemGroup>
 </Project>
