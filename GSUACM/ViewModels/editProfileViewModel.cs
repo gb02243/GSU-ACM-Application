@@ -24,8 +24,7 @@ namespace GSUACM.ViewModels
         public String Number { get; set; }
         public String lname { get; set; }
 
-        //tables for database columns
-        private DataTable table = new DataTable();
+        
 
         public EditProfileViewModel(INavigation navigation)
         {

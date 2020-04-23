@@ -24,8 +24,7 @@ namespace GSUACM.ViewModels
         public String Number { get; set; }
         public String lname { get; set; }
 
-        //tables for database columns
-        private DataTable table = new DataTable();
+
 
         public EditProfileViewModel(INavigation navigation)
         {
@@ -91,7 +90,7 @@ namespace GSUACM.ViewModels
 
                 db.closeConnection();
 
-                MessagingCenter.Send<EditProfileViewModel>(this, "member");
+                MessagingCenter.Send<EditProfileViewModel>(this, "update");
                 await Application.Current.MainPage.DisplayAlert("Your is Account Updated", "Account Updated", "Ok");
                 await Navigation.PopModalAsync();
             }
@@ -100,4 +99,3 @@ namespace GSUACM.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
     }
 }
-
