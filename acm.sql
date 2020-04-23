@@ -149,7 +149,7 @@ CREATE TABLE `user` (
   `fname` varchar(255) DEFAULT NULL,
   `lname` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
   `phone` varchar(255) DEFAULT NULL,
   `currentClasses` varchar(255) DEFAULT NULL,
   `classesTaken` varchar(255) DEFAULT NULL,
@@ -158,6 +158,7 @@ CREATE TABLE `user` (
   `isBoardMember` longblob,
   `title` varchar(255) DEFAULT NULL,
   `points` int(255) DEFAULT NULL,
+  CONSTRAINT user_unique UNIQUE (email),
   PRIMARY KEY (`userID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
