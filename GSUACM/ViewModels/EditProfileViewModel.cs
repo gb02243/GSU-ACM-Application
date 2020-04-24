@@ -27,7 +27,9 @@ namespace GSUACM.ViewModels
         
 
         public EditProfileViewModel(INavigation navigation)
+
         {
+            System.Console.WriteLine(GlobalVars.User.ProfileImage);
             this.Email = GlobalVars.User.email;
             this.fname = GlobalVars.User.fname;
             this.lname = GlobalVars.User.lname;

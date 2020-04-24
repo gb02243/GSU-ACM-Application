@@ -94,7 +94,8 @@ namespace GSUACM.ViewModels
                 //check if the user exists or not
                 if (table.Rows.Count > 0)
                 {
-                    GlobalVars.InstantiateUser(table.Rows[0]["fname"].ToString(), table.Rows[0]["lname"].ToString(), table.Rows[0]["userID"].ToString(), table.Rows[0]["title"].ToString(), table.Rows[0]["isAdmin"].ToString(), table.Rows[0]["email"].ToString(), table.Rows[0]["phone"].ToString(), table.Rows[0]["points"].ToString());
+                    GlobalVars.InstantiateUser(table.Rows[0]["fname"].ToString(), table.Rows[0]["lname"].ToString(), table.Rows[0]["userID"].ToString(), table.Rows[0]["title"].ToString(), table.Rows[0]["isAdmin"].ToString(), table.Rows[0]["email"].ToString(), table.Rows[0]["phone"].ToString(), table.Rows[0]["points"].ToString(), table.Rows[0]["image"].ToString());
+
                     //Console.WriteLine("This is the first name" + table.Rows[0]["fname"].ToString());
 
                     //GlobalVars.User.fname = table.Rows[0]["fname"].ToString();
@@ -158,6 +159,7 @@ namespace GSUACM.ViewModels
             Application.Current.Properties.Add("UserEmail", GlobalVars.User.email);
             Application.Current.Properties.Add("UserPhone", GlobalVars.User.phone);
             Application.Current.Properties.Add("UserClubPoints", GlobalVars.User.ClubPoints);
+            Application.Current.Properties.Add("UserImage", GlobalVars.User.ProfileImage);
             await Application.Current.SavePropertiesAsync();
             //await this.Navigation.PopModalAsync();
             //TODO: event handling to update dashboard page
