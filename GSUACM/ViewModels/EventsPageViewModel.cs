@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace GSUACM.ViewModels
@@ -13,14 +15,34 @@ namespace GSUACM.ViewModels
     class EventsPageViewModel
     {
         public ObservableCollection<Event> EventsCollection { get; private set; }
+        public ICommand OpenMapsCommand { get; set; }
         private DataTable QueryResults { get; set; }
         public EventsPageViewModel()
         {
+            OpenMapsCommand = new Command<string>(OpenMaps);
             GetEventsFromDatabase();
             MessagingCenter.Subscribe<EventsPanelViewModel>(this, "event", (sender) =>
             {
                 GetEventsFromDatabase();
             });
+        }
+
+        private async void OpenMaps(string location)
+        {
+            if (location.Contains(" "))
+                location.Replace(" ", "+");
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                await Launcher.OpenAsync("http://maps.apple.com/?q="+location);
+            }
+            else if (Device.RuntimePlatform == Device.Android)
+            {
+                await Launcher.OpenAsync("geo:0,0?q="+location);
+            }
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "Couldn't Open Maps App", "Ok");
+            }
         }
 
         private async void GetEventsFromDatabase()
@@ -36,7 +58,7 @@ namespace GSUACM.ViewModels
             else
             {
                 // create the adapter and query for the polls list
-                MySqlCommand command = new MySqlCommand("SELECT * FROM event", db.getConnection());
+                MySqlCommand command = new MySqlCommand("SELECT * FROM event ORDER BY eventID DESC", db.getConnection());
                 MySqlDataAdapter adapter = new MySqlDataAdapter();
                 db.openConnection();
                 adapter.SelectCommand = command;

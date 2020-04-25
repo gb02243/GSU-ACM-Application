@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:GSUACM"
              mc:Ignorable="d"
-             x:Class="GSUACM.Views.EventsPage">
+             x:Class="GSUACM.Views.EventsPage"
+             x:Name="Events">
     <ContentPage.Content>
         <StackLayout Spacing="0"
                      Padding="10">
@@ -74,7 +75,7 @@
                                                    VerticalTextAlignment="Center"
                                                    HorizontalTextAlignment="Start" 
                                                    HorizontalOptions="StartAndExpand" />
-                                        </StackLayout>
+                                            </StackLayout>
                                         <StackLayout Grid.Column="2"
                                                      Spacing="4"
                                                      VerticalOptions="CenterAndExpand"
@@ -86,7 +87,15 @@
                                                  BackgroundColor="Gray"
                                                  HeightRequest="1"
                                                  HorizontalOptions="Fill" />
-                                        <Label Grid.Row="2"
+                                        <Button Text="Directions" 
+                                                Grid.Row="2"
+                                                Grid.ColumnSpan="3"
+                                                FontSize="12"
+                                                CornerRadius="16"
+                                                HeightRequest="35" 
+                                                Command="{Binding BindingContext.OpenMapsCommand, Source={x:Reference Events}}" 
+                                                CommandParameter="{Binding Location}" />
+                                        <Label Grid.Row="3"
                                                Grid.ColumnSpan="3"
                                                Text="{Binding Body}"
                                                VerticalTextAlignment="Start"
