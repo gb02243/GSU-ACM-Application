@@ -196,3 +196,4 @@ C:/Users/griff/Source/Repos/project-gs-acm-application/GSUACM/obj/Debug/netstand
 /Users/everrickwright/Projects/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/ref/GSUACM.dll
 /Users/everrickwright/Projects/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/GSUACM.pdb
 /Users/everrickwright/Projects/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/GSUACM.csprojAssemblyReference.cache
+/Users/everrickwright/Projects/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/pickPicturePage.xaml.g.cs

@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="GSUACM.Views.pickPicturePage"
+Title="Pick Profile Picture" xmlns:local="clr-namespace:GSUACM">
+    <!-- Toolbar -->
+    <!--
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" Command="{Binding SaveCommand}" />
+    </ContentPage.ToolbarItems>
+    -->
+   <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#041e42</Color>
+            <Color x:Key="Secondary">#a99260</Color>
+            <!--<Color x:Key="Accent">#96d1ff</Color>-->
+            <Color x:Key="Accent">#cccccc</Color>
+            <Color x:Key="LightTextColor">#999999</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,20,0,20" VerticalOptions="FillAndExpand">
+                  <Image Source="{local:ImageResource GSUACM.Images.gsu_logo.png}" VerticalOptions="Center" HeightRequest="64" />
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" Padding="16,20,16,40" Spacing="10">
+                <Label Text="Images" FontAttributes="Bold" HorizontalTextAlignment="Center" FontSize="35"/>
+                <StackLayout Padding="20,10,20,10">
+                <Label FontAttributes="Bold" HorizontalTextAlignment="Center" FontSize="22" Padding="0, 0, 0, 20">Click on an image to apply it to your profile!</Label>
+                    <Grid RowSpacing="50">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Dog:" FontAttributes="Bold" FontSize="15" Grid.Row="0"/>
+                        <StackLayout Grid.Column="0">
+                            <Label Text="Dog:" FontAttributes="Bold" FontSize="15" />
+                            
+                           
+                            
+                            <ImageButton Source="dog.jpg" BackgroundColor="Transparent" Grid.Column="0" WidthRequest="100" HeightRequest="100" Command="{Binding dog}" ></ImageButton>
+                            
+                        </StackLayout>
+
+                        <StackLayout Grid.Column="2">
+                            <Label Text="Elephant:" FontAttributes="Bold" FontSize="15"/>
+                            <ImageButton Source="elephant.png" Grid.Column="1" WidthRequest="100" HeightRequest="100" Command="{Binding elephant}" BackgroundColor="Transparent"></ImageButton>
+                           
+                        </StackLayout>
+
+                        <StackLayout Grid.Column="0" Grid.Row="1">
+                            <Label Text="LadyBug:" FontAttributes="Bold" FontSize="15"/>
+                            <ImageButton Source="ladybug.png" Grid.Column="0" WidthRequest="100" HeightRequest="100" Command="{Binding ladybug}" BackgroundColor="Transparent"></ImageButton>
+                        </StackLayout>
+                        <StackLayout Grid.Column="2" Grid.Row="1">
+                            <Label Text="Lamb:" FontAttributes="Bold" FontSize="15"/>
+                            <ImageButton Source="lamb.png" Grid.Column="1" WidthRequest="100" HeightRequest="100" Command="{Binding lamb}" BackgroundColor="Transparent"></ImageButton>
+                           
+                        </StackLayout>
+
+                        <StackLayout Grid.Column="0" Grid.Row="2">
+                            <Label Text="Mouse:" FontAttributes="Bold" FontSize="15"/>
+                            <ImageButton Source="rat.png" Grid.Column="0" WidthRequest="100" HeightRequest="100" Command="{Binding mouse}" BackgroundColor="Transparent"></ImageButton>
+                        </StackLayout>
+                        <StackLayout Grid.Column="2" Grid.Row="2">
+                            <Label Text="Penquin:" FontAttributes="Bold" FontSize="15"/>
+                            <ImageButton Source="penquin.png" Grid.Column="1" WidthRequest="100" HeightRequest="100" Command="{Binding penquin}" BackgroundColor="Transparent"></ImageButton>
+                           
+                        </StackLayout>
+
+                        <StackLayout Grid.Column="0" Grid.Row="3">
+                            <Label Text="Shark:" FontAttributes="Bold" FontSize="15"/>
+                            <ImageButton Source="shark.png" Grid.Column="0" WidthRequest="100" HeightRequest="100" Command="{Binding shark}" BackgroundColor="Transparent"></ImageButton>
+                        </StackLayout>
+                        <StackLayout Grid.Column="2" Grid.Row="3">
+                            <Label Text="Turtle:" FontAttributes="Bold" FontSize="15"/>
+                            <ImageButton Source="turtle.png" Grid.Column="1" WidthRequest="100" HeightRequest="100" Command="{Binding turtle}" BackgroundColor="Transparent"></ImageButton>
+                           
+                        </StackLayout>
+
+                    </Grid>
+                    
+                    
+
+                </StackLayout>
+                <Button HorizontalOptions="Center" WidthRequest="200" Margin="0,10,0,0" Text="Edit Profile" BackgroundColor="{StaticResource Primary}" TextColor="White" FontSize="22" Command="{Binding editPage}"  CornerRadius="22" VerticalOptions="EndAndExpand"/>
+                <Button HorizontalOptions="Center" WidthRequest="240" Margin="0,10,0,0" Text="Change Password" BackgroundColor="{StaticResource Primary}" TextColor="White" FontSize="22" CornerRadius="22" Command="{Binding changePassword}" VerticalOptions="End"/>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+   </ContentPage>

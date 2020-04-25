@@ -35,7 +35,7 @@ namespace GSUACM.ViewModels
 
         public ProfileViewModel(INavigation navigation)
         {
-            String pathName = "local:ImageResource GSUACM.ProfileImage.";
+           
             this.Navigation = navigation;
             this.cancel = new Command(this.goBack);
             this.changePassword = new Command(this.changePasswordGo);
@@ -57,6 +57,11 @@ Console.WriteLine(someImage.ToString());
                 this.Email = GlobalVars.User.email;
                 this.ClubPoints = GlobalVars.User.ClubPoints;
 
+                OnPropertyChanged();
+            });
+            MessagingCenter.Subscribe<pickPictureViewModel>(this, "update", (sender) =>
+            {
+                this.someImage = GlobalVars.User.profileIMG;
                 OnPropertyChanged();
             });
         }

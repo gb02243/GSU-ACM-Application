@@ -34,8 +34,9 @@
                             HeightRequest="90"
                             CornerRadius="45"
 
-                            Text="Upload Image"
-                            TextColor="{DynamicResource LightGold}"/>
+                            Text="Pick Image"
+                            TextColor="{DynamicResource LightGold}"
+                            Command="{Binding pic}"/>
                 </FlexLayout>
             </Frame>
                     <Grid>
