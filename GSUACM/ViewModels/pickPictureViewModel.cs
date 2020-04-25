@@ -101,14 +101,14 @@ namespace GSUACM.ViewModels
                 adapter.SelectCommand = command;
 
                 command.ExecuteNonQuery();
-                GlobalVars.User.profileIMG = picture;
-                
+                GlobalVars.User.ProfileImage = picture;
+                Application.Current.Properties.Add("UserProfileImg", GlobalVars.User.ProfileImage);
 
                 db.closeConnection();
 
                 MessagingCenter.Send<pickPictureViewModel>(this, "update");
                 await Application.Current.MainPage.DisplayAlert("Your is profile picture is changed", "Account Updated", "Ok");
-                await Navigation.PopToRootAsync();
+                await Navigation.PopModalAsync();
             }
         }
 

@@ -61,7 +61,7 @@ Console.WriteLine(someImage.ToString());
             });
             MessagingCenter.Subscribe<pickPictureViewModel>(this, "update", (sender) =>
             {
-                this.someImage = GlobalVars.User.profileIMG;
+                this.someImage = GlobalVars.User.ProfileImage;
                 OnPropertyChanged();
             });
         }
