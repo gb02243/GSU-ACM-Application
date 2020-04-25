@@ -30,10 +30,12 @@ namespace GSUACM.ViewModels
         public String Email { get; set; }
         public String ClubPoints { get; set; }
         public String Number { get; set; }
-        
+        public ImageSource someImage { get; set; }
+
 
         public ProfileViewModel(INavigation navigation)
         {
+           
             this.Navigation = navigation;
             this.cancel = new Command(this.goBack);
             this.changePassword = new Command(this.changePasswordGo);
@@ -43,8 +45,9 @@ namespace GSUACM.ViewModels
             this.Number = GlobalVars.User.phone;
             this.Email = GlobalVars.User.email;
             this.ClubPoints = GlobalVars.User.ClubPoints;
-
-           
+            
+            this.someImage = GlobalVars.User.ProfileImage;
+Console.WriteLine(someImage.ToString());
 
             //updates page when message recieved
             MessagingCenter.Subscribe<EditProfileViewModel>(this, "update", (sender) =>
@@ -54,6 +57,11 @@ namespace GSUACM.ViewModels
                 this.Email = GlobalVars.User.email;
                 this.ClubPoints = GlobalVars.User.ClubPoints;
 
+                OnPropertyChanged();
+            });
+            MessagingCenter.Subscribe<pickPictureViewModel>(this, "update", (sender) =>
+            {
+                this.someImage = GlobalVars.User.ProfileImage;
                 OnPropertyChanged();
             });
         }

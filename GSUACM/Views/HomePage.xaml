@@ -41,23 +41,28 @@
             <StackLayout Orientation="Vertical" Padding="16,20,16,40" Spacing="10">
                 <Label Text="Profile" FontAttributes="Bold" HorizontalTextAlignment="Center" FontSize="35"/>
                 <StackLayout Padding="10,20,10,10" Spacing="20">
+                    <Frame WidthRequest="70"
+                   HeightRequest="70"
+                   HasShadow="False"
+                   HorizontalOptions="Center"
+                   BackgroundColor="Tan"
+                   BorderColor="Black"
+                   CornerRadius="50"
+                   IsClippedToBounds="True"
+                   VerticalOptions="Center">
 
-                    <Frame WidthRequest="90"
-                   HeightRequest="110"
-                   HasShadow="false"
-                   HorizontalOptions="CenterAndExpand"
-                   BackgroundColor="Transparent">
                 <FlexLayout Direction="Column"
                             AlignContent="Center">
-                    <ImageButton Source="{local:ImageResource GSUACM.Images.default_profile_image.png}" BorderColor="#fff"
-                            BorderWidth="1"
-
+                    <Image   
                             HeightRequest="90"
-                            CornerRadius="45"
-
+                            Aspect="AspectFill"
+                            
+                            Source="{Binding someImage}"
                             />
                 </FlexLayout>
             </Frame>
+
+                    
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />

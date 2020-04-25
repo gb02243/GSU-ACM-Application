@@ -29,7 +29,7 @@
                                 <Frame BorderColor="Black"
                                        CornerRadius="30"
                                        IsClippedToBounds="True">
-                                    <Image Source="{local:ImageResource GSUACM.Images.default_profile_image.png}" 
+                                    <Image Source="{Binding ProfileImage}" 
                                            Aspect="AspectFill" 
                                            HeightRequest="70" 
                                            WidthRequest="70" 

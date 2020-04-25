@@ -71,7 +71,7 @@ namespace GSUACM.ViewModels
             {
                 // create the adapter and query
                 MySqlDataAdapter adapter = new MySqlDataAdapter();
-                MySqlCommand command = new MySqlCommand("SELECT userID, fname, lname, title from user ORDER BY fname ASC", db.getConnection());
+                MySqlCommand command = new MySqlCommand("SELECT userID, fname, lname, title, image from user ORDER BY fname ASC", db.getConnection());
                 //Console.WriteLine("Command Created");
                 db.openConnection();
                 adapter.SelectCommand = command;
@@ -89,7 +89,8 @@ namespace GSUACM.ViewModels
                             userID = queryResults.Rows[i]["userID"].ToString(),
                             fname = queryResults.Rows[i]["fname"].ToString(),
                             lname = queryResults.Rows[i]["lname"].ToString(),
-                            title = queryResults.Rows[i]["title"].ToString()
+                            title = queryResults.Rows[i]["title"].ToString(),
+                            ProfileImage = queryResults.Rows[i]["image"].ToString()
                         };
                         Members.Add(user);
                     }

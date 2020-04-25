@@ -40,7 +40,7 @@ namespace GSUACM.ViewModels
         private async void SelectUser(User user)
         {
             GlobalVars.SelectedUser = user;
-            await Navigation.PushModalAsync(new NavigationPage(new viewOtherUserProfile()));
+            await Navigation.PushModalAsync(new viewOtherUserProfile());
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -63,7 +63,7 @@ namespace GSUACM.ViewModels
                 if (EntryFirst != null && TitleFind != null)
                 {
                     // create the adapter and query
-                    MySqlCommand command = new MySqlCommand("SELECT fname, lname, userID, title FROM user WHERE concat (fname,' ',lname) LIKE @entryfirst AND title LIKE @title OR lname LIKE @entryfirst AND title LIKE @title OR fname LIKE @entryfirst AND title LIKE @title", db.getConnection());
+                    MySqlCommand command = new MySqlCommand("SELECT fname, lname, userID, title, image FROM user WHERE concat (fname,' ',lname) LIKE @entryfirst AND title LIKE @title OR lname LIKE @entryfirst AND title LIKE @title OR fname LIKE @entryfirst AND title LIKE @title", db.getConnection());
 
                     command.Parameters.Add("@entryfirst", MySqlDbType.VarChar).Value = EntryFirst;
                     command.Parameters.Add("@title", MySqlDbType.VarChar).Value = TitleFind;
@@ -85,7 +85,8 @@ namespace GSUACM.ViewModels
                                 userID = QueryResults.Rows[i]["userID"].ToString(),
                                 fname = QueryResults.Rows[i]["fname"].ToString(),
                                 lname = QueryResults.Rows[i]["lname"].ToString(),
-                                title = QueryResults.Rows[i]["title"].ToString()
+                                title = QueryResults.Rows[i]["title"].ToString(),
+                                ProfileImage = QueryResults.Rows[i]["image"].ToString()
                             };
                             SearchResults.Add(user);
                             PropertyChanged(this, new PropertyChangedEventArgs("SearchResults"));
@@ -102,7 +103,7 @@ namespace GSUACM.ViewModels
                 else if (EntryFirst != null && TitleFind == null)
                 {
                     // create the adapter and query
-                    MySqlCommand command = new MySqlCommand("SELECT fname, lname, userID, title FROM user WHERE concat (fname,' ',lname) LIKE @entryfirst OR lname LIKE @entryfirst or fname LIKE @entryfirst", db.getConnection());
+                    MySqlCommand command = new MySqlCommand("SELECT fname, lname, userID, title, image FROM user WHERE concat (fname,' ',lname) LIKE @entryfirst OR lname LIKE @entryfirst or fname LIKE @entryfirst", db.getConnection());
                     command.Parameters.Add("@entryfirst", MySqlDbType.VarChar).Value = EntryFirst;
                     MySqlDataAdapter adapter = new MySqlDataAdapter();
                     db.openConnection();
@@ -122,7 +123,8 @@ namespace GSUACM.ViewModels
                                 userID = QueryResults.Rows[i]["userID"].ToString(),
                                 fname = QueryResults.Rows[i]["fname"].ToString(),
                                 lname = QueryResults.Rows[i]["lname"].ToString(),
-                                title = QueryResults.Rows[i]["title"].ToString()
+                                title = QueryResults.Rows[i]["title"].ToString(),
+                                ProfileImage = QueryResults.Rows[i]["image"].ToString()
 
                             };
                             SearchResults.Add(user);
@@ -139,7 +141,7 @@ namespace GSUACM.ViewModels
                 else if (TitleFind != null && EntryFirst == null)
                 {
                     // create the adapter and query
-                    MySqlCommand command = new MySqlCommand("SELECT fname, lname, userID, title FROM user WHERE title LIKE @title", db.getConnection());
+                    MySqlCommand command = new MySqlCommand("SELECT fname, lname, userID, title, image FROM user WHERE title LIKE @title", db.getConnection());
                     command.Parameters.Add("@title", MySqlDbType.VarChar).Value = TitleFind;
                     MySqlDataAdapter adapter = new MySqlDataAdapter();
                     db.openConnection();
@@ -159,7 +161,8 @@ namespace GSUACM.ViewModels
                                 userID = QueryResults.Rows[i]["userID"].ToString(),
                                 fname = QueryResults.Rows[i]["fname"].ToString(),
                                 lname = QueryResults.Rows[i]["lname"].ToString(),
-                                title = QueryResults.Rows[i]["title"].ToString()
+                                title = QueryResults.Rows[i]["title"].ToString(),
+                                ProfileImage = QueryResults.Rows[i]["image"].ToString()
                             };
                             SearchResults.Add(user);
                             PropertyChanged(this, new PropertyChangedEventArgs("SearchResults"));

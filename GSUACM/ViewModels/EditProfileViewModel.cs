@@ -19,15 +19,19 @@ namespace GSUACM.ViewModels
         public ICommand cancel { get; }
         public ICommand buttonUpdateProfile_Click { get; set; }
         public ICommand changePasswowrd_Click { get; set; }
+        public ICommand pic { get; set; }
         public String Email { get; set; }
         public String fname { get; set; }
         public String Number { get; set; }
         public String lname { get; set; }
+        public String someImage { get; set; }
 
         
 
         public EditProfileViewModel(INavigation navigation)
+
         {
+            this.someImage = GlobalVars.User.ProfileImage;
             this.Email = GlobalVars.User.email;
             this.fname = GlobalVars.User.fname;
             this.lname = GlobalVars.User.lname;
@@ -36,6 +40,12 @@ namespace GSUACM.ViewModels
             this.changePasswowrd_Click = new Command(this.changePasswordGo);
             this.buttonUpdateProfile_Click = new Command(this.updateProfile);
             this.cancel = new Command(this.ReturnToProfile);
+            this.pic = new Command(this.pickPicture);
+        }
+
+        private async void pickPicture()
+        {
+            await this.Navigation.PushModalAsync(new pickPicturePage());
         }
 
         //Profile page -> Editpage
