@@ -40,7 +40,7 @@
                            WidthRequest="70"
                            HeightRequest="70"
                            HorizontalOptions="Center">
-                        <Image Source="{local:ImageResource GSUACM.Images.default_profile_image.png}" 
+                        <Image Source="{Binding ProfileImage}" 
                                Aspect="AspectFill" 
                                HeightRequest="70" 
                                WidthRequest="70" 

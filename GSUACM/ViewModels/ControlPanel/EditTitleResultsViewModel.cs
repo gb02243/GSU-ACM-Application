@@ -22,6 +22,7 @@ namespace GSUACM.ViewModels.ControlPanel
         public ICommand SaveUserCommand { get; set; }
         public bool UserIsAdmin { get; set; }
         public string NewTitle { get; set; }
+        public string ProfileImage { get; set; }
         public EditTitleResultsViewModel(INavigation navigation)
         {
             this.Navigation = navigation;
@@ -33,6 +34,7 @@ namespace GSUACM.ViewModels.ControlPanel
             LastName = SelectedUser.lname;
             Title = SelectedUser.title;
             UserIsAdmin = SelectedUser.isAdmin;
+            ProfileImage = GlobalVars.SelectedUser.ProfileImage;
         }
 
         private async void SaveUser()

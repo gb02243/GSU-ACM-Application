@@ -73,7 +73,7 @@ namespace GSUACM.ViewModels.ControlPanel
                 if(!String.IsNullOrWhiteSpace(EntryFirst) && !String.IsNullOrWhiteSpace(EntryLast))
                 {
                     // create the adapter and query
-                    MySqlCommand command = new MySqlCommand("SELECT fname, lname, userID, title FROM user WHERE fname LIKE @entryfirst AND lname LIKE @entrylast", db.getConnection());
+                    MySqlCommand command = new MySqlCommand("SELECT fname, lname, userID, title, image FROM user WHERE fname LIKE @entryfirst AND lname LIKE @entrylast", db.getConnection());
                     command.Parameters.Add("@entryfirst", MySqlDbType.VarChar).Value = EntryFirst.Replace(" ", "");
                     command.Parameters.Add("@entrylast", MySqlDbType.VarChar).Value = EntryLast.Replace(" ", "");
                     MySqlDataAdapter adapter = new MySqlDataAdapter();
@@ -94,7 +94,8 @@ namespace GSUACM.ViewModels.ControlPanel
                                 userID = QueryResults.Rows[i]["userID"].ToString(),
                                 fname = QueryResults.Rows[i]["fname"].ToString(),
                                 lname = QueryResults.Rows[i]["lname"].ToString(),
-                                title = QueryResults.Rows[i]["title"].ToString()
+                                title = QueryResults.Rows[i]["title"].ToString(),
+                                ProfileImage = QueryResults.Rows[i]["image"].ToString()
                             };
                             SearchResults.Add(user);
                             PropertyChanged(this, new PropertyChangedEventArgs("SearchResults"));
@@ -111,7 +112,7 @@ namespace GSUACM.ViewModels.ControlPanel
                 else if(!String.IsNullOrWhiteSpace(EntryFirst) && String.IsNullOrWhiteSpace(EntryLast))
                 {
                     // create the adapter and query
-                    MySqlCommand command = new MySqlCommand("SELECT fname, lname, userID, title FROM user WHERE fname LIKE @entryfirst", db.getConnection());
+                    MySqlCommand command = new MySqlCommand("SELECT fname, lname, userID, title, image FROM user WHERE fname LIKE @entryfirst", db.getConnection());
                     command.Parameters.Add("@entryfirst", MySqlDbType.VarChar).Value = EntryFirst.Replace(" ","");
                     MySqlDataAdapter adapter = new MySqlDataAdapter();
                     db.openConnection();
@@ -131,7 +132,8 @@ namespace GSUACM.ViewModels.ControlPanel
                                 userID = QueryResults.Rows[i]["userID"].ToString(),
                                 fname = QueryResults.Rows[i]["fname"].ToString(),
                                 lname = QueryResults.Rows[i]["lname"].ToString(),
-                                title = QueryResults.Rows[i]["title"].ToString()
+                                title = QueryResults.Rows[i]["title"].ToString(),
+                                ProfileImage = QueryResults.Rows[i]["image"].ToString()
                             };
                             SearchResults.Add(user);
                             PropertyChanged(this, new PropertyChangedEventArgs("SearchResults"));
@@ -147,7 +149,7 @@ namespace GSUACM.ViewModels.ControlPanel
                 else if(!String.IsNullOrWhiteSpace(EntryLast) && String.IsNullOrWhiteSpace(EntryFirst))
                 {
                     // create the adapter and query
-                    MySqlCommand command = new MySqlCommand("SELECT fname, lname, userID, title FROM user WHERE lname LIKE @entrylast", db.getConnection());
+                    MySqlCommand command = new MySqlCommand("SELECT fname, lname, userID, title, image FROM user WHERE lname LIKE @entrylast", db.getConnection());
                     command.Parameters.Add("@entrylast", MySqlDbType.VarChar).Value = EntryLast.Replace(" ", "");
                     MySqlDataAdapter adapter = new MySqlDataAdapter();
                     db.openConnection();
@@ -167,7 +169,8 @@ namespace GSUACM.ViewModels.ControlPanel
                                 userID = QueryResults.Rows[i]["userID"].ToString(),
                                 fname = QueryResults.Rows[i]["fname"].ToString(),
                                 lname = QueryResults.Rows[i]["lname"].ToString(),
-                                title = QueryResults.Rows[i]["title"].ToString()
+                                title = QueryResults.Rows[i]["title"].ToString(),
+                                ProfileImage = QueryResults.Rows[i]["image"].ToString()
                             };
                             SearchResults.Add(user);
                             PropertyChanged(this, new PropertyChangedEventArgs("SearchResults"));
