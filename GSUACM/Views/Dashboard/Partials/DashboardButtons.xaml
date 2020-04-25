@@ -24,7 +24,7 @@
                             HeightRequest="80"
                             WidthRequest="80"
                             CornerRadius="45"
-                            
+                            Command="{Binding ChatCommand}"
                             Text="Chat" 
                             TextColor="{DynamicResource LightGold}"/>
                 </FlexLayout>
@@ -43,7 +43,7 @@
                             HeightRequest="80"
                             WidthRequest="80"
                             CornerRadius="45"
-                            
+                            Command="{Binding ProfileCommand}"
                             Text="Profile" 
                             TextColor="{DynamicResource LightGold}"/>
                 </FlexLayout>
@@ -62,7 +62,7 @@
                             HeightRequest="80"
                             WidthRequest="80"
                             CornerRadius="45"
-                            
+                            Command="{Binding EventsCommand}"
                             Text="Events" 
                             TextColor="{DynamicResource LightGold}"/>
                 </FlexLayout>
