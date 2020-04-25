@@ -13,6 +13,7 @@ using GSUACM.ViewModels;
 using GSUACM.ViewModels.ControlPanel;
 using System.Data;
 using MySql.Data.MySqlClient;
+using GSUACM.Views.Chat;
 
 namespace GSUACM.ViewModels.Dashboard
 {
@@ -25,6 +26,9 @@ namespace GSUACM.ViewModels.Dashboard
         public string WelcomeMessage { get; set; }
         public bool isLoggedIn { get; set; }
         public ICommand ToolbarCommand { get; set; }
+        public ICommand ChatCommand { get; set; }
+        public ICommand ProfileCommand { get; set; }
+        public ICommand EventsCommand { get; set; }
         public DataTable QueryResults { get; set; }
         public DashboardViewModel(INavigation navigation)
         {
@@ -54,10 +58,46 @@ namespace GSUACM.ViewModels.Dashboard
             }
 
             ToolbarCommand = new Command(GetToolbarAction);
+            ChatCommand = new Command(OpenChatPage);
+            ProfileCommand = new Command(OpenProfilePage);
+            EventsCommand = new Command(OpenEventsCommand);
             UpdateNewsItems();
         }
-        
-        
+
+        private void OpenEventsCommand()
+        {
+            ICommand CloseCommand = new Command(CloseModal);
+            NavigationPage NewNav;
+            ToolbarItem toolbar = new ToolbarItem { Text = "Close" };
+            toolbar.Command = CloseCommand;
+            Navigation.PushModalAsync(NewNav = new NavigationPage(new EventsPage()));
+            NewNav.ToolbarItems.Add(toolbar);
+        }
+
+        private void OpenProfilePage()
+        {
+            ICommand CloseCommand = new Command(CloseModal);
+            NavigationPage NewNav;
+            ToolbarItem toolbar = new ToolbarItem { Text = "Close" };
+            toolbar.Command = CloseCommand;
+            Navigation.PushModalAsync(NewNav = new NavigationPage(new HomePage()));
+            NewNav.ToolbarItems.Add(toolbar);
+        }
+
+        private void OpenChatPage()
+        {
+            ICommand CloseCommand = new Command(CloseModal);
+            NavigationPage NewNav;
+            ToolbarItem toolbar = new ToolbarItem{ Text = "Close" };
+            toolbar.Command = CloseCommand;
+            Navigation.PushModalAsync(NewNav = new NavigationPage(new MessageListPage()));
+            NewNav.ToolbarItems.Add(toolbar);
+        }
+        public void CloseModal()
+        {
+            Navigation.PopModalAsync();
+        }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
