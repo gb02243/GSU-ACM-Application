@@ -16,12 +16,11 @@ namespace GSUACM.ViewModels
         public string Email { get; set; }
         public string ClubPoints { get; set; }
         public string Title { get; set; }
+        public string ProfileImage { get; set; }
         public ICommand back { get; set; }
 
         //tables for database columns
         private DataTable table = new DataTable();
-
-        public string NewTitle { get; set; }
         public viewOtherUserViewModel(INavigation navigation)
         {
             this.Navigation = navigation;
@@ -32,16 +31,17 @@ namespace GSUACM.ViewModels
 
             PageTitle = SelectedUser.fullName;
 
-            User();
-            this.Email = SelectedUser.email;
-            this.ClubPoints = SelectedUser.ClubPoints;
-            Title = SelectedUser.title;
+            GetUserInfo();
+            Email = SelectedUser.email;
+            ClubPoints = SelectedUser.ClubPoints;
+            ProfileImage = SelectedUser.ProfileImage;
+            Title = SelectedUser.fullName;
 
             
             
         }
 
-        private async void User()
+        private async void GetUserInfo()
         {
             DB db = new DB();
             if (db.openConnection() == false)

@@ -40,13 +40,14 @@ namespace GSUACM.ViewModels
         private async void SelectUser(User user)
         {
             GlobalVars.SelectedUser = user;
-            await Navigation.PushModalAsync(new viewOtherUserProfile());
+            await Navigation.PushModalAsync(new ViewMemberProfilePage());
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void CloseWindow()
         {
+            GlobalVars.SelectedUser = null;
             Navigation.PopModalAsync();
         }
         public async void SearchDatabase()

@@ -42,7 +42,6 @@
     <EmbeddedResource Include="Images\amazon.png" />
     <EmbeddedResource Include="Images\cashApp.png" />
     <EmbeddedResource Include="Images\paypal.png" />
-    <EmbeddedResource Include="ProfileImages\default_profile_image.png" />
     <EmbeddedResource Include="ProfileImages\dog.jpg" />
     <EmbeddedResource Include="ProfileImages\elephant.png" />
     <EmbeddedResource Include="ProfileImages\ladybug.png" />
@@ -133,6 +132,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\TutoringRequestsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ViewMemberProfilePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

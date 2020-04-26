@@ -1,13 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="GSUACM.Views.viewOtherUserProfile" xmlns:local="clr-namespace:GSUACM"
-  Title="{Binding PageTitle}">
-     <!-- Toolbar -->
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:GSUACM"
+             mc:Ignorable="d"
+             x:Class="GSUACM.Views.ViewMemberProfilePage"
+             Title="{Binding Title}">
+    <!-- Toolbar -->
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Cancel" Command="{Binding CloseWindowCommand}"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            
+
             <!-- Header -->
             <StackLayout Padding="10"
                              VerticalOptions="Center">
@@ -25,7 +31,7 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        
+
                     </Grid.ColumnDefinitions>
                     <Frame BorderColor="Black"
                            CornerRadius="50"
@@ -34,30 +40,21 @@
                            WidthRequest="70"
                            HeightRequest="70"
                            HorizontalOptions="Center">
-                        <Image Source="{local:ImageResource GSUACM.Images.default_profile_image.png}" 
+                        <Image Source="{Binding ProfileImage}" 
                                Aspect="AspectFill" 
                                HeightRequest="70" 
                                WidthRequest="70" 
                                Margin="-20" />
                     </Frame>
-                    
-                    <Label Text="{Binding Title}"
-                           Grid.Row="2"
-                           FontAttributes="Italic"
-                           FontSize="18" 
-                           HorizontalOptions="Center"
-                           HorizontalTextAlignment="Center" />
-                    
-                        
                 </Grid>
-                <StackLayout Padding="20, 30, 20, 0">
-                        <Label Text="Email Address:" FontAttributes="Bold" FontSize="25"/>
-                        <Label x:Name="email" Text="{Binding Email}" FontSize="20" />
-                    </StackLayout>
-                    <StackLayout Padding="20, 30, 20, 0">
-                        <Label Text="Club Points:" FontAttributes="Bold" FontSize="25" />
-                        <Label x:Name="point" Text="{Binding ClubPoints}" FontSize="20"/>
-                    </StackLayout>
+                <StackLayout Padding="20, 30, 20, 0" HorizontalOptions="Center">
+                    <Label Text="Email Address:" FontAttributes="Bold" FontSize="25" HorizontalTextAlignment="Center" />
+                    <Label x:Name="email" Text="{Binding Email}" FontSize="20" HorizontalTextAlignment="Center" />
+                </StackLayout>
+                <StackLayout Padding="20, 30, 20, 0" HorizontalOptions="Center">
+                    <Label Text="Club Points:" FontAttributes="Bold" FontSize="25" HorizontalTextAlignment="Center" />
+                    <Label x:Name="point" Text="{Binding ClubPoints}" FontSize="20" HorizontalTextAlignment="Center" />
+                </StackLayout>
             </StackLayout>
 
             <!-- Buttons -->

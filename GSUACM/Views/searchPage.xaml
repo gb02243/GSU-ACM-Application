@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="GSUACM.Views.searchPage"
              Title="Search Users"
              xmlns:local="clr-namespace:GSUACM"
-             x:Name="TitlesPanel">
+             x:Name="SearchPage">
     <!-- Toolbar -->
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Cancel" Command="{Binding CloseWindowCommand}"/>
@@ -107,7 +107,7 @@
                                                      HorizontalOptions="End">
                                             <Button Text="Select User"
                                                     CornerRadius="25" FontSize="10" 
-                                                    Command="{Binding BindingContext.SelectUserCommand, Source={x:Reference TitlesPanel}}" 
+                                                    Command="{Binding BindingContext.SelectUserCommand, Source={x:Reference SearchPage}}" 
                                                     CommandParameter="{Binding .}" />
                                         </StackLayout>
 

@@ -19,6 +19,7 @@ namespace GSUACM.ViewModels
         public ObservableCollection<User>Mentors { get; set; }
         public ICommand goToSearch { get; }
         public INavigation Navigation { get; set; }
+        public User SelectedUser { get; set; }
         private DataTable queryResults { get; set; }
         public MemberListViewModel(INavigation navigation)
         {
@@ -42,6 +43,12 @@ namespace GSUACM.ViewModels
             {
                 GetMembers();
             }
+        }
+
+        private async void SelectUser(User user)
+        {
+            GlobalVars.SelectedUser = user;
+            await Navigation.PushModalAsync(new ViewMemberProfilePage());
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -90,7 +97,8 @@ namespace GSUACM.ViewModels
                             fname = queryResults.Rows[i]["fname"].ToString(),
                             lname = queryResults.Rows[i]["lname"].ToString(),
                             title = queryResults.Rows[i]["title"].ToString(),
-                            ProfileImage = queryResults.Rows[i]["image"].ToString()
+                            ProfileImage = queryResults.Rows[i]["image"].ToString(),
+                            SelectUserCommand = new Command<User>(SelectUser)
                         };
                         Members.Add(user);
                     }
