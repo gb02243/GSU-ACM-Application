@@ -16,13 +16,10 @@ namespace GSUACM.Views.Chat
         public string RoomId { get; set; }
         public string Channel { get; set; }
         public string Chat_Title { get; set; }
-        public ChatPage(string id, bool isChannel)
+        public ChatPage(string RoomID)
         {
             InitializeComponent();
-            if (isChannel)
-                BindingContext = new ChatPageViewModel(Navigation, id, true);
-            else
-                BindingContext = new ChatPageViewModel(Navigation, id, false);
+            BindingContext = new ChatPageViewModel(Navigation, RoomID);
         }
 
         public void OnListTapped(object sender, ItemTappedEventArgs e)

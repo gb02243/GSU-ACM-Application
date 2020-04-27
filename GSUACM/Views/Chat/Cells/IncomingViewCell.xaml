@@ -7,13 +7,13 @@
              x:Class="GSUACM.Views.Chat.Cells.IncomingViewCell">
   <ViewCell.View>
         <Frame BackgroundColor="{DynamicResource GSUBlue}"
-               Rotation="180"
+               Rotation="0"
                FlowDirection="LeftToRight"
                Padding="10"
                HasShadow="false"
                Margin="10,10,80,10"
                CornerRadius="10">
-            <Label Text="{Binding text}"
+            <Label Text="{Binding Text}"
                    TextColor="White" />
         </Frame>
     </ViewCell.View>

@@ -35,14 +35,14 @@ namespace GSUACM.ViewModels.ChatViewModels
 
         public void DeleteChannel(string channel)
         {
-            MockIncomingMessage.RemoveChannel(channel);
+            //MockIncomingMessage.RemoveChannel(channel);
             UpdateList();
             //PropertyChanged(this, new PropertyChangedEventArgs("Messages"));
         }
 
         public async void OpenChannel(string channel)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new ChatPage(channel, true)));
+            //await Navigation.PushModalAsync(new NavigationPage(new ChatPage(channel, true)));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

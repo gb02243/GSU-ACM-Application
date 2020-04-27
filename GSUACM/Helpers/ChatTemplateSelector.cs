@@ -26,7 +26,7 @@ namespace GSUACM.Helpers
                 return null;
 
             // TODO: fix this for the new user class
-            return (messageVm.alias == GlobalVars.User.userID) ? incomingDataTemplate : outgoingDataTemplate;
+            return (messageVm.SenderID == GlobalVars.User.userID) ? outgoingDataTemplate : incomingDataTemplate;
         }
     }
 }
