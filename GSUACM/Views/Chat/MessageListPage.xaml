@@ -18,13 +18,13 @@
                                 <SwipeItem Text="Delete"
                                            BackgroundColor="LightPink"
                                            Command="{Binding Source={x:Reference messageList}, Path=BindingContext.DeleteCommand}"
-                                           CommandParameter="{Binding roomId}" />
+                                           CommandParameter="{Binding RoomID}" />
                             </SwipeItems>
                         </SwipeView.RightItems>
                         <StackLayout>
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding Source={x:Reference messageList}, Path=BindingContext.OpenChatCommand}"
-                                           CommandParameter="{Binding roomId}" />
+                                                      CommandParameter="{Binding RoomID}" />
                             </StackLayout.GestureRecognizers>
                             <Grid Padding="5">
                                 <Grid.RowDefinitions>
@@ -36,21 +36,26 @@
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
                                 <Image Grid.RowSpan="2" 
-                                   Source="{local:ImageResource GSUACM.Images.default_profile_image.png}" 
-                                   Aspect="AspectFill" 
-                                   HeightRequest="60" 
-                                   WidthRequest="60" />
+                                       Source="default_profile_image.png" 
+                                       Aspect="AspectFill" 
+                                       HeightRequest="60" 
+                                       WidthRequest="60" />
                                 <Label Grid.Column="1" 
-                                   Text="{Binding alias}" 
-                                   FontAttributes="Bold" 
-                                   FontSize="20" />
+                                       Text="{Binding RoomID}" 
+                                       FontAttributes="Bold" 
+                                       FontSize="20" />
                                 <Label Grid.Row="1" 
-                                   Grid.Column="1" 
-                                   Text="{Binding textPreview}" 
-                                   FontAttributes="Italic" 
-                                   VerticalOptions="End" 
-                                   FontSize="18" />
+                                       Grid.Column="1" 
+                                       Text="{Binding Text}" 
+                                       FontAttributes="Italic" 
+                                       VerticalOptions="End" 
+                                       FontSize="18" />
                             </Grid>
+                            <BoxView Color="Gray"
+                                     HeightRequest="1"
+                                     Opacity="0.5" 
+                                     Grid.Row="2"
+                                     CornerRadius="100" />
                         </StackLayout>
                     </SwipeView>
                 </DataTemplate>
