@@ -26,17 +26,20 @@
                    HasShadow="false"
                    HorizontalOptions="CenterAndExpand"
                    BackgroundColor="Transparent">
-                <FlexLayout Direction="Column"
+                <FlexLayout 
+                    Direction="Column"
                             AlignContent="Center">
                     <Button BorderColor="#fff"
                             BorderWidth="1"
                             BackgroundColor="{DynamicResource GSUBlue}"
                             HeightRequest="90"
                             CornerRadius="45"
-                            
+                            Clicked="OnPickPhotoButtonClicked"
                             Text="Upload Image" 
                             TextColor="{DynamicResource LightGold}"/>
-                </FlexLayout>
+                            <Image x:Name="image" Source="gsu_logo.png" />
+                        </FlexLayout>
+                        
             </Frame>
                     <Grid>
                         <Grid.RowDefinitions>

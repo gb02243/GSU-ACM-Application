@@ -1,6 +1,8 @@
-﻿using System;
+﻿using DependencyServiceDemos;
+using GSUACM.ViewModels;
+using System;
 using System.Collections.Generic;
-
+using System.IO;
 using Xamarin.Forms;
 
 namespace GSUACM.Views
@@ -10,29 +12,20 @@ namespace GSUACM.Views
         public editProfile()
         {
             InitializeComponent();
+            BindingContext = new EditProfileViewModel(this.Navigation);
         }
-        private void labelGoToLogin_Click(Object sender, EventArgs e)
+        private async void OnPickPhotoButtonClicked(object sender, EventArgs e)
         {
+            (sender as Button).IsEnabled = false;
 
-        }
+            Stream stream = await DependencyService.Get<IPhotoPickerService>().GetImageStreamAsync();
+            if (stream != null)
+            {
+                
+                image.Source = ImageSource.FromStream(() => stream);
+            }
 
-        private void buttonUpdateProfile_Click(Object sender, EventArgs e)
-        {
-
-        }
-
-        private void changePasswowrd_Click(Object sender, EventArgs e)
-        {
-
-        }
-        private void displayEmailChecked(Object sender, EventArgs e)
-        {
-
-        }
-        
-        private void displayPhoneChecked(Object sender, EventArgs e)
-        {
-
+        (sender as Button).IsEnabled = true;
         }
     }
 }
