@@ -188,13 +188,14 @@ namespace GSUACM.ViewModels
                 db.closeConnection();
                 String fname = firstName;
                 //check sql
-                MySqlCommand command = new MySqlCommand("INSERT INTO user(fname,lname,phone,email,password) VALUES (@fn, @ln,@ph,@email, @pass)", db.getConnection());
+                MySqlCommand command = new MySqlCommand("INSERT INTO user(fname,lname,phone,email,password,title,userID) VALUES (@fn, @ln, @ph, @email, @pass, 'Member',@userID)", db.getConnection());
                 MySqlDataAdapter adapter = new MySqlDataAdapter();
                 command.Parameters.Add("@fn", MySqlDbType.VarChar).Value = firstName;
                 command.Parameters.Add("@ln", MySqlDbType.VarChar).Value = lastName;
                 command.Parameters.Add("@ph", MySqlDbType.VarChar).Value = PhoneNum;
                 command.Parameters.Add("@email", MySqlDbType.VarChar).Value = Email;
                 command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = Password;
+                command.Parameters.Add("@userID", MySqlDbType.VarChar).Value = Guid.NewGuid().ToString();
                 MySqlCommand command2 = new MySqlCommand("SELECT * FROM user WHERE email = @email2 and password = @pass2", db.getConnection());
                 command2.Parameters.Add("@email2", MySqlDbType.VarChar).Value = Email;
                 command2.Parameters.Add("@pass2", MySqlDbType.VarChar).Value = Password;
@@ -205,11 +206,8 @@ namespace GSUACM.ViewModels
                 adapter.SelectCommand = command2;
                 adapter.Fill(table);
                 int y = table.Rows.Count;
-                if (firstName == null)
-                {
-                    Application.Current.MainPage.DisplayAlert("Server Error", "Try Again Later", "Ok");
-                }
-                Console.WriteLine(String.IsNullOrEmpty(firstName));
+  
+                //Console.WriteLine(String.IsNullOrEmpty(firstName));
 
 
                 //password.Text.Equals(passwordConfirm.Text) && phoneNum.Text.ValidatePhoneNumber(true) && emailaddress.Text.IsValidEmail() && password.Text.IsValidPassword()

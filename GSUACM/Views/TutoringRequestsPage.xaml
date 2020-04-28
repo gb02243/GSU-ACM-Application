@@ -36,7 +36,7 @@
                                FontAttributes="Bold" />
                         <Label Text="{Binding Date}" 
                                 FontAttributes="Bold" />
-                        <Label Text="{Binding username}" 
+                        <Label Text="{Binding userid}" 
                                 FontAttributes="Bold" />
                     </StackLayout>
                 </ViewCell>

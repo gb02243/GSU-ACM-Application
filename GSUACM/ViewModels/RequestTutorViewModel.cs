@@ -21,12 +21,11 @@ namespace GSUACM.ViewModels
         private ObservableCollection<Request> request;
         public string subject { get; set; }
         private DataTable table = new DataTable();
-        private DataTable table2 = new DataTable();
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public RequestTutorViewModel(INavigation navigation)
         {
-            
             this.Navigation = navigation;
             this.AddTutoringSessionCommand = new Command(this.addTutoringSession);
             this.CancelCommand = new Command(this.buttonCancel_Click);
@@ -40,13 +39,12 @@ namespace GSUACM.ViewModels
                await Application.Current.MainPage.DisplayAlert("Server Error", "Try Again Later", "Ok");
             }
             MySqlDataAdapter adapter = new MySqlDataAdapter();
-            MySqlDataAdapter adapter2 = new MySqlDataAdapter();
             DateTime Date = date;
             String Subject = subject ;
 
 
             MySqlCommand command = new MySqlCommand("Insert into tutorsession(subject,date,userID) values(@subject,@date,@userid)", db.getConnection());
-            command.Parameters.Add("@userid", MySqlDbType.VarChar).Value = Services.GlobalVars.userid;
+            command.Parameters.Add("@userid", MySqlDbType.VarChar).Value = Services.GlobalVars.User.userID;
          
             command.Parameters.Add("@subject", MySqlDbType.VarChar).Value = subject;
             command.Parameters.Add("@date", MySqlDbType.DateTime).Value = date;
@@ -59,14 +57,11 @@ namespace GSUACM.ViewModels
                 if (command.ExecuteNonQuery() == 1)
                 {
                     MySqlCommand command2 = new MySqlCommand("select sessionID from tutorsession where userID = @userid2", db.getConnection());
-                    command2.Parameters.Add("@userid2", MySqlDbType.VarChar).Value = Services.GlobalVars.userid;
+                    command2.Parameters.Add("@userid2", MySqlDbType.VarChar).Value = Services.GlobalVars.User.userID;
                     adapter.SelectCommand = command2;
                     adapter.Fill(table);
-                    MySqlCommand command3 = new MySqlCommand("select * from user where userID = @userid3", db.getConnection());
-                    command3.Parameters.Add("@userid3", MySqlDbType.VarChar).Value = Services.GlobalVars.userid;
-                    adapter2.SelectCommand = command3;
-                    adapter2.Fill(table2);
-                    Services.GlobalVars.request.Add(new Request() { sessionID = Convert.ToInt32(table.Rows[0]["sessionID"]) , subject = subject , Date = Convert.ToString(date) , userid = Services.GlobalVars.userid,username="User: "+ table2.Rows[0]["fname"].ToString()+" "+ table2.Rows[0]["lname"].ToString() });
+
+                    Services.GlobalVars.request.Add(new Request() { sessionID = Convert.ToInt32(table.Rows[0]["sessionID"]) , subject = subject , Date = Convert.ToString(date) , userid = Services.GlobalVars.User.userID });
                     db.closeConnection();
                     await Application.Current.MainPage.DisplayAlert("Tutor Session Added", "Succesfully Added as Tutor Session", "Ok");
 
@@ -92,7 +87,7 @@ namespace GSUACM.ViewModels
 
             if (String.IsNullOrEmpty(subject))
             {
-                Console.WriteLine("The email is " + GSUACM.Services.GlobalVars.email);
+                Console.WriteLine("The email is " + GSUACM.Services.GlobalVars.User.email);
                 return false;
             }
             if (date == DateTime.MinValue)

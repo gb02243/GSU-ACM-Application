@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    x:Class="GSUACM.Views.PayDuesPage"
+    xmlns:local="clr-namespace:GSUACM"
+    Title="Pay Dues">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#011E41</Color>
+            <Color x:Key="Accent">#A3AAAE</Color>
+            <Color x:Key="LightTextColor">#011E41</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,20,0,20" VerticalOptions="FillAndExpand">
+                    <Image Source="{local:ImageResource GSUACM.Images.gsu_logo.png}" VerticalOptions="Center" HeightRequest="64" />
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" Padding="16,20,16,40" Spacing="10">
+                <Label FontSize="25" Text="Pay Dues:" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
+
+
+                <Frame Margin="10"
+       BorderColor="Black"
+       CornerRadius="50"
+       HeightRequest="60"
+       WidthRequest="60"
+       IsClippedToBounds="True"
+       HorizontalOptions="Center"
+       VerticalOptions="Center">
+                    <ImageButton Source="{local:ImageResource GSUACM.Images.cashApp.png}"
+         Aspect="AspectFill"
+         Margin="-20"
+         HeightRequest="100"
+         WidthRequest="100"
+         Command="{Binding OpenCashApp}"
+               />
+                </Frame>
+                <Frame Margin="10"
+       BorderColor="Black"
+       CornerRadius="50"
+       HeightRequest="60"
+       WidthRequest="60"
+       IsClippedToBounds="True"
+       HorizontalOptions="Center"
+       VerticalOptions="Center">
+                    <ImageButton Source="{local:ImageResource GSUACM.Images.amazon.png}"
+         Aspect="AspectFill"
+         Margin="-20"
+         HeightRequest="100"
+         WidthRequest="100"
+         Command="{Binding OpenAmazon}"/>
+                </Frame>
+                <Frame Margin="10"
+       BorderColor="Black"
+       CornerRadius="50"
+       HeightRequest="60"
+       WidthRequest="60"
+       IsClippedToBounds="True"
+       HorizontalOptions="Center"
+       VerticalOptions="Center">
+                    <ImageButton Source="{local:ImageResource GSUACM.Images.paypal.png}"
+         Aspect="AspectFill"
+         Margin="-20"
+         HeightRequest="100"
+         WidthRequest="100"
+         Command="{Binding OpenPayPal}" />
+                </Frame>
+
+                <Image Source=""/>
+
+
+                <Label Text="All dues are used to fund events, meeting food, and t-shirts at the end of the semester. If you would like to pay with cash see an officer!" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="18"></Label>
+            </StackLayout>
+
+
+
+        </ScrollView>
+
+    </Grid>
+</ContentPage>

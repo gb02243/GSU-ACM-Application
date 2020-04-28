@@ -1,19 +1,20 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage 
+<ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="GSUACM.Views.HomePage">
+             xmlns:local="clr-namespace:GSUACM"
+             x:Class="GSUACM.Views.HomePage"
+    Title="Your Profile">
     <!-- Toolbar -->
     <!--
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Save" Command="{Binding SaveCommand}" />
     </ContentPage.ToolbarItems>
     -->
-    
-    <ContentPage.Resources>
+   <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="Primary">#041e42</Color>
             <Color x:Key="Secondary">#a99260</Color>
@@ -22,36 +23,90 @@
             <Color x:Key="LightTextColor">#999999</Color>
         </ResourceDictionary>
     </ContentPage.Resources>
-    <ContentPage.Content>
-        
-        <Grid Margin="15,25,15,20">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width=".25*" />
-                <ColumnDefinition Width=".75*" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <ContentView Padding="0,40,0,20" VerticalOptions="FillAndExpand">
-                    <Image Source="gsu_logo.png" VerticalOptions="CenterAndExpand" HeightRequest="64" />
+                <ContentView Padding="0,20,0,20" VerticalOptions="FillAndExpand">
+                  <Image Source="{local:ImageResource GSUACM.Images.gsu_logo.png}" VerticalOptions="Center" HeightRequest="64" />
                 </ContentView>
             </StackLayout>
-            <Label Grid.Row="1" Grid.Column="0" Text="Name:" HorizontalOptions="End" VerticalOptions="Center" />
-            <Entry Grid.Row="1" x:Name="name" Grid.Column="1" Text="{Binding Name}" VerticalOptions="Center"  />
-            <Label Grid.Row="2" Grid.Column="0" Text="Email:" HorizontalOptions="End" VerticalOptions="Center" />
-            <Entry Grid.Row="2" x:Name="email" Grid.Column="1" Text="{Binding Email}" VerticalOptions="Center" IsEnabled="false" />
-            <Label Grid.Row="3" Grid.Column="0" Text="Phone:" HorizontalOptions="End" VerticalOptions="Center" />
-            <Entry Grid.Row="3" x:Name="phone" Grid.Column="1" Text="{Binding Address}" VerticalOptions="Center" />
-            <Label Grid.Row="4" Grid.Column="0" Text="Club Points:" HorizontalOptions="End" VerticalOptions="Center" />
-            <Entry Grid.Row="4" x:Name="point" Grid.Column="1" Text="{Binding Club Points}" VerticalOptions="Center" />
-            <Button HorizontalOptions="Center" WidthRequest="200" Margin="0,10,0,0" Text="Edit Profile" BackgroundColor="{StaticResource Primary}" TextColor="White" FontSize="22" Clicked="buttonEditProfile_Click"  CornerRadius="22" VerticalOptions="Center" Grid.Row="5" Grid.ColumnSpan="2"/>
-            <Button Grid.Row="7" Grid.ColumnSpan="2" Clicked="labelLogout_Click" Text="Logout" Command="{Binding LogoutCommand}" 
-                    TextColor="Red" VerticalOptions="End" HorizontalOptions="Center" />
-        </Grid>
-    </ContentPage.Content>
-</ContentPage>
+        </StackLayout>
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" Padding="16,20,16,40" Spacing="10">
+                <Label Text="Profile" FontAttributes="Bold" HorizontalTextAlignment="Center" FontSize="35"/>
+                <StackLayout Padding="10,20,10,10" Spacing="20">
+                    <Frame WidthRequest="70"
+                   HeightRequest="70"
+                   HasShadow="False"
+                   HorizontalOptions="Center"
+                   BackgroundColor="Tan"
+                   BorderColor="Black"
+                   CornerRadius="50"
+                   IsClippedToBounds="True"
+                   VerticalOptions="Center">
+
+                <FlexLayout Direction="Column"
+                            AlignContent="Center">
+                    <Image   
+                            HeightRequest="90"
+                            Aspect="AspectFill"
+                            
+                            Source="{Binding someImage}"
+                            />
+                </FlexLayout>
+            </Frame>
+
+                    
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.Column="0">
+                            <Label Text="Name:" FontAttributes="Bold" FontSize="25"/>
+                            <Label x:Name="name" Text="{Binding Name}" FontSize="20" />
+                        </StackLayout>
+
+                    </Grid>
+                    <StackLayout>
+                        <Label Text="Email Address:" FontAttributes="Bold" FontSize="25"/>
+                        <Label x:Name="email" Text="{Binding Email}" FontSize="20" />
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Phone Number:" FontAttributes="Bold" FontSize="25"/>
+                        <Label x:Name="phone" Text="{Binding Number}" FontSize="20"/>
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Label Text="Club Points:" FontAttributes="Bold" FontSize="25"/>
+                        <Label x:Name="point" Text="{Binding ClubPoints}" FontSize="20"/>
+                    </StackLayout>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                    </Grid>
+
+                </StackLayout>
+                <Button HorizontalOptions="Center" WidthRequest="200" Margin="0,10,0,0" Text="Edit Profile" BackgroundColor="{StaticResource Primary}" TextColor="White" FontSize="22" Command="{Binding editPage}"  CornerRadius="22" VerticalOptions="EndAndExpand"/>
+                <Button HorizontalOptions="Center" WidthRequest="240" Margin="0,10,0,0" Text="Change Password" BackgroundColor="{StaticResource Primary}" TextColor="White" FontSize="22" CornerRadius="22" Command="{Binding changePassword}" VerticalOptions="End"/>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+   </ContentPage>

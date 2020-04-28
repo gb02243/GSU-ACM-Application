@@ -1,7 +1,11 @@
-﻿using System;
+﻿using GSUACM.ViewModels;
+using System;
 using System.Collections.Generic;
-
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace GSUACM.Views
 {
@@ -10,6 +14,7 @@ namespace GSUACM.Views
         public EmployerPage()
         {
             InitializeComponent();
+            BindingContext = new AlumniViewModel(Navigation);
         }
     }
 }

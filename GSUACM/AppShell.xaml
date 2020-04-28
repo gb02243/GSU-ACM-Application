@@ -7,8 +7,10 @@
     xmlns:dash="clr-namespace:GSUACM.Views.Dashboard"
     xmlns:chatviews="clr-namespace:GSUACM.Views.Chat"
     xmlns:polls="clr-namespace:GSUACM.Views.Polls"
+    xmlns:controlpanel="clr-namespace:GSUACM.Views.Control_Panel"
     x:Class="GSUACM.AppShell"
-    BackgroundColor="{DynamicResource GSUGold}">
+    BackgroundColor="{DynamicResource GSUGold}"
+    x:Name="MainShell">
     <!-- FLYOUT -->
     <Shell.FlyoutHeader>
         <Grid HeightRequest="100" BackgroundColor="{DynamicResource GSUGold}">
@@ -18,11 +20,19 @@
                    HorizontalOptions="FillAndExpand" />
         </Grid>
     </Shell.FlyoutHeader>
+
+    <!--
     <FlyoutItem Title="Dashboard" Icon="home.png">
         <ShellContent ContentTemplate="{DataTemplate dash:DashboardPage}"/>
     </FlyoutItem>
     <FlyoutItem Title="Profile" Icon="home.png">
         <ShellContent Route="home" ContentTemplate="{DataTemplate views:HomePage}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Members" Icon="home.png">
+        <Tab>
+            <ShellContent Title="Members" ContentTemplate="{DataTemplate views:MemberListPage}"/>
+            <ShellContent Title="Mentors" ContentTemplate="{DataTemplate views:MentorListPage}"/>
+        </Tab>
     </FlyoutItem>
     <FlyoutItem Title="Chat" Icon="home.png">
         <Tab>
@@ -30,11 +40,15 @@
             <ShellContent Title="Channels" ContentTemplate="{DataTemplate chatviews:ChannelListPage}"/>
         </Tab>
     </FlyoutItem>
-    <FlyoutItem Title="About" Icon="home.png">
-        <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
-    </FlyoutItem>
+    
     <FlyoutItem Title="Events" Icon="home.png">
         <ShellContent ContentTemplate="{DataTemplate views:EventsPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Tutoring" Icon="home.png">
+        <ShellContent ContentTemplate="{DataTemplate views:RequestTutor}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Tutoring Requests" Icon="home.png">
+        <ShellContent ContentTemplate="{DataTemplate views:TutoringRequestsPage}" />
     </FlyoutItem>
     <FlyoutItem Title="Polls" Icon="home.png">
         <Tab>
@@ -45,9 +59,18 @@
     <FlyoutItem Title="Alumni" Icon="home.png">
         <ShellContent ContentTemplate="{DataTemplate views:EmployerPage}" />
     </FlyoutItem>
-    
-    <!-- ADD FUNCTIONALITY -->
-    <MenuItem Text="Log Out" />
-    
+    <FlyoutItem Title="Control Panel" Icon="home.png">
+        <ShellContent ContentTemplate="{DataTemplate controlpanel:ControlPanelPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Pay Dues" Icon="home.png">
+        <ShellContent ContentTemplate="{DataTemplate views:PayDuesPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="About" Icon="home.png">
+        <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+    </FlyoutItem>
+    -->
+
     <!-- END FLYOUT -->
 </Shell>

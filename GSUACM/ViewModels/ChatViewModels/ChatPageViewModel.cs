@@ -16,43 +16,46 @@ namespace GSUACM.ViewModels.ChatViewModels
         public ICommand BackCommand { get; private set; }
         public ObservableCollection<Message> Messages { get; set; } = new ObservableCollection<Message>();
         public string TextToSend { get; set; }
+        public string Chat_Title { get; set; }
+        public string RoomID { get; set; }
         public ICommand OnSendCommand { get; set; }
-        public ChatPageViewModel(INavigation navigation, string id, bool isChannel)
+        public ChatPageViewModel(INavigation navigation, string RoomID)
         {
             this.Navigation = navigation;
             BackCommand = new Command(CloseModal);
+            this.RoomID = RoomID;
 
-            //UpdateChat(id, isChannel);
+            UpdateChat(RoomID);
 
             OnSendCommand = new Command(() =>
             {
                 if (!string.IsNullOrEmpty(TextToSend))
                 {
-                    //TODO: fix for new user class
-                    if(isChannel)
-                        Messages.Insert(0, new Message() { text = TextToSend, alias = App.User.userID, channel = id });
-                    else
-                        Messages.Insert(0, new Message() { text = TextToSend, alias = App.User.userID, roomId = id });
+                    ChatSimulator.Messages.Add(new Message() { Text = TextToSend, SenderID = GlobalVars.User.userID, RoomID = RoomID, MessageID = Guid.NewGuid().ToString() });
+                    Messages.Add(new Message() { Text = TextToSend, SenderID = GlobalVars.User.userID, RoomID = RoomID, MessageID = Guid.NewGuid().ToString()});
+
                     TextToSend = string.Empty;
                 }
 
             });
         }
-        public void UpdateChat(string id, bool isChannel)
+        public void UpdateChat(string roomID)
         {
             //TODO: get chat data from API
-            //if (isChannel)
-            //    Messages = new ObservableCollection<Message>(MockIncomingMessage.GetChannel(id));
-            //else
-            //    Messages = new ObservableCollection<Message>(MockIncomingMessage.GetChat(id));
+            Messages = new ObservableCollection<Message>();
+            foreach (Message message in ChatSimulator.Messages)
+            {
+                if(message.RoomID == roomID)
+                {
+                    Messages.Add(message);
+                }
+            }
+            Chat_Title = Messages[0].RoomID;
         }
 
         public void CloseModal()
         {
             Messages.Clear();
-            MockIncomingMessage.ClearChannel();
-            MockIncomingMessage.ClearChat();
-            
             Navigation.PopModalAsync();
         }
 

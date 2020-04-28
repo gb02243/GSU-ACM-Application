@@ -12,20 +12,44 @@
 
   <ItemGroup>
     <Compile Remove="Styles\**" />
+    <Compile Remove="Views\Profile\**" />
     <EmbeddedResource Remove="Styles\**" />
+    <EmbeddedResource Remove="Views\Profile\**" />
     <None Remove="Styles\**" />
+    <None Remove="Views\Profile\**" />
+    <None Remove="Images\amazon.png" />
+    <None Remove="Images\cashApp.png" />
+    <None Remove="Images\paypal.png" />
+    <None Remove="ProfileImages\default_profile_image.png" />
+    <None Remove="ProfileImages\dog.jpg" />
+    <None Remove="ProfileImages\elephant.png" />
+    <None Remove="ProfileImages\ladybug.png" />
+    <None Remove="ProfileImages\lamb.png" />
+    <None Remove="ProfileImages\penquin.png" />
+    <None Remove="ProfileImages\rat.png" />
+    <None Remove="ProfileImages\shark.png" />
+    <None Remove="ProfileImages\turtle.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Images\default_profile_image.png" />
     <None Remove="Images\gsu_logo.png" />
     <None Remove="Images\gsu_logo_icon.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Images\default_profile_image.png" />
     <EmbeddedResource Include="Images\gsu_logo.png" />
     <EmbeddedResource Include="Images\gsu_logo_icon.jpg" />
+    <EmbeddedResource Include="Images\amazon.png" />
+    <EmbeddedResource Include="Images\cashApp.png" />
+    <EmbeddedResource Include="Images\paypal.png" />
+    <EmbeddedResource Include="ProfileImages\dog.jpg" />
+    <EmbeddedResource Include="ProfileImages\elephant.png" />
+    <EmbeddedResource Include="ProfileImages\ladybug.png" />
+    <EmbeddedResource Include="ProfileImages\lamb.png" />
+    <EmbeddedResource Include="ProfileImages\penquin.png" />
+    <EmbeddedResource Include="ProfileImages\rat.png" />
+    <EmbeddedResource Include="ProfileImages\shark.png" />
+    <EmbeddedResource Include="ProfileImages\turtle.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,7 +62,22 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\createProfile.xaml.cs">
+      <DependentUpon>createProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\editProfile.xaml.cs">
+      <DependentUpon>editProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ChangedPassword.xaml.cs">
+      <DependentUpon>ChangedPassword.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Update="AppShell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\BecomeTutor.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Chat\Cells\IncomingViewCell.xaml">
@@ -59,6 +98,15 @@
     <EmbeddedResource Update="Views\Chat\Partials\ChatInputBarView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\Control Panel\Attendance\AttendancePanelPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Control Panel\Attendance\TakeAttendancePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Control Panel\Attendance\ViewAttendancePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Dashboard\DashboardPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -68,10 +116,10 @@
     <EmbeddedResource Update="Views\EventsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\HomePage.xaml">
+    <EmbeddedResource Update="Views\MemberListPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Polls\ActivePollsPage.xaml">
+    <EmbeddedResource Update="Views\MentorListPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Polls\Partials\PollPartial.xaml">
@@ -80,5 +128,17 @@
     <EmbeddedResource Update="Views\Polls\PastPollsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\RequestTutor.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\TutoringRequestsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ViewMemberProfilePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ProfileImages\" />
   </ItemGroup>
 </Project>

@@ -131,6 +131,15 @@
     <BundleResource Include="Resources\gsu_logo.png" />
     <BundleResource Include="Resources\gsu_background.png" />
     <BundleResource Include="Resources\gsu_background.jpg" />
+    <BundleResource Include="Resources\dog.jpg" />
+    <BundleResource Include="Resources\elephant.png" />
+    <BundleResource Include="Resources\ladybug.png" />
+    <BundleResource Include="Resources\penquin.png" />
+    <BundleResource Include="Resources\rat.png" />
+    <BundleResource Include="Resources\shark.png" />
+    <BundleResource Include="Resources\lamb.png" />
+    <BundleResource Include="Resources\turtle.png" />
+    <BundleResource Include="Resources\default_profile_image.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

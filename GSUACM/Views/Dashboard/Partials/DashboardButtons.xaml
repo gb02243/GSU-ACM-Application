@@ -11,8 +11,8 @@
                     AlignItems="Center"
                     JustifyContent="SpaceEvenly">
             <!-- Button will use Clicked="Button_ClickedAsync" -->
-            <Frame WidthRequest="90"
-                   HeightRequest="110"
+            <Frame WidthRequest="80"
+                   HeightRequest="80"
                    HasShadow="false"
                    HorizontalOptions="Start"
                    BackgroundColor="Transparent">
@@ -21,16 +21,17 @@
                     <Button BorderColor="#fff"
                             BorderWidth="1"
                             BackgroundColor="{DynamicResource GSUBlue}"
-                            HeightRequest="90"
+                            HeightRequest="80"
+                            WidthRequest="80"
                             CornerRadius="45"
-                            
+                            Command="{Binding ChatCommand}"
                             Text="Chat" 
                             TextColor="{DynamicResource LightGold}"/>
                 </FlexLayout>
             </Frame>
-            <!-- Button will use Clicked="Button_ClickedAsync" -->
-            <Frame WidthRequest="90"
-                   HeightRequest="110"
+            
+            <Frame WidthRequest="80"
+                   HeightRequest="80"
                    HasShadow="false"
                    HorizontalOptions="Start"
                    BackgroundColor="Transparent">
@@ -39,16 +40,17 @@
                     <Button BorderColor="#fff"
                             BorderWidth="1"
                             BackgroundColor="{DynamicResource GSUBlue}"
-                            HeightRequest="90"
+                            HeightRequest="80"
+                            WidthRequest="80"
                             CornerRadius="45"
-                            
+                            Command="{Binding ProfileCommand}"
                             Text="Profile" 
                             TextColor="{DynamicResource LightGold}"/>
                 </FlexLayout>
             </Frame>
-            <!-- Button will use Clicked="Button_ClickedAsync" -->
-            <Frame WidthRequest="90"
-                   HeightRequest="110"
+            
+            <Frame WidthRequest="80"
+                   HeightRequest="80"
                    HasShadow="false"
                    HorizontalOptions="Start"
                    BackgroundColor="Transparent">
@@ -57,15 +59,15 @@
                     <Button BorderColor="#fff"
                             BorderWidth="1"
                             BackgroundColor="{DynamicResource GSUBlue}"
-                            HeightRequest="90"
+                            HeightRequest="80"
+                            WidthRequest="80"
                             CornerRadius="45"
-                            
+                            Command="{Binding EventsCommand}"
                             Text="Events" 
                             TextColor="{DynamicResource LightGold}"/>
                 </FlexLayout>
             </Frame>
-            
-            
+
         </FlexLayout>
     </ContentView.Content>
 </ContentView>

@@ -83,10 +83,10 @@ namespace GSUACM.ViewModels
                 request = new ObservableCollection<Request>();
                 for (int i = 0; i < table2.Rows.Count; i++)
                 {
-                    Console.WriteLine("This is the date "+ table2.Rows[i]["subject"].ToString());
-                    //request.sessionID = Convert.ToInt32(table2.Rows[i]["sessionID"]);
+                    Console.WriteLine("This is the date "+ table2.Rows[i]["date"].ToString());
 
-                    request.Add(new Request() { sessionID = Convert.ToInt32(table2.Rows[i]["sessionID"]) ,subject = table2.Rows[i]["subject"].ToString(), Date = table2.Rows[i]["date"].ToString() });
+
+                    request.Add(new Request() { sessionID = Convert.ToInt32(table2.Rows[i]["sessionID"]) ,subject = table2.Rows[i]["subject"].ToString(), Date = table2.Rows[i]["date"].ToString(), userid = table2.Rows[i]["userID"].ToString()});
 
                 }
                 Services.GlobalVars.request = request;
@@ -94,17 +94,15 @@ namespace GSUACM.ViewModels
                 //check if the user exists or not
                 if (table.Rows.Count > 0)
                 {
+                    GlobalVars.InstantiateUser(table.Rows[0]["fname"].ToString(), table.Rows[0]["lname"].ToString(), table.Rows[0]["userID"].ToString(), table.Rows[0]["title"].ToString(), table.Rows[0]["isAdmin"].ToString(), table.Rows[0]["isTutor"].ToString(), table.Rows[0]["email"].ToString(), table.Rows[0]["phone"].ToString(), table.Rows[0]["points"].ToString(), table.Rows[0]["image"].ToString());
 
-
-                    App.InstantiateUser(table.Rows[0]["fname"].ToString(), table.Rows[0]["lname"].ToString(), table.Rows[0]["userID"].ToString());
                     //Console.WriteLine("This is the first name" + table.Rows[0]["fname"].ToString());
 
-                    GSUACM.Services.GlobalVars.fname = table.Rows[0]["fname"].ToString();
-                    GSUACM.Services.GlobalVars.email = table.Rows[0]["email"].ToString();
-                    GSUACM.Services.GlobalVars.phone = table.Rows[0]["phone"].ToString();
-                    GSUACM.Services.GlobalVars.clubpoints = table.Rows[0]["points"].ToString();
-                    GSUACM.Services.GlobalVars.userid = Convert.ToInt32(table.Rows[0]["userID"]);
-                    //Console.WriteLine("This is the first name" + GSUACM.Services.GlobalVars.fname);
+                    //GlobalVars.User.fname = table.Rows[0]["fname"].ToString();
+                    //GlobalVars.User.email = table.Rows[0]["email"].ToString();
+                    //GlobalVars.User.phone = table.Rows[0]["phone"].ToString();
+                    //GlobalVars.User.ClubPoints = table.Rows[0]["points"].ToString();
+                    //GlobalVars.User.userID = table.Rows[0]["userID"].ToString();
                     db.closeConnection();
                     labelGoToHomePage_Click();
                     //WelcomeMessage = table.Rows[0]["fname"].ToString();
@@ -151,9 +149,20 @@ namespace GSUACM.ViewModels
         public event EventHandler<EventArgs> OperationCompeleted;
         private async void labelGoToHomePage_Click()
         {
-            
+
             MessagingCenter.Send<LoginViewModel ,string>(this, "Hi", "John");
-            await this.Navigation.PopModalAsync();
+            Application.Current.Properties.Add("UserFName", GlobalVars.User.fname);
+            Application.Current.Properties.Add("UserLName", GlobalVars.User.lname);
+            Application.Current.Properties.Add("UserID", GlobalVars.User.userID);
+            Application.Current.Properties.Add("UserTitle", GlobalVars.User.title);
+            Application.Current.Properties.Add("UserIsAdmin", GlobalVars.User.isAdmin);
+            Application.Current.Properties.Add("UserIsTutor", GlobalVars.User.isTutor);
+            Application.Current.Properties.Add("UserEmail", GlobalVars.User.email);
+            Application.Current.Properties.Add("UserPhone", GlobalVars.User.phone);
+            Application.Current.Properties.Add("UserClubPoints", GlobalVars.User.ClubPoints);
+            Application.Current.Properties.Add("UserImage", GlobalVars.User.ProfileImage);
+            await Application.Current.SavePropertiesAsync();
+            //await this.Navigation.PopModalAsync();
             //TODO: event handling to update dashboard page
         }
         // get the first name CLICK

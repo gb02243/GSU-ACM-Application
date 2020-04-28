@@ -16,7 +16,7 @@ namespace GSUACM.Views.Polls.Partials
         public PollPartial()
         {
             InitializeComponent();
-            BindingContext = new PollsPageViewModel();
+            BindingContext = new PollsPageViewModel(Navigation);
         }
     }
 }

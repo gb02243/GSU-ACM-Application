@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="GSUACM.Views.Control_Panel.Attendance.AttendancePanelPage"
+             Title="Attendance"
+             x:Name="AttendancePanel">
+    <!-- Toolbar -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Command="{Binding CloseWindowCommand}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                
+                <!-- Header -->
+                <StackLayout Spacing="0"
+                            Padding="10">
+                    <Label Text="View/Update Attendance" 
+                           FontSize="28" 
+                           HorizontalTextAlignment="Center"
+                           FontAttributes="Bold" />
+                </StackLayout>
+
+                <!-- Buttons -->
+                <StackLayout VerticalOptions="Start" Margin="0,0,0,20">
+                    <Button HorizontalOptions="CenterAndExpand"
+                            WidthRequest="225"
+                            Margin="0,10,0,0" 
+                            Text="Take Attendance" 
+                            BackgroundColor="{DynamicResource GSUBlue}" 
+                            TextColor="White" 
+                            FontSize="18"   
+                            CornerRadius="22" 
+                            VerticalOptions="EndAndExpand"
+                            Command="{Binding PostAttendanceCommand}" />
+                </StackLayout>
+
+                <!-- Search Menu -->
+                <StackLayout Margin="50,0,50,0" Spacing="30">
+                    <Label Text="Search for a date" 
+                           FontSize="18" 
+                           HorizontalTextAlignment="Center"
+                           FontAttributes="Bold" />
+                    <Grid>
+                        <Entry Placeholder="MM/DD/YYYY" 
+                               Grid.Column="0" 
+                               ReturnType="Next" 
+                               Text="{Binding EntryDate}" 
+                               HorizontalTextAlignment="Center"/>
+                    </Grid>
+                    <Grid>
+                        <Button Grid.Column="0"
+                                HorizontalOptions="Center" 
+                                WidthRequest="150"
+                                Margin="0,10,0,0" 
+                                Text="Cancel" 
+                                BackgroundColor="{DynamicResource GSUBlue}" 
+                                TextColor="White" 
+                                FontSize="18"   
+                                CornerRadius="22" 
+                                VerticalOptions="EndAndExpand"
+                                Command="{Binding CloseWindowCommand}" />
+                        <Button Grid.Column="1" 
+                                HorizontalOptions="Center" 
+                                WidthRequest="150"
+                                Margin="0,10,0,0" 
+                                Text="Search" 
+                                BackgroundColor="{DynamicResource GSUBlue}" 
+                                TextColor="White" 
+                                FontSize="18"   
+                                CornerRadius="22" 
+                                VerticalOptions="EndAndExpand"
+                                Command="{Binding SearchCommand}" />
+                    </Grid>
+                </StackLayout>
+
+                <!-- Search Results -->
+                <StackLayout Padding="10"
+                             VerticalOptions="Center">
+                    <Label Text="Results" 
+                           FontSize="16" 
+                           HorizontalTextAlignment="Center"
+                           FontAttributes="Bold" />
+                    <StackLayout BindableLayout.ItemsSource="{Binding AttendanceCollection}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Grid Padding="5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackLayout Grid.Column="1"
+                                                     Padding="10,0,0,0"
+                                                     VerticalOptions="Center"
+                                                     Spacing="1">
+                                            <Label Text="{Binding Date}"
+                                                   FontAttributes="Bold"
+                                                   FontSize="20" />
+                                        </StackLayout>
+
+                                        <StackLayout Orientation="Horizontal"
+                                                     Grid.Column="3"
+                                                     VerticalOptions="Center"
+                                                     HorizontalOptions="End">
+                                            <Button Text="View Attendance"
+                                                    CornerRadius="25" 
+                                                    Command="{Binding BindingContext.SelectAttendanceCommand, Source={x:Reference AttendancePanel}}" 
+                                                    CommandParameter="{Binding .}" />
+                                        </StackLayout>
+
+                                    </Grid>
+                                    <BoxView Color="Gray"
+                                             HeightRequest="1"
+                                             Opacity="0.5" 
+                                             Grid.Row="2"
+                                             CornerRadius="100"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                </StackLayout>
+                
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

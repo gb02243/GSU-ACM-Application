@@ -1,48 +1,82 @@
 ﻿using GSUACM.Models.ChatModels;
 using GSUACM.Services;
 using GSUACM.Views.Chat;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace GSUACM.ViewModels.ChatViewModels
 {
-    class MessageListViewModel : INotifyPropertyChanged
+    class MessageListViewModel
     {
         public INavigation Navigation { get; set; }
-        public List<Message> Messages { get; set; }
+        public ObservableCollection<Message> Messages { get; set; }
         public ICommand DeleteCommand { get; private set; }
         public ICommand OpenChatCommand { get; private set; }
 
         public MessageListViewModel(INavigation navigation)
         {
             this.Navigation = navigation;
-            DeleteCommand = new Command<string>(DeleteChat);
-            OpenChatCommand = new Command<string>(OpenChat);
-            //TODO: get chat data from API
-            //MockIncomingMessage.SimulateMessages(2, 10);
-            UpdateList();
+            if (GlobalVars.User == null)
+                GoHome();
+            else
+            {
+                DeleteCommand = new Command<string>(DeleteChat);
+                OpenChatCommand = new Command<string>(OpenChat);
+                //TODO: get chat data from API
+                ChatSimulator.Simulate(5, 5);
+                UpdateList();
+
+            }
+        }
+
+        private async void GoHome()
+        {
+            await Application.Current.MainPage.DisplayAlert("Oops!", "You must be logged in to access this page.", "Ok");
+            Application.Current.MainPage = new AppShell();
         }
 
         private void UpdateList()
         {
-            //Messages = new List<Message>(MockIncomingMessage.GetMessages());
-            //PropertyChanged(this, new PropertyChangedEventArgs("Messages"));
+            Messages = new ObservableCollection<Message>();
+            foreach (Message message in ChatSimulator.Messages)
+            {
+                var item = Messages.SingleOrDefault(x => x.RoomID == message.RoomID);
+                if (item != null)
+                {
+                    Messages.Remove(item);
+                    item = null;
+                }
+                Messages.Add(message);
+                //Console.WriteLine("Message Added");
+            }
         }
 
-        public void DeleteChat(string roomId)
+        public void DeleteChat(string RoomID)
         {
-            MockIncomingMessage.RemoveChat(roomId);
+            var item = Messages.SingleOrDefault(x => x.RoomID == RoomID);
+            if (item != null)
+            {
+                Messages.Remove(item);
+                item = null;
+            }
+            var item2 = ChatSimulator.Messages.SingleOrDefault(x => x.RoomID == RoomID);
+            if (item2 != null)
+            {
+                ChatSimulator.Messages.Remove(item);
+                item2 = null;
+            }
+
             UpdateList();
-            //PropertyChanged(this, new PropertyChangedEventArgs("Messages"));
         }
 
-        public async void OpenChat(string channel)
+        public async void OpenChat(string RoomID)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new ChatPage(channel, false)));
+            await Navigation.PushModalAsync(new NavigationPage(new ChatPage(RoomID)));
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

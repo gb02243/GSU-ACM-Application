@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
+using GSUACM.Services;
 
 namespace GSUACM.Helpers
 {
@@ -25,7 +26,7 @@ namespace GSUACM.Helpers
                 return null;
 
             // TODO: fix this for the new user class
-            return (messageVm.alias == App.User.userID) ? incomingDataTemplate : outgoingDataTemplate;
+            return (messageVm.SenderID == GlobalVars.User.userID) ? outgoingDataTemplate : incomingDataTemplate;
         }
     }
 }
