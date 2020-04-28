@@ -18,6 +18,7 @@ namespace GSUACM
                     Application.Current.Properties["UserID"].ToString(), 
                     Application.Current.Properties["UserTitle"].ToString(), 
                     Application.Current.Properties["UserIsAdmin"].ToString(),
+                    Application.Current.Properties["UserIsTutor"].ToString(),
                     Application.Current.Properties["UserEmail"].ToString(),
                     Application.Current.Properties["UserPhone"].ToString(),
                     Application.Current.Properties["UserClubPoints"].ToString(),

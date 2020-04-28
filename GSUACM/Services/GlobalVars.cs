@@ -15,7 +15,7 @@ namespace GSUACM.Services
 
 
         //TODO: retrieve all user info
-        public static void InstantiateUser(string fname, string lname, string userID, string title, string isAdmin, string email, string phone, string points, string image)
+        public static void InstantiateUser(string fname, string lname, string userID, string title, string isAdmin, string isTutor, string email, string phone, string points, string image)
         {
             User = new User
             {
@@ -24,6 +24,7 @@ namespace GSUACM.Services
                 userID = userID,
                 title = title,
                 isAdmin = bool.Parse(isAdmin),
+                isTutor = bool.Parse(isTutor),
                 email = email,
                 phone = phone,
                 ClubPoints = points,

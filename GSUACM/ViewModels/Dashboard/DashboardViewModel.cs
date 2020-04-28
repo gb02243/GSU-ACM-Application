@@ -131,7 +131,7 @@ namespace GSUACM.ViewModels.Dashboard
             else
             {
                 // create the adapter and query for the polls list
-                MySqlCommand command = new MySqlCommand("SELECT * FROM newsitem", db.getConnection());
+                MySqlCommand command = new MySqlCommand("SELECT * FROM newsitem ORDER BY newsitemID DESC", db.getConnection());
                 MySqlDataAdapter adapter = new MySqlDataAdapter();
                 db.openConnection();
                 adapter.SelectCommand = command;
