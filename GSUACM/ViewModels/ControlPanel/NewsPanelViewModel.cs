@@ -75,7 +75,7 @@ namespace GSUACM.ViewModels.ControlPanel
                 // send the query
                 if (command.ExecuteNonQuery() == 1)
                 {
-                    await Application.Current.MainPage.DisplayAlert("Event Created", "You can view your event under the \"Events\" tab in the menu.", "Ok");
+                    await Application.Current.MainPage.DisplayAlert("News Posted", "You can view your news posting under the \"News\" section in the dashboard.", "Ok");
                     await Navigation.PopModalAsync();
                 }
                 else
