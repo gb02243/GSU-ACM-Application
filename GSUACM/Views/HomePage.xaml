@@ -45,7 +45,7 @@
                    HeightRequest="70"
                    HasShadow="False"
                    HorizontalOptions="Center"
-                   BackgroundColor="Tan"
+                   BackgroundColor="White"
                    BorderColor="Black"
                    CornerRadius="50"
                    IsClippedToBounds="True"
