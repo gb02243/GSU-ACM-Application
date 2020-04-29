@@ -102,7 +102,9 @@ namespace GSUACM.ViewModels
 
                 command.ExecuteNonQuery();
                 GlobalVars.User.ProfileImage = picture;
-                //Application.Current.Properties.Add("UserProfileImg", GlobalVars.User.ProfileImage);
+                if (Application.Current.Properties.ContainsKey("UserProfileImg"))
+                    Application.Current.Properties.Remove("UserProfileImg");
+                Application.Current.Properties.Add("UserProfileImg", GlobalVars.User.ProfileImage);
 
                 db.closeConnection();
 

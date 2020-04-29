@@ -89,61 +89,6 @@ C:\Users\studm\source\repos\GSU-CS-Software-Engineering\project-gs-acm-applicati
 C:\Users\studm\source\repos\GSU-CS-Software-Engineering\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\BecomeTutor.xaml.g.cs
 C:\Users\studm\source\repos\GSU-CS-Software-Engineering\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\RequestTutor.xaml.g.cs
 C:\Users\studm\source\repos\GSU-CS-Software-Engineering\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\TutoringRequestsPage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\bin\Debug\netstandard2.0\GSUACM.deps.json
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\bin\Debug\netstandard2.0\GSUACM.dll
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\bin\Debug\netstandard2.0\ref\GSUACM.dll
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\bin\Debug\netstandard2.0\GSUACM.pdb
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\GSUACM.csprojAssemblyReference.cache
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\App.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\AppShell.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\AboutPage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\BecomeTutor.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\ChangedPassword.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\ChangePassword.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Chat\Cells\IncomingViewCell.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Chat\Cells\OutgoingViewCell.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Chat\ChannelListPage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Chat\ChatPage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Chat\MessageListPage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Chat\Partials\ChatInputBarView.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Control Panel\Attendance\AttendancePanelPage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Control Panel\Attendance\TakeAttendancePage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Control Panel\Attendance\ViewAttendancePage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Control Panel\ControlPanelPage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Control Panel\EditTitleResultPage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Control Panel\EventsPanelPage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Control Panel\NewsPanelPage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Control Panel\PollsPanelPage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Control Panel\TitlesPanelPage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\createProfile.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Dashboard\DashboardPage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Dashboard\Partials\DashboardButtons.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\editProfile.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\EmployerPage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\EventsPage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\HomePage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\LoginPage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\MemberListPage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\MentorListPage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\payDuesPage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\pickPicturePage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Polls\ActivePollsPage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Polls\Partials\PollPartial.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Polls\PastPollsPage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\RequestTutor.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\searchPage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\SignupPage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\TutoringRequestsPage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\ViewMemberProfilePage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\WelcomePage.xaml.g.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\GSUACM.csproj.CoreCompileInputs.cache
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\GSUACM.AssemblyInfoInputs.cache
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\GSUACM.AssemblyInfo.cs
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\GSUACM.csproj.Fody.CopyLocal.cache
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\XamlC.stamp
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\GSUACM.dll
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\ref\GSUACM.dll
-C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\GSUACM.pdb
 C:\Users\studm\source\repos\GSU-CS-Software-Engineering\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\ChangedPassword.xaml.g.cs
 C:\Users\studm\source\repos\GSU-CS-Software-Engineering\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\ChangePassword.xaml.g.cs
 C:\Users\studm\source\repos\GSU-CS-Software-Engineering\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Control Panel\Attendance\AttendancePanelPage.xaml.g.cs
@@ -198,61 +143,6 @@ C:/Users/studm/source/repos/GSU-CS-Software-Engineering/project-gs-acm-applicati
 C:/Users/studm/source/repos/GSU-CS-Software-Engineering/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/BecomeTutor.xaml.g.cs
 C:/Users/studm/source/repos/GSU-CS-Software-Engineering/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/RequestTutor.xaml.g.cs
 C:/Users/studm/source/repos/GSU-CS-Software-Engineering/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/TutoringRequestsPage.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/bin/Debug/netstandard2.0/GSUACM.deps.json
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/bin/Debug/netstandard2.0/GSUACM.dll
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/bin/Debug/netstandard2.0/ref/GSUACM.dll
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/bin/Debug/netstandard2.0/GSUACM.pdb
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/GSUACM.csprojAssemblyReference.cache
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/App.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/AppShell.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/AboutPage.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/BecomeTutor.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/ChangedPassword.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/ChangePassword.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/Chat/Cells/IncomingViewCell.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/Chat/Cells/OutgoingViewCell.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/Chat/ChannelListPage.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/Chat/ChatPage.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/Chat/MessageListPage.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/Chat/Partials/ChatInputBarView.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/Control Panel/Attendance/AttendancePanelPage.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/Control Panel/Attendance/TakeAttendancePage.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/Control Panel/Attendance/ViewAttendancePage.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/Control Panel/ControlPanelPage.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/Control Panel/EditTitleResultPage.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/Control Panel/EventsPanelPage.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/Control Panel/NewsPanelPage.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/Control Panel/PollsPanelPage.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/Control Panel/TitlesPanelPage.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/createProfile.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/Dashboard/DashboardPage.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/Dashboard/Partials/DashboardButtons.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/editProfile.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/EmployerPage.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/EventsPage.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/HomePage.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/LoginPage.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/MemberListPage.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/MentorListPage.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/payDuesPage.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/pickPicturePage.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/Polls/ActivePollsPage.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/Polls/Partials/PollPartial.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/Polls/PastPollsPage.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/RequestTutor.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/searchPage.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/SignupPage.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/TutoringRequestsPage.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/ViewMemberProfilePage.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/Views/WelcomePage.xaml.g.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/GSUACM.csproj.CoreCompileInputs.cache
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/GSUACM.AssemblyInfoInputs.cache
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/GSUACM.AssemblyInfo.cs
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/GSUACM.csproj.Fody.CopyLocal.cache
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/XamlC.stamp
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/GSUACM.dll
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/ref/GSUACM.dll
-C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/GSUACM.pdb
 /Users/everrickwright/Projects/project-gs-acm-application/GSUACM/bin/Debug/netstandard2.0/GSUACM.deps.json
 /Users/everrickwright/Projects/project-gs-acm-application/GSUACM/bin/Debug/netstandard2.0/GSUACM.dll
 /Users/everrickwright/Projects/project-gs-acm-application/GSUACM/bin/Debug/netstandard2.0/ref/GSUACM.dll
@@ -308,3 +198,57 @@ C:/Users/griff/source/repos/project-gs-acm-application/GSUACM/obj/Debug/netstand
 /Users/everrickwright/Projects/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/GSUACM.dll
 /Users/everrickwright/Projects/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/ref/GSUACM.dll
 /Users/everrickwright/Projects/project-gs-acm-application/GSUACM/obj/Debug/netstandard2.0/GSUACM.pdb
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\bin\Debug\netstandard2.0\GSUACM.deps.json
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\bin\Debug\netstandard2.0\GSUACM.dll
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\bin\Debug\netstandard2.0\ref\GSUACM.dll
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\bin\Debug\netstandard2.0\GSUACM.pdb
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\AppShell.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\AboutPage.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\BecomeTutor.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\ChangedPassword.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\ChangePassword.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Chat\Cells\IncomingViewCell.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Chat\Cells\OutgoingViewCell.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Chat\ChannelListPage.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Chat\ChatPage.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Chat\MessageListPage.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Chat\Partials\ChatInputBarView.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Control Panel\Attendance\AttendancePanelPage.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Control Panel\Attendance\TakeAttendancePage.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Control Panel\Attendance\ViewAttendancePage.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Control Panel\ControlPanelPage.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Control Panel\EditTitleResultPage.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Control Panel\EventsPanelPage.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Control Panel\NewsPanelPage.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Control Panel\PollsPanelPage.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Control Panel\TitlesPanelPage.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\createProfile.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Dashboard\DashboardPage.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Dashboard\Partials\DashboardButtons.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\editProfile.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\EmployerPage.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\EventsPage.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\HomePage.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\LoginPage.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\MemberListPage.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\MentorListPage.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\payDuesPage.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\pickPicturePage.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Polls\ActivePollsPage.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Polls\Partials\PollPartial.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\Polls\PastPollsPage.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\RequestTutor.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\searchPage.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\SignupPage.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\TutoringRequestsPage.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\ViewMemberProfilePage.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\Views\WelcomePage.xaml.g.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\GSUACM.csproj.CoreCompileInputs.cache
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\GSUACM.AssemblyInfoInputs.cache
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\GSUACM.AssemblyInfo.cs
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\GSUACM.csproj.Fody.CopyLocal.cache
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\GSUACM.dll
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\ref\GSUACM.dll
+C:\Users\griff\source\repos\project-gs-acm-application\GSUACM\obj\Debug\netstandard2.0\GSUACM.pdb
