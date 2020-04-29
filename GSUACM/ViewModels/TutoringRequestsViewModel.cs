@@ -65,34 +65,44 @@ namespace GSUACM.ViewModels
                 adapter.SelectCommand = command;
                 adapter.Fill(table);
                 MySqlDataAdapter adapter3 = new MySqlDataAdapter();
-                MySqlCommand command3 = new MySqlCommand("select tutorID from tutorsession where sessionID=@sessionid2", db.getConnection());
+                MySqlCommand command3 = new MySqlCommand("select * from tutorsession where sessionID= @sessionid2 AND sessionID<>''" , db.getConnection());
                 command3.Parameters.Add("@sessionid2", MySqlDbType.VarChar).Value = YourSelectedItem.sessionID;
+                //Console.WriteLine("The test "+YourSelectedItem.sessionID);
                 adapter3.SelectCommand = command3;
+
                 adapter3.Fill(table2);
-               //Console.WriteLine("The selected item " + table.Rows[0]["tutorID"]);
+              
+
+                
                 if (table.Rows.Count == 0)
                 {
+                    table.Clear();
+                    table2.Clear();
                     db.closeConnection();
                     await Application.Current.MainPage.DisplayAlert("Tutor Error", "Only Tutors are allowed to Tutor", "Ok");
                 }
                 else
                 {
-                    if (table2.Rows.Count > 1)
+                    if (!string.IsNullOrEmpty(table2.Rows[0]["tutorID"].ToString()))
                     {
+                        table.Clear();
+                        table2.Clear();
                         db.closeConnection();
                         await Application.Current.MainPage.DisplayAlert("Tutor Error", "Tutor Already assigned", "Ok");
                     }
                     else
                     {
-                        MySqlCommand command2 = new MySqlCommand("update tutorsession set tutorID=@tutorID where sessionID = @sessionID", db.getConnection());
-                        command2.Parameters.Add("@tutorid", MySqlDbType.VarChar).Value = Convert.ToInt32(table.Rows[0]["tutorid"]);
+
+                        MySqlCommand command2 = new MySqlCommand("update tutorsession set tutorID=@tutorid where sessionID = @sessionID", db.getConnection());
+                        command2.Parameters.Add("@tutorid", MySqlDbType.VarChar).Value = Convert.ToInt32(table.Rows[0]["tutorID"]);
                         Console.WriteLine("The selected item " + YourSelectedItem.sessionID);
                         command2.Parameters.Add("@sessionID", MySqlDbType.VarChar).Value = YourSelectedItem.sessionID;
 
                         if (command2.ExecuteNonQuery() == 1)
                         {
                             db.closeConnection();
-
+                            table.Clear();
+                            table2.Clear();
                             await Application.Current.MainPage.DisplayAlert("You are now registered to Tutor", "Tutoring", "Ok");
 
                             // await Navigation.PopModalAsync();

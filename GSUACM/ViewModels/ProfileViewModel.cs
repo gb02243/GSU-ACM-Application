@@ -21,7 +21,7 @@ namespace GSUACM.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         //tables for database columns
         private DataTable table = new DataTable();
-
+        public ICommand BecomeTutorCommand { get; set; }
         public ICommand cancel { get; }
         public INavigation Navigation { get; set; }
         public ICommand editPage { get; set; }
@@ -40,7 +40,7 @@ namespace GSUACM.ViewModels
             this.cancel = new Command(this.goBack);
             this.changePassword = new Command(this.changePasswordGo);
             this.editPage = new Command(this.editPageGo);
-
+            this.BecomeTutorCommand = new Command(this.buttonBecomeTutor_Click);
             this.Name = GlobalVars.User.fullName;
             this.Number = GlobalVars.User.phone;
             this.Email = GlobalVars.User.email;
@@ -89,9 +89,13 @@ Console.WriteLine(someImage.ToString());
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+        private async void buttonBecomeTutor_Click()
+        {
+            await Navigation.PushModalAsync(new BecomeTutor());
+        }
 
-        
+
     }
-    
+
 }
 
