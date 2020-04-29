@@ -56,7 +56,9 @@
                                     <Button Text="P"
                                             WidthRequest="50"
                                             HeightRequest="50"
-                                            CornerRadius="25" />
+                                            CornerRadius="25"
+                                            Command="{Binding SelectUserCommand}" 
+                                            CommandParameter="{Binding .}" />
                                     <Button Text="C"
                                             WidthRequest="50"
                                             HeightRequest="50"
