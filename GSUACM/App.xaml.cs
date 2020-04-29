@@ -23,6 +23,7 @@ namespace GSUACM
                     Application.Current.Properties["UserPhone"].ToString(),
                     Application.Current.Properties["UserClubPoints"].ToString(),
                     Application.Current.Properties["UserImage"].ToString());
+                
             }
             else
             {
