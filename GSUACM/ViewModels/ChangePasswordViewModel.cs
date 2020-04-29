@@ -63,11 +63,11 @@ namespace GSUACM.ViewModels
                     await Application.Current.MainPage.DisplayAlert("Null Attributes", "Empty Spaces", "Ok");
                     ReturnToProfile();
                 }
-                else if (string.Equals(oldPassWord, GlobalVars.User.password) == false)
+               /** else if (string.Equals(oldPassWord, GlobalVars.User.password) == false)
                 {
                     await Application.Current.MainPage.DisplayAlert("Incorrect Password", "Ensure both passwords match & your old password is correct", "Ok");
                     ReturnToProfile();
-                }
+                } */
                 else if (string.Equals(newPass1, newPass2) == false)
                 {
                     await Application.Current.MainPage.DisplayAlert("Incorrect Password", "Ensure both passwords match & your old password is correct", "Ok");

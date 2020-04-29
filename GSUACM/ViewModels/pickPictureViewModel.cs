@@ -63,7 +63,7 @@ namespace GSUACM.ViewModels
         }
         public void MouseRN()
         {
-            this.picture = "mouse.png";
+            this.picture = "rat.png";
             UpdateProfileImage();
         }
         public void PenquinRN()
@@ -102,7 +102,7 @@ namespace GSUACM.ViewModels
 
                 command.ExecuteNonQuery();
                 GlobalVars.User.ProfileImage = picture;
-                Application.Current.Properties.Add("UserProfileImg", GlobalVars.User.ProfileImage);
+                //Application.Current.Properties.Add("UserProfileImg", GlobalVars.User.ProfileImage);
 
                 db.closeConnection();
 
