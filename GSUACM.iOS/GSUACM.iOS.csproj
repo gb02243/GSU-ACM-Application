@@ -67,6 +67,7 @@
     <Compile Include="Renderers\ChatEntryRenderer.cs" />
     <Compile Include="Renderers\CustomEditorRenderer.cs" />
     <Compile Include="Renderers\ExtendedListViewRenderer.cs" />
+    <Compile Include="Services\PhotoPickerService.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -123,6 +124,9 @@
     <BundleResource Include="Resources\xamarin_logo.png" />
     <BundleResource Include="Resources\xamarin_logo%402x.png" />
     <BundleResource Include="Resources\xamarin_logo%403x.png" />
+    <ImageAsset Include="PhotoPickerService.xcassets\AppIcons.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <BundleResource Include="Resources\gsu_logo.png" />
     <BundleResource Include="Resources\gsu_background.png" />
@@ -156,4 +160,5 @@
       <Name>GSUACM</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
 </Project>
